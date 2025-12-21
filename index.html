@@ -2332,6 +2332,326 @@
             text-transform: uppercase;
             letter-spacing: 1px;
         }
+
+        /* Chatbot Styles */
+        .chatbot-toggle {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 25px rgba(0, 100, 0, 0.4);
+            z-index: 9999;
+            transition: var(--transition);
+        }
+
+        .chatbot-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 12px 35px rgba(0, 100, 0, 0.6);
+        }
+
+        .chatbot-toggle i {
+            font-size: 24px;
+            color: var(--white);
+            transition: var(--transition);
+        }
+
+        .chatbot-toggle.active i.fa-comment-dots {
+            display: none;
+        }
+
+        .chatbot-toggle i.fa-times {
+            display: none;
+        }
+
+        .chatbot-toggle.active i.fa-times {
+            display: block;
+        }
+
+        .chatbot-container {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            width: 380px;
+            height: 520px;
+            background: rgba(0, 0, 0, 0.95);
+            border-radius: 20px;
+            border: 2px solid rgba(0, 100, 0, 0.3);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            z-index: 9998;
+            backdrop-filter: blur(20px);
+        }
+
+        .chatbot-container.active {
+            display: flex;
+            animation: slideUp 0.3s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .chatbot-header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 18px 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .chatbot-header-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .chatbot-header-avatar i {
+            font-size: 20px;
+            color: var(--white);
+        }
+
+        .chatbot-header-info h4 {
+            color: var(--white);
+            font-size: 16px;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .chatbot-header-info p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 12px;
+            margin: 0;
+        }
+
+        .chatbot-messages {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .chatbot-messages::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .chatbot-messages::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .chatbot-messages::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 3px;
+        }
+
+        .chat-message {
+            display: flex;
+            gap: 10px;
+            max-width: 85%;
+        }
+
+        .chat-message.bot {
+            align-self: flex-start;
+        }
+
+        .chat-message.user {
+            align-self: flex-end;
+            flex-direction: row-reverse;
+        }
+
+        .message-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .chat-message.bot .message-avatar {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+        }
+
+        .chat-message.user .message-avatar {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .message-avatar i {
+            font-size: 14px;
+            color: var(--white);
+        }
+
+        .message-content {
+            padding: 12px 16px;
+            border-radius: 18px;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .chat-message.bot .message-content {
+            background: rgba(255, 255, 255, 0.08);
+            color: var(--light);
+            border-bottom-left-radius: 4px;
+        }
+
+        .chat-message.user .message-content {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--white);
+            border-bottom-right-radius: 4px;
+        }
+
+        .chatbot-input-area {
+            padding: 15px 20px;
+            border-top: 1px solid rgba(0, 100, 0, 0.2);
+            display: flex;
+            gap: 10px;
+        }
+
+        .chatbot-input {
+            flex: 1;
+            padding: 12px 18px;
+            border: 2px solid rgba(0, 100, 0, 0.3);
+            border-radius: 25px;
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--light);
+            font-size: 14px;
+            font-family: 'Poppins', sans-serif;
+            outline: none;
+            transition: var(--transition);
+        }
+
+        .chatbot-input:focus {
+            border-color: var(--primary);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .chatbot-input::placeholder {
+            color: var(--gray);
+        }
+
+        .chatbot-send {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .chatbot-send:hover {
+            transform: scale(1.1);
+            box-shadow: 0 5px 20px rgba(0, 100, 0, 0.4);
+        }
+
+        .chatbot-send i {
+            font-size: 16px;
+            color: var(--white);
+        }
+
+        .quick-replies {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .quick-reply-btn {
+            padding: 8px 14px;
+            border: 1px solid rgba(0, 100, 0, 0.4);
+            border-radius: 20px;
+            background: rgba(0, 100, 0, 0.1);
+            color: var(--primary);
+            font-size: 12px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .quick-reply-btn:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .typing-indicator {
+            display: flex;
+            gap: 4px;
+            padding: 12px 16px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 18px;
+            border-bottom-left-radius: 4px;
+            width: fit-content;
+        }
+
+        .typing-indicator span {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--primary);
+            animation: typing 1.4s infinite;
+        }
+
+        .typing-indicator span:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .typing-indicator span:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes typing {
+            0%, 60%, 100% {
+                transform: translateY(0);
+                opacity: 0.4;
+            }
+            30% {
+                transform: translateY(-8px);
+                opacity: 1;
+            }
+        }
+
+        /* Mobile Responsive for Chatbot */
+        @media (max-width: 480px) {
+            .chatbot-container {
+                width: calc(100% - 20px);
+                right: 10px;
+                bottom: 80px;
+                height: 450px;
+            }
+
+            .chatbot-toggle {
+                right: 15px;
+                bottom: 15px;
+                width: 55px;
+                height: 55px;
+            }
+        }
     </style>
 </head>
 
@@ -3690,6 +4010,251 @@
                 }
             });
         });
+    </script>
+
+    <!-- Portfolio Chatbot -->
+    <button class="chatbot-toggle" id="chatbotToggle" aria-label="Open chatbot">
+        <i class="fas fa-comment-dots"></i>
+        <i class="fas fa-times"></i>
+    </button>
+
+    <div class="chatbot-container" id="chatbotContainer">
+        <div class="chatbot-header">
+            <div class="chatbot-header-avatar">
+                <i class="fas fa-robot"></i>
+            </div>
+            <div class="chatbot-header-info">
+                <h4>Portfolio Assistant</h4>
+                <p>Ask me about Usman's work</p>
+            </div>
+        </div>
+        <div class="chatbot-messages" id="chatbotMessages">
+            <!-- Messages will be added here -->
+        </div>
+        <div class="chatbot-input-area">
+            <input type="text" class="chatbot-input" id="chatbotInput" placeholder="Ask about projects, skills..." aria-label="Type your message">
+            <button class="chatbot-send" id="chatbotSend" aria-label="Send message">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Portfolio Chatbot Logic
+        const portfolioData = {
+            owner: {
+                name: "Muhammad Usman Khan",
+                title: "Mechanical Engineering Student & Developer",
+                university: "Air University, Islamabad",
+                email: "usmankhan16122006@gmail.com",
+                github: "github.com/usman-khan-0"
+            },
+            skills: {
+                programming: ["C++", "Java", "Python", "HTML", "CSS", "JavaScript"],
+                engineering: ["SolidWorks (3D CAD)", "AutoCAD (2D & 3D drafting)"],
+                other: ["WordPress", "SEO Fundamentals", "Video Editing", "Freelancing", "Project Management"]
+            },
+            projects: {
+                web: "Professional websites built with modern web standards and responsive design using HTML, CSS, and JavaScript.",
+                engineering: "SolidWorks 3D modeling including complex mechanical components, and AutoCAD projects demonstrating precision engineering workflows.",
+                research: "Research and development projects including ionic thruster study and detailed thermodynamics videos."
+            },
+            certificates: ["Adobe Photoshop", "SolidWorks Training", "WordPress Certification", "SEO Certification", "GenAI Learning Badge", "Python Learning Badge"],
+            contact: {
+                methods: ["Email form on website", "Phone (in contact section)", "GitHub", "LinkedIn", "Instagram", "YouTube"],
+                availability: "Available for collaboration, employment, or freelance work"
+            }
+        };
+
+        const chatbotToggle = document.getElementById('chatbotToggle');
+        const chatbotContainer = document.getElementById('chatbotContainer');
+        const chatbotMessages = document.getElementById('chatbotMessages');
+        const chatbotInput = document.getElementById('chatbotInput');
+        const chatbotSend = document.getElementById('chatbotSend');
+
+        // Toggle chatbot
+        chatbotToggle.addEventListener('click', () => {
+            chatbotToggle.classList.toggle('active');
+            chatbotContainer.classList.toggle('active');
+            if (chatbotContainer.classList.contains('active') && chatbotMessages.children.length === 0) {
+                showWelcomeMessage();
+            }
+        });
+
+        // Send message on button click
+        chatbotSend.addEventListener('click', sendMessage);
+
+        // Send message on Enter key
+        chatbotInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+
+        function showWelcomeMessage() {
+            const welcomeText = `Hello! I'm the portfolio assistant for Muhammad Usman Khan. I can help you learn about his skills, projects, experience, and how to get in touch. What would you like to know?`;
+            addMessage(welcomeText, 'bot');
+            showQuickReplies();
+        }
+
+        function showQuickReplies() {
+            const quickReplies = document.createElement('div');
+            quickReplies.className = 'quick-replies';
+            quickReplies.innerHTML = `
+                <button class="quick-reply-btn" data-query="skills">Skills</button>
+                <button class="quick-reply-btn" data-query="projects">Projects</button>
+                <button class="quick-reply-btn" data-query="education">Education</button>
+                <button class="quick-reply-btn" data-query="contact">Contact</button>
+            `;
+            chatbotMessages.appendChild(quickReplies);
+            scrollToBottom();
+
+            quickReplies.querySelectorAll('.quick-reply-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const query = btn.dataset.query;
+                    addMessage(query.charAt(0).toUpperCase() + query.slice(1), 'user');
+                    quickReplies.remove();
+                    processQuery(query);
+                });
+            });
+        }
+
+        function sendMessage() {
+            const message = chatbotInput.value.trim();
+            if (!message) return;
+
+            addMessage(message, 'user');
+            chatbotInput.value = '';
+
+            // Remove any existing quick replies
+            const existingQuickReplies = chatbotMessages.querySelector('.quick-replies');
+            if (existingQuickReplies) existingQuickReplies.remove();
+
+            showTypingIndicator();
+
+            setTimeout(() => {
+                removeTypingIndicator();
+                processQuery(message.toLowerCase());
+            }, 800);
+        }
+
+        function addMessage(text, sender) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `chat-message ${sender}`;
+            messageDiv.innerHTML = `
+                <div class="message-avatar">
+                    <i class="fas ${sender === 'bot' ? 'fa-robot' : 'fa-user'}"></i>
+                </div>
+                <div class="message-content">${text}</div>
+            `;
+            chatbotMessages.appendChild(messageDiv);
+            scrollToBottom();
+        }
+
+        function showTypingIndicator() {
+            const typingDiv = document.createElement('div');
+            typingDiv.className = 'chat-message bot';
+            typingDiv.id = 'typingIndicator';
+            typingDiv.innerHTML = `
+                <div class="message-avatar">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="typing-indicator">
+                    <span></span><span></span><span></span>
+                </div>
+            `;
+            chatbotMessages.appendChild(typingDiv);
+            scrollToBottom();
+        }
+
+        function removeTypingIndicator() {
+            const typing = document.getElementById('typingIndicator');
+            if (typing) typing.remove();
+        }
+
+        function scrollToBottom() {
+            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+        }
+
+        function processQuery(query) {
+            let response = "";
+
+            // Skills related queries
+            if (query.includes('skill') || query.includes('technolog') || query.includes('programming') || query.includes('language') || query.includes('tools') || query.includes('what can') || query.includes('abilities')) {
+                response = `<strong>Technical Skills:</strong><br><br>
+                    <strong>Programming & Web:</strong> ${portfolioData.skills.programming.join(', ')}<br><br>
+                    <strong>Engineering Tools:</strong> ${portfolioData.skills.engineering.join(', ')}<br><br>
+                    <strong>Other:</strong> ${portfolioData.skills.other.join(', ')}`;
+            }
+            // Projects related queries
+            else if (query.includes('project') || query.includes('work') || query.includes('portfolio') || query.includes('built') || query.includes('created') || query.includes('made')) {
+                response = `<strong>Projects:</strong><br><br>
+                    <strong>Web Development:</strong> ${portfolioData.projects.web}<br><br>
+                    <strong>Engineering Design:</strong> ${portfolioData.projects.engineering}<br><br>
+                    <strong>R&D:</strong> ${portfolioData.projects.research}`;
+            }
+            // Education related queries
+            else if (query.includes('education') || query.includes('study') || query.includes('university') || query.includes('degree') || query.includes('college') || query.includes('school') || query.includes('learn')) {
+                response = `<strong>Education:</strong><br><br>
+                    Currently pursuing a Bachelor's degree in Mechanical Engineering at ${portfolioData.owner.university}.<br><br>
+                    Strong foundation in mathematics, sciences, and engineering fundamentals.`;
+            }
+            // Contact related queries
+            else if (query.includes('contact') || query.includes('email') || query.includes('reach') || query.includes('hire') || query.includes('connect') || query.includes('touch') || query.includes('freelance') || query.includes('work with')) {
+                response = `<strong>Contact Information:</strong><br><br>
+                    <strong>Email:</strong> ${portfolioData.owner.email}<br>
+                    <strong>GitHub:</strong> ${portfolioData.owner.github}<br><br>
+                    <strong>Available via:</strong> ${portfolioData.contact.methods.join(', ')}<br><br>
+                    ${portfolioData.contact.availability}`;
+            }
+            // Certificate queries
+            else if (query.includes('certificate') || query.includes('certification') || query.includes('badge') || query.includes('achievement') || query.includes('qualified')) {
+                response = `<strong>Certifications:</strong><br><br>
+                    ${portfolioData.certificates.join('<br>')}`;
+            }
+            // About/Who queries
+            else if (query.includes('who') || query.includes('about') || query.includes('introduce') || query.includes('tell me') || query.includes('usman') || query.includes('owner')) {
+                response = `<strong>${portfolioData.owner.name}</strong><br><br>
+                    ${portfolioData.owner.title} at ${portfolioData.owner.university}.<br><br>
+                    A tech innovator passionate about engineering, web development, and creative problem-solving. Combines academic background with technical skills in web technologies and digital design.`;
+            }
+            // Greetings
+            else if (query.includes('hello') || query.includes('hi') || query.includes('hey') || query.includes('greetings')) {
+                response = `Hello! How can I help you today? Feel free to ask about skills, projects, education, or how to get in touch.`;
+            }
+            // Thank you
+            else if (query.includes('thank') || query.includes('thanks')) {
+                response = `You're welcome! Is there anything else you'd like to know about the portfolio?`;
+            }
+            // Help
+            else if (query.includes('help') || query.includes('what can you')) {
+                response = `I can help you with information about:<br><br>
+                    - Skills and technologies<br>
+                    - Projects and work samples<br>
+                    - Education and background<br>
+                    - Certifications<br>
+                    - Contact and hiring information<br><br>
+                    Just ask your question!`;
+            }
+            // Default response for unrelated queries
+            else {
+                response = `I'm designed to answer questions only about this portfolio and its projects. Please ask about:<br><br>
+                    - Skills & Technologies<br>
+                    - Projects<br>
+                    - Education<br>
+                    - Certifications<br>
+                    - Contact Information`;
+            }
+
+            addMessage(response, 'bot');
+
+            // Show quick replies after certain responses
+            if (!query.includes('thank')) {
+                setTimeout(() => {
+                    showQuickReplies();
+                }, 500);
+            }
+        }
     </script>
 </body>
 
