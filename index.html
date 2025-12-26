@@ -2336,8 +2336,8 @@
         /* Chatbot Styles */
         .chatbot-toggle {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
+            bottom: 20px;
+            right: 20px;
             width: 60px;
             height: 60px;
             border-radius: 50%;
@@ -2377,10 +2377,12 @@
 
         .chatbot-container {
             position: fixed;
-            bottom: 100px;
-            right: 30px;
-            width: 380px;
-            height: 520px;
+            bottom: 90px;
+            right: 20px;
+            width: 400px;
+            max-width: 90vw;
+            height: 600px;
+            max-height: 80vh;
             background: rgba(0, 0, 0, 0.95);
             border-radius: 20px;
             border: 2px solid rgba(0, 100, 0, 0.3);
@@ -2636,20 +2638,19 @@
             }
         }
 
-        /* Mobile Responsive for Chatbot */
+        /* Responsive Chatbot */
         @media (max-width: 480px) {
             .chatbot-container {
-                width: calc(100% - 20px);
-                right: 10px;
-                bottom: 80px;
-                height: 450px;
+                bottom: 0;
+                right: 0;
+                width: 100%;
+                height: 100%;
+                max-height: 100%;
+                border-radius: 0;
             }
-
             .chatbot-toggle {
-                right: 15px;
                 bottom: 15px;
-                width: 55px;
-                height: 55px;
+                right: 15px;
             }
         }
     </style>
@@ -4092,222 +4093,447 @@
     </div>
 
     <script>
-        // Portfolio Chatbot Logic
-        const portfolioData = {
-            owner: {
-                name: "Muhammad Usman Khan",
-                title: "Mechanical Engineering Student & Developer",
-                university: "Air University, Islamabad",
-                email: "usmankhan16122006@gmail.com",
-                github: "github.com/usman-khan-0"
-            },
-            skills: {
-                programming: ["C++", "Java", "Python", "HTML", "CSS", "JavaScript"],
-                engineering: ["SolidWorks (3D CAD)", "AutoCAD (2D & 3D drafting)"],
-                other: ["WordPress", "SEO Fundamentals", "Video Editing", "Freelancing", "Project Management"]
-            },
-            projects: {
-                web: "Professional websites built with modern web standards and responsive design using HTML, CSS, and JavaScript.",
-                engineering: "SolidWorks 3D modeling including complex mechanical components, and AutoCAD projects demonstrating precision engineering workflows.",
-                research: "Research and development projects including ionic thruster study and detailed thermodynamics videos."
-            },
-            certificates: ["Adobe Photoshop", "SolidWorks Training", "WordPress Certification", "SEO Certification", "GenAI Learning Badge", "Python Learning Badge"],
-            contact: {
-                methods: ["Email form on website", "Phone (in contact section)", "GitHub", "LinkedIn", "Instagram", "YouTube"],
-                availability: "Available for collaboration, employment, or freelance work"
-            }
-        };
 
-        const chatbotToggle = document.getElementById('chatbotToggle');
-        const chatbotContainer = document.getElementById('chatbotContainer');
-        const chatbotMessages = document.getElementById('chatbotMessages');
-        const chatbotInput = document.getElementById('chatbotInput');
-        const chatbotSend = document.getElementById('chatbotSend');
+            // Enhanced Portfolio Chatbot Logic
 
-        // Toggle chatbot
-        chatbotToggle.addEventListener('click', () => {
-            chatbotToggle.classList.toggle('active');
-            chatbotContainer.classList.toggle('active');
-            if (chatbotContainer.classList.contains('active') && chatbotMessages.children.length === 0) {
-                showWelcomeMessage();
-            }
-        });
+    
 
-        // Send message on button click
-        chatbotSend.addEventListener('click', sendMessage);
+            // Comprehensive portfolio data with keywords for better matching
 
-        // Send message on Enter key
-        chatbotInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                sendMessage();
-            }
-        });
+            const portfolioData = {
 
-        function showWelcomeMessage() {
-            const welcomeText = `Hello! I'm the portfolio assistant for Muhammad Usman Khan. I can help you learn about his skills, projects, experience, and how to get in touch. What would you like to know?`;
-            addMessage(welcomeText, 'bot');
-            showQuickReplies();
-        }
+                greetings: {
 
-        function showQuickReplies() {
-            const quickReplies = document.createElement('div');
-            quickReplies.className = 'quick-replies';
-            quickReplies.innerHTML = `
-                <button class="quick-reply-btn" data-query="skills">Skills</button>
-                <button class="quick-reply-btn" data-query="projects">Projects</button>
-                <button class="quick-reply-btn" data-query="education">Education</button>
-                <button class="quick-reply-btn" data-query="contact">Contact</button>
-            `;
-            chatbotMessages.appendChild(quickReplies);
-            scrollToBottom();
+                    keywords: ['hello', 'hi', 'hey', 'greetings'],
 
-            quickReplies.querySelectorAll('.quick-reply-btn').forEach(btn => {
-                btn.addEventListener('click', () => {
-                    const query = btn.dataset.query;
-                    addMessage(query.charAt(0).toUpperCase() + query.slice(1), 'user');
-                    quickReplies.remove();
-                    processQuery(query);
-                });
+                    response: `Hello! I'm the portfolio assistant. How can I help you learn about Usman's work?`
+
+                },
+
+                about: {
+
+                    keywords: ['who', 'about', 'introduce', 'tell me', 'usman', 'owner'],
+
+                    response: `<strong>Muhammad Usman Khan</strong> is a Mechanical Engineering Student & Developer at Air University, Islamabad. He is passionate about the intersection of engineering and technology, with a focus on web development and innovative problem-solving.`
+
+                },
+
+                skills: {
+
+                    keywords: ['skill', 'technolog', 'programming', 'language', 'tools', 'abilities'],
+
+                    response: `<strong>Technical Skills:</strong><br><br>
+
+                        - <strong>Programming & Web:</strong> C++, Java, Python, HTML, CSS, JavaScript<br>
+
+                        - <strong>Engineering:</strong> SolidWorks, AutoCAD<br>
+
+                        - <strong>Other:</strong> WordPress, SEO, Video Editing, Freelancing`
+
+                },
+
+                projects: {
+
+                    keywords: ['project', 'work', 'portfolio', 'built', 'created', 'made'],
+
+                    response: `<strong>Projects Showcase:</strong><br><br>
+
+                        - <strong>Web Development:</strong> Professional, responsive websites using modern standards.<br>
+
+                        - <strong>Engineering Design:</strong> Complex 3D models in SolidWorks and precise 2D/3D drafting in AutoCAD.<br>
+
+                        - <strong>Research:</strong> Studies on ionic thrusters and detailed thermodynamics projects.`
+
+                },
+
+                education: {
+
+                    keywords: ['education', 'study', 'university', 'degree', 'college', 'school'],
+
+                    response: `Currently pursuing a Bachelor's in Mechanical Engineering at <strong>Air University, Islamabad</strong>, with a strong foundation in engineering principles.`
+
+                },
+
+                contact: {
+
+                    keywords: ['contact', 'email', 'reach', 'hire', 'connect', 'touch', 'freelance'],
+
+                    response: `<strong>Get in Touch:</strong><br><br>
+
+                        - <strong>Email:</strong> <a href="mailto:usmankhan16122006@gmail.com">usmankhan16122006@gmail.com</a><br>
+
+                        - <strong>GitHub:</strong> <a href="https://github.com/usman-khan-0" target="_blank">usman-khan-0</a><br>
+
+                        - Usman is available for collaboration, freelance work, and employment opportunities.`
+
+                },
+
+                certificates: {
+
+                    keywords: ['certificate', 'certification', 'badge', 'achievement', 'qualified'],
+
+                    response: `<strong>Key Certifications:</strong><br><br>
+
+                        - Adobe Photoshop<br>
+
+                        - SolidWorks & AutoCAD<br>
+
+                        - WordPress & SEO<br>
+
+                        - GenAI & Python Learning Badges`
+
+                },
+
+                help: {
+
+                    keywords: ['help', 'what can you do', 'support'],
+
+                    response: `I can provide information about Usman's:<br><br>
+
+                        - Skills & Technologies<br>
+
+                        - Projects & Work<br>
+
+                        - Education & Background<br>
+
+                        - Certifications<br>
+
+                        - Contact Information`
+
+                },
+
+                appreciation: {
+
+                    keywords: ['thank', 'thanks', 'appreciate'],
+
+                    response: `You're welcome! Do you have any other questions about the portfolio?`
+
+                },
+
+                fallback: {
+
+                    keywords: [],
+
+                    response: `I can only answer questions about this portfolio. Please ask about skills, projects, education, or contact details.`
+
+                }
+
+            };
+
+    
+
+            // DOM element references
+
+            const chatbotToggle = document.getElementById('chatbotToggle');
+
+            const chatbotContainer = document.getElementById('chatbotContainer');
+
+            const chatbotMessages = document.getElementById('chatbotMessages');
+
+            const chatbotInput = document.getElementById('chatbotInput');
+
+            const chatbotSend = document.getElementById('chatbotSend');
+
+    
+
+                        // Event listener to toggle chatbot visibility
+
+    
+
+                        chatbotToggle.addEventListener('click', () => {
+
+    
+
+                            const isActive = chatbotContainer.classList.contains('active');
+
+    
+
+                            if (isActive) {
+
+    
+
+                                chatbotContainer.classList.remove('active');
+
+    
+
+                                chatbotToggle.classList.remove('active');
+
+    
+
+                            } else {
+
+    
+
+                                chatbotContainer.classList.add('active');
+
+    
+
+                                chatbotToggle.classList.add('active');
+
+    
+
+                                if (chatbotMessages.children.length === 0) {
+
+    
+
+                                    showWelcomeMessage();
+
+    
+
+                                }
+
+    
+
+                            }
+
+    
+
+                        });
+
+    
+
+            // Send message on button click
+
+            chatbotSend.addEventListener('click', handleUserInput);
+
+    
+
+            // Send message on Enter key press
+
+            chatbotInput.addEventListener('keypress', (e) => {
+
+                if (e.key === 'Enter') {
+
+                    handleUserInput();
+
+                }
+
             });
-        }
 
-        function sendMessage() {
-            const message = chatbotInput.value.trim();
-            if (!message) return;
+    
 
-            addMessage(message, 'user');
-            chatbotInput.value = '';
+            // Display welcome message and quick replies
 
-            // Remove any existing quick replies
-            const existingQuickReplies = chatbotMessages.querySelector('.quick-replies');
-            if (existingQuickReplies) existingQuickReplies.remove();
+            function showWelcomeMessage() {
 
-            showTypingIndicator();
+                addMessage(portfolioData.greetings.response, 'bot');
 
-            setTimeout(() => {
-                removeTypingIndicator();
-                processQuery(message.toLowerCase());
-            }, 800);
-        }
+                showQuickReplies();
 
-        function addMessage(text, sender) {
-            const messageDiv = document.createElement('div');
-            messageDiv.className = `chat-message ${sender}`;
-            messageDiv.innerHTML = `
-                <div class="message-avatar">
-                    <i class="fas ${sender === 'bot' ? 'fa-robot' : 'fa-user'}"></i>
-                </div>
-                <div class="message-content">${text}</div>
-            `;
-            chatbotMessages.appendChild(messageDiv);
-            scrollToBottom();
-        }
-
-        function showTypingIndicator() {
-            const typingDiv = document.createElement('div');
-            typingDiv.className = 'chat-message bot';
-            typingDiv.id = 'typingIndicator';
-            typingDiv.innerHTML = `
-                <div class="message-avatar">
-                    <i class="fas fa-robot"></i>
-                </div>
-                <div class="typing-indicator">
-                    <span></span><span></span><span></span>
-                </div>
-            `;
-            chatbotMessages.appendChild(typingDiv);
-            scrollToBottom();
-        }
-
-        function removeTypingIndicator() {
-            const typing = document.getElementById('typingIndicator');
-            if (typing) typing.remove();
-        }
-
-        function scrollToBottom() {
-            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
-        }
-
-        function processQuery(query) {
-            let response = "";
-
-            // Skills related queries
-            if (query.includes('skill') || query.includes('technolog') || query.includes('programming') || query.includes('language') || query.includes('tools') || query.includes('what can') || query.includes('abilities')) {
-                response = `<strong>Technical Skills:</strong><br><br>
-                    <strong>Programming & Web:</strong> ${portfolioData.skills.programming.join(', ')}<br><br>
-                    <strong>Engineering Tools:</strong> ${portfolioData.skills.engineering.join(', ')}<br><br>
-                    <strong>Other:</strong> ${portfolioData.skills.other.join(', ')}`;
-            }
-            // Projects related queries
-            else if (query.includes('project') || query.includes('work') || query.includes('portfolio') || query.includes('built') || query.includes('created') || query.includes('made')) {
-                response = `<strong>Projects:</strong><br><br>
-                    <strong>Web Development:</strong> ${portfolioData.projects.web}<br><br>
-                    <strong>Engineering Design:</strong> ${portfolioData.projects.engineering}<br><br>
-                    <strong>R&D:</strong> ${portfolioData.projects.research}`;
-            }
-            // Education related queries
-            else if (query.includes('education') || query.includes('study') || query.includes('university') || query.includes('degree') || query.includes('college') || query.includes('school') || query.includes('learn')) {
-                response = `<strong>Education:</strong><br><br>
-                    Currently pursuing a Bachelor's degree in Mechanical Engineering at ${portfolioData.owner.university}.<br><br>
-                    Strong foundation in mathematics, sciences, and engineering fundamentals.`;
-            }
-            // Contact related queries
-            else if (query.includes('contact') || query.includes('email') || query.includes('reach') || query.includes('hire') || query.includes('connect') || query.includes('touch') || query.includes('freelance') || query.includes('work with')) {
-                response = `<strong>Contact Information:</strong><br><br>
-                    <strong>Email:</strong> ${portfolioData.owner.email}<br>
-                    <strong>GitHub:</strong> ${portfolioData.owner.github}<br><br>
-                    <strong>Available via:</strong> ${portfolioData.contact.methods.join(', ')}<br><br>
-                    ${portfolioData.contact.availability}`;
-            }
-            // Certificate queries
-            else if (query.includes('certificate') || query.includes('certification') || query.includes('badge') || query.includes('achievement') || query.includes('qualified')) {
-                response = `<strong>Certifications:</strong><br><br>
-                    ${portfolioData.certificates.join('<br>')}`;
-            }
-            // About/Who queries
-            else if (query.includes('who') || query.includes('about') || query.includes('introduce') || query.includes('tell me') || query.includes('usman') || query.includes('owner')) {
-                response = `<strong>${portfolioData.owner.name}</strong><br><br>
-                    ${portfolioData.owner.title} at ${portfolioData.owner.university}.<br><br>
-                    A tech innovator passionate about engineering, web development, and creative problem-solving. Combines academic background with technical skills in web technologies and digital design.`;
-            }
-            // Greetings
-            else if (query.includes('hello') || query.includes('hi') || query.includes('hey') || query.includes('greetings')) {
-                response = `Hello! How can I help you today? Feel free to ask about skills, projects, education, or how to get in touch.`;
-            }
-            // Thank you
-            else if (query.includes('thank') || query.includes('thanks')) {
-                response = `You're welcome! Is there anything else you'd like to know about the portfolio?`;
-            }
-            // Help
-            else if (query.includes('help') || query.includes('what can you')) {
-                response = `I can help you with information about:<br><br>
-                    - Skills and technologies<br>
-                    - Projects and work samples<br>
-                    - Education and background<br>
-                    - Certifications<br>
-                    - Contact and hiring information<br><br>
-                    Just ask your question!`;
-            }
-            // Default response for unrelated queries
-            else {
-                response = `I'm designed to answer questions only about this portfolio and its projects. Please ask about:<br><br>
-                    - Skills & Technologies<br>
-                    - Projects<br>
-                    - Education<br>
-                    - Certifications<br>
-                    - Contact Information`;
             }
 
-            addMessage(response, 'bot');
+    
 
-            // Show quick replies after certain responses
-            if (!query.includes('thank')) {
+            // Display quick reply buttons
+
+            function showQuickReplies() {
+
+                const quickRepliesContainer = document.createElement('div');
+
+                quickRepliesContainer.className = 'quick-replies';
+
+                quickRepliesContainer.innerHTML = `
+
+                    <button class="quick-reply-btn" data-query="skills">Skills</button>
+
+                    <button class="quick-reply-btn" data-query="projects">Projects</button>
+
+                    <button class="quick-reply-btn" data-query="education">Education</button>
+
+                    <button class="quick-reply-btn" data-query="contact">Contact</button>
+
+                `;
+
+                chatbotMessages.appendChild(quickRepliesContainer);
+
+                scrollToBottom();
+
+    
+
+                quickRepliesContainer.querySelectorAll('.quick-reply-btn').forEach(btn => {
+
+                    btn.addEventListener('click', () => {
+
+                        const query = btn.dataset.query;
+
+                        addMessage(query.charAt(0).toUpperCase() + query.slice(1), 'user');
+
+                        quickRepliesContainer.remove();
+
+                        processQuery(query);
+
+                    });
+
+                });
+
+            }
+
+    
+
+            // Handle user input and process the query
+
+            function handleUserInput() {
+
+                const message = chatbotInput.value.trim();
+
+                if (!message) return;
+
+    
+
+                addMessage(message, 'user');
+
+                chatbotInput.value = '';
+
+    
+
+                const existingQuickReplies = chatbotMessages.querySelector('.quick-replies');
+
+                if (existingQuickReplies) {
+
+                    existingQuickReplies.remove();
+
+                }
+
+    
+
+                showTypingIndicator();
+
+    
+
                 setTimeout(() => {
-                    showQuickReplies();
-                }, 500);
-            }
-        }
-    </script>
-</body>
 
-</html>
+                    removeTypingIndicator();
+
+                    processQuery(message.toLowerCase());
+
+                }, 800);
+
+            }
+
+    
+
+            // Add a message to the chat window
+
+            function addMessage(text, sender) {
+
+                const messageDiv = document.createElement('div');
+
+                messageDiv.className = `chat-message ${sender}`;
+
+                messageDiv.innerHTML = `
+
+                    <div class="message-avatar">
+
+                        <i class="fas ${sender === 'bot' ? 'fa-robot' : 'fa-user'}"></i>
+
+                    </div>
+
+                    <div class="message-content">${text}</div>
+
+                `;
+
+                chatbotMessages.appendChild(messageDiv);
+
+                scrollToBottom();
+
+            }
+
+    
+
+            // Show a typing indicator
+
+            function showTypingIndicator() {
+
+                if (document.getElementById('typingIndicator')) return;
+
+                const typingDiv = document.createElement('div');
+
+                typingDiv.className = 'chat-message bot';
+
+                typingDiv.id = 'typingIndicator';
+
+                typingDiv.innerHTML = `
+
+                    <div class="message-avatar"><i class="fas fa-robot"></i></div>
+
+                    <div class="typing-indicator"><span></span><span></span><span></span></div>
+
+                `;
+
+                chatbotMessages.appendChild(typingDiv);
+
+                scrollToBottom();
+
+            }
+
+    
+
+            // Remove the typing indicator
+
+            function removeTypingIndicator() {
+
+                const typingIndicator = document.getElementById('typingIndicator');
+
+                if (typingIndicator) {
+
+                    typingIndicator.remove();
+
+                }
+
+            }
+
+    
+
+            // Auto-scroll to the latest message
+
+            function scrollToBottom() {
+
+                chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+
+            }
+
+    
+
+            // Process the user's query and find a response
+
+            function processQuery(query) {
+
+                let bestMatch = 'fallback';
+
+    
+
+                for (const key in portfolioData) {
+
+                    if (key !== 'fallback' && portfolioData[key].keywords.some(keyword => query.includes(keyword))) {
+
+                        bestMatch = key;
+
+                        break;
+
+                    }
+
+                }
+
+    
+
+                addMessage(portfolioData[bestMatch].response, 'bot');
+
+    
+
+                // Show quick replies again if the conversation is not ending
+
+                if (bestMatch !== 'appreciation') {
+
+                    setTimeout(showQuickReplies, 600);
+
+                }
+
+            }
+
+        </script>
+
+    </body>
+
+    
+
+    </html>
