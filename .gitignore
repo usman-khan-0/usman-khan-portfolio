@@ -1,0 +1,75 @@
+# Environment variables (NEVER push these - contain secrets)
+.env
+.env.local
+.env.production
+.env.development
+*.env
+
+# Virtual environment
+.venv/
+venv/
+env/
+.python-version
+
+# Python
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+.Python
+
+# Lock files and config
+uv.lock
+pyproject.toml
+
+# IDE / Editor
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+
+# OS generated
+.DS_Store
+.DS_Store?
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Local development files (not needed in production)
+server.py
+chatbot.py
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Dependencies (if using node)
+node_modules/
+
+# Build outputs
+dist/
+build/
+*.egg-info/
+
+# Test & Coverage
+.coverage
+htmlcov/
+.pytest_cache/
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*~
+
+# Credentials & Keys (IMPORTANT)
+*.pem
+*.key
+*.crt
+credentials.json
+secrets.json
+config.secret.json
