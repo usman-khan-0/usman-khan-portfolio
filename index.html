@@ -4094,11 +4094,7 @@
 
     <script>
             // AI Portfolio Chatbot - Powered by Groq LLM
-            // For local testing: http://127.0.0.1:8000/api/chat
-            // For production (Vercel): /api/chat
-            const API_URL = window.location.hostname === '127.0.0.1' || window.location.hostname === 'localhost'
-                ? 'http://127.0.0.1:8000/api/chat'
-                : '/api/chat';
+            const API_URL = '/api/chat';
 
             // DOM element references
             const chatbotToggle = document.getElementById('chatbotToggle');
