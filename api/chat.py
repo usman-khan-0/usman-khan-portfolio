@@ -1,15 +1,14 @@
-from flask import Flask, request, jsonify
+from http.server import BaseHTTPRequestHandler
+import json
 import os
 from openai import OpenAI
 
-app = Flask(__name__)
-
 # Portfolio Knowledge Base
 PORTFOLIO_CONTEXT = """
-# Muhammad Usman Khan - Complete Portfolio Information
+# Muhammad Usman Khan - Portfolio Information
 
-## Personal Information
-- Full Name: Muhammad Usman Khan
+## Personal Info
+- Name: Muhammad Usman Khan
 - Title: Mechanical Engineer & Web Developer
 - Location: Islamabad, Pakistan
 - University: Air University, E-9 Islamabad (3rd semester, Mechanical Engineering)
@@ -46,7 +45,7 @@ PORTFOLIO_CONTEXT = """
 
 ## Projects
 - Web: GPA Calculator, Multiple Portfolio Websites
-- Engineering: AutoCAD designs, Drone Exploded View, V6 Engine, Robotic Arm, Ionic Thruster, Thermodynamics
+- Engineering: AutoCAD designs, Drone Exploded View, V6 Engine, Robotic Arm, Ionic Thruster
 
 ## Certifications
 Adobe Photoshop, AutoCAD, SolidWorks, WordPress, SEO, Video Editing, Freelancing, GenAI Python Level 1
@@ -71,45 +70,48 @@ RULES:
 """
 
 
-@app.route('/api/chat', methods=['POST', 'OPTIONS'])
-def chat():
-    # Handle CORS preflight
-    if request.method == 'OPTIONS':
-        response = jsonify({})
-        response.headers.add('Access-Control-Allow-Origin', '*')
-        response.headers.add('Access-Control-Allow-Methods', 'POST, OPTIONS')
-        response.headers.add('Access-Control-Allow-Headers', 'Content-Type')
-        return response
+class handler(BaseHTTPRequestHandler):
+    def do_OPTIONS(self):
+        self.send_response(200)
+        self.send_header('Access-Control-Allow-Origin', '*')
+        self.send_header('Access-Control-Allow-Methods', 'POST, OPTIONS')
+        self.send_header('Access-Control-Allow-Headers', 'Content-Type')
+        self.end_headers()
 
-    try:
-        data = request.get_json()
-        message = data.get('message', '')
+    def do_POST(self):
+        try:
+            content_length = int(self.headers.get('Content-Length', 0))
+            body = self.rfile.read(content_length).decode('utf-8')
+            data = json.loads(body)
+            message = data.get('message', '')
 
-        if not message.strip():
-            return jsonify({'error': 'Message cannot be empty'}), 400
+            if not message.strip():
+                self._send_response(400, {'error': 'Message cannot be empty'})
+                return
 
-        # Use Groq API
-        client = OpenAI(
-            api_key=os.environ.get('GROQ_API_KEY'),
-            base_url="https://api.groq.com/openai/v1"
-        )
+            client = OpenAI(
+                api_key=os.environ.get('GROQ_API_KEY'),
+                base_url="https://api.groq.com/openai/v1"
+            )
 
-        response = client.chat.completions.create(
-            model="llama-3.1-8b-instant",
-            messages=[
-                {"role": "system", "content": SYSTEM_PROMPT},
-                {"role": "user", "content": message}
-            ],
-            max_tokens=500
-        )
+            response = client.chat.completions.create(
+                model="llama-3.1-8b-instant",
+                messages=[
+                    {"role": "system", "content": SYSTEM_PROMPT},
+                    {"role": "user", "content": message}
+                ],
+                max_tokens=500
+            )
 
-        bot_response = response.choices[0].message.content
+            bot_response = response.choices[0].message.content
+            self._send_response(200, {'response': bot_response})
 
-        resp = jsonify({'response': bot_response})
-        resp.headers.add('Access-Control-Allow-Origin', '*')
-        return resp
+        except Exception as e:
+            self._send_response(500, {'error': str(e)})
 
-    except Exception as e:
-        resp = jsonify({'error': str(e)})
-        resp.headers.add('Access-Control-Allow-Origin', '*')
-        return resp, 500
+    def _send_response(self, status_code, data):
+        self.send_response(status_code)
+        self.send_header('Content-Type', 'application/json')
+        self.send_header('Access-Control-Allow-Origin', '*')
+        self.end_headers()
+        self.wfile.write(json.dumps(data).encode())
