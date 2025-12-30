@@ -4,6 +4,9 @@ from openai import OpenAI
 
 app = Flask(__name__)
 
+# Vercel serverless function handler
+handler = app
+
 PORTFOLIO_CONTEXT = """
 Muhammad Usman Khan - Mechanical Engineer & Web Developer from Islamabad, Pakistan.
 Currently 3rd semester at Air University studying Mechanical Engineering.
