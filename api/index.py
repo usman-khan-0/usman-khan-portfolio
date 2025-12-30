@@ -27,12 +27,13 @@ Knowledge: {PORTFOLIO_CONTEXT}
 Rules: Only answer about Usman. Keep answers short (max 500 tokens). Refuse unrelated questions."""
 
 
+@app.route('/', methods=['POST', 'OPTIONS', 'GET'])
 @app.route('/api/chat', methods=['POST', 'OPTIONS', 'GET'])
 def chat():
     if request.method == 'OPTIONS':
         resp = jsonify({})
         resp.headers['Access-Control-Allow-Origin'] = '*'
-        resp.headers['Access-Control-Allow-Methods'] = 'POST, OPTIONS'
+        resp.headers['Access-Control-Allow-Methods'] = 'POST, OPTIONS, GET'
         resp.headers['Access-Control-Allow-Headers'] = 'Content-Type'
         return resp
 
@@ -73,8 +74,3 @@ def chat():
         resp = jsonify({'error': str(e)})
         resp.headers['Access-Control-Allow-Origin'] = '*'
         return resp, 500
-
-
-@app.route('/', methods=['GET'])
-def home():
-    return jsonify({'status': 'Portfolio Chatbot API Running'})
