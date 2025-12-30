@@ -1,11 +1,7 @@
-from flask import Flask, request, jsonify
+from http.server import BaseHTTPRequestHandler
+import json
 import os
 from openai import OpenAI
-
-app = Flask(__name__)
-
-# Vercel serverless function handler
-handler = app
 
 PORTFOLIO_CONTEXT = """
 Muhammad Usman Khan - Mechanical Engineer & Web Developer from Islamabad, Pakistan.
@@ -30,50 +26,65 @@ Knowledge: {PORTFOLIO_CONTEXT}
 Rules: Only answer about Usman. Keep answers short (max 500 tokens). Refuse unrelated questions."""
 
 
-@app.route('/', methods=['POST', 'OPTIONS', 'GET'])
-@app.route('/api/chat', methods=['POST', 'OPTIONS', 'GET'])
-def chat():
-    if request.method == 'OPTIONS':
-        resp = jsonify({})
-        resp.headers['Access-Control-Allow-Origin'] = '*'
-        resp.headers['Access-Control-Allow-Methods'] = 'POST, OPTIONS, GET'
-        resp.headers['Access-Control-Allow-Headers'] = 'Content-Type'
-        return resp
+class handler(BaseHTTPRequestHandler):
+    def do_OPTIONS(self):
+        self.send_response(200)
+        self.send_header('Access-Control-Allow-Origin', '*')
+        self.send_header('Access-Control-Allow-Methods', 'POST, OPTIONS, GET')
+        self.send_header('Access-Control-Allow-Headers', 'Content-Type')
+        self.end_headers()
 
-    if request.method == 'GET':
-        resp = jsonify({'status': 'API is working! Use POST to chat.'})
-        resp.headers['Access-Control-Allow-Origin'] = '*'
-        return resp
+    def do_GET(self):
+        self.send_response(200)
+        self.send_header('Content-Type', 'application/json')
+        self.send_header('Access-Control-Allow-Origin', '*')
+        self.end_headers()
+        response = json.dumps({'status': 'API is working! Use POST to chat.'})
+        self.wfile.write(response.encode())
 
-    try:
-        data = request.get_json() or {}
-        message = data.get('message', '')
+    def do_POST(self):
+        try:
+            content_length = int(self.headers.get('Content-Length', 0))
+            post_data = self.rfile.read(content_length)
+            data = json.loads(post_data.decode()) if post_data else {}
+            message = data.get('message', '')
 
-        if not message.strip():
-            resp = jsonify({'error': 'Message cannot be empty'})
-            resp.headers['Access-Control-Allow-Origin'] = '*'
-            return resp, 400
+            if not message.strip():
+                self.send_response(400)
+                self.send_header('Content-Type', 'application/json')
+                self.send_header('Access-Control-Allow-Origin', '*')
+                self.end_headers()
+                response = json.dumps({'error': 'Message cannot be empty'})
+                self.wfile.write(response.encode())
+                return
 
-        client = OpenAI(
-            api_key=os.environ.get('GROQ_API_KEY'),
-            base_url="https://api.groq.com/openai/v1"
-        )
+            client = OpenAI(
+                api_key=os.environ.get('GROQ_API_KEY'),
+                base_url="https://api.groq.com/openai/v1"
+            )
 
-        response = client.chat.completions.create(
-            model="llama-3.1-8b-instant",
-            messages=[
-                {"role": "system", "content": SYSTEM_PROMPT},
-                {"role": "user", "content": message}
-            ],
-            max_tokens=500
-        )
+            response = client.chat.completions.create(
+                model="llama-3.1-8b-instant",
+                messages=[
+                    {"role": "system", "content": SYSTEM_PROMPT},
+                    {"role": "user", "content": message}
+                ],
+                max_tokens=500
+            )
 
-        bot_response = response.choices[0].message.content
-        resp = jsonify({'response': bot_response})
-        resp.headers['Access-Control-Allow-Origin'] = '*'
-        return resp
+            bot_response = response.choices[0].message.content
 
-    except Exception as e:
-        resp = jsonify({'error': str(e)})
-        resp.headers['Access-Control-Allow-Origin'] = '*'
-        return resp, 500
+            self.send_response(200)
+            self.send_header('Content-Type', 'application/json')
+            self.send_header('Access-Control-Allow-Origin', '*')
+            self.end_headers()
+            response_data = json.dumps({'response': bot_response})
+            self.wfile.write(response_data.encode())
+
+        except Exception as e:
+            self.send_response(500)
+            self.send_header('Content-Type', 'application/json')
+            self.send_header('Access-Control-Allow-Origin', '*')
+            self.end_headers()
+            response = json.dumps({'error': str(e)})
+            self.wfile.write(response.encode())
