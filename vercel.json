@@ -5,5 +5,35 @@
       "src": "api/**/*.py",
       "use": "@vercel/python"
     }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/$1"
+    },
+    {
+      "src": "/(.*\\.(html|css|js|png|jpg|jpeg|gif|svg|ico|pdf))",
+      "dest": "/$1"
+    },
+    {
+      "src": "/images%20folder/(.*)",
+      "dest": "/images%20folder/$1"
+    },
+    {
+      "src": "/CV/(.*)",
+      "dest": "/CV/$1"
+    },
+    {
+      "src": "/Certificate/(.*)",
+      "dest": "/Certificate/$1"
+    },
+    {
+      "src": "/Projects%20Details/(.*)",
+      "dest": "/Projects%20Details/$1"
+    },
+    {
+      "src": "/",
+      "dest": "/index.html"
+    }
   ]
 }
