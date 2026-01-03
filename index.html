@@ -4093,157 +4093,318 @@
     </div>
 
     <script>
-            // AI Portfolio Chatbot - Powered by Groq LLM
-            const API_URL = '/api/index';
+
+            // Enhanced Portfolio Chatbot Logic
+
+    
+
+            // Portfolio Knowledge Base for the Chatbot
+
+    
 
             // DOM element references
+
             const chatbotToggle = document.getElementById('chatbotToggle');
+
             const chatbotContainer = document.getElementById('chatbotContainer');
+
             const chatbotMessages = document.getElementById('chatbotMessages');
+
             const chatbotInput = document.getElementById('chatbotInput');
+
             const chatbotSend = document.getElementById('chatbotSend');
 
-            // Toggle chatbot visibility
-            chatbotToggle.addEventListener('click', () => {
-                const isActive = chatbotContainer.classList.contains('active');
-                if (isActive) {
-                    chatbotContainer.classList.remove('active');
-                    chatbotToggle.classList.remove('active');
-                } else {
-                    chatbotContainer.classList.add('active');
-                    chatbotToggle.classList.add('active');
-                    if (chatbotMessages.children.length === 0) {
-                        showWelcomeMessage();
-                    }
-                }
-            });
+    
+
+                        // Event listener to toggle chatbot visibility
+
+    
+
+                        chatbotToggle.addEventListener('click', () => {
+
+    
+
+                            const isActive = chatbotContainer.classList.contains('active');
+
+    
+
+                            if (isActive) {
+
+    
+
+                                chatbotContainer.classList.remove('active');
+
+    
+
+                                chatbotToggle.classList.remove('active');
+
+    
+
+                            } else {
+
+    
+
+                                chatbotContainer.classList.add('active');
+
+    
+
+                                chatbotToggle.classList.add('active');
+
+    
+
+                                if (chatbotMessages.children.length === 0) {
+
+    
+
+                                    showWelcomeMessage();
+
+    
+
+                                }
+
+    
+
+                            }
+
+    
+
+                        });
+
+    
 
             // Send message on button click
+
             chatbotSend.addEventListener('click', handleUserInput);
 
+    
+
             // Send message on Enter key press
+
             chatbotInput.addEventListener('keypress', (e) => {
+
                 if (e.key === 'Enter') {
+
                     handleUserInput();
+
                 }
+
             });
 
+    
+
             // Display welcome message and quick replies
+
             function showWelcomeMessage() {
-                addMessage("Hello! I'm Usman's AI Portfolio Assistant. Ask me anything about his skills, projects, education, or contact info!", 'bot');
+
+                addMessage(portfolioData.greetings.response, 'bot');
+
                 showQuickReplies();
+
             }
+
+    
 
             // Display quick reply buttons
+
             function showQuickReplies() {
+
                 const quickRepliesContainer = document.createElement('div');
+
                 quickRepliesContainer.className = 'quick-replies';
+
                 quickRepliesContainer.innerHTML = `
-                    <button class="quick-reply-btn" data-query="What are Usman's skills?">Skills</button>
-                    <button class="quick-reply-btn" data-query="Tell me about Usman's projects">Projects</button>
-                    <button class="quick-reply-btn" data-query="What is Usman's education?">Education</button>
-                    <button class="quick-reply-btn" data-query="How can I contact Usman?">Contact</button>
+
+                    <button class="quick-reply-btn" data-query="skills">Skills</button>
+
+                    <button class="quick-reply-btn" data-query="projects">Projects</button>
+
+                    <button class="quick-reply-btn" data-query="education">Education</button>
+
+                    <button class="quick-reply-btn" data-query="contact">Contact</button>
+
                 `;
+
                 chatbotMessages.appendChild(quickRepliesContainer);
+
                 scrollToBottom();
 
+    
+
                 quickRepliesContainer.querySelectorAll('.quick-reply-btn').forEach(btn => {
-                    btn.addEventListener('click', () => {
+
+                    btn.addEventListener('click', async () => {
+
                         const query = btn.dataset.query;
-                        addMessage(btn.textContent, 'user');
+
+                        addMessage(query.charAt(0).toUpperCase() + query.slice(1), 'user');
+
                         quickRepliesContainer.remove();
-                        sendToAPI(query);
+
+                        showTypingIndicator();
+
+                        // Call processQuery which handles typing indicator removal
+                        await processQuery(query);
+
                     });
+
                 });
+
             }
 
-            // Handle user input
-            function handleUserInput() {
+    
+
+            // Handle user input and process the query
+
+            async function handleUserInput() {
+
                 const message = chatbotInput.value.trim();
+
                 if (!message) return;
 
+
+
                 addMessage(message, 'user');
+
                 chatbotInput.value = '';
 
+
+
                 const existingQuickReplies = chatbotMessages.querySelector('.quick-replies');
+
                 if (existingQuickReplies) {
+
                     existingQuickReplies.remove();
+
                 }
 
-                sendToAPI(message);
-            }
 
-            // Send message to API
-            async function sendToAPI(message) {
+
                 showTypingIndicator();
 
+                // Call processQuery which handles typing indicator removal
+                await processQuery(message);
+
+            }
+
+    
+
+            // Add a message to the chat window
+
+            function addMessage(text, sender) {
+
+                const messageDiv = document.createElement('div');
+
+                messageDiv.className = `chat-message ${sender}`;
+
+                messageDiv.innerHTML = `
+
+                    <div class="message-avatar">
+
+                        <i class="fas ${sender === 'bot' ? 'fa-robot' : 'fa-user'}"></i>
+
+                    </div>
+
+                    <div class="message-content">${text}</div>
+
+                `;
+
+                chatbotMessages.appendChild(messageDiv);
+
+                scrollToBottom();
+
+            }
+
+    
+
+            // Show a typing indicator
+
+            function showTypingIndicator() {
+
+                if (document.getElementById('typingIndicator')) return;
+
+                const typingDiv = document.createElement('div');
+
+                typingDiv.className = 'chat-message bot';
+
+                typingDiv.id = 'typingIndicator';
+
+                typingDiv.innerHTML = `
+
+                    <div class="message-avatar"><i class="fas fa-robot"></i></div>
+
+                    <div class="typing-indicator"><span></span><span></span><span></span></div>
+
+                `;
+
+                chatbotMessages.appendChild(typingDiv);
+
+                scrollToBottom();
+
+            }
+
+    
+
+            // Remove the typing indicator
+
+            function removeTypingIndicator() {
+
+                const typingIndicator = document.getElementById('typingIndicator');
+
+                if (typingIndicator) {
+
+                    typingIndicator.remove();
+
+                }
+
+            }
+
+    
+
+            // Auto-scroll to the latest message
+
+            function scrollToBottom() {
+
+                chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+
+            }
+
+    
+
+            // Process the user's query and find a response
+
+            async function processQuery(query) {
                 try {
-                    const response = await fetch(API_URL, {
+                    // Remove typing indicator and fetch response
+                    removeTypingIndicator();
+
+                    const response = await fetch('/api/chat', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
                         },
-                        body: JSON.stringify({ message: message })
+                        body: JSON.stringify({ message: query })
                     });
 
-                    const data = await response.json();
-                    removeTypingIndicator();
-
-                    if (data.error) {
-                        addMessage("Sorry, I encountered an error. Please try again.", 'bot');
-                    } else {
-                        addMessage(data.response, 'bot');
+                    if (!response.ok) {
+                        throw new Error('API request failed');
                     }
 
+                    const data = await response.json();
+
+                    // Display the bot's response
+                    addMessage(data.response, 'bot');
+
+                    // Show quick replies after response
                     setTimeout(showQuickReplies, 600);
 
                 } catch (error) {
+                    console.error('Error:', error);
                     removeTypingIndicator();
-                    addMessage("Sorry, I'm having trouble connecting. Please try again later.", 'bot');
-                    console.error('Chatbot API Error:', error);
+                    addMessage('Sorry, I encountered an error. Please try again later or email me directly at usmankhan16122006@gmail.com', 'bot');
                 }
+
             }
 
-            // Add a message to the chat window
-            function addMessage(text, sender) {
-                const messageDiv = document.createElement('div');
-                messageDiv.className = `chat-message ${sender}`;
-                messageDiv.innerHTML = `
-                    <div class="message-avatar">
-                        <i class="fas ${sender === 'bot' ? 'fa-robot' : 'fa-user'}"></i>
-                    </div>
-                    <div class="message-content">${text}</div>
-                `;
-                chatbotMessages.appendChild(messageDiv);
-                scrollToBottom();
-            }
-
-            // Show typing indicator
-            function showTypingIndicator() {
-                if (document.getElementById('typingIndicator')) return;
-                const typingDiv = document.createElement('div');
-                typingDiv.className = 'chat-message bot';
-                typingDiv.id = 'typingIndicator';
-                typingDiv.innerHTML = `
-                    <div class="message-avatar"><i class="fas fa-robot"></i></div>
-                    <div class="typing-indicator"><span></span><span></span><span></span></div>
-                `;
-                chatbotMessages.appendChild(typingDiv);
-                scrollToBottom();
-            }
-
-            // Remove typing indicator
-            function removeTypingIndicator() {
-                const typingIndicator = document.getElementById('typingIndicator');
-                if (typingIndicator) {
-                    typingIndicator.remove();
-                }
-            }
-
-            // Auto-scroll to latest message
-            function scrollToBottom() {
-                chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
-            }
         </script>
 
     </body>
