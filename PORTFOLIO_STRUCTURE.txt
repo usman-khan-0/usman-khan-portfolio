@@ -1,0 +1,483 @@
+================================================================================
+PORTFOLIO WEBSITE STRUCTURE & DEPLOYMENT GUIDE
+================================================================================
+Project: usman-khan-portfolio
+Date: 2026-01-05
+================================================================================
+
+
+┌────────────────────────────────────────────────────────────────────────────┐
+│ 1. PROJECT OVERVIEW                                                          │
+└────────────────────────────────────────────────────────────────────────────┘
+
+This is a modern portfolio website for Muhammad Usman Khan that combines:
+- Static frontend (HTML/CSS/JavaScript)
+- AI-powered chatbot backend (Python + Vercel Serverless)
+- LLM integration using Groq API (free)
+
+
+┌────────────────────────────────────────────────────────────────────────────┐
+│ 2. FRONTEND ARCHITECTURE                                                     │
+└────────────────────────────────────────────────────────────────────────────┘
+
+TECHNOLOGY STACK:
+  ├─ HTML5 (Single Page Application)
+  ├─ CSS3 (Custom styling with animations)
+  ├─ JavaScript (Vanilla ES6+)
+  └─ No frontend framework (React, Vue, etc.)
+
+KEY FEATURES:
+  ├─ Responsive design (mobile-first with vertical navigation)
+  ├─ Fixed sidebar navigation
+  ├─ Hash-based routing (#home, #about, #skills, etc.)
+  ├─ Animated progress bars and circular indicators
+  ├─ Modal dialogs (skill details, certificates)
+  ├─ Contact form with Google Sheets integration
+  ├─ Floating chatbot widget
+
+MAIN FILES:
+  ├─ index.html (4,413 lines - complete frontend)
+  │   ├─ Embedded CSS (<style> tags)
+  │   ├─ Embedded JavaScript (<script> tags)
+  │   └─ All sections in one file
+  └─ Images and assets in "images folder" directory
+
+SECTIONS:
+  ├─ #home      - Hero section with introduction
+  ├─ #about     - About and background
+  ├─ #skills    - Technical skills (5 tabs)
+  ├─ #hobbies   - Interests and hobbies
+  ├─ #stats     - Achievements and statistics
+  ├─ #projects  - Project portfolio showcase
+  ├─ #cv        - CV/Resume download section
+  ├─ #certificates - Certifications gallery
+  ├─ #learning-journey - Learning milestones
+  └─ #contact   - Contact form
+
+EXTERNAL LIBRARIES:
+  ├─ Google Fonts (Poppins font family)
+  └─ Font Awesome 6.0.0 (icons)
+
+COLOR SCHEME:
+  ├─ Primary:    #006400 (Green)
+  ├─ Secondary:  #008000 (Green)
+  ├─ Accent:     #ff0000 (Red)
+  └─ Dark theme with light text
+
+
+┌────────────────────────────────────────────────────────────────────────────┐
+│ 3. BACKEND ARCHITECTURE                                                      │
+└────────────────────────────────────────────────────────────────────────────┘
+
+TECHNOLOGY STACK:
+  ├─ Python 3.13
+  ├─ Flask 3.0.0 (HTTP server framework)
+  ├─ OpenAI SDK 1.6.0
+  └─ Vercel Serverless Functions
+
+BACKEND COMPONENTS:
+
+  1. API Handler (api/index.py)
+     ├─ Vercel serverless function
+     ├─ Implements BaseHTTPRequestHandler
+     ├─ Endpoints:
+     │   ├─ POST /api/chat - Chatbot message endpoint
+     │   ├─ GET /api/chat  - Health check
+     │   └─ OPTIONS /api/chat - CORS preflight
+     ├─ LLM Provider: Groq API (free)
+     ├─ Model: Llama 3.1 8B Instant
+     └─ Max tokens: 500 per response
+
+  2. Local Development Server (server.py)
+     ├─ Port: 8000
+     ├─ Serves static HTML files
+     ├─ Chatbot endpoint with CORS support
+     └─ For local testing only
+
+  3. Chatbot Implementation (chatbot.py, main.py)
+     ├─ Uses OpenAI Agents framework
+     ├─ Portfolio knowledge base in system prompt
+     ├─ Guardrails to only answer about Usman's portfolio
+     ├─ Conversation history support
+     └─ CLI interface for testing
+
+EXTERNAL API INTEGRATION:
+  ├─ Groq API (https://api.groq.com/openai/v1)
+  ├─ Free LLM inference
+  ├─ Requires GROQ_API_KEY environment variable
+  └─ Model: llama-3.1-8b-instant
+
+DATA FLOW:
+  1. User sends message via chatbot widget
+  2. JavaScript POSTs to /api/chat
+  3. Backend processes with Groq LLM
+  4. Response sent back to frontend
+  5. JavaScript displays message
+
+
+┌────────────────────────────────────────────────────────────────────────────┐
+│ 4. PROJECT STRUCTURE                                                         │
+└────────────────────────────────────────────────────────────────────────────┘
+
+usman-khan-portfolio/
+├── .venv/                          # Python virtual environment
+├── api/                            # Vercel serverless API
+│   ├── index.py                    # Chatbot API handler
+│   └── requirements.txt            # Python dependencies for API
+├── Certificate/                    # Certification documents
+├── CV/                            # Resume and CV files
+│   ├── cv.pdf
+│   └── resume.pdf
+├── images folder/                 # Static images and assets
+├── Projects Details/              # Project documentation and media
+├── index.html                     # Main frontend (SPA)
+├── chatbot.py                     # CLI chatbot tester
+├── main.py                        # LLM agent configuration
+├── server.py                      # Local dev server
+├── vercel.json                    # Vercel deployment config
+├── pyproject.toml                # Python project metadata
+├── requirements.txt              # Python dependencies
+├── .env.example                  # Environment template
+├── .gitignore                    # Git ignore rules
+├── .python-version               # Python 3.13
+└── uv.lock                       # Dependency lock file
+
+
+┌────────────────────────────────────────────────────────────────────────────┐
+│ 5. CONFIGURATION FILES                                                       │
+└────────────────────────────────────────────────────────────────────────────┘
+
+A. vercel.json (Vercel Deployment Configuration)
+   ├─ Version: 2
+   ├─ Platform: Vercel Platform v2
+   ├─ Python builds: Compiles .py in /api directory
+   └─ Routes configured for API and static files
+
+B. pyproject.toml
+   ├─ Project name: usman-khan-portfolio
+   ├─ Version: 0.1.0
+   ├─ Python requirement: >=3.13
+   └─ Dependency: openai-agents>=0.6.4
+
+C. requirements.txt (Root)
+   ├─ flask==3.0.0
+   └─ openai==1.6.0
+
+D. api/requirements.txt
+   └─ openai==1.6.0
+
+E. .env.example
+   └─ GROQ_API_KEY=your_groq_api_key_here
+
+F. .python-version
+   └─ 3.13
+
+
+┌────────────────────────────────────────────────────────────────────────────┐
+│ 6. CHANGES NEEDED FOR VERCEL DEPLOYMENT                                     │
+└────────────────────────────────────────────────────────────────────────────┘
+
+CRITICAL ISSUES TO FIX:
+
+  1. FOLDER NAMES WITH SPACES (HIGH PRIORITY)
+     CURRENT PROBLEM:
+       - "images folder" has a space in the name
+       - "Projects Details" has a space in the name
+       - Spaces in URLs are encoded as %20 which causes routing issues
+
+     SOLUTION:
+       - Rename "images folder" to "images" or "images_folder"
+       - Rename "Projects Details" to "projects_details" or "project-details"
+       - Update all references in index.html to new folder names
+
+  2. VERCEL.JSON ROUTING CONFIGURATION
+     CURRENT ISSUE:
+       - The fallback route at the end only catches "/"
+       - It doesn't catch paths like "/#about" or "/skills"
+       - This causes 404 errors when navigating directly to sections
+
+     SOLUTION:
+       - Change the fallback route pattern from "/" to "/(.*)"
+       - This ensures all non-matching routes fall back to index.html
+       - See updated configuration below
+
+  3. ENVIRONMENT VARIABLES
+     REQUIRED ACTION:
+       - Add GROQ_API_KEY to Vercel Environment Variables
+       - Get free API key from: https://console.groq.com/
+       - Add in Vercel Dashboard: Settings → Environment Variables
+
+  4. FILE STRUCTURE VERIFICATION
+     REQUIRED FILES:
+       - index.html must be in the ROOT directory
+       - api/index.py must exist for chatbot functionality
+       - api/requirements.txt must include openai==1.6.0
+
+  5. BUILD OUTPUT DIRECTORY
+     NOTE:
+       - Since this is a static site, no build process is needed
+       - Vercel automatically serves index.html from root
+       - API functions are built automatically from /api directory
+
+
+┌────────────────────────────────────────────────────────────────────────────┐
+│ 7. 404 ERROR SOLUTION                                                         │
+└────────────────────────────────────────────────────────────────────────────┘
+
+ROOT CAUSE:
+  The vercel.json routing configuration has an incomplete fallback route that only
+  catches "/" path, but doesn't handle:
+  - Hash routes like "/#about"
+  - Direct navigation to sections
+  - Client-side routing paths
+
+SOLUTION STEPS:
+
+  STEP 1: Update vercel.json
+  Replace the entire vercel.json file with the corrected version below.
+  (See section 8 for the complete updated file)
+
+  STEP 2: Rename folders with spaces
+  A. Rename "images folder" to "images" or "images_folder"
+  B. Rename "Projects Details" to "projects" or "project-details"
+  C. Update index.html to use new folder names:
+     - Find: images folder/ → Replace with: images/
+     - Find: Projects Details/ → Replace with: projects/
+
+  STEP 3: Verify file locations
+  - index.html must be in the project root (not in a subfolder)
+  - api/index.py must exist in the api directory
+  - All assets must be correctly referenced
+
+  STEP 4: Redeploy to Vercel
+  A. Commit changes to git
+  B. Push to GitHub
+  C. Vercel will auto-deploy
+  D. Or manually deploy: vercel --prod
+
+  STEP 5: Add Environment Variable
+  - Go to Vercel Dashboard → Project → Settings → Environment Variables
+  - Add: GROQ_API_KEY = [your_groq_api_key]
+  - Select: Production, Preview, Development
+  - Save and redeploy
+
+
+┌────────────────────────────────────────────────────────────────────────────┐
+│ 8. UPDATED VERCEL.JSON CONFIGURATION                                         │
+└────────────────────────────────────────────────────────────────────────────┘
+
+Replace your current vercel.json with this corrected version:
+
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "api/**/*.py",
+      "use": "@vercel/python"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/$1"
+    },
+    {
+      "src": "/(.*\\.(html|css|js|png|jpg|jpeg|gif|svg|ico|pdf))",
+      "dest": "/$1"
+    },
+    {
+      "src": "/images/(.*)",
+      "dest": "/images/$1"
+    },
+    {
+      "src": "/CV/(.*)",
+      "dest": "/CV/$1"
+    },
+    {
+      "src": "/Certificate/(.*)",
+      "dest": "/Certificate/$1"
+    },
+    {
+      "src": "/projects/(.*)",
+      "dest": "/projects/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ]
+}
+
+KEY CHANGES:
+  1. Changed "/images%20folder/(.*)" to "/images/(.*)" - remove spaces
+  2. Changed "/Projects%20Details/(.*)" to "/projects/(.*)" - remove spaces
+  3. Changed last route from "/" to "/(.*)" - catch all routes for SPA
+  4. This ensures hash routing (#about, #skills, etc.) works correctly
+
+
+┌────────────────────────────────────────────────────────────────────────────┐
+│ 9. DEPLOYMENT CHECKLIST                                                      │
+└────────────────────────────────────────────────────────────────────────────┘
+
+PRE-DEPLOYMENT:
+  [ ] Rename "images folder" to "images"
+  [ ] Rename "Projects Details" to "projects"
+  [ ] Update all image references in index.html
+  [ ] Update vercel.json with new folder names
+  [ ] Update vercel.json with corrected fallback route
+  [ ] Test locally with: python server.py
+
+VERCEL SETUP:
+  [ ] Connect GitHub repository to Vercel
+  [ ] Set root directory (if needed): ./
+  [ ] Set build command: (leave empty - no build needed)
+  [ ] Set output directory: (leave empty)
+  [ ] Add GROQ_API_KEY environment variable
+  [ ] Select Python runtime version: 3.13
+
+DEPLOYMENT:
+  [ ] Push changes to GitHub
+  [ ] Verify Vercel auto-deployment
+  [ ] Check deployment logs for errors
+  [ ] Test homepage: https://your-site.vercel.app/
+  [ ] Test navigation: /#about, /#skills, /#projects
+  [ ] Test chatbot functionality
+  [ ] Test image loading
+  [ ] Test PDF downloads (CV, certificates)
+
+POST-DEPLOYMENT:
+  [ ] Verify all sections load correctly
+  [ ] Test chatbot with sample questions
+  [ ] Check contact form functionality
+  [ ] Verify mobile responsiveness
+  [ ] Test on different browsers
+
+
+┌────────────────────────────────────────────────────────────────────────────┐
+│ 10. TROUBLESHOOTING GUIDE                                                     │
+└────────────────────────────────────────────────────────────────────────────┐
+
+ISSUE: 404 Error on homepage
+CAUSE: vercel.json doesn't have proper fallback route
+FIX: Update last route from "/" to "/(.*)" in vercel.json
+
+ISSUE: Images not loading (broken images)
+CAUSE: Folder names with spaces or incorrect paths
+FIX: Rename folders and update references in index.html
+
+ISSUE: Chatbot not working
+CAUSE: Missing GROQ_API_KEY environment variable
+FIX: Add GROQ_API_KEY in Vercel Environment Variables
+
+ISSUE: API returning 500 error
+CAUSE: Python dependencies missing or wrong version
+FIX: Ensure api/requirements.txt has openai==1.6.0
+
+ISSUE: White screen on Vercel
+CAUSE: index.html not in root directory
+FIX: Move index.html to project root
+
+ISSUE: Hash navigation not working
+CAUSE: Fallback route not catching all paths
+FIX: Change fallback route pattern to "/(.*)"
+
+ISSUE: CORS errors
+CAUSE: Missing CORS headers in API
+FIX: Already implemented in api/index.py - check if deployed correctly
+
+
+┌────────────────────────────────────────────────────────────────────────────┐
+│ 11. COMMAND REFERENCE                                                         │
+└────────────────────────────────────────────────────────────────────────────┘
+
+LOCAL DEVELOPMENT:
+  python server.py                    # Start local server (port 8000)
+  python main.py                      # Test chatbot via CLI
+  python chatbot.py                   # Alternative chatbot tester
+
+GIT OPERATIONS:
+  git status                          # Check git status
+  git add .                           # Stage all changes
+  git commit -m "Update deployment config"
+  git push origin main                # Push to GitHub
+
+VERCEL CLI:
+  vercel login                        # Login to Vercel
+  vercel                              # Deploy to preview
+  vercel --prod                       # Deploy to production
+  vercel --prod --yes                 # Deploy without confirmation
+
+
+┌────────────────────────────────────────────────────────────────────────────┐
+│ 12. TECHNOLOGY SUMMARY TABLE                                                  │
+└────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────┬────────────────────┬─────────┬─────────────────────┐
+│ Category        │ Technology         │ Version │ Purpose             │
+├─────────────────┼────────────────────┼─────────┼─────────────────────┤
+│ Frontend        │ HTML5/CSS3/JS      │ Latest  │ UI & Interactions   │
+│ Icons           │ Font Awesome       │ 6.0.0   │ Icon library        │
+│ Fonts           │ Google Fonts       │ Latest  │ Typography          │
+│ Backend         │ Python             │ 3.13    │ Server logic        │
+│ Framework       │ Flask              │ 3.0.0   │ HTTP server         │
+│ LLM Client      │ OpenAI SDK         │ 1.6.0   │ API communication   │
+│ LLM Provider    │ Groq               │ -       │ Free LLM inference  │
+│ LLM Model       │ Llama 3.1 8B       │ Instant │ Chatbot model       │
+│ Agents          │ OpenAI Agents      │ >=0.6.4 │ Agentic AI          │
+│ Deployment      │ Vercel             │ v2      │ Serverless hosting  │
+│ Package Mgr     │ UV                 │ -       │ Python deps         │
+│ Environment     │ .env               │ -       │ Secret management   │
+└─────────────────┴────────────────────┴─────────┴─────────────────────┘
+
+
+┌────────────────────────────────────────────────────────────────────────────┐
+│ 13. CONTACT INFORMATION                                                      │
+└────────────────────────────────────────────────────────────────────────────┘
+
+For the portfolio owner (Muhammad Usman Khan):
+  Email:       usmankhan16122006@gmail.com
+  Phone:       03130152036
+  WhatsApp:    +923499702502
+  LinkedIn:    linkedin.com/in/usman-khan-735944353
+  GitHub:      github.com/usman-khan-0
+  Instagram:   @u_s_m_a_n_0_07
+
+For deployment support:
+  Vercel Docs: https://vercel.com/docs
+  Groq Console: https://console.groq.com/
+  Groq API: https://console.groq.com/keys
+
+
+┌────────────────────────────────────────────────────────────────────────────┐
+│ 14. SUMMARY & NEXT STEPS                                                     │
+└────────────────────────────────────────────────────────────────────────────┘
+
+IMMEDIATE ACTIONS TO FIX 404 ERROR:
+  1. Rename folders: "images folder" → "images", "Projects Details" → "projects"
+  2. Update vercel.json with corrected routing (see section 8)
+  3. Update image references in index.html
+  4. Push changes to GitHub
+  5. Add GROQ_API_KEY to Vercel environment variables
+  6. Redeploy to Vercel
+
+ARCHITECTURE HIGHLIGHTS:
+  - Clean separation of frontend (static) and backend (serverless)
+  - Free LLM usage via Groq API
+  - Modern single-page application architecture
+  - Responsive design with dark theme
+  - AI-powered chatbot for portfolio assistance
+
+DEPLOYMENT BENEFITS:
+  - Zero cost (Vercel free tier + Groq free tier)
+  - Automatic deployments via GitHub integration
+  - Serverless scaling for chatbot API
+  - Global CDN for static assets
+  - SSL/HTTPS enabled by default
+
+
+┌────────────────────────────────────────────────────────────────────────────┐
+│ END OF DOCUMENT                                                              │
+└────────────────────────────────────────────────────────────────────────────┘
+
+Generated on: 2026-01-05
+Project: usman-khan-portfolio
