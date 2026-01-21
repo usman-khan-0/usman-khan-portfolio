@@ -613,6 +613,31 @@
             font-weight: 500;
         }
 
+        /* Responsive layout for project cards */
+        @media (max-width: 640px) {
+            .section-header + .projects-grid,
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+
+        @media (min-width: 641px) and (max-width: 1024px) {
+            .section-header + .projects-grid,
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.75rem;
+            }
+        }
+
+        @media (min-width: 1025px) {
+            .section-header + .projects-grid,
+            .projects-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 2rem;
+            }
+        }
+
         .portfolio-links {
             margin-top: 4rem;
             padding-top: 4rem;
@@ -1549,6 +1574,10 @@
                 width: 350px;
                 height: 350px;
             }
+
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
         @media (max-width: 768px) {
@@ -1590,7 +1619,6 @@
             }
 
             .about-grid,
-            .projects-grid,
             .hobbies-grid {
                 grid-template-columns: 1fr;
             }
@@ -1602,6 +1630,12 @@
             .hero-profile {
                 width: 280px;
                 height: 280px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -1785,6 +1819,16 @@
                             <h3>Microsoft Office</h3>
                             <p>Expert in MS Word, Excel, and PowerPoint for document creation, data analysis, and presentations</p>
                         </div>
+                        <div class="skill-card" data-skill="Notion">
+                            <div class="skill-icon"><i class="fas fa-sticky-note"></i></div>
+                            <h3>Notion</h3>
+                            <p>Proficient in Notion for task & project management, habit tracking, note-taking, and daily planning.</p>
+                        </div>
+                        <div class="skill-card" data-skill="Frontend Development">
+                            <div class="skill-icon"><i class="fas fa-code"></i></div>
+                            <h3>Frontend Development</h3>
+                            <p>Experienced in HTML, CSS, JavaScript, responsive design, and building  web applications including blogs, e-commerce, and portfolios.</p>
+                        </div>
                     </div>
                 </div>
                 <div class="tab-content" id="programming" style="display: none;">
@@ -1834,6 +1878,55 @@
                                 <div class="progress-fill" data-width="85%"></div>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="section-header">
+                    <h2>Soft Skills</h2>
+                    <p>My interpersonal and transferable skills</p>
+                </div>
+                <div class="skills-grid">
+                    <div class="skill-card" data-skill="Time Management">
+                        <div class="skill-icon"><i class="fas fa-clock"></i></div>
+                        <h3>Time Management</h3>
+                        <p>Efficiently prioritizing tasks, meeting deadlines, and optimizing workflow for maximum productivity.</p>
+                    </div>
+                    <div class="skill-card" data-skill="Organization">
+                        <div class="skill-icon"><i class="fas fa-folder-open"></i></div>
+                        <h3>Organization</h3>
+                        <p>Structuring work and information systematically to enhance clarity and operational efficiency.</p>
+                    </div>
+                    <div class="skill-card" data-skill="Communication">
+                        <div class="skill-icon"><i class="fas fa-comments"></i></div>
+                        <h3>Communication</h3>
+                        <p>Clearly conveying ideas, actively listening, and fostering open dialogue with team members and stakeholders.</p>
+                    </div>
+                    <div class="skill-card" data-skill="Teamwork/Collaboration">
+                        <div class="skill-icon"><i class="fas fa-users"></i></div>
+                        <h3>Teamwork/Collaboration</h3>
+                        <p>Working effectively with diverse groups, contributing to shared goals, and supporting collective success.</p>
+                    </div>
+                    <div class="skill-card" data-skill="Problem-Solving">
+                        <div class="skill-icon"><i class="fas fa-lightbulb"></i></div>
+                        <h3>Problem-Solving</h3>
+                        <p>Analyzing complex situations, identifying root causes, and implementing effective solutions.</p>
+                    </div>
+                    <div class="skill-card" data-skill="Adaptability">
+                        <div class="skill-icon"><i class="fas fa-sync-alt"></i></div>
+                        <h3>Adaptability</h3>
+                        <p>Adjusting quickly to new technologies, changing priorities, and dynamic work environments.</p>
+                    </div>
+                    <div class="skill-card" data-skill="Attention to Detail">
+                        <div class="skill-icon"><i class="fas fa-search-plus"></i></div>
+                        <h3>Attention to Detail</h3>
+                        <p>Ensuring accuracy and thoroughness in all tasks, from code review to project documentation.</p>
+                    </div>
+                    <div class="skill-card" data-skill="Creativity">
+                        <div class="skill-icon"><i class="fas fa-paint-brush"></i></div>
+                        <h3>Creativity</h3>
+                        <p>Generating innovative ideas and approaches to design, development, and problem-solving.</p>
                     </div>
                 </div>
             </div>
@@ -1962,7 +2055,7 @@
                 </div>
                 <div class="highlights-grid">
                     <div class="highlight-card">
-                        <div class="highlight-number">5+</div>
+                        <div class="highlight-number">6+</div>
                         <div class="highlight-label">Projects Completed</div>
                     </div>
                     <div class="highlight-card">
@@ -1970,8 +2063,8 @@
                         <div class="highlight-label">hours of programming</div>
                     </div>
                     <div class="highlight-card">
-                        <div class="highlight-number">3+</div>
-                        <div class="highlight-label">Websites Portfolios</div>
+                        <div class="highlight-number">7+</div>
+                        <div class="highlight-label">Websites or Portfolios</div>
                     </div>
                     <div class="highlight-card">
                         <div class="highlight-number">8+</div>
@@ -2041,6 +2134,24 @@
                             <span class="project-tag">Web App</span>
                             <h3>99IES Calculator</h3>
                             <p>A web-based calculator designed for quick and accurate calculations.</p>
+                            <div class="project-tags">
+                                <span>HTML</span>
+                                <span>CSS</span>
+                                <span>JavaScript</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card" data-project="gpa-calculator">
+                        <div class="project-image" style="background-image: url('images/gpa.jpg');">
+                            <div class="project-overlay">
+                                <a href="https://usman-khan-0.github.io/GPA-Calculator/#" class="project-link-btn" target="_blank"><i class="fas fa-eye"></i></a>
+                                <a href="https://github.com/usman-khan-0/GPA-Calculator" class="project-link-btn" target="_blank"><i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <span class="project-tag">Web App</span>
+                            <h3>GPA Calculator</h3>
+                            <p>A web-based GPA calculator for students to easily compute their academic performance.</p>
                             <div class="project-tags">
                                 <span>HTML</span>
                                 <span>CSS</span>
@@ -2382,13 +2493,7 @@
                                 <a href="https://wa.me/923499702502" target="_blank">+923499702502</a>
                             </div>
                         </div>
-                        <div class="contact-item">
-                            <div class="contact-icon"><i class="fab fa-facebook-f"></i></div>
-                            <div class="contact-details">
-                                <h3>Facebook</h3>
-                                <a href="https://web.facebook.com/profile.php?id=61584444386143" target="_blank">Usman Khan</a>
-                            </div>
-                        </div>
+
                         <div class="contact-item">
                             <div class="contact-icon"><i class="fas fa-envelope"></i></div>
                             <div class="contact-details">
@@ -2396,13 +2501,7 @@
                                 <a href="mailto:usmankhan16122006@gmail.com">usmankhan16122006@gmail.com</a>
                             </div>
                         </div>
-                        <div class="contact-item">
-                            <div class="contact-icon"><i class="fab fa-instagram"></i></div>
-                            <div class="contact-details">
-                                <h3>Instagram</h3>
-                                <a href="https://www.instagram.com/u_s_m_a_n_0_07/" target="_blank">@u_s_m_a_n_0_07</a>
-                            </div>
-                        </div>
+
                         <div class="contact-item">
                             <div class="contact-icon"><i class="fab fa-linkedin"></i></div>
                             <div class="contact-details">
@@ -2417,13 +2516,7 @@
                                 <a href="https://github.com/usman-khan-0" target="_blank">usman-khan-0</a>
                             </div>
                         </div>
-                        <div class="contact-item">
-                            <div class="contact-icon"><i class="fab fa-youtube"></i></div>
-                            <div class="contact-details">
-                                <h3>YouTube</h3>
-                                <a href="https://www.youtube.com/@usman-khan-556" target="_blank">Usman Khan</a>
-                            </div>
-                        </div>
+
                         <div class="contact-item">
                             <div class="contact-icon"><i class="fas fa-globe"></i></div>
                             <div class="contact-details">
@@ -2677,6 +2770,96 @@
                     'MS Excel for data analysis',
                     'MS PowerPoint for presentations',
                     'Advanced formatting and formulas'
+                ]
+            },
+            'Notion': {
+                description: 'Proficient in Notion for task and project management, habit tracking, note-taking, and daily planning.',
+                features: [
+                    'Task & project management',
+                    'Habit tracking & organization',
+                    'Note-taking & documentation',
+                    'Daily planning & scheduling'
+                ]
+            },
+            'Frontend Development': {
+                description: 'Experienced in building various web applications using modern frontend technologies.',
+                features: [
+                    'HTML, CSS, JavaScript proficiency',
+                    'Responsive web design',
+                    'Development of blogs and e-commerce sites',
+                    'Building dashboards and portfolio websites'
+                ]
+            },
+            'Time Management': {
+                description: 'Efficiently prioritizing tasks, meeting deadlines, and optimizing workflow for maximum productivity.',
+                features: [
+                    'Task prioritization',
+                    'Deadline adherence',
+                    'Workflow optimization',
+                    'Productivity enhancement'
+                ]
+            },
+            'Organization': {
+                description: 'Structuring work and information systematically to enhance clarity and operational efficiency.',
+                features: [
+                    'Systematic workflow management',
+                    'Information structuring',
+                    'Clarity and efficiency',
+                    'Resource management'
+                ]
+            },
+            'Communication': {
+                description: 'Clearly conveying ideas, actively listening, and fostering open dialogue with team members and stakeholders.',
+                features: [
+                    'Clear idea articulation',
+                    'Active listening',
+                    'Open dialogue facilitation',
+                    'Stakeholder engagement'
+                ]
+            },
+            'Teamwork/Collaboration': {
+                description: 'Working effectively with diverse groups, contributing to shared goals, and supporting collective success.',
+                features: [
+                    'Cross-functional collaboration',
+                    'Shared goal contribution',
+                    'Conflict resolution',
+                    'Supportive team environment'
+                ]
+            },
+            'Problem-Solving': {
+                description: 'Analyzing complex situations, identifying root causes, and implementing effective solutions.',
+                features: [
+                    'Root cause analysis',
+                    'Solution implementation',
+                    'Critical thinking',
+                    'Decision making'
+                ]
+            },
+            'Adaptability': {
+                description: 'Adjusting quickly to new technologies, changing priorities, and dynamic work environments.',
+                features: [
+                    'Rapid technology adoption',
+                    'Priority adjustment',
+                    'Dynamic environment navigation',
+                    'Resilience'
+                ]
+            },
+            'Attention to Detail': {
+                description: 'Ensuring accuracy and thoroughness in all tasks, from code review to project documentation.',
+                features: [
+                    'Accuracy and precision',
+                    'Thoroughness in tasks',
+                    'Quality assurance',
+                    'Error prevention'
+                ]
+            },
+            'Creativity': {
+                description: 'Generating innovative ideas and approaches to design, development, and problem-solving.',
+                features: [
+                    'Innovative idea generation',
+                    'Design thinking',
+                    'Unique problem approaches',
+                    'Out-of-the-box solutions'
                 ]
             }
         };
