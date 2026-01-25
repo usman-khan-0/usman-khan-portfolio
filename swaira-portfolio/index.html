@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Swaira Rizwan - Graphic Designer Portfolio">
+    <title>Swaira Rizwan | Graphic Designer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ==================== GLOBAL RESET & VARIABLES ==================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Color Palette - Soft & Professional */
+            --primary-color: #6C63FF;
+            --secondary-color: #FF6B9D;
+            --accent-color: #FFC947;
+            --dark-color: #2D3142;
+            --light-color: #F8F9FA;
+            --white: #FFFFFF;
+            --gray: #6C757D;
+            --light-gray: #E9ECEF;
+            
+            /* Typography */
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Poppins', sans-serif;
+            
+            /* Spacing */
+            --section-padding: 80px 0;
+            --container-padding: 0 20px;
+            
+            /* Transitions */
+            --transition: all 0.3s ease;
+        }
+
+        /* ==================== BASE STYLES ==================== */
+        body {
+            font-family: var(--font-body);
+            color: var(--dark-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            line-height: 1.2;
+            font-weight: 600;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* ==================== CONTAINER ==================== */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--container-padding);
+        }
+
+        /* ==================== HEADER & NAVIGATION ==================== */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            font-family: var(--font-heading);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 35px;
+        }
+
+        .nav-menu a {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--dark-color);
+            position: relative;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .nav-menu a:hover::after,
+        .nav-menu a.active::after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--dark-color);
+            border-radius: 3px;
+            transition: var(--transition);
+        }
+
+        /* ==================== HERO SECTION ==================== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 500px;
+            height: 500px;
+            background: var(--primary-color);
+            opacity: 0.1;
+            border-radius: 50%;
+            transform: translate(30%, -30%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-greeting {
+            font-size: 18px;
+            color: var(--gray);
+            margin-bottom: 10px;
+            font-weight: 400;
+        }
+
+        .hero-name {
+            font-size: 64px;
+            color: var(--dark-color);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .hero-title {
+            font-size: 28px;
+            color: var(--primary-color);
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+
+        .hero-description {
+            font-size: 18px;
+            color: var(--gray);
+            max-width: 600px;
+            line-height: 1.8;
+            margin-bottom: 35px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 14px 35px;
+            border-radius: 50px;
+            font-weight: 500;
+            font-size: 16px;
+            cursor: pointer;
+            transition: var(--transition);
+            border: 2px solid transparent;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: var(--white);
+            border-color: var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            background: transparent;
+            color: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(108, 99, 255, 0.2);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--dark-color);
+            border-color: var(--dark-color);
+        }
+
+        .btn-outline:hover {
+            background: var(--dark-color);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+
+        /* ==================== SECTION STYLES ==================== */
+        section {
+            padding: var(--section-padding);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-size: 42px;
+            color: var(--dark-color);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            font-size: 16px;
+            color: var(--gray);
+            max-width: 600px;
+            margin: 20px auto 0;
+        }
+
+        /* ==================== ABOUT SECTION ==================== */
+        .about {
+            background: var(--white);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: flex-start;
+        }
+
+        .about-card {
+            background: var(--light-color);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            height: 100%;
+        }
+
+        .about-text h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .about-description {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--gray);
+            text-align: justify;
+        }
+
+        .education-list {
+            list-style: none;
+            margin-top: 20px;
+        }
+        
+        .about-text.center {
+            text-align: center;
+        }
+
+        .about-text h3 {
+            font-size: 28px;
+            color: var(--dark-color);
+            margin-bottom: 20px;
+        }
+
+        .about-quote {
+            font-size: 20px;
+            color: var(--primary-color);
+            font-style: italic;
+            margin-bottom: 25px;
+            padding-left: 20px;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .about-description {
+            font-size: 16px;
+            color: var(--gray);
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .education-list {
+            list-style: none;
+        }
+
+        .education-item {
+            padding: 15px 0;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .education-item:last-child {
+            border-bottom: none;
+        }
+
+        .education-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--dark-color);
+            margin-bottom: 5px;
+        }
+
+        .education-field {
+            font-size: 14px;
+            color: var(--gray);
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-img-style {
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        /* ==================== SKILLS SECTION ==================== */
+        .skills {
+            background: var(--light-color);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-card {
+            background: var(--white);
+            padding: 35px 25px;
+            border-radius: 15px;
+            text-align: center;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .skill-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 32px;
+            color: var(--white);
+        }
+
+        .skill-card:nth-child(even) .skill-icon {
+            background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+        }
+
+        .skill-name {
+            font-size: 18px;
+            color: var(--dark-color);
+            font-weight: 600;
+        }
+
+        /* ==================== CV SECTION ==================== */
+        .cv-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .cv-description {
+            font-size: 18px;
+            color: var(--gray);
+            max-width: 700px;
+            text-align: center;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .cv-actions {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        /* ==================== HOBBIES SECTION ==================== */
+        .hobbies {
+            background: var(--white);
+        }
+
+        .hobbies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .hobby-item {
+            background: var(--light-color);
+            padding: 25px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            transition: var(--transition);
+        }
+
+        .hobby-item:hover {
+            background: var(--primary-color);
+            color: var(--white);
+            transform: translateX(10px);
+        }
+
+        .hobby-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+
+        .hobby-item:hover .hobby-icon {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .hobby-text {
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        /* ==================== CONTACT SECTION ==================== */
+        .contact {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+        }
+
+        .contact .section-title,
+        .contact .section-subtitle {
+            color: var(--white);
+        }
+
+        .contact .section-title::after {
+            background: var(--white);
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .contact-item {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 35px 25px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            transition: var(--transition);
+        }
+
+        .contact-item:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .contact-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 32px;
+            color: var(--primary-color);
+        }
+
+        .contact-label {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            opacity: 0.9;
+        }
+
+        .contact-value {
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        .contact-value a {
+            color: var(--white);
+        }
+
+        .contact-value a:hover {
+            opacity: 0.8;
+        }
+
+        /* ==================== SOCIAL LINKS SECTION ==================== */
+        .social {
+            background: var(--light-color);
+            padding: 60px 0;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            width: 60px;
+            height: 60px;
+            background: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: var(--dark-color);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .social-link.linkedin:hover {
+            background: #0077B5;
+            color: var(--white);
+        }
+
+        .social-link.instagram:hover {
+            background: linear-gradient(45deg, #F58529, #DD2A7B, #8134AF);
+            color: var(--white);
+        }
+
+        .social-link.honeygain:hover {
+            background: var(--accent-color);
+            color: var(--dark-color);
+        }
+
+        .social-link.portfolio:hover {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+
+        /* ==================== FOOTER ==================== */
+        footer {
+            background: var(--dark-color);
+            color: var(--white);
+            text-align: center;
+            padding: 30px 0;
+        }
+
+        footer p {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        /* ==================== RESPONSIVE DESIGN ==================== */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: var(--white);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 30px;
+                transition: var(--transition);
+                box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .menu-toggle.active span:nth-child(1) {
+                transform: rotate(45deg) translate(8px, 8px);
+            }
+
+            .menu-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .menu-toggle.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -7px);
+            }
+
+            .hero-name {
+                font-size: 42px;
+            }
+
+            .hero-title {
+                font-size: 22px;
+            }
+
+            .hero-description {
+                font-size: 16px;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image-placeholder {
+                height: 350px;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hobbies-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            :root {
+                --section-padding: 50px 0;
+            }
+
+            .hero-name {
+                font-size: 36px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+        }
+
+        /* ==================== SCROLL TO TOP BUTTON ==================== */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 999;
+            box-shadow: 0 5px 15px rgba(108, 99, 255, 0.3);
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(108, 99, 255, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <!-- ==================== HEADER ==================== -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">SR</div>
+                <ul class="nav-menu">
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#cv">CV</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#hobbies">Hobbies</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ==================== HERO SECTION ==================== -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <p class="hero-greeting">Hello, I'm</p>
+                <h1 class="hero-name">Swaira Rizwan</h1>
+                <h2 class="hero-title">Graphic Designer</h2>
+                <p class="hero-description">
+                    I'm a passionate learner who enjoys exploring new ideas and creating meaningful work. 
+                    I'm always curious, adaptable, and excited to grow through hands-on experience.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">Get In Touch</a>
+                    <a href="#about" class="btn btn-outline">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== ABOUT SECTION ==================== -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">About Me</h2>
+                <p class="section-subtitle">Get to know more about my background and philosophy</p>
+            </div>
+            <div class="about-content">
+                <div class="about-card">
+                    <div class="about-text">
+                        <h3>About Me</h3>
+                        <p class="about-description">
+                            I'm a passionate and detail-oriented graphic designer with a strong foundation in visual storytelling and digital content creation. I thrive on transforming complex ideas into clear, engaging, and effective designs. My experience includes creating a wide range of visual materials for both digital and print media. I am proficient in using industry-standard design software to produce high-quality work that meets client needs and exceeds expectations. I am a lifelong learner, constantly exploring new techniques and technologies to enhance my skills and stay at the forefront of the design world.
+                        </p>
+                    </div>
+                </div>
+                <div class="about-card">
+                    <div class="about-text">
+                        <h3>Education</h3>
+                        <ul class="education-list">
+                            <li class="education-item">
+                                <div class="education-title">Matriculation</div>
+                                <div class="education-field">Science</div>
+                            </li>
+                            <li class="education-item">
+                                <div class="education-title">Intermediate</div>
+                                <div class="education-field">Pre-Medical</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CV SECTION ==================== -->
+    <section id="cv" class="cv">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">My CV</h2>
+                <p class="section-subtitle">View and download my curriculum vitae</p>
+            </div>
+            <div class="cv-content">
+                <p class="cv-description">Here is my CV. If you want to hire me, you can check it. I have added all my details in my CV.</p>
+                <div class="cv-actions">
+                    <a href="cv.png" target="_blank" class="btn btn-primary">View CV</a>
+                    <a href="cv.png" download="Swaira_Rizwan_CV.png" class="btn btn-outline">Download CV</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SKILLS SECTION ==================== -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Skills</h2>
+                <p class="section-subtitle">My technical and creative capabilities</p>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon">💻</div>
+                    <div class="skill-name">Computer Operations</div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">📊</div>
+                    <div class="skill-name">MS Office Suite</div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🔍</div>
+                    <div class="skill-name">Internet Research</div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">📐</div>
+                    <div class="skill-name">Wireframing & Prototyping</div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">📖</div>
+                    <div class="skill-name">Visual Storytelling</div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🎨</div>
+                    <div class="skill-name">Adobe Photoshop</div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">✏️</div>
+                    <div class="skill-name">Adobe Illustrator</div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🖌️</div>
+                    <div class="skill-name">Figma</div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🎭</div>
+                    <div class="skill-name">Canva</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== HOBBIES SECTION ==================== -->
+    <section id="hobbies" class="hobbies">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Hobbies & Interests</h2>
+                <p class="section-subtitle">What I love to do in my free time</p>
+            </div>
+            <div class="hobbies-grid">
+                <div class="hobby-item">
+                    <div class="hobby-icon">🚀</div>
+                    <div class="hobby-text">Learning New Technologies</div>
+                </div>
+                <div class="hobby-item">
+                    <div class="hobby-icon">📚</div>
+                    <div class="hobby-text">Reading & Self-Development</div>
+                </div>
+                <div class="hobby-item">
+                    <div class="hobby-icon">💡</div>
+                    <div class="hobby-text">Creative Problem Solving</div>
+                </div>
+                <div class="hobby-item">
+                    <div class="hobby-icon">🎨</div>
+                    <div class="hobby-text">Digital Content Design</div>
+                </div>
+                <div class="hobby-item">
+                    <div class="hobby-icon">📷</div>
+                    <div class="hobby-text">Photography</div>
+                </div>
+                <div class="hobby-item">
+                    <div class="hobby-icon">✍️</div>
+                    <div class="hobby-text">Creative Writing</div>
+                </div>
+                <div class="hobby-item">
+                    <div class="hobby-icon">🎯</div>
+                    <div class="hobby-text">Exploring Creative Projects</div>
+                </div>
+                <div class="hobby-item">
+                    <div class="hobby-icon">🖼️</div>
+                    <div class="hobby-text">Drawing & Illustration</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CONTACT SECTION ==================== -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Get In Touch</h2>
+                <p class="section-subtitle">Feel free to reach out for collaborations or just a friendly chat</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-item">
+                    <div class="contact-icon">📧</div>
+                    <div class="contact-label">Email</div>
+                    <div class="contact-value">
+                        <a href="mailto:swairarizwan83@gmail.com">swairarizwan83@gmail.com</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📱</div>
+                    <div class="contact-label">Phone</div>
+                    <div class="contact-value">
+                        <a href="tel:03491568520">0349-1568520</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SOCIAL LINKS SECTION ==================== -->
+    <section class="social">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Connect With Me</h2>
+            </div>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/swaira-rizwan-948b783a1" target="_blank" class="social-link linkedin" aria-label="LinkedIn">
+                    in
+                </a>
+                <a href="https://www.instagram.com/shining.diamond12" target="_blank" class="social-link instagram" aria-label="Instagram">
+                    IG
+                </a>
+                <a href="https://join.honeygain.com/SWAIR9E78A" target="_blank" class="social-link honeygain" aria-label="HoneyGain">
+                    HG
+                </a>
+                <a href="#" class="social-link portfolio" aria-label="Portfolio">
+                    🎨
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Swaira Rizwan. All rights reserved. Designed with passion and creativity.</p>
+        </div>
+    </footer>
+
+    <!-- ==================== SCROLL TO TOP BUTTON ==================== -->
+    <div class="scroll-top">↑</div>
+
+    <!-- ==================== JAVASCRIPT ==================== -->
+    <script>
+        // ==================== MOBILE MENU TOGGLE ====================
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+        const navLinks = document.querySelectorAll('.nav-menu a');
+
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when clicking on a link
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // ==================== ACTIVE NAV LINK ON SCROLL ====================
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const sections = document.querySelectorAll('section');
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // ==================== SCROLL TO TOP BUTTON ====================
+        const scrollTopBtn = document.querySelector('.scroll-top');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // ==================== HEADER SHADOW ON SCROLL ====================
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.15)';
+            } else {
+                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+            }
+        });
+
+        // ==================== SMOOTH SCROLL POLYFILL FOR OLDER BROWSERS ====================
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>

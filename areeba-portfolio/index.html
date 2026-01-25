@@ -1,0 +1,2386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Areeba | Mechanical Engineering Innovator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ===== EXTENSIVE COLOR PALETTE ===== */
+        :root {
+            /* Primary Blue Spectrum - Modern & Calm */
+            --blue-primary: #4361EE;
+            --blue-dark: #3A52CC;
+            --blue-darker: #1A2D6E;
+            --blue-light: #6B85F2;
+            --blue-lighter: #94A9F6;
+            --blue-pale: #EDF0FD;
+            --blue-transparent: rgba(67, 97, 238, 0.1);
+            --blue-transparent-medium: rgba(67, 97, 238, 0.3);
+
+            /* Secondary Purple Spectrum - Elegant & Premium */
+            --purple-primary: #6D55E6;
+            --purple-dark: #5844B5;
+            --purple-darker: #33226F;
+            --purple-light: #8B78EE;
+            --purple-lighter: #AEA2F2;
+            --purple-pale: #F0EEFC;
+            --purple-transparent: rgba(109, 85, 230, 0.1);
+            --purple-transparent-medium: rgba(109, 85, 230, 0.3);
+
+            /* Neutral & Support Colors - Soft Tinted Backgrounds */
+            --bg-primary: #F8F9FE;
+            --bg-secondary: #F0F2FB;
+            --bg-tertiary: #E9ECF8;
+            --text-primary: #1D244D;
+            --text-secondary: #4A547E;
+            --text-tertiary: #6F7899;
+            --border-light: #DDE0EE;
+            --border-medium: #C6C8D9;
+            --shadow-light: 0 2px 15px rgba(0, 0, 0, 0.04);
+            --shadow-medium: 0 5px 25px rgba(0, 0, 0, 0.07);
+            --shadow-heavy: 0 10px 40px rgba(0, 0, 0, 0.1);
+            --shadow-blue: 0 5px 20px rgba(67, 97, 238, 0.15);
+            --shadow-purple: 0 5px 20px rgba(109, 85, 230, 0.15);
+            
+            /* Typography */
+            --font-heading: 'Times New Roman', Times, Georgia, serif;
+            --font-body: 'Times New Roman', Times, Georgia, serif;
+            --font-mono: 'Courier New', monospace;
+            
+            /* Spacing System */
+            --space-xs: 0.25rem;
+            --space-sm: 0.5rem;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2rem;
+            --space-xxl: 3rem;
+            --space-xxxl: 4rem;
+            
+            /* Border Radius */
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+            --radius-round: 50%;
+            
+            /* Transitions */
+            --transition-fast: 150ms ease;
+            --transition-normal: 300ms ease;
+            --transition-slow: 500ms ease;
+            --transition-bounce: 400ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        /* ===== RESET & BASE STYLES ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--font-body);
+            line-height: 1.7;
+            color: var(--text-primary);
+            background-color: var(--bg-primary);
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 10% 20%, var(--blue-transparent) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, var(--purple-transparent) 0%, transparent 20%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* ===== TYPOGRAPHY HIERARCHY ===== */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: var(--space-lg);
+            letter-spacing: -0.02em;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            color: var(--blue-darker);
+            position: relative;
+            display: inline-block;
+        }
+
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 80px;
+            height: 5px;
+            background: linear-gradient(90deg, var(--blue-primary), var(--purple-primary));
+            border-radius: 3px;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            color: var(--blue-dark);
+            position: relative;
+            padding-bottom: var(--space-md);
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--blue-primary), var(--purple-primary));
+            border-radius: 2px;
+        }
+
+        h3 {
+            font-size: 1.75rem;
+            color: var(--purple-dark);
+        }
+
+        h3 i {
+            margin-right: 10px;
+        }
+
+        h4 {
+            font-size: 1.4rem;
+            color: var(--blue-primary);
+        }
+
+        h5 {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+        }
+
+        p {
+            margin-bottom: var(--space-md);
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        a {
+            color: var(--blue-primary);
+            text-decoration: none;
+            transition: color var(--transition-fast);
+            position: relative;
+        }
+
+        a:hover {
+            color: var(--purple-primary);
+        }
+
+        .text-highlight {
+            color: var(--purple-primary);
+            font-weight: 600;
+        }
+
+        .text-tertiary {
+            color: var(--text-tertiary);
+            font-size: 1rem;
+        }
+
+        .text-gradient {
+            background: linear-gradient(90deg, var(--blue-primary), var(--purple-primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* ===== LAYOUT & CONTAINERS ===== */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-lg);
+        }
+
+        .section {
+            padding: var(--space-xxxl) 0;
+            position: relative;
+        }
+
+        .section-alt {
+            background-color: var(--bg-secondary);
+        }
+
+        .section-dark {
+            background: linear-gradient(135deg, var(--blue-darker), var(--purple-darker));
+            color: white;
+        }
+
+        .section-dark h2, .section-dark h3, .section-dark h4, .section-dark p {
+            color: white;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--space-xxxl);
+            position: relative;
+        }
+
+        .section-header p {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+            color: var(--text-tertiary);
+        }
+
+        .section-dark .section-header p {
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        /* ===== HEADER & NAVIGATION ===== */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-light);
+            transition: all var(--transition-normal);
+        }
+
+        header.scrolled {
+            padding: var(--space-xs) 0;
+            box-shadow: var(--shadow-medium);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--space-md) 0;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+        }
+
+        .logo-img {
+            height: 60px;
+            width: 60px;
+            border-radius: var(--radius-md);
+            object-fit: cover;
+            border: 3px solid var(--blue-pale);
+            box-shadow: var(--shadow-blue);
+            transition: all var(--transition-normal);
+        }
+
+        .logo-img:hover {
+            transform: rotate(5deg) scale(1.05);
+            border-color: var(--purple-pale);
+            box-shadow: var(--shadow-purple);
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-name {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--blue-dark);
+            letter-spacing: -0.03em;
+        }
+
+        .logo-subtitle {
+            font-size: 0.9rem;
+            color: var(--purple-primary);
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .nav-desktop {
+            display: flex;
+            gap: var(--space-xl);
+        }
+
+        .nav-link {
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--text-secondary);
+            padding: var(--space-sm) var(--space-md);
+            border-radius: var(--radius-md);
+            transition: all var(--transition-normal);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--blue-primary), var(--purple-primary));
+            transition: width var(--transition-normal);
+        }
+
+        .nav-link:hover {
+            color: var(--blue-primary);
+            background-color: var(--blue-transparent);
+        }
+
+        .nav-link:hover::before {
+            width: calc(100% - 2rem);
+        }
+
+        .nav-link.active {
+            color: var(--purple-primary);
+            background-color: var(--purple-transparent);
+        }
+
+        .nav-link.active::before {
+            width: calc(100% - 2rem);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: linear-gradient(135deg, var(--blue-primary), var(--purple-primary));
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: var(--radius-md);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all var(--transition-normal);
+            box-shadow: var(--shadow-blue);
+        }
+
+        .mobile-menu-btn:hover {
+            transform: scale(1.05);
+            box-shadow: var(--shadow-purple);
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            padding-top: 150px;
+            padding-bottom: var(--space-xxxl);
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, var(--purple-transparent) 0%, transparent 70%);
+            z-index: 0;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, var(--blue-transparent) 0%, transparent 70%);
+            z-index: 0;
+        }
+
+        .hero-container {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-xxl);
+            align-items: center;
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .hero-title {
+            font-size: 3.8rem;
+            margin-bottom: var(--space-md);
+            color: var(--blue-darker);
+            line-height: 1.1;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--purple-dark);
+            margin-bottom: var(--space-xl);
+            font-weight: 400;
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            margin-bottom: var(--space-xxl);
+            color: var(--text-secondary);
+        }
+
+        .hero-visual {
+            position: relative;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .gear-animation {
+            position: relative;
+            width: 300px;
+            height: 300px;
+        }
+
+        .gear-large {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: conic-gradient(from 0deg, var(--blue-primary), var(--blue-light), var(--blue-primary));
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: rotateGear 20s linear infinite;
+            box-shadow: var(--shadow-blue);
+        }
+
+        .gear-small {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 120px;
+            height: 120px;
+            background: conic-gradient(from 180deg, var(--purple-primary), var(--purple-light), var(--purple-primary));
+            border-radius: 50%;
+            animation: rotateGearReverse 15s linear infinite;
+            box-shadow: var(--shadow-purple);
+        }
+
+        .gear-center {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: var(--bg-primary);
+            border-radius: 50%;
+            border: 5px solid var(--blue-darker);
+        }
+
+        @keyframes rotateGear {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes rotateGearReverse {
+            0% { transform: rotate(360deg); }
+            100% { transform: rotate(0deg); }
+        }
+
+        /* ===== ABOUT SECTION ===== */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: var(--space-xxl);
+            align-items: start;
+        }
+
+        .about-content {
+            background: var(--bg-primary);
+            padding: var(--space-xxl);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-medium);
+            border: 1px solid var(--border-light);
+        }
+
+        .about-intro {
+            margin-bottom: var(--space-xxl);
+            padding-bottom: var(--space-xxl);
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .education-timeline {
+            position: relative;
+            padding-left: var(--space-xl);
+        }
+
+        .education-timeline::before {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--blue-primary), var(--purple-primary));
+        }
+
+        .education-item {
+            position: relative;
+            margin-bottom: var(--space-xxl);
+            padding: var(--space-lg);
+            background: var(--bg-secondary);
+            border-radius: var(--radius-lg);
+            border-left: 4px solid var(--blue-primary);
+            transition: all var(--transition-normal);
+        }
+
+        .education-item:hover {
+            transform: translateX(10px);
+            box-shadow: var(--shadow-blue);
+            border-left-color: var(--purple-primary);
+        }
+
+        .education-item::before {
+            content: '';
+            position: absolute;
+            left: -20px;
+            top: 25px;
+            width: 12px;
+            height: 12px;
+            background: var(--purple-primary);
+            border-radius: 50%;
+            border: 3px solid var(--bg-primary);
+            box-shadow: 0 0 0 3px var(--purple-transparent);
+        }
+
+        .education-year {
+            display: inline-block;
+            padding: var(--space-xs) var(--space-md);
+            background: var(--blue-transparent);
+            color: var(--blue-primary);
+            border-radius: var(--radius-round);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: var(--space-md);
+        }
+
+        .hobbies-sidebar {
+            background: linear-gradient(135deg, var(--purple-pale), var(--blue-pale));
+            padding: var(--space-xxl);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-medium);
+            position: sticky;
+            top: 120px;
+        }
+
+        .hobbies-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-md);
+            margin-top: var(--space-lg);
+        }
+
+        .hobby-item {
+            background: var(--bg-primary);
+            padding: var(--space-md);
+            border-radius: var(--radius-md);
+            text-align: center;
+            transition: all var(--transition-normal);
+            border: 1px solid var(--border-light);
+        }
+
+        .hobby-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medium);
+            border-color: var(--blue-light);
+        }
+
+        .hobby-icon {
+            font-size: 1.5rem;
+            color: var(--purple-primary);
+            margin-bottom: var(--space-sm);
+        }
+
+        /* ===== SKILLS SECTION ===== */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: var(--space-xxl);
+        }
+
+        .skill-category {
+            background: var(--bg-primary);
+            padding: var(--space-xxl);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-medium);
+            border: 1px solid var(--border-light);
+            transition: all var(--transition-normal);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-category::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--blue-primary), var(--purple-primary));
+        }
+
+        .skill-category:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-heavy);
+        }
+
+        .skill-category.technical:hover {
+            border-color: var(--blue-light);
+        }
+
+        .skill-category.soft:hover {
+            border-color: var(--purple-light);
+        }
+
+        .skill-list {
+            list-style: none;
+            margin-top: var(--space-lg);
+        }
+
+        .skill-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-lg);
+            padding-bottom: var(--space-md);
+            border-bottom: 1px dashed var(--border-light);
+        }
+
+        .skill-name {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+        }
+
+        .skill-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--blue-transparent);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--blue-primary);
+            font-size: 1.2rem;
+        }
+
+        .skill-level {
+            width: 150px;
+            height: 8px;
+            background: var(--border-light);
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .skill-fill {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            border-radius: 4px;
+            background: linear-gradient(90deg, var(--blue-primary), var(--purple-primary));
+            transition: width 1.5s ease;
+            width: 0%;
+        }
+
+        .skill-percentage {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            min-width: 40px;
+            text-align: right;
+        }
+
+        /* ===== PROJECTS SECTION ===== */
+        .projects-filter {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-md);
+            margin-bottom: var(--space-xxl);
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: var(--space-sm) var(--space-lg);
+            background: var(--bg-primary);
+            border: 1px solid var(--border-medium);
+            border-radius: var(--radius-round);
+            font-weight: 600;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all var(--transition-normal);
+        }
+
+        .filter-btn:hover {
+            border-color: var(--blue-primary);
+            color: var(--blue-primary);
+            transform: translateY(-2px);
+        }
+
+        .filter-btn.active {
+            background: linear-gradient(135deg, var(--blue-primary), var(--purple-primary));
+            color: white;
+            border-color: transparent;
+            box-shadow: var(--shadow-blue);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: var(--space-xxl);
+        }
+
+        .project-card {
+            background: var(--bg-primary);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-medium);
+            transition: all var(--transition-normal);
+            border: 1px solid var(--border-light);
+            position: relative;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--blue-primary), var(--purple-primary));
+        }
+
+        .project-card:hover {
+            transform: translateY(-15px);
+            box-shadow: var(--shadow-heavy);
+        }
+
+        .project-header {
+            padding: var(--space-xl);
+            border-bottom: 1px solid var(--border-light);
+            position: relative;
+        }
+
+        .project-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--blue-transparent), var(--purple-transparent));
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: var(--space-lg);
+            color: var(--purple-primary);
+            font-size: 1.5rem;
+        }
+
+        .project-content {
+            padding: var(--space-xl);
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-sm);
+            margin-top: var(--space-lg);
+        }
+
+        .tech-tag {
+            padding: var(--space-xs) var(--space-md);
+            background: var(--blue-transparent);
+            color: var(--blue-primary);
+            border-radius: var(--radius-round);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        /* ===== CONTACT SECTION ===== */
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-xxl);
+        }
+
+        .contact-info {
+            background: linear-gradient(135deg, var(--blue-pale), var(--purple-pale));
+            padding: var(--space-xxl);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-lg);
+            margin-bottom: var(--space-xxl);
+            padding: var(--space-lg);
+            background: var(--bg-primary);
+            border-radius: var(--radius-lg);
+            transition: all var(--transition-normal);
+        }
+
+        .contact-item:hover {
+            transform: translateX(10px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .contact-icon-wrapper {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--blue-primary), var(--purple-primary));
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .contact-details h4 {
+            margin-bottom: var(--space-xs);
+        }
+
+        /* ===== RESUME SECTION ===== */
+        .resume-container {
+            background: var(--bg-primary);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-heavy);
+            border: 1px solid var(--border-light);
+        }
+
+        .resume-header {
+            padding: var(--space-xxl);
+            background: linear-gradient(135deg, var(--blue-primary), var(--purple-primary));
+            color: white;
+            text-align: center;
+        }
+
+        .resume-header h2 {
+            color: white;
+        }
+
+        .resume-header h2::after {
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .resume-content {
+            padding: var(--space-xxl);
+        }
+
+        .pdf-viewer-container {
+            position: relative;
+            width: 100%;
+            height: 600px;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            border: 1px solid var(--border-medium);
+            margin: var(--space-xxl) 0;
+        }
+
+        .pdf-viewer {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .download-actions {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-lg);
+            margin-top: var(--space-xxl);
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-md);
+            padding: var(--space-lg) var(--space-xxl);
+            background: linear-gradient(135deg, var(--blue-primary), var(--purple-primary));
+            color: white;
+            border-radius: var(--radius-lg);
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all var(--transition-normal);
+            box-shadow: var(--shadow-blue);
+        }
+
+        .download-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-purple);
+        }
+
+        .download-btn.secondary {
+            background: var(--bg-primary);
+            color: var(--blue-primary);
+            border: 2px solid var(--blue-primary);
+            box-shadow: none;
+        }
+
+        .download-btn.secondary:hover {
+            background: var(--blue-transparent);
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: linear-gradient(135deg, var(--blue-darker), var(--purple-darker));
+            color: white;
+            padding: var(--space-xxxl) 0 var(--space-xxl);
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--blue-primary), var(--purple-primary));
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-xxl);
+            margin-bottom: var(--space-xxl);
+        }
+
+        .footer-logo {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+        }
+
+        .footer-logo-img {
+            width: 80px;
+            height: 80px;
+            border-radius: var(--radius-md);
+            border: 3px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .social-links {
+            display: flex;
+            gap: var(--space-md);
+            margin-top: var(--space-lg);
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-round);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.3rem;
+            transition: all var(--transition-normal);
+        }
+
+        .social-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: var(--space-xxl);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 1200px) {
+            .container {
+                max-width: 100%;
+                padding: 0 var(--space-xl);
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: var(--space-xl);
+            }
+            
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hobbies-sidebar {
+                position: static;
+            }
+            
+            .hero-title {
+                font-size: 3.2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.4rem;
+            }
+            
+            h1 {
+                font-size: 3rem;
+            }
+            
+            h2 {
+                font-size: 2.2rem;
+            }
+            
+            .gear-animation {
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .section {
+                padding: var(--space-xxl) 0;
+            }
+            
+            .skills-container,
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-xl);
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+                gap: var(--space-xl);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-desktop {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            .mobile-nav {
+                position: fixed;
+                top: 90px;
+                left: 0;
+                width: 100%;
+                background: var(--bg-primary);
+                box-shadow: var(--shadow-heavy);
+                padding: var(--space-lg);
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: all var(--transition-normal);
+                z-index: 999;
+                border-radius: 0 0 var(--radius-xl) var(--radius-xl);
+            }
+            
+            .mobile-nav.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            .mobile-nav-links {
+                display: flex;
+                flex-direction: column;
+                gap: var(--space-md);
+            }
+            
+            .mobile-nav-link {
+                padding: var(--space-lg);
+                background: var(--bg-secondary);
+                border-radius: var(--radius-md);
+                font-weight: 600;
+                color: var(--text-primary);
+                transition: all var(--transition-fast);
+                text-align: center;
+            }
+            
+            .mobile-nav-link:hover,
+            .mobile-nav-link.active {
+                background: linear-gradient(135deg, var(--blue-primary), var(--purple-primary));
+                color: white;
+            }
+            
+            .hero {
+                padding-top: 120px;
+                padding-bottom: var(--space-xxl);
+            }
+            
+            .hero-title {
+                font-size: 2.8rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.3rem;
+            }
+            
+            .hero-description {
+                font-size: 1.1rem;
+            }
+            
+            .gear-animation {
+                width: 250px;
+                height: 250px;
+            }
+            
+            .gear-large {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .gear-small {
+                width: 90px;
+                height: 90px;
+                top: 15px;
+                right: 15px;
+            }
+            
+            .pdf-viewer-container {
+                height: 450px;
+            }
+            
+            .about-content,
+            .skill-category,
+            .contact-info,
+            .hobbies-sidebar {
+                padding: var(--space-xl);
+            }
+            
+            .projects-filter {
+                gap: var(--space-sm);
+            }
+            
+            .filter-btn {
+                padding: var(--space-sm) var(--space-md);
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 0 var(--space-md);
+            }
+            
+            .hero-title {
+                font-size: 2.4rem;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            h3 {
+                font-size: 1.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .section-header p {
+                font-size: 1rem;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-lg);
+            }
+            
+            .project-card {
+                margin-bottom: var(--space-lg);
+            }
+            
+            .hobbies-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .download-actions {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .download-btn {
+                width: 100%;
+                justify-content: center;
+                padding: var(--space-md) var(--space-xl);
+            }
+            
+            .pdf-viewer-container {
+                height: 350px;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .social-links {
+                justify-content: center;
+            }
+            
+            .flex {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.6rem;
+            }
+            
+            .hero-container {
+                gap: var(--space-lg);
+            }
+            
+            .hero-visual {
+                height: 300px;
+            }
+            
+            .gear-animation {
+                width: 200px;
+                height: 200px;
+            }
+            
+            .gear-large {
+                width: 120px;
+                height: 120px;
+            }
+            
+            .gear-small {
+                width: 70px;
+                height: 70px;
+                top: 10px;
+                right: 10px;
+            }
+            
+            .gear-center {
+                width: 30px;
+                height: 30px;
+            }
+            
+            .hobbies-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .education-timeline {
+                padding-left: var(--space-lg);
+            }
+            
+            .education-item::before {
+                left: -18px;
+            }
+            
+            .skill-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: var(--space-sm);
+            }
+            
+            .skill-level {
+                width: 100%;
+                margin-top: var(--space-sm);
+            }
+            
+            .skill-percentage {
+                align-self: flex-end;
+            }
+            
+            .projects-filter {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .filter-btn {
+                width: 200px;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .logo-name {
+                font-size: 1.5rem;
+            }
+            
+            .logo-subtitle {
+                font-size: 0.8rem;
+            }
+            
+            .hero-title {
+                font-size: 1.8rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            .section-header p {
+                font-size: 0.95rem;
+            }
+            
+            .project-content,
+            .project-header {
+                padding: var(--space-lg);
+            }
+        }
+
+        /* ===== UTILITY CLASSES ===== */
+        .gradient-bg {
+            background: linear-gradient(135deg, var(--blue-primary), var(--purple-primary));
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, var(--blue-primary), var(--purple-primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .shadow-blue {
+            box-shadow: var(--shadow-blue);
+        }
+
+        .shadow-purple {
+            box-shadow: var(--shadow-purple);
+        }
+
+        .mt-1 { margin-top: var(--space-sm); }
+        .mt-2 { margin-top: var(--space-md); }
+        .mt-3 { margin-top: var(--space-lg); }
+        .mt-4 { margin-top: var(--space-xl); }
+        .mt-5 { margin-top: var(--space-xxl); }
+
+        .mb-1 { margin-bottom: var(--space-sm); }
+        .mb-2 { margin-bottom: var(--space-md); }
+        .mb-3 { margin-bottom: var(--space-lg); }
+        .mb-4 { margin-bottom: var(--space-xl); }
+        .mb-5 { margin-bottom: var(--space-xxl); }
+
+        .text-center { text-align: center; }
+        .text-left { text-align: left; }
+        .text-right { text-align: right; }
+
+        .flex { display: flex; }
+        .flex-col { flex-direction: column; }
+        .items-center { align-items: center; }
+        .justify-center { justify-content: center; }
+        .justify-between { justify-content: space-between; }
+        .gap-1 { gap: var(--space-sm); }
+        .gap-2 { gap: var(--space-md); }
+        .gap-3 { gap: var(--space-lg); }
+        .gap-4 { gap: var(--space-xl); }
+        .gap-5 { gap: var(--space-xxl); }
+    </style>
+</head>
+<body>
+    <!-- Header with Navigation -->
+    <header id="header">
+        <div class="container header-container">
+            <div class="logo-container">
+                <img src="/areeba-portfolio/new logo.jpg" alt="Areeba Logo" class="logo-img">
+                <div class="logo-text">
+                    <div class="logo-name">Areeba</div>
+                    <div class="logo-subtitle">Mechanical Engineer</div>
+                </div>
+            </div>
+            
+            <nav class="nav-desktop">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#contact" class="nav-link">Contact</a>
+                <a href="#resume" class="nav-link">Resume</a>
+            </nav>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <div class="mobile-nav" id="mobileNav">
+            <div class="mobile-nav-links">
+                <a href="#home" class="mobile-nav-link active">Home</a>
+                <a href="#about" class="mobile-nav-link">About</a>
+                <a href="#skills" class="mobile-nav-link">Skills</a>
+                <a href="#projects" class="mobile-nav-link">Projects</a>
+                <a href="#contact" class="mobile-nav-link">Contact</a>
+                <a href="#resume" class="mobile-nav-link">Resume</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">Areeba</h1>
+                <h2 class="hero-subtitle">Mechanical Engineering Innovator</h2>
+                <p class="hero-description">
+                    A passionate <span class="text-highlight">2nd-year Mechanical Engineering student</span> at Air University, Islamabad, dedicated to solving real-world problems through innovative design, thermodynamics, and mechanical systems. Combining technical expertise with creative problem-solving to engineer a better tomorrow.
+                </p>
+                <div class="flex gap-3 flex-wrap justify-center">
+                    <a href="#projects" class="download-btn">
+                        <i class="fas fa-rocket"></i> View Projects
+                    </a>
+                    <a href="#contact" class="download-btn secondary">
+                        <i class="fas fa-envelope"></i> Contact Me
+                    </a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="gear-animation">
+                    <div class="gear-large">
+                        <div class="gear-center"></div>
+                    </div>
+                    <div class="gear-small">
+                        <div class="gear-center"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <h2>About Me</h2>
+                <p>Get to know my journey, education, and what drives my passion for mechanical engineering</p>
+            </div>
+            
+            <div class="about-grid">
+                <div class="about-content">
+                    <div class="about-intro">
+                        <h3>My Engineering Philosophy</h3>
+                        <p>
+                            I am a dedicated <span class="text-highlight">Mechanical Engineering student</span> with a profound passion for transforming theoretical knowledge into practical solutions. My approach combines analytical thinking with creative problem-solving, focusing on areas like <span class="text-highlight">thermodynamics, fluid mechanics, machine design, and 3D modeling</span>.
+                        </p>
+                        <p>
+                            What sets me apart is my ability to bridge the gap between traditional engineering principles and modern technological applications. I believe that the most effective solutions emerge at the intersection of <span class="text-highlight">precision engineering</span> and <span class="text-highlight">innovative thinking</span>.
+                        </p>
+                    </div>
+                    
+                    <div class="education-timeline">
+                        <h3 class="mb-4">Educational Journey</h3>
+                        
+                        <div class="education-item">
+                            <span class="education-year">2024 - Present</span>
+                            <h4>Bachelor of Engineering - Mechanical Engineering</h4>
+                            <p class="text-highlight">Air University, Islamabad</p>
+                            <p>
+                                Currently in my 2nd year, I am actively engaged in advanced coursework including Thermodynamics II, Fluid Mechanics, Machine Design, and Heat Transfer. Participating in university research initiatives and engineering workshops.
+                            </p>
+                            <div class="flex gap-2 mt-3 flex-wrap">
+                                <span class="tech-tag">Thermodynamics</span>
+                                <span class="tech-tag">CAD Design</span>
+                                <span class="tech-tag">Engineering Labs</span>
+                            </div>
+                        </div>
+                        
+                        <div class="education-item">
+                            <span class="education-year">2022 - 2024</span>
+                            <h4>HSSC - Pre-Engineering</h4>
+                            <p class="text-highlight">Islamabad Model College for Girls F-6/2</p>
+                            <p>
+                                Built a strong foundation in Physics, Chemistry, and Mathematics with focus on engineering principles. Developed problem-solving skills through practical applications and laboratory work. Active member of the college's science and innovation club.
+                            </p>
+                            <div class="flex gap-2 mt-3 flex-wrap">
+                                <span class="tech-tag">Physics</span>
+                                <span class="tech-tag">Calculus</span>
+                                <span class="tech-tag">Technical Drawing</span>
+                            </div>
+                        </div>
+                        
+                        <div class="education-item">
+                            <span class="education-year">2020 - 2022</span>
+                            <h4>Matriculation - Science</h4>
+                            <p class="text-highlight">Science with Physics, Chemistry, Mathematics</p>
+                            <p>
+                                Developed early interest in scientific principles and their applications. Excelled in mathematics and physics, laying the groundwork for my engineering journey. Participated in school science fairs and innovation competitions.
+                            </p>
+                            <div class="flex gap-2 mt-3 flex-wrap">
+                                <span class="tech-tag">Basic Sciences</span>
+                                <span class="tech-tag">Mathematics</span>
+                                <span class="tech-tag">Scientific Method</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hobbies-sidebar">
+                    <h3>Beyond Engineering</h3>
+                    <p>When I'm not designing mechanical systems or solving engineering problems, I explore creative outlets and physical activities that balance my technical mind.</p>
+                    
+                    <div class="hobbies-grid">
+                        <div class="hobby-item">
+                            <div class="hobby-icon">
+                                <i class="fas fa-paint-brush"></i>
+                            </div>
+                            <h5>Painting</h5>
+                            <p class="text-tertiary">Watercolor & acrylic</p>
+                        </div>
+                        
+                        <div class="hobby-item">
+                            <div class="hobby-icon">
+                                <i class="fas fa-table-tennis-paddle-ball"></i>
+                            </div>
+                            <h5>Table Tennis</h5>
+                            <p class="text-tertiary">Competitive player</p>
+                        </div>
+                        
+                        <div class="hobby-item">
+                            <div class="hobby-icon">
+                                <i class="fas fa-football"></i>
+                            </div>
+                            <h5>Football</h5>
+                            <p class="text-tertiary">Team sports enthusiast</p>
+                        </div>
+                        
+                        <div class="hobby-item">
+                            <div class="hobby-icon">
+                                <i class="fas fa-tools"></i>
+                            </div>
+                            <h5>Crafting</h5>
+                            <p class="text-tertiary">DIY projects</p>
+                        </div>
+                        
+                        <div class="hobby-item">
+                            <div class="hobby-icon">
+                                <i class="fas fa-tv"></i>
+                            </div>
+                            <h5>Series</h5>
+                            <p class="text-tertiary">Sci-fi & documentaries</p>
+                        </div>
+                        
+                        <div class="hobby-item">
+                            <div class="hobby-icon">
+                                <i class="fas fa-dumbbell"></i>
+                            </div>
+                            <h5>Badminton</h5>
+                            <p class="text-tertiary">Regular player</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-5">
+                        <h4>Languages</h4>
+                        <div class="flex gap-2 mt-3 flex-wrap">
+                            <span class="tech-tag">Urdu (Native)</span>
+                            <span class="tech-tag">English (Professional)</span>
+                            <span class="tech-tag">Chinese (Basic)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Technical & Professional Skills</h2>
+                <p>A comprehensive overview of my technical competencies and personal attributes</p>
+            </div>
+            
+            <div class="skills-container">
+                <div class="skill-category technical">
+                    <h3><i class="fas fa-cogs"></i> Technical Expertise</h3>
+                    <p class="text-secondary">Software proficiency and engineering tools mastery</p>
+                    
+                    <ul class="skill-list">
+                        <li class="skill-item">
+                            <div class="skill-name">
+                                <div class="skill-icon">
+                                    <i class="fas fa-cube"></i>
+                                </div>
+                                <span>SolidWorks 3D Modeling</span>
+                            </div>
+                            <div class="skill-level">
+                                <div class="skill-fill" data-width="90%"></div>
+                            </div>
+                            <span class="skill-percentage">90%</span>
+                        </li>
+                        
+                        <li class="skill-item">
+                            <div class="skill-name">
+                                <div class="skill-icon">
+                                    <i class="fas fa-drafting-compass"></i>
+                                </div>
+                                <span>AutoCAD Design</span>
+                            </div>
+                            <div class="skill-level">
+                                <div class="skill-fill" data-width="85%"></div>
+                            </div>
+                            <span class="skill-percentage">85%</span>
+                        </li>
+                        
+                        <li class="skill-item">
+                            <div class="skill-name">
+                                <div class="skill-icon">
+                                    <i class="fas fa-cube"></i>
+                                </div>
+                                <span>3D Modeling & Rendering</span>
+                            </div>
+                            <div class="skill-level">
+                                <div class="skill-fill" data-width="88%"></div>
+                            </div>
+                            <span class="skill-percentage">88%</span>
+                        </li>
+                        
+                        <li class="skill-item">
+                            <div class="skill-name">
+                                <div class="skill-icon">
+                                    <i class="fas fa-file-alt"></i>
+                                </div>
+                                <span>Microsoft Office Suite</span>
+                            </div>
+                            <div class="skill-level">
+                                <div class="skill-fill" data-width="92%"></div>
+                            </div>
+                            <span class="skill-percentage">92%</span>
+                        </li>
+                        
+                        <li class="skill-item">
+                            <div class="skill-name">
+                                <div class="skill-icon">
+                                    <i class="fas fa-palette"></i>
+                                </div>
+                                <span>Canva & Graphic Design</span>
+                            </div>
+                            <div class="skill-level">
+                                <div class="skill-fill" data-width="80%"></div>
+                            </div>
+                            <span class="skill-percentage">80%</span>
+                        </li>
+                        
+                        <li class="skill-item">
+                            <div class="skill-name">
+                                <div class="skill-icon">
+                                    <i class="fas fa-lightbulb"></i>
+                                </div>
+                                <span>Problem Solving</span>
+                            </div>
+                            <div class="skill-level">
+                                <div class="skill-fill" data-width="95%"></div>
+                            </div>
+                            <span class="skill-percentage">95%</span>
+                        </li>
+                        
+                        <li class="skill-item">
+                            <div class="skill-name">
+                                <div class="skill-icon">
+                                    <i class="fas fa-project-diagram"></i>
+                                </div>
+                                <span>Technical Drawing</span>
+                            </div>
+                            <div class="skill-level">
+                                <div class="skill-fill" data-width="87%"></div>
+                            </div>
+                            <span class="skill-percentage">87%</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category soft">
+                    <h3><i class="fas fa-users"></i> Professional Skills</h3>
+                    <p class="text-secondary">Personal attributes and workplace competencies</p>
+                    
+                    <ul class="skill-list">
+                        <li class="skill-item">
+                            <div class="skill-name">
+                                <div class="skill-icon">
+                                    <i class="fas fa-comments"></i>
+                                </div>
+                                <span>Communication</span>
+                            </div>
+                            <div class="skill-level">
+                                <div class="skill-fill" data-width="90%"></div>
+                            </div>
+                            <span class="skill-percentage">90%</span>
+                        </li>
+                        
+                        <li class="skill-item">
+                            <div class="skill-name">
+                                <div class="skill-icon">
+                                    <i class="fas fa-people-group"></i>
+                                </div>
+                                <span>Teamwork & Collaboration</span>
+                            </div>
+                            <div class="skill-level">
+                                <div class="skill-fill" data-width="94%"></div>
+                            </div>
+                            <span class="skill-percentage">94%</span>
+                        </li>
+                        
+                        <li class="skill-item">
+                            <div class="skill-name">
+                                <div class="skill-icon">
+                                    <i class="fas fa-flag"></i>
+                                </div>
+                                <span>Leadership</span>
+                            </div>
+                            <div class="skill-level">
+                                <div class="skill-fill" data-width="85%"></div>
+                            </div>
+                            <span class="skill-percentage">85%</span>
+                        </li>
+                        
+                        <li class="skill-item">
+                            <div class="skill-name">
+                                <div class="skill-icon">
+                                    <i class="fas fa-arrows-rotate"></i>
+                                </div>
+                                <span>Adaptability</span>
+                            </div>
+                            <div class="skill-level">
+                                <div class="skill-fill" data-width="92%"></div>
+                            </div>
+                            <span class="skill-percentage">92%</span>
+                        </li>
+                        
+                        <li class="skill-item">
+                            <div class="skill-name">
+                                <div class="skill-icon">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <span>Time Management</span>
+                            </div>
+                            <div class="skill-level">
+                                <div class="skill-fill" data-width="88%"></div>
+                            </div>
+                            <span class="skill-percentage">88%</span>
+                        </li>
+                        
+                        <li class="skill-item">
+                            <div class="skill-name">
+                                <div class="skill-icon">
+                                    <i class="fas fa-brain"></i>
+                                </div>
+                                <span>Critical Thinking</span>
+                            </div>
+                            <div class="skill-level">
+                                <div class="skill-fill" data-width="93%"></div>
+                            </div>
+                            <span class="skill-percentage">93%</span>
+                        </li>
+                        
+                        <li class="skill-item">
+                            <div class="skill-name">
+                                <div class="skill-icon">
+                                    <i class="fas fa-tasks"></i>
+                                </div>
+                                <span>Project Management</span>
+                            </div>
+                            <div class="skill-level">
+                                <div class="skill-fill" data-width="82%"></div>
+                            </div>
+                            <span class="skill-percentage">82%</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <h2>Engineering Projects</h2>
+                <p>Practical applications of mechanical engineering principles and problem-solving</p>
+            </div>
+            
+            <div class="projects-filter" id="projectsFilter">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="cad">CAD & 3D Modeling</button>
+                <button class="filter-btn" data-filter="thermo">Thermodynamics</button>
+                <button class="filter-btn" data-filter="prototype">Prototypes</button>
+                <button class="filter-btn" data-filter="lab">Lab Projects</button>
+            </div>
+            
+            <div class="projects-grid" id="projectsGrid">
+                <!-- Project 1 -->
+                <div class="project-card" data-category="cad">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fas fa-car"></i>
+                        </div>
+                        <h3>3D Engine Modeling</h3>
+                        <p class="text-tertiary">SolidWorks Project</p>
+                    </div>
+                    <div class="project-content">
+                        <p>Designed and modeled a complete internal combustion engine with detailed components including pistons, crankshaft, camshaft, valves, and cooling system. The project focused on precision engineering and understanding mechanical interactions within engine systems.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">SolidWorks</span>
+                            <span class="tech-tag">3D Modeling</span>
+                            <span class="tech-tag">Assembly Design</span>
+                            <span class="tech-tag">Engineering Drawings</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-card" data-category="cad prototype">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h3>Chassis System Design</h3>
+                        <p class="text-tertiary">AutoCAD Project</p>
+                    </div>
+                    <div class="project-content">
+                        <p>Developed a comprehensive 3D chassis model with detailed engineering drawings, focusing on structural integrity, weight distribution, and material selection. The design incorporated stress analysis and optimization for vehicular applications.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">AutoCAD</span>
+                            <span class="tech-tag">Structural Design</span>
+                            <span class="tech-tag">Technical Drawing</span>
+                            <span class="tech-tag">Stress Analysis</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="project-card" data-category="prototype lab">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fas fa-car-brake"></i>
+                        </div>
+                        <h3>Hydraulic Braking System</h3>
+                        <p class="text-tertiary">Functional Prototype</p>
+                    </div>
+                    <div class="project-content">
+                        <p>Constructed a working hydraulic braking system prototype using cardboard, syringes, and tubing to demonstrate Pascal's Law and hydraulic force transmission. The project effectively visualized pressure distribution and braking efficiency in a scaled model.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Prototyping</span>
+                            <span class="tech-tag">Hydraulics</span>
+                            <span class="tech-tag">Pascal's Law</span>
+                            <span class="tech-tag">Fluid Mechanics</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 4 -->
+                <div class="project-card" data-category="thermo lab">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3>Plasma Cannon</h3>
+                        <p class="text-tertiary">Thermodynamics Demonstration</p>
+                    </div>
+                    <div class="project-content">
+                        <p>Engineered a plasma cannon using a modified lighter as an ionization source to demonstrate electrical discharge and plasma formation. The project explored high-voltage applications and energy conversion principles in a controlled laboratory setting.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Plasma Physics</span>
+                            <span class="tech-tag">Energy Conversion</span>
+                            <span class="tech-tag">Lab Safety</span>
+                            <span class="tech-tag">High Voltage</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 5 -->
+                <div class="project-card" data-category="thermo">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fas fa-industry"></i>
+                        </div>
+                        <h3>Rolls-Royce Trent 1000 Analysis</h3>
+                        <p class="text-tertiary">Thermodynamics Project</p>
+                    </div>
+                    <div class="project-content">
+                        <p>Conducted comprehensive energy and entropy analysis of the Rolls-Royce Trent 1000 aircraft engine. The study focused on thermodynamic cycles, efficiency calculations, and performance optimization under various operating conditions.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Thermodynamics</span>
+                            <span class="tech-tag">Engine Analysis</span>
+                            <span class="tech-tag">Efficiency Calculations</span>
+                            <span class="tech-tag">Performance Metrics</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 6 -->
+                <div class="project-card" data-category="lab">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fas fa-magnet"></i>
+                        </div>
+                        <h3>Electromagnetic Induction</h3>
+                        <p class="text-tertiary">Intermediate Level Lab Project</p>
+                    </div>
+                    <div class="project-content">
+                        <p>Designed and implemented electromagnetic induction experiments to demonstrate Faraday's Law and Lenz's Law. The project included coil winding, magnetic field measurement, and voltage generation studies with various conductor materials.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Electromagnetism</span>
+                            <span class="tech-tag">Faraday's Law</span>
+                            <span class="tech-tag">Lab Equipment</span>
+                            <span class="tech-tag">Data Analysis</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Get In Touch</h2>
+                <p>Connect with me for collaborations, opportunities, or engineering discussions</p>
+            </div>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3 class="mb-4">Contact Information</h3>
+                    <p class="mb-5">I'm always open to discussing mechanical engineering projects, research opportunities, or innovative ideas. Feel free to reach out through any of the channels below.</p>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon-wrapper">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            <p>ruochen2025awesome@gmail.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon-wrapper">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Phone</h4>
+                            <p>03414440727</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon-wrapper">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Address</h4>
+                            <p>Margalla town isalmabad, Pakistan</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form-wrapper">
+
+        </div>
+    </section>
+
+    <!-- Resume Section -->
+    <section id="resume" class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <h2>Professional Resume</h2>
+                <p>Detailed academic and professional background for potential employers and collaborators</p>
+            </div>
+            
+            <div class="resume-container">
+                <div class="resume-header">
+                    <h2>Curriculum Vitae</h2>
+                    <p style="color: white;">Mechanical Engineering Student | 2nd Year | Air University</p>
+                </div>
+                
+                <div class="resume-content">
+                    <div class="text-center mb-5">
+                        <h3 class="gradient-text">View & Download My CV</h3>
+                        <p>The embedded PDF below contains my complete resume. You can view it directly in your browser or download it for offline reference.</p>
+                    </div>
+                    
+                    <div class="pdf-viewer-container">
+                        <iframe src="/areeba-portfolio/cv.pdf" class="pdf-viewer" title="Areeba's CV">
+                            <div class="pdf-fallback">
+                                <p><i class="fas fa-exclamation-triangle"></i> Your browser doesn't support PDF embedding.</p>
+                                <a href="/areeba-portfolio/cv.pdf" class="download-btn mt-3" download>
+                                    <i class="fas fa-download"></i> Download CV Instead
+                                </a>
+                            </div>
+                        </iframe>
+                    </div>
+                    
+                    <div class="text-center">
+                        <p class="mb-4">For the best viewing experience, you can download the PDF file directly to your device.</p>
+                        
+                        <div class="download-actions">
+                            <a href="/areeba-portfolio/cv.pdf" download="Areeba_CV_Mechanical_Engineering.pdf" class="download-btn">
+                                <i class="fas fa-download"></i> Download CV (PDF)
+                            </a>
+                            <a href="/areeba-portfolio/cv.pdf" target="_blank" class="download-btn secondary">
+                                <i class="fas fa-external-link-alt"></i> Open in New Tab
+                            </a>
+                        </div>
+                        
+                        <div class="mt-5">
+                            <h4>File Information</h4>
+                            <div class="flex justify-center gap-4 mt-3 flex-wrap">
+                                <div class="text-center">
+                                    <div class="text-highlight">Format</div>
+                                    <div>PDF Document</div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="text-highlight">Size</div>
+                                    <div>Approx. 2-3 MB</div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="text-highlight">Last Updated</div>
+                                    <div>Current</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="/areeba-portfolio/new logo.jpg" alt="Areeba Logo" class="footer-logo-img">
+                    <div>
+                        <h3>Areeba</h3>
+                        <p>Mechanical Engineering Innovator</p>
+                        <p>Solving real-world problems through precision engineering and innovative design.</p>
+                    </div>
+
+                </div>
+                
+                <div>
+                    <h4>Quick Links</h4>
+                    <div class="flex flex-col gap-2 mt-3">
+                        <a href="#home">Home</a>
+                        <a href="#about">About Me</a>
+                        <a href="#skills">Skills</a>
+                        <a href="#projects">Projects</a>
+                        <a href="#contact">Contact</a>
+                        <a href="#resume">Resume</a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4>Academic Focus</h4>
+                    <div class="flex flex-col gap-2 mt-3">
+                        <span>Thermodynamics</span>
+                        <span>3D Modeling</span>
+                        <span>Machine Design</span>
+                        <span>Fluid Mechanics</span>
+                        <span>CAD Systems</span>
+                        <span>Engineering Analysis</span>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4>Contact Info</h4>
+                    <div class="flex flex-col gap-3 mt-3">
+                        <div class="flex items-center gap-2 justify-center">
+                            <i class="fas fa-envelope"></i>
+                            <span>ruochen2025awesome@gmail.com</span>
+                        </div>
+                        <div class="flex items-center gap-2 justify-center">
+                            <i class="fas fa-phone"></i>
+                            <span>03414440727</span>
+                        </div>
+                        <div class="flex items-center gap-2 justify-center">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Margalla Town, Islamabad</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 Areeba. All rights reserved. | Designed with precision and passion for mechanical engineering.</p>
+                <p class="mt-2">This portfolio showcases academic projects and personal development in mechanical engineering.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+            
+            // Update active navigation
+            updateActiveNav();
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileNav = document.getElementById('mobileNav');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+        
+        if (mobileMenuBtn && mobileNav) {
+            mobileMenuBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                mobileNav.classList.toggle('active');
+                const icon = mobileMenuBtn.querySelector('i');
+                
+                if (mobileNav.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', function(e) {
+                if (mobileNav.classList.contains('active') && 
+                    !mobileNav.contains(e.target) && 
+                    e.target !== mobileMenuBtn && 
+                    !mobileMenuBtn.contains(e.target)) {
+                    mobileNav.classList.remove('active');
+                    mobileMenuBtn.querySelector('i').classList.remove('fa-times');
+                    mobileMenuBtn.querySelector('i').classList.add('fa-bars');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+
+            // Close mobile menu when clicking on a link
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileNav.classList.remove('active');
+                    mobileMenuBtn.querySelector('i').classList.remove('fa-times');
+                    mobileMenuBtn.querySelector('i').classList.add('fa-bars');
+                    document.body.style.overflow = 'auto';
+                });
+            });
+        }
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('href');
+                
+                // Skip if it's just "#"
+                if (targetId === '#' || targetId === '#!') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    e.preventDefault();
+                    
+                    // Calculate offset for fixed header
+                    const header = document.getElementById('header');
+                    const headerHeight = header ? header.offsetHeight : 80;
+                    const targetPosition = targetElement.offsetTop - headerHeight - 20;
+                    
+                    window.scrollTo({
+                        top: Math.max(0, targetPosition),
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Update active navigation based on scroll position
+        function updateActiveNav() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
+            
+            let currentSection = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                const headerHeight = document.getElementById('header').offsetHeight;
+                
+                if (window.scrollY >= (sectionTop - headerHeight - 100) && 
+                    window.scrollY < (sectionTop + sectionHeight - headerHeight - 100)) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${currentSection}`) {
+                    link.classList.add('active');
+                }
+            });
+            
+            // Default to home if at top
+            if (window.scrollY < 100) {
+                navLinks.forEach(link => link.classList.remove('active'));
+                const homeLink = document.querySelector('a[href="#home"]');
+                if (homeLink) homeLink.classList.add('active');
+            }
+        }
+
+        // Initialize active nav on page load
+        document.addEventListener('DOMContentLoaded', updateActiveNav);
+
+        // Project filtering
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+        
+        if (filterButtons.length && projectCards.length) {
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Update active button
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const filterValue = this.getAttribute('data-filter');
+                    
+                    // Filter projects with animation
+                    projectCards.forEach((card, index) => {
+                        const categories = card.getAttribute('data-category');
+                        
+                        if (filterValue === 'all' || categories.includes(filterValue)) {
+                            // Show with delay for staggered effect
+                            setTimeout(() => {
+                                card.style.display = 'block';
+                                setTimeout(() => {
+                                    card.style.opacity = '1';
+                                    card.style.transform = 'translateY(0)';
+                                }, 50);
+                            }, index * 50);
+                        } else {
+                            // Hide with animation
+                            card.style.opacity = '0';
+                            card.style.transform = 'translateY(20px)';
+                            setTimeout(() => {
+                                card.style.display = 'none';
+                            }, 300);
+                        }
+                    });
+                });
+            });
+        }
+
+        // Animate skill bars on scroll
+        function animateSkillBars() {
+            const skillBars = document.querySelectorAll('.skill-fill');
+            
+            skillBars.forEach(bar => {
+                const rect = bar.parentElement.getBoundingClientRect();
+                
+                // Check if element is in viewport
+                if (rect.top < window.innerHeight && rect.bottom > 0 && !bar.hasAttribute('data-animated')) {
+                    const width = bar.getAttribute('data-width') || '0%';
+                    bar.style.width = '0%';
+                    
+                    setTimeout(() => {
+                        bar.style.transition = 'width 1.5s ease-in-out';
+                        bar.style.width = width;
+                        bar.setAttribute('data-animated', 'true');
+                    }, 200);
+                }
+            });
+        }
+
+        // Listen for scroll to animate skill bars
+        window.addEventListener('scroll', animateSkillBars);
+        
+        // Initial check for skill bars
+        document.addEventListener('DOMContentLoaded', animateSkillBars);
+
+        // Initialize gear animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const gearLarge = document.querySelector('.gear-large');
+            const gearSmall = document.querySelector('.gear-small');
+            
+            if (gearLarge && gearSmall) {
+                // Force reflow to ensure animations start
+                void gearLarge.offsetWidth;
+                void gearSmall.offsetWidth;
+                
+                gearLarge.style.animation = 'rotateGear 20s linear infinite';
+                gearSmall.style.animation = 'rotateGearReverse 15s linear infinite';
+            }
+            
+            // Initialize skill bars with their actual widths
+            const skillBars = document.querySelectorAll('.skill-fill');
+            skillBars.forEach(bar => {
+                const width = bar.getAttribute('data-width') || '0%';
+                bar.style.width = '0%';
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 100);
+            });
+        });
+
+        // Add hover effect to project cards
+        projectCards.forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.zIndex = '10';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.zIndex = '1';
+            });
+        });
+    </script>
+</body>
+</html>
