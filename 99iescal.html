@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>99IES Scientific Calculator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .calculator {
+            background: linear-gradient(145deg, #2d2d2d, #1a1a1a);
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            max-width: 420px;
+            width: 100%;
+            border: 2px solid #333;
+        }
+
+        .calculator-header {
+            text-align: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #444;
+        }
+
+        .brand {
+            font-size: 28px;
+            font-weight: bold;
+            color: #00d4ff;
+            text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+            letter-spacing: 3px;
+        }
+
+        .model {
+            font-size: 9px;
+            color: #888;
+            letter-spacing: 2px;
+            margin-top: 3px;
+        }
+
+        .mode-indicators {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 10px;
+            font-size: 10px;
+            flex-wrap: wrap;
+        }
+
+        .mode-indicators span {
+            background: #1a1a1a;
+            padding: 3px 8px;
+            border-radius: 3px;
+            color: #666;
+            border: 1px solid #333;
+            transition: all 0.2s;
+        }
+
+        .mode-indicators span.active {
+            color: #00ff88;
+            background: #1a3a1a;
+            border-color: #00ff88;
+            box-shadow: 0 0 8px rgba(0, 255, 136, 0.3);
+        }
+
+        .display {
+            background: #c4d9b5;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border: 3px solid #444;
+            box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.3);
+            min-height: 80px;
+        }
+
+        .expression-display {
+            font-size: 12px;
+            color: #333;
+            min-height: 18px;
+            word-wrap: break-word;
+            font-family: 'Courier New', monospace;
+        }
+
+        .main-display {
+            font-size: 28px;
+            font-weight: bold;
+            color: #000;
+            text-align: right;
+            margin-top: 8px;
+            font-family: 'Courier New', monospace;
+            word-wrap: break-word;
+        }
+
+        .stat-display {
+            background: #1a1a1a;
+            color: #00ff88;
+            padding: 8px;
+            border-radius: 5px;
+            font-size: 11px;
+            margin-bottom: 10px;
+            text-align: center;
+            border: 1px solid #333;
+        }
+
+        .button-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 6px;
+        }
+
+        button {
+            padding: 15px 8px;
+            border: none;
+            border-radius: 8px;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.15s;
+            position: relative;
+            font-weight: 600;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        button:active {
+            transform: translateY(2px);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+        }
+
+        .number-btn {
+            background: linear-gradient(145deg, #4a4a4a, #3a3a3a);
+            color: #fff;
+            border: 1px solid #555;
+        }
+
+        .number-btn:hover {
+            background: linear-gradient(145deg, #5a5a5a, #4a4a4a);
+        }
+
+        .operator-btn {
+            background: linear-gradient(145deg, #ff6b35, #e55a2b);
+            color: #fff;
+            border: 1px solid #cc4a1f;
+        }
+
+        .operator-btn:hover {
+            background: linear-gradient(145deg, #ff7b45, #f56a3b);
+        }
+
+        .function-btn {
+            background: linear-gradient(145deg, #2d5a7b, #1e3c5a);
+            color: #fff;
+            border: 1px solid #1a2f4a;
+            font-size: 11px;
+        }
+
+        .function-btn:hover {
+            background: linear-gradient(145deg, #3d6a8b, #2e4c6a);
+        }
+
+        .function-btn.active {
+            background: linear-gradient(145deg, #ff8800, #dd6600);
+            border-color: #bb5500;
+        }
+
+        .function-btn.danger {
+            background: linear-gradient(145deg, #cc3333, #aa2222);
+            border: 1px solid #881111;
+        }
+
+        .equals-btn {
+            background: linear-gradient(145deg, #00cc66, #00aa55);
+            color: #fff;
+            border: 1px solid #008844;
+        }
+
+        .equals-btn:hover {
+            background: linear-gradient(145deg, #00dd77, #00bb66);
+        }
+
+        .wide {
+            grid-column: span 2;
+        }
+
+        .secondary {
+            display: block;
+            font-size: 8px;
+            color: #ffaa00;
+            margin-bottom: 2px;
+        }
+
+        .primary {
+            display: block;
+            font-size: 12px;
+        }
+
+        .calculator-footer {
+            margin-top: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 10px;
+            border-top: 1px solid #444;
+        }
+
+        .solar-panel {
+            width: 60px;
+            height: 8px;
+            background: linear-gradient(90deg, #1a1a3a 0%, #2a2a4a 50%, #1a1a3a 100%);
+            border-radius: 2px;
+            border: 1px solid #555;
+        }
+
+        .brand-small {
+            font-size: 9px;
+            color: #666;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 480px) {
+            .calculator {
+                padding: 15px;
+            }
+
+            button {
+                padding: 12px 5px;
+                font-size: 11px;
+            }
+
+            .main-display {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <div class="calculator-header">
+            <div class="brand">99IES</div>
+            <div class="model">SCIENTIFIC CALCULATOR</div>
+        </div>
+
+        <div class="mode-indicators">
+            <span id="deg-indicator">DEG</span>
+            <span id="rad-indicator">RAD</span>
+            <span id="grad-indicator">GRAD</span>
+            <span id="stat-indicator">STAT</span>
+            <span id="shift-indicator">SHIFT</span>
+            <span id="memory-indicator">M</span>
+        </div>
+
+        <div class="display">
+            <div class="expression-display" id="expression-display"></div>
+            <div class="main-display" id="main-display">0</div>
+        </div>
+
+        <div class="stat-display" id="stat-display" style="display: none;"></div>
+
+        <div class="button-grid">
+            <!-- Row 1 -->
+            <button class="function-btn" onclick="toggleMode()">
+                <span class="primary">MODE</span>
+            </button>
+            <button class="function-btn" onclick="toggleAngleMode()">
+                <span class="primary">DRG</span>
+            </button>
+            <button class="function-btn" id="shift-btn" onclick="toggleShift()">
+                <span class="primary">SHIFT</span>
+            </button>
+            <button class="function-btn danger" onclick="allClear()">
+                <span class="primary">AC</span>
+            </button>
+            <button class="function-btn" onclick="deleteChar()">
+                <span class="primary">DEL</span>
+            </button>
+
+            <!-- Row 2 -->
+            <button class="function-btn" onclick="handleTrig('sin')">
+                <span class="secondary">sin⁻¹</span>
+                <span class="primary">sin</span>
+            </button>
+            <button class="function-btn" onclick="handleTrig('cos')">
+                <span class="secondary">cos⁻¹</span>
+                <span class="primary">cos</span>
+            </button>
+            <button class="function-btn" onclick="handleTrig('tan')">
+                <span class="secondary">tan⁻¹</span>
+                <span class="primary">tan</span>
+            </button>
+            <button class="function-btn" onclick="handleMemory('clear')">
+                <span class="secondary">MC</span>
+                <span class="primary">M+</span>
+            </button>
+            <button class="function-btn" onclick="handleMemory('recall')">
+                <span class="secondary">MR</span>
+                <span class="primary">M-</span>
+            </button>
+
+            <!-- Row 3 -->
+            <button class="function-btn" onclick="handleTrig('sinh')">
+                <span class="secondary">sinh⁻¹</span>
+                <span class="primary">sinh</span>
+            </button>
+            <button class="function-btn" onclick="handleTrig('cosh')">
+                <span class="secondary">cosh⁻¹</span>
+                <span class="primary">cosh</span>
+            </button>
+            <button class="function-btn" onclick="handleTrig('tanh')">
+                <span class="secondary">tanh⁻¹</span>
+                <span class="primary">tanh</span>
+            </button>
+            <button class="function-btn" onclick="appendToExpression('(')">
+                <span class="primary">(</span>
+            </button>
+            <button class="function-btn" onclick="appendToExpression(')')">
+                <span class="primary">)</span>
+            </button>
+
+            <!-- Row 4 -->
+            <button class="function-btn" onclick="handleLog()">
+                <span class="secondary">10ˣ</span>
+                <span class="primary">log</span>
+            </button>
+            <button class="function-btn" onclick="handleLn()">
+                <span class="secondary">eˣ</span>
+                <span class="primary">ln</span>
+            </button>
+            <button class="function-btn" onclick="handlePower()">
+                <span class="secondary">ⁿ√</span>
+                <span class="primary">xʸ</span>
+            </button>
+            <button class="function-btn" onclick="handleRoot()">
+                <span class="secondary">∛</span>
+                <span class="primary">√</span>
+            </button>
+            <button class="function-btn" onclick="handleSquare()">
+                <span class="secondary">x³</span>
+                <span class="primary">x²</span>
+            </button>
+
+            <!-- Row 5 -->
+            <button class="function-btn" onclick="handlePi()">
+                <span class="secondary">e</span>
+                <span class="primary">π</span>
+            </button>
+            <button class="function-btn" onclick="handleAbs()">
+                <span class="secondary">Int</span>
+                <span class="primary">|x|</span>
+            </button>
+            <button class="function-btn" onclick="handleFactorial()">
+                <span class="secondary">Ran#</span>
+                <span class="primary">n!</span>
+            </button>
+            <button class="function-btn" onclick="appendToExpression('Ans')">
+                <span class="primary">Ans</span>
+            </button>
+            <button class="operator-btn" onclick="appendToExpression('÷')">
+                <span class="primary">÷</span>
+            </button>
+
+            <!-- Row 6 -->
+            <button class="number-btn" onclick="appendToExpression('7')">7</button>
+            <button class="number-btn" onclick="appendToExpression('8')">8</button>
+            <button class="number-btn" onclick="appendToExpression('9')">9</button>
+            <button class="function-btn" onclick="appendToExpression('%')">
+                <span class="primary">%</span>
+            </button>
+            <button class="operator-btn" onclick="appendToExpression('×')">
+                <span class="primary">×</span>
+            </button>
+
+            <!-- Row 7 -->
+            <button class="number-btn" onclick="appendToExpression('4')">4</button>
+            <button class="number-btn" onclick="appendToExpression('5')">5</button>
+            <button class="number-btn" onclick="appendToExpression('6')">6</button>
+            <button class="function-btn" onclick="appendToExpression(' mod ')">
+                <span class="primary">mod</span>
+            </button>
+            <button class="operator-btn" onclick="appendToExpression('-')">
+                <span class="primary">−</span>
+            </button>
+
+            <!-- Row 8 -->
+            <button class="number-btn" onclick="appendToExpression('1')">1</button>
+            <button class="number-btn" onclick="appendToExpression('2')">2</button>
+            <button class="number-btn" onclick="appendToExpression('3')">3</button>
+            <button class="function-btn" onclick="handleFraction()">
+                <span class="secondary">DATA</span>
+                <span class="primary">a/b</span>
+            </button>
+            <button class="operator-btn" onclick="appendToExpression('+')">
+                <span class="primary">+</span>
+            </button>
+
+            <!-- Row 9 -->
+            <button class="number-btn wide" onclick="appendToExpression('0')">0</button>
+            <button class="number-btn" onclick="appendToExpression('.')">.</button>
+            <button class="function-btn" onclick="appendToExpression('×10^(')">
+                <span class="primary">×10ˣ</span>
+            </button>
+            <button class="equals-btn" onclick="calculate()">
+                <span class="primary">=</span>
+            </button>
+        </div>
+
+        <div class="calculator-footer">
+            <div class="solar-panel"></div>
+            <div class="brand-small">99IES FX-991</div>
+        </div>
+    </div>
+
+    <script>
+        // Global state
+        let expression = '';
+        let display = '0';
+        let mode = 'COMP'; // COMP or STAT
+        let angleMode = 'DEG'; // DEG, RAD, GRAD
+        let shiftActive = false;
+        let memory = 0;
+        let ans = 0;
+        let statData = [];
+        let hasError = false;
+
+        // Initialize display
+        updateDisplay();
+
+        // Angle conversion functions
+        function toRadians(value) {
+            if (angleMode === 'DEG') return value * (Math.PI / 180);
+            if (angleMode === 'GRAD') return value * (Math.PI / 200);
+            return value;
+        }
+
+        function fromRadians(value) {
+            if (angleMode === 'DEG') return value * (180 / Math.PI);
+            if (angleMode === 'GRAD') return value * (200 / Math.PI);
+            return value;
+        }
+
+        // Mathematical functions
+        function factorial(n) {
+            n = Math.floor(n);
+            if (n < 0 || !Number.isInteger(n)) throw new Error('Math Error');
+            if (n > 170) throw new Error('Math Error');
+            if (n === 0 || n === 1) return 1;
+            let result = 1;
+            for (let i = 2; i <= n; i++) result *= i;
+            return result;
+        }
+
+        function nthRoot(x, n) {
+            if (n === 0) throw new Error('Math Error');
+            if (x < 0 && n % 2 === 0) throw new Error('Math Error');
+            return Math.sign(x) * Math.pow(Math.abs(x), 1 / n);
+        }
+
+        // Expression evaluation
+        function evaluateExpression(expr) {
+            try {
+                // Replace special symbols
+                let processed = expr
+                    .replace(/π/g, Math.PI.toString())
+                    .replace(/e(?![0-9])/g, Math.E.toString())
+                    .replace(/×/g, '*')
+                    .replace(/÷/g, '/')
+                    .replace(/Ans/g, ans.toString())
+                    .replace(/(\d+)%/g, '($1/100)')
+                    .replace(/(\d+) mod (\d+)/g, '($1%$2)');
+
+                // Handle trigonometric functions
+                processed = processed.replace(/sin⁻¹\(([\d.+\-*/()^]+)\)/g, (_, arg) => {
+                    const val = eval(arg);
+                    return fromRadians(Math.asin(val)).toString();
+                });
+                processed = processed.replace(/cos⁻¹\(([\d.+\-*/()^]+)\)/g, (_, arg) => {
+                    const val = eval(arg);
+                    return fromRadians(Math.acos(val)).toString();
+                });
+                processed = processed.replace(/tan⁻¹\(([\d.+\-*/()^]+)\)/g, (_, arg) => {
+                    const val = eval(arg);
+                    return fromRadians(Math.atan(val)).toString();
+                });
+
+                processed = processed.replace(/sinh⁻¹\(([\d.+\-*/()^]+)\)/g, (_, arg) => {
+                    const val = eval(arg);
+                    return Math.asinh(val).toString();
+                });
+                processed = processed.replace(/cosh⁻¹\(([\d.+\-*/()^]+)\)/g, (_, arg) => {
+                    const val = eval(arg);
+                    return Math.acosh(val).toString();
+                });
+                processed = processed.replace(/tanh⁻¹\(([\d.+\-*/()^]+)\)/g, (_, arg) => {
+                    const val = eval(arg);
+                    return Math.atanh(val).toString();
+                });
+
+                processed = processed.replace(/sin\(([\d.+\-*/()^]+)\)/g, (_, arg) => {
+                    const val = eval(arg);
+                    return Math.sin(toRadians(val)).toString();
+                });
+                processed = processed.replace(/cos\(([\d.+\-*/()^]+)\)/g, (_, arg) => {
+                    const val = eval(arg);
+                    return Math.cos(toRadians(val)).toString();
+                });
+                processed = processed.replace(/tan\(([\d.+\-*/()^]+)\)/g, (_, arg) => {
+                    const val = eval(arg);
+                    return Math.tan(toRadians(val)).toString();
+                });
+
+                processed = processed.replace(/sinh\(([\d.+\-*/()^]+)\)/g, (_, arg) => {
+                    const val = eval(arg);
+                    return Math.sinh(val).toString();
+                });
+                processed = processed.replace(/cosh\(([\d.+\-*/()^]+)\)/g, (_, arg) => {
+                    const val = eval(arg);
+                    return Math.cosh(val).toString();
+                });
+                processed = processed.replace(/tanh\(([\d.+\-*/()^]+)\)/g, (_, arg) => {
+                    const val = eval(arg);
+                    return Math.tanh(val).toString();
+                });
+
+                // Handle logarithms
+                processed = processed.replace(/log\(([\d.+\-*/()^]+)\)/g, (_, arg) => {
+                    const val = eval(arg);
+                    if (val <= 0) throw new Error('Math Error');
+                    return Math.log10(val).toString();
+                });
+                processed = processed.replace(/ln\(([\d.+\-*/()^]+)\)/g, (_, arg) => {
+                    const val = eval(arg);
+                    if (val <= 0) throw new Error('Math Error');
+                    return Math.log(val).toString();
+                });
+
+                // Handle roots
+                processed = processed.replace(/√\(([\d.+\-*/()^]+)\)/g, (_, arg) => {
+                    const val = eval(arg);
+                    if (val < 0) throw new Error('Math Error');
+                    return Math.sqrt(val).toString();
+                });
+                processed = processed.replace(/∛\(([\d.+\-*/()^]+)\)/g, (_, arg) => {
+                    const val = eval(arg);
+                    return Math.cbrt(val).toString();
+                });
+
+                // Handle special functions
+                processed = processed.replace(/abs\(([\d.+\-*/()^]+)\)/g, (_, arg) => {
+                    const val = eval(arg);
+                    return Math.abs(val).toString();
+                });
+                processed = processed.replace(/int\(([\d.+\-*/()^]+)\)/g, (_, arg) => {
+                    const val = eval(arg);
+                    return Math.floor(val).toString();
+                });
+
+                // Handle factorials
+                processed = processed.replace(/(\d+)!/g, (_, num) => {
+                    return factorial(parseInt(num)).toString();
+                });
+
+                // Replace ^ with **
+                processed = processed.replace(/\^/g, '**');
+
+                // Evaluate
+                const result = eval(processed);
+                
+                if (!isFinite(result)) throw new Error('Math Error');
+                return result;
+            } catch (e) {
+                throw new Error(e.message.includes('Math Error') ? 'Math Error' : 'Syntax Error');
+            }
+        }
+
+        // Display functions
+        function updateDisplay() {
+            document.getElementById('expression-display').textContent = expression;
+            document.getElementById('main-display').textContent = display;
+            
+            // Update mode indicators
+            document.getElementById('deg-indicator').classList.toggle('active', angleMode === 'DEG');
+            document.getElementById('rad-indicator').classList.toggle('active', angleMode === 'RAD');
+            document.getElementById('grad-indicator').classList.toggle('active', angleMode === 'GRAD');
+            document.getElementById('stat-indicator').classList.toggle('active', mode === 'STAT');
+            document.getElementById('shift-indicator').classList.toggle('active', shiftActive);
+            document.getElementById('memory-indicator').classList.toggle('active', memory !== 0);
+            document.getElementById('shift-btn').classList.toggle('active', shiftActive);
+
+            // Update stat display
+            if (mode === 'STAT' && statData.length > 0) {
+                const stats = calculateStats();
+                document.getElementById('stat-display').style.display = 'block';
+                document.getElementById('stat-display').textContent = 
+                    `Data: ${stats.n} values | Mean: ${stats.mean.toFixed(4)} | σ: ${stats.sampleStdDev.toFixed(4)}`;
+            } else {
+                document.getElementById('stat-display').style.display = 'none';
+            }
+        }
+
+        function formatNumber(num) {
+            if (Math.abs(num) > 9999999999 || (Math.abs(num) < 0.0000001 && num !== 0)) {
+                return num.toExponential(8);
+            }
+            const formatted = parseFloat(num.toPrecision(10)).toString();
+            return formatted;
+        }
+
+        // Input functions
+        function appendToExpression(value) {
+            if (hasError) {
+                expression = '';
+                hasError = false;
+            }
+            
+            if (expression === '0' && value !== '.') {
+                expression = value;
+            } else {
+                expression += value;
+            }
+            
+            display = expression;
+            shiftActive = false;
+            updateDisplay();
+        }
+
+        function deleteChar() {
+            if (hasError) {
+                expression = '';
+                display = '0';
+                hasError = false;
+            } else {
+                expression = expression.slice(0, -1) || '0';
+                display = expression;
+            }
+            shiftActive = false;
+            updateDisplay();
+        }
+
+        function allClear() {
+            expression = '';
+            display = '0';
+            hasError = false;
+            shiftActive = false;
+            updateDisplay();
+        }
+
+        function calculate() {
+            if (hasError) return;
+            
+            try {
+                const result = evaluateExpression(expression);
+                ans = result;
+                display = formatNumber(result);
+                expression = result.toString();
+                hasError = false;
+            } catch (e) {
+                display = e.message;
+                hasError = true;
+            }
+            
+            shiftActive = false;
+            updateDisplay();
+        }
+
+        // Mode functions
+        function toggleMode() {
+            mode = mode === 'COMP' ? 'STAT' : 'COMP';
+            if (mode === 'STAT') {
+                statData = [];
+            }
+            updateDisplay();
+        }
+
+        function toggleAngleMode() {
+            const modes = ['DEG', 'RAD', 'GRAD'];
+            const index = modes.indexOf(angleMode);
+            angleMode = modes[(index + 1) % 3];
+            updateDisplay();
+        }
+
+        function toggleShift() {
+            shiftActive = !shiftActive;
+            updateDisplay();
+        }
+
+        // Function handlers
+        function handleTrig(func) {
+            if (shiftActive) {
+                appendToExpression(func + '⁻¹(');
+            } else {
+                appendToExpression(func + '(');
+            }
+        }
+
+        function handleLog() {
+            if (shiftActive) {
+                appendToExpression('10^(');
+            } else {
+                appendToExpression('log(');
+            }
+        }
+
+        function handleLn() {
+            if (shiftActive) {
+                appendToExpression(Math.E + '^(');
+            } else {
+                appendToExpression('ln(');
+            }
+        }
+
+        function handlePower() {
+            if (shiftActive) {
+                appendToExpression('^(1/');
+            } else {
+                appendToExpression('^(');
+            }
+        }
+
+        function handleRoot() {
+            if (shiftActive) {
+                appendToExpression('∛(');
+            } else {
+                appendToExpression('√(');
+            }
+        }
+
+        function handleSquare() {
+            if (shiftActive) {
+                appendToExpression('^3');
+            } else {
+                appendToExpression('^2');
+            }
+        }
+
+        function handlePi() {
+            if (shiftActive) {
+                appendToExpression(Math.E.toString());
+            } else {
+                appendToExpression('π');
+            }
+        }
+
+        function handleAbs() {
+            if (shiftActive) {
+                appendToExpression('int(');
+            } else {
+                appendToExpression('abs(');
+            }
+        }
+
+        function handleFactorial() {
+            if (shiftActive) {
+                appendToExpression(Math.random().toString());
+            } else {
+                appendToExpression('!');
+            }
+        }
+
+        function handleFraction() {
+            if (mode === 'STAT') {
+                // Add data to statistics
+                try {
+                    const val = evaluateExpression(expression);
+                    statData.push(val);
+                    display = `n=${statData.length}`;
+                    expression = '';
+                    hasError = false;
+                } catch (e) {
+                    display = 'Syntax Error';
+                    hasError = true;
+                }
+                updateDisplay();
+            } else {
+                appendToExpression('/');
+            }
+        }
+
+        // Memory functions
+        function handleMemory(action) {
+            if (shiftActive) {
+                if (action === 'clear') {
+                    memory = 0;
+                } else if (action === 'recall') {
+                    try {
+                        const val = evaluateExpression(expression);
+                        memory -= val;
+                    } catch (e) {
+                        display = 'Syntax Error';
+                        hasError = true;
+                    }
+                }
+            } else {
+                if (action === 'clear') {
+                    try {
+                        const val = evaluateExpression(expression);
+                        memory += val;
+                    } catch (e) {
+                        display = 'Syntax Error';
+                        hasError = true;
+                    }
+                } else if (action === 'recall') {
+                    expression = memory.toString();
+                    display = formatNumber(memory);
+                }
+            }
+            shiftActive = false;
+            updateDisplay();
+        }
+
+        // Statistics functions
+        function calculateStats() {
+            if (statData.length === 0) return null;
+            const n = statData.length;
+            const sum = statData.reduce((a, b) => a + b, 0);
+            const mean = sum / n;
+            const sumSquares = statData.reduce((a, b) => a + b * b, 0);
+            const variance = (sumSquares / n) - (mean * mean);
+            const sampleVariance = n > 1 ? (sumSquares - (sum * sum / n)) / (n - 1) : 0;
+            
+            return {
+                n,
+                sum,
+                sumSquares,
+                mean,
+                populationStdDev: Math.sqrt(variance),
+                sampleStdDev: Math.sqrt(sampleVariance)
+            };
+        }
+
+        // Keyboard support
+        document.addEventListener('keydown', (e) => {
+            const key = e.key;
+            
+            if (key >= '0' && key <= '9') appendToExpression(key);
+            else if (key === '.') appendToExpression('.');
+            else if (key === '+') appendToExpression('+');
+            else if (key === '-') appendToExpression('-');
+            else if (key === '*') appendToExpression('×');
+            else if (key === '/') { e.preventDefault(); appendToExpression('÷'); }
+            else if (key === 'Enter' || key === '=') { e.preventDefault(); calculate(); }
+            else if (key === 'Escape') allClear();
+            else if (key === 'Backspace') { e.preventDefault(); deleteChar(); }
+            else if (key === '(') appendToExpression('(');
+            else if (key === ')') appendToExpression(')');
+        });
+    </script>
+</body>
+</html>
