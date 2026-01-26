@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GPA Calculator — Free GPA Calculator Tool | Usman-Khan</title>
+  <meta name="description" content="Use our free GPA Calculator to compute your semester or cumulative GPA using your grades and credit hours. Easy, fast, and mobile-friendly.">
+  <link rel="stylesheet" href="gpa.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+
+  <header class="sticky-header">
+    <div class="container">
+      <nav class="main-nav">
+        <a href="#" class="logo">
+          <i class="fas fa-calculator"></i>
+          <span>UsmanKhan</span>
+        </a>
+        <ul class="nav-links">
+          <li><a href="index.html">Back to Portfolio</a></li>
+          <li><a href="#" class="active"><i class="fas fa-calculator"></i> GPA Calculator</a></li>
+          <li><a href="#"><i class="fas fa-tools"></i> Calculators</a></li>
+          <li><a href="#"><i class="fas fa-envelope"></i> Contact</a></li>
+        </ul>
+        <button class="menu-toggle" id="menuToggle">
+          <i class="fas fa-bars"></i>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero-section">
+      <div class="breadcrumb">
+        <a href="#"><i class="fas fa-home"></i> Home</a> / <span>GPA Calculator</span>
+      </div>
+      <div class="hero-content">
+        <h1><i class="fas fa-graduation-cap"></i> GPA Calculator</h1>
+        <p class="description">
+          Quickly calculate your cumulative GPA based on your course grades, credit hours, and grading scale. This GPA calculator supports letter and numeric grade inputs.
+        </p>
+      </div>
+    </section>
+
+    <div class="main-content-grid">
+      <section class="calculator-section card">
+        <div class="section-header">
+          <h2><i class="fas fa-edit"></i> Enter Your Courses</h2>
+          <div class="gpa-display">
+            <span class="gpa-label">Your GPA:</span>
+            <span class="gpa-value" id="live-gpa">0.00</span>
+          </div>
+        </div>
+        
+        <div class="calculator-controls">
+          <div class="input-row header-row">
+            <div class="input-cell">Course Name</div>
+            <div class="input-cell">Grade</div>
+            <div class="input-cell">Credits</div>
+            <div class="input-cell">Action</div>
+          </div>
+          
+          <div id="course-list">
+            <!-- Course rows will be added here by JavaScript -->
+          </div>
+        </div>
+        
+        <div class="calculator-actions">
+          <button id="add-course" class="btn-secondary">
+            <i class="fas fa-plus-circle"></i> Add Course
+          </button>
+          <button id="clear-all" class="btn-clear">
+            <i class="fas fa-trash-alt"></i> Clear All
+          </button>
+          <button id="calculate-gpa" class="btn-primary" disabled>
+            <i class="fas fa-calculator"></i> Calculate GPA
+          </button>
+        </div>
+        
+        <div class="scale-selector">
+          <label for="grading-scale"><i class="fas fa-sliders-h"></i> Grading Scale:</label>
+          <select id="grading-scale">
+            <option value="standard">Standard (4.0)</option>
+            <option value="weighted">Weighted (5.0)</option>
+            <option value="custom">Custom</option>
+          </select>
+        </div>
+      </section>
+
+      <section id="results" class="results-section card" style="display: none;" aria-live="polite">
+        <div class="results-header">
+          <h2><i class="fas fa-chart-line"></i> GPA Results</h2>
+          <button id="download-pdf" class="btn-download">
+            <i class="fas fa-file-pdf"></i> Download PDF
+          </button>
+        </div>
+        
+        <div class="results-grid">
+          <div class="result-card">
+            <div class="result-icon">
+              <i class="fas fa-star"></i>
+            </div>
+            <div class="result-content">
+              <h3>Overall GPA</h3>
+              <p class="result-value" id="gpa-result">0.00</p>
+              <p class="result-label">Out of 4.0 scale</p>
+            </div>
+          </div>
+          
+          <div class="result-card">
+            <div class="result-icon">
+              <i class="fas fa-weight-hanging"></i>
+            </div>
+            <div class="result-content">
+              <h3>Total Credits</h3>
+              <p class="result-value" id="total-credits">0</p>
+              <p class="result-label">Credit hours</p>
+            </div>
+          </div>
+          
+          <div class="result-card">
+            <div class="result-icon">
+              <i class="fas fa-check-circle"></i>
+            </div>
+            <div class="result-content">
+              <h3>Quality Points</h3>
+              <p class="result-value" id="quality-points">0</p>
+              <p class="result-label">Total points earned</p>
+            </div>
+          </div>
+          
+          <div class="result-card">
+            <div class="result-icon">
+              <i class="fas fa-chart-pie"></i>
+            </div>
+            <div class="result-content">
+              <h3>Course Count</h3>
+              <p class="result-value" id="course-count">0</p>
+              <p class="result-label">Courses calculated</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="gpa-breakdown">
+          <h3><i class="fas fa-list-alt"></i> Course Breakdown</h3>
+          <div id="breakdown-list">
+            <!-- Course breakdown will be populated here -->
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="info-grid">
+      <section class="informational-content">
+        <div class="info-section card">
+          <h2><i class="fas fa-question-circle"></i> How Does This Work?</h2>
+          <p>Your Grade Point Average (GPA) is calculated by dividing the total number of grade points you've earned by the total number of credit hours you've attempted.</p>
+          
+          <div class="formula-card">
+            <div class="formula-header">
+              <i class="fas fa-square-root-alt"></i> GPA Formula
+            </div>
+            <div class="formula">
+              GPA = Σ(Grade Points × Credits) ÷ Total Credits
+            </div>
+          </div>
+          
+          <div class="steps">
+            <div class="step">
+              <div class="step-number">1</div>
+              <div class="step-content">
+                <h4>Add Your Courses</h4>
+                <p>Enter course name, grade, and credit hours for each course</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-number">2</div>
+              <div class="step-content">
+                <h4>Grade Conversion</h4>
+                <p>Letter grades are converted to grade points (A = 4.0, B = 3.0, etc.)</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-number">3</div>
+              <div class="step-content">
+                <h4>Calculate Quality Points</h4>
+                <p>Grade points × credit hours = quality points for each course</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-number">4</div>
+              <div class="step-content">
+                <h4>Final Calculation</h4>
+                <p>Sum all quality points and divide by total credits</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="info-section card">
+          <h2><i class="fas fa-table"></i> Grading Scale</h2>
+          <div class="table-responsive">
+            <table id="grading-scale-table" class="grading-table">
+              <!-- Grading scale will be populated by JavaScript -->
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <aside class="sidebar-content">
+        <div class="info-section card">
+          <h2><i class="fas fa-calculator"></i> Example Calculation</h2>
+          <div class="example-card">
+            <div class="example-course">
+              <span class="course-name">Calculus II</span>
+              <span class="course-grade">A- (3.7)</span>
+              <span class="course-credits">4 Credits</span>
+            </div>
+            <div class="example-course">
+              <span class="course-name">Physics I</span>
+              <span class="course-grade">B+ (3.3)</span>
+              <span class="course-credits">3 Credits</span>
+            </div>
+            <div class="example-course">
+              <span class="course-name">Intro to Programming</span>
+              <span class="course-grade">A (4.0)</span>
+              <span class="course-credits">3 Credits</span>
+            </div>
+            
+            <div class="example-calculation">
+              <p><strong>Quality Points:</strong></p>
+              <p>(3.7 × 4) + (3.3 × 3) + (4.0 × 3) = 36.7</p>
+              <p><strong>Total Credits:</strong> 10</p>
+              <p><strong>GPA:</strong> 36.7 ÷ 10 = <span class="highlight">3.67</span></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="info-section card">
+          <h2><i class="fas fa-lightbulb"></i> GPA Tips</h2>
+          <div class="tips-list">
+            <div class="tip">
+              <i class="fas fa-clock"></i>
+              <div>
+                <h4>Time Management</h4>
+                <p>Create and stick to a study schedule</p>
+              </div>
+            </div>
+            <div class="tip">
+              <i class="fas fa-chalkboard-teacher"></i>
+              <div>
+                <h4>Office Hours</h4>
+                <p>Regularly attend professor office hours</p>
+              </div>
+            </div>
+            <div class="tip">
+              <i class="fas fa-users"></i>
+              <div>
+                <h4>Study Groups</h4>
+                <p>Collaborate with peers for better understanding</p>
+              </div>
+            </div>
+            <div class="tip">
+              <i class="fas fa-heart"></i>
+              <div>
+                <h4>Health First</h4>
+                <p>Prioritize sleep and maintain healthy habits</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <section class="related-tools card">
+      <h2><i class="fas fa-link"></i> Related Calculators</h2>
+      <div class="related-tools-grid">
+        <div class="tool-card">
+          <div class="tool-icon">
+            <i class="fas fa-balance-scale"></i>
+          </div>
+          <h3>Weighted GPA</h3>
+          <p>Calculate weighted GPA with honors/AP classes</p>
+          <a href="#" class="tool-link">Try Calculator <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="tool-card">
+          <div class="tool-icon">
+            <i class="fas fa-university"></i>
+          </div>
+          <h3>College GPA</h3>
+          <p>Calculate college GPA with semester breakdown</p>
+          <a href="#" class="tool-link">Try Calculator <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="tool-card">
+          <div class="tool-icon">
+            <i class="fas fa-exchange-alt"></i>
+          </div>
+          <h3>CGPA Converter</h3>
+          <p>Convert between CGPA and GPA systems</p>
+          <a href="#" class="tool-link">Try Calculator <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3><i class="fas fa-calculator"></i> UsmanKhan</h3>
+          <p>Creating powerful tools for students and educators worldwide.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#"><i class="fas fa-chevron-right"></i> About</a></li>
+            <li><a href="#"><i class="fas fa-chevron-right"></i> Privacy Policy</a></li>
+            <li><a href="#"><i class="fas fa-chevron-right"></i> Terms</a></li>
+            <li><a href="#"><i class="fas fa-chevron-right"></i> Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-social">
+          <h4>Connect With Me</h4>
+          <div class="social-icons">
+            <a href="https://github.com/usman-khan-0" aria-label="GitHub" class="social-icon">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/usman-khan-59b2892b4/" aria-label="LinkedIn" class="social-icon">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="#" aria-label="Twitter" class="social-icon">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" aria-label="YouTube" class="social-icon">
+              <i class="fab fa-youtube"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-legal">
+        <p>&copy; 2025 UsmanKhan. All rights reserved. Made with <i class="fas fa-heart" style="color: #e74c3c;"></i> for students worldwide.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="gpa.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Schedule</title>
+    <link rel="stylesheet" href="todo.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="index.html" class="back-link">Back to Portfolio</a>
+            <h1><i class="fas fa-calendar-day"></i> Daily Schedule</h1>
+            <div class="date-display">
+                <span id="current-date">Loading...</span>
+                <span id="current-time"></span>
+            </div>
+        </header>
+
+        <main>
+            <div class="app-layout">
+                <!-- Task Input Form -->
+                <section class="task-form-container">
+                    <h2><i class="fas fa-plus-circle"></i> Add New Task</h2>
+                    <form id="task-form">
+                        <div class="form-group">
+                            <label for="task-title"><i class="fas fa-tasks"></i> Task Title</label>
+                            <input type="text" id="task-title" placeholder="Enter task title" required>
+                        </div>
+                        
+                        <div class="time-inputs">
+                            <div class="form-group">
+                                <label for="start-time"><i class="fas fa-clock"></i> Start Time</label>
+                                <input type="time" id="start-time" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="end-time"><i class="fas fa-clock"></i> End Time</label>
+                                <input type="time" id="end-time" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="task-status"><i class="fas fa-flag"></i> Status</label>
+                            <select id="task-status">
+                                <option value="upcoming">Upcoming</option>
+                                <option value="ongoing">Ongoing</option>
+                                <option value="completed">Completed</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="submit" id="add-task" class="btn btn-primary">
+                                <i class="fas fa-plus"></i> Add Task
+                            </button>
+                            <button type="button" id="clear-form" class="btn btn-secondary">
+                                <i class="fas fa-redo"></i> Clear
+                            </button>
+                        </div>
+                    </form>
+                    
+                    <div id="error-message" class="error-message"></div>
+                </section>
+
+                <!-- Schedule Display -->
+                <section class="schedule-container">
+                    <div class="schedule-header">
+                        <h2><i class="fas fa-list-alt"></i> Today's Schedule</h2>
+                        <div class="schedule-actions">
+                            <button id="clear-all" class="btn btn-warning">
+                                <i class="fas fa-trash"></i> Clear All
+                            </button>
+                            <button id="export-schedule" class="btn btn-secondary">
+                                <i class="fas fa-download"></i> Export
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="current-time-indicator">
+                        <i class="fas fa-arrow-right"></i> Current time: <span id="current-time-display"></span>
+                    </div>
+                    
+                    <div class="timeline" id="timeline">
+                        <!-- Timeline hours will be generated here -->
+                    </div>
+                    
+                    <div id="no-tasks" class="no-tasks">
+                        <i class="fas fa-calendar-plus"></i>
+                        <h3>No tasks scheduled yet</h3>
+                        <p>Add your first task using the form on the left</p>
+                    </div>
+                    
+                    <div id="tasks-container" class="tasks-container">
+                        <!-- Tasks will be dynamically added here -->
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <footer>
+            <p>Daily Schedule App &copy; <span id="current-year"></span> | Built with vanilla HTML, CSS & JavaScript</p>
+            <p class="storage-info">
+                <i class="fas fa-database"></i> 
+                <span id="storage-status">Data saved locally</span>
+            </p>
+        </footer>
+    </div>
+
+    <!-- Edit Task Modal -->
+    <div id="edit-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-edit"></i> Edit Task</h3>
+                <button id="close-modal" class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="edit-task-form">
+                    <div class="form-group">
+                        <label for="edit-task-title">Task Title</label>
+                        <input type="text" id="edit-task-title" required>
+                    </div>
+                    
+                    <div class="time-inputs">
+                        <div class="form-group">
+                            <label for="edit-start-time">Start Time</label>
+                            <input type="time" id="edit-start-time" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="edit-end-time">End Time</label>
+                            <input type="time" id="edit-end-time" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="edit-task-status">Status</label>
+                        <select id="edit-task-status">
+                            <option value="upcoming">Upcoming</option>
+                            <option value="ongoing">Ongoing</option>
+                            <option value="completed">Completed</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                        <button type="button" id="cancel-edit" class="btn btn-secondary">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="todo.js"></script>
+</body>
+</html>
