@@ -1890,7 +1890,7 @@
                     </div>
                     <div class="about-card">
                         <h3>University Studies</h3>
-                        <p>I am currently pursuing a Bachelor's degree in Mechanical Engineering at Air University, E-9 Islamabad, and I am in my 4th semester. My university studies are enhancing my understanding of mechanical systems, design principles, and practical engineering applications.</p>
+                        <p>I am currently pursuing a Bachelor's degree in Mechanical Engineering at <a href="https://au.edu.pk/" target="_blank">Air University</a>, E-9 Islamabad, and I am in my 4th semester. My university studies are enhancing my understanding of mechanical systems, design principles, and practical engineering applications.</p>
                     </div>
                     <div class="about-card">
                         <h3>Web Development</h3>
@@ -1925,6 +1925,17 @@
                     </div>
                     <div class="academic-status-image">
                         <img src="images/CGPA Graph.png" alt="CGPA Graph">
+                    </div>
+                </div>
+
+                <div class="academic-status-grid" style="margin-top: 4rem;">
+                    <div class="academic-status-image">
+                        <img src="Certificate/Python and Agentic Factory.png" alt="Agentic AI Course Certificate" style="border-radius: 40px; box-shadow: var(--shadow-lg);">
+                    </div>
+                    <div class="academic-status-text">
+                        <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.75rem; font-weight: 700; color: var(--primary-light); margin-bottom: 0.5rem;">Agentic AI Course</h3>
+                        <h4 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.25rem; font-weight: 600; color: var(--white); margin-bottom: 1rem;">Panaversity</h4>
+                        <p>I am currently enrolled in the Agentic AI course offered by <a href="https://panaversity.org/" target="_blank" style="color: var(--primary-light); text-decoration: none; font-weight: 600;">Panaversity</a>. This course provides in-depth knowledge of advanced AI techniques, agentic systems, autonomous decision-making, and practical AI applications. I am learning how to design and implement intelligent agents that can perform complex tasks, optimize workflows, and solve real-world problems. Throughout this course, I am working on hands-on projects, gaining practical experience with Python programming, AI frameworks, and automation tools. These skills are directly applicable to my ongoing projects, including my Jarvis automation project, and help me enhance my technical expertise for professional and collaborative opportunities.</p>
                     </div>
                 </div>
             </div>
@@ -2870,7 +2881,7 @@
         });
 
         // Navigation Links
-        document.querySelectorAll('.nav-link, .hero-buttons .btn').forEach(link => {
+        document.querySelectorAll('.nav-link, .hero-buttons .btn, .work-with-me-buttons .btn').forEach(link => {
             link.addEventListener('click', function(e) {
                 const href = this.getAttribute('href');
                 if (href && href.startsWith('#')) {
