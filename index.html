@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Muhammad Usman Khan | Mechanical & AI Engineer</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap"
         rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
     <link rel="icon" type="image/png" href="images/detective.png">
@@ -167,6 +168,7 @@
                 opacity: 0;
                 transform: translateY(20px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -217,8 +219,15 @@
         }
 
         @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
         }
 
         .hero-title {
@@ -315,8 +324,13 @@
         }
 
         @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
         }
 
         /* Section Header */
@@ -529,7 +543,170 @@
             transition: width 1s ease;
         }
 
-        .section-header + .projects-grid {
+        /* Programming Icons Section */
+        .programming-icons-container {
+            width: 100%;
+            height: 100px;
+            background: var(--dark-secondary);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            margin-top: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            padding: 1rem 2rem;
+        }
+
+        .programming-icon {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            transition: var(--transition);
+        }
+
+        .programming-icon:hover {
+            transform: translateY(-5px);
+        }
+
+        .programming-icon img {
+            width: 45px;
+            height: 45px;
+            object-fit: contain;
+        }
+
+        .programming-icon span {
+            font-size: 0.75rem;
+            color: var(--gray);
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .programming-icons-container {
+                height: auto;
+                min-height: 150px;
+                gap: 1.5rem;
+                padding: 1.5rem 1rem;
+            }
+
+            .programming-icon img {
+                width: 35px;
+                height: 35px;
+            }
+        }
+
+        /* AI Tools Section */
+        .ai-tools-section {
+            margin-top: 2rem;
+        }
+
+        .ai-tools-section h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-light);
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .ai-tools-container {
+            width: 100%;
+            background: var(--dark-secondary);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            padding: 2rem;
+        }
+
+        .ai-tool-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem;
+            background: var(--dark);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            transition: var(--transition);
+            min-width: 100px;
+        }
+
+        .ai-tool-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 0 15px rgba(46, 125, 50, 0.2);
+        }
+
+        .ai-tool-card img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .ai-tool-card .tool-name {
+            font-size: 0.8rem;
+            color: var(--white);
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .ai-tool-card .tool-uses {
+            display: flex;
+            gap: 0.25rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .ai-tool-card .tool-uses span {
+            font-size: 0.65rem;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+
+        .ai-tool-card .tool-uses .coding {
+            background: rgba(46, 125, 50, 0.2);
+            color: var(--primary-light);
+        }
+
+        .ai-tool-card .tool-uses .study {
+            background: rgba(255, 87, 34, 0.2);
+            color: var(--accent);
+        }
+
+        @media (max-width: 768px) {
+            .ai-tools-container {
+                gap: 1rem;
+                padding: 1.5rem 1rem;
+            }
+
+            .ai-tool-card {
+                min-width: 85px;
+                padding: 0.75rem;
+            }
+
+            .ai-tool-card img {
+                width: 35px;
+                height: 35px;
+            }
+
+            .ai-tool-card .tool-name {
+                font-size: 0.7rem;
+            }
+
+            .ai-tool-card .tool-uses span {
+                font-size: 0.6rem;
+            }
+        }
+
+        .section-header+.projects-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
@@ -644,7 +821,8 @@
 
         /* Responsive layout for project cards */
         @media (max-width: 640px) {
-            .section-header + .projects-grid,
+
+            .section-header+.projects-grid,
             .projects-grid {
                 grid-template-columns: 1fr;
                 gap: 1.5rem;
@@ -652,7 +830,8 @@
         }
 
         @media (min-width: 641px) and (max-width: 1024px) {
-            .section-header + .projects-grid,
+
+            .section-header+.projects-grid,
             .projects-grid {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 1.75rem;
@@ -660,10 +839,79 @@
         }
 
         @media (min-width: 1025px) {
-            .section-header + .projects-grid,
+
+            .section-header+.projects-grid,
             .projects-grid {
                 grid-template-columns: repeat(3, 1fr);
                 gap: 2rem;
+            }
+        }
+
+        /* Projects in Progress Card - Full Width */
+        .project-card-full {
+            grid-column: 1 / -1;
+        }
+
+        .project-content-progress {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .project-content-progress .project-text {
+            flex: 1;
+            text-align: justify;
+        }
+
+        .project-content-progress .project-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            flex-shrink: 0;
+        }
+
+        .project-content-progress .project-buttons .btn {
+            width: 250px;
+            text-align: center;
+            justify-content: center;
+        }
+
+        /* Responsive for Projects in Progress */
+        @media (max-width: 900px) {
+            .project-content-progress {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .project-content-progress .project-text {
+                text-align: justify;
+            }
+
+            .project-content-progress .project-buttons {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 0.75rem;
+            }
+
+            .project-content-progress .project-buttons .btn {
+                width: auto;
+                min-width: 200px;
+                flex: 1 1 200px;
+                max-width: 280px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .project-content-progress .project-buttons {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .project-content-progress .project-buttons .btn {
+                width: 100%;
+                max-width: 100%;
             }
         }
 
@@ -1215,6 +1463,7 @@
                 opacity: 0;
                 transform: translateY(20px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -1416,10 +1665,14 @@
         }
 
         @keyframes typing {
-            0%, 60%, 100% {
+
+            0%,
+            60%,
+            100% {
                 transform: translateY(0);
                 opacity: 0.4;
             }
+
             30% {
                 transform: translateY(-8px);
                 opacity: 1;
@@ -1534,45 +1787,244 @@
             font-size: 1rem;
         }
 
-        /* Highlights */
-        .highlights-grid {
+        /* Highlights - Hierarchy Smart Art */
+        .highlights-hierarchy {
             display: flex;
-            gap: 2rem;
-            overflow-x: auto;
-            padding-bottom: 1rem;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .highlights-row {
+            display: flex;
             justify-content: center;
+            gap: 1rem;
+            width: 100%;
+        }
+
+        /* Row sizing for pyramid effect */
+        .highlights-row.row-1 {
+            max-width: 180px;
+        }
+
+        .highlights-row.row-2 {
+            max-width: 380px;
+        }
+
+        .highlights-row.row-3 {
+            max-width: 580px;
         }
 
         .highlight-card {
             background: var(--dark-secondary);
             border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 2rem;
+            border-radius: 10px;
+            padding: 1rem 1.25rem;
             text-align: center;
-            min-width: 180px;
+            flex: 1;
+            min-width: 120px;
+            max-width: 180px;
             transition: var(--transition);
+            position: relative;
+        }
+
+        .highlight-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--primary-light));
+            border-radius: 0 0 3px 3px;
+        }
+
+        /* Featured card (top of hierarchy) */
+        .highlight-card.featured {
+            background: linear-gradient(135deg, var(--dark-secondary) 0%, rgba(46, 125, 50, 0.15) 100%);
+            border-color: var(--primary);
+            box-shadow: 0 0 20px rgba(46, 125, 50, 0.2);
+        }
+
+        .highlight-card.featured::before {
+            width: 60px;
+            height: 4px;
         }
 
         .highlight-card:hover {
             border-color: var(--primary);
-            transform: translateY(-4px);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg), 0 0 15px rgba(46, 125, 50, 0.15);
+        }
+
+        .highlight-icon {
+            font-size: 1.25rem;
+            color: var(--primary-light);
+            margin-bottom: 0.5rem;
         }
 
         .highlight-number {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 3rem;
+            font-size: 1.75rem;
             font-weight: 800;
             color: var(--primary);
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.25rem;
             line-height: 1;
+        }
+
+        .highlight-card.featured .highlight-number {
+            font-size: 2rem;
+            background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .highlight-label {
             color: var(--gray);
-            font-size: 0.875rem;
+            font-size: 0.7rem;
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
+            line-height: 1.3;
+        }
+
+        /* Connector lines between rows */
+        .highlights-connector {
+            width: 2px;
+            height: 15px;
+            background: linear-gradient(180deg, var(--primary), var(--border));
+            position: relative;
+        }
+
+        .highlights-connector::before,
+        .highlights-connector::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            width: 60px;
+            height: 2px;
+            background: var(--border);
+        }
+
+        .highlights-connector::before {
+            right: 0;
+        }
+
+        .highlights-connector::after {
+            left: 0;
+        }
+
+        .highlights-connector.wide::before,
+        .highlights-connector.wide::after {
+            width: 120px;
+        }
+
+        /* Responsive for Highlights Hierarchy */
+        @media (max-width: 768px) {
+            .highlights-hierarchy {
+                gap: 0.75rem;
+            }
+
+            .highlights-row {
+                gap: 0.75rem;
+            }
+
+            .highlights-row.row-1 {
+                max-width: 150px;
+            }
+
+            .highlights-row.row-2 {
+                max-width: 320px;
+            }
+
+            .highlights-row.row-3 {
+                max-width: 100%;
+                flex-wrap: wrap;
+            }
+
+            .highlight-card {
+                padding: 0.875rem 1rem;
+                min-width: 100px;
+                max-width: 150px;
+            }
+
+            .highlight-number {
+                font-size: 1.5rem;
+            }
+
+            .highlight-card.featured .highlight-number {
+                font-size: 1.75rem;
+            }
+
+            .highlight-label {
+                font-size: 0.65rem;
+            }
+
+            .highlight-icon {
+                font-size: 1rem;
+            }
+
+            .highlights-connector {
+                height: 10px;
+            }
+
+            .highlights-connector::before,
+            .highlights-connector::after {
+                width: 40px;
+            }
+
+            .highlights-connector.wide::before,
+            .highlights-connector.wide::after {
+                width: 80px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .highlights-hierarchy {
+                gap: 0.5rem;
+            }
+
+            .highlights-row {
+                gap: 0.5rem;
+            }
+
+            .highlights-row.row-2,
+            .highlights-row.row-3 {
+                max-width: 100%;
+                flex-wrap: wrap;
+            }
+
+            .highlight-card {
+                padding: 0.75rem 0.875rem;
+                min-width: 90px;
+                max-width: 140px;
+                flex: 1 1 calc(50% - 0.5rem);
+            }
+
+            .highlight-number {
+                font-size: 1.35rem;
+            }
+
+            .highlight-card.featured .highlight-number {
+                font-size: 1.5rem;
+            }
+
+            .highlight-label {
+                font-size: 0.6rem;
+            }
+
+            .highlight-icon {
+                font-size: 0.9rem;
+                margin-bottom: 0.35rem;
+            }
+
+            .highlights-connector {
+                display: none;
+            }
         }
 
         /* Responsive Design */
@@ -1660,7 +2112,7 @@
                 width: 280px;
                 height: 280px;
             }
-            
+
             .work-with-me-grid {
                 grid-template-columns: 1fr;
                 text-align: center;
@@ -1757,7 +2209,7 @@
                 right: 0;
             }
         }
-        
+
         /* Work With Me Section */
         .work-with-me-grid {
             display: grid;
@@ -1823,6 +2275,7 @@
             background: #FF7043;
             transform: translateY(-2px);
         }
+
         /* Hover effects for images on the homepage */
         .hero-image .hero-profile {
             transition: var(--transition);
@@ -1891,12 +2344,29 @@
             font-size: 1.5rem;
         }
 
-        .social-btn.instagram { background-color: #E4405F; }
-        .social-btn.github { background-color: #333; }
-        .social-btn.youtube { background-color: #FF0000; }
-        .social-btn.linkedin { background-color: #0A66C2; }
-        .social-btn.huggingface { background-color: #FFD21E; }
-        .social-btn.facebook { background-color: #1877F2; }
+        .social-btn.instagram {
+            background-color: #E4405F;
+        }
+
+        .social-btn.github {
+            background-color: #333;
+        }
+
+        .social-btn.youtube {
+            background-color: #FF0000;
+        }
+
+        .social-btn.linkedin {
+            background-color: #0A66C2;
+        }
+
+        .social-btn.huggingface {
+            background-color: #FFD21E;
+        }
+
+        .social-btn.facebook {
+            background-color: #1877F2;
+        }
 
         .connect-with-me-image .responsive-image {
             border-radius: 26px;
@@ -1948,7 +2418,8 @@
                     <div class="hero-content">
                         <div class="hero-badge">Available for Work</div>
                         <h1 class="hero-title">Muhammad Usman Khan</h1>
-                        <p class="hero-subtitle">Mechanical Engineering Student & Tech Innovator passionate about creating innovative solutions at the intersection of engineering and technology.</p>
+                        <p class="hero-subtitle">Mechanical Engineering Student & Tech Innovator passionate about
+                            creating innovative solutions at the intersection of engineering and technology.</p>
                         <div class="hero-buttons">
                             <a href="#projects" class="btn btn-primary">
                                 <i class="fas fa-rocket"></i> View My Work
@@ -1975,35 +2446,52 @@
                 <div class="about-grid">
                     <div class="about-card">
                         <h3>School Studies</h3>
-                        <p>I completed my Matriculation from KRL Grammar School, earning 81% marks. During my school years, I focused on building a strong foundation in mathematics and sciences, which laid the groundwork for my technical and analytical skills.</p>
+                        <p>I completed my Matriculation from KRL Grammar School, earning 81% marks. During my school
+                            years, I focused on building a strong foundation in mathematics and sciences, which laid the
+                            groundwork for my technical and analytical skills.</p>
                     </div>
                     <div class="about-card">
                         <h3>College Studies</h3>
-                        <p>I completed my Intermediate (FSc Pre-Engineering) from Islamabad Model College for Boys G-10/4, achieving 71% marks. My college education strengthened my problem-solving abilities and prepared me for the challenges of engineering and technology.</p>
+                        <p>I completed my Intermediate (FSc Pre-Engineering) from Islamabad Model College for Boys
+                            G-10/4, achieving 71% marks. My college education strengthened my problem-solving abilities
+                            and prepared me for the challenges of engineering and technology.</p>
                     </div>
                     <div class="about-card">
                         <h3>University Studies</h3>
-                        <p>I am currently pursuing a Bachelor's degree in Mechanical Engineering at <a href="https://au.edu.pk/" target="_blank">Air University</a>, E-9 Islamabad, and I am in my 4th semester. My university studies are enhancing my understanding of mechanical systems, design principles, and practical engineering applications.</p>
+                        <p>I am currently pursuing a Bachelor's degree in Mechanical Engineering at <a
+                                href="https://au.edu.pk/" target="_blank">Air University</a>, E-9 Islamabad, and I am in
+                            my 4th semester. My university studies are enhancing my understanding of mechanical systems,
+                            design principles, and practical engineering applications.</p>
                     </div>
                     <div class="about-card">
                         <h3>Web Development</h3>
-                        <p>I am a Web Developer capable of designing and building professional websites using WordPress. I focus on creating responsive, user-friendly, and visually appealing websites tailored to client needs, with attention to detail and modern design standards.</p>
+                        <p>I am a Web Developer capable of designing and building professional websites using WordPress.
+                            I focus on creating responsive, user-friendly, and visually appealing websites tailored to
+                            client needs, with attention to detail and modern design standards.</p>
                     </div>
                     <div class="about-card">
                         <h3>Engineering & Design Tools</h3>
-                        <p>I have hands-on experience in SolidWorks and AutoCAD, which I use to design and model mechanical components. These skills allow me to translate concepts into accurate, functional digital designs.</p>
+                        <p>I have hands-on experience in SolidWorks and AutoCAD, which I use to design and model
+                            mechanical components. These skills allow me to translate concepts into accurate, functional
+                            digital designs.</p>
                     </div>
                     <div class="about-card">
                         <h3>Skills, Sports & Physical Activities</h3>
-                        <p>I am passionate about programming and actively develop my technical skills. In addition to my academic and professional pursuits, I am a football player, practice martial arts (boxing), and play badminton, which helps me maintain discipline, focus, and physical fitness.</p>
+                        <p>I am passionate about programming and actively develop my technical skills. In addition to my
+                            academic and professional pursuits, I am a football player, practice martial arts (boxing),
+                            and play badminton, which helps me maintain discipline, focus, and physical fitness.</p>
                     </div>
                     <div class="about-card">
                         <h3>Personal Interests</h3>
-                        <p>In my free time, I enjoy watching movies and playing video games, which allow me to relax and explore creativity and storytelling. These hobbies complement my technical and analytical mindset by providing inspiration and balance.</p>
+                        <p>In my free time, I enjoy watching movies and playing video games, which allow me to relax and
+                            explore creativity and storytelling. These hobbies complement my technical and analytical
+                            mindset by providing inspiration and balance.</p>
                     </div>
                     <div class="about-card">
                         <h3>My CV</h3>
-                        <p>Here is my CV if you wanna read it: <a href="https://flowcv.com/resume/fpcnsolb1r9c" target="_blank">View CV</a>. If you viewed then send me your review from the message section related to cv. Also I wanna see yours</p>
+                        <p>Here is my CV if you wanna read it: <a href="https://flowcv.com/resume/fpcnsolb1r9c"
+                                target="_blank">View CV</a>. If you viewed then send me your review from the message
+                            section related to cv. Also I wanna see yours</p>
                     </div>
                 </div>
             </div>
@@ -2014,21 +2502,51 @@
                 </div>
                 <div class="academic-status-grid">
                     <div class="academic-status-text">
-                        <p>I am currently pursuing a Bachelor’s degree in Mechanical Engineering at Air University as a student of the BEME-F-24-B batch. My academic journey reflects strong dedication, consistency, and continuous improvement, as demonstrated by my steadily improving CGPA. Throughout my time at the university, I have built a solid understanding of core mechanical engineering principles while actively engaging in academic projects, technical coursework, and collaborative learning environments. These experiences have strengthened my analytical thinking, problem-solving abilities, and technical skills. I am passionate about innovation, modern engineering practices, and the practical application of engineering concepts, and I remain committed to personal and professional growth to prepare myself for future engineering challenges.</p>
+                        <p>I am currently pursuing a Bachelor’s degree in Mechanical Engineering at Air University as a
+                            student of the BEME-F-24-B batch. My academic journey reflects strong dedication,
+                            consistency, and continuous improvement, as demonstrated by my steadily improving CGPA.
+                            Throughout my time at the university, I have built a solid understanding of core mechanical
+                            engineering principles while actively engaging in academic projects, technical coursework,
+                            and collaborative learning environments. These experiences have strengthened my analytical
+                            thinking, problem-solving abilities, and technical skills. I am passionate about innovation,
+                            modern engineering practices, and the practical application of engineering concepts, and I
+                            remain committed to personal and professional growth to prepare myself for future
+                            engineering challenges.</p>
+                        <div style="text-align: center; margin-top: 2rem;">
+                            <a href="academics.html" class="btn btn-primary">
+                                <i class="fas fa-graduation-cap"></i> View all academic performance here in Details
+                            </a>
+                        </div>
                     </div>
                     <div class="academic-status-image">
                         <img src="images/CGPA Graph.png" alt="CGPA Graph">
                     </div>
                 </div>
 
+
                 <div class="academic-status-grid" style="margin-top: 4rem;">
                     <div class="academic-status-image">
-                        <img src="Certificate/Python and Agentic Factory.png" alt="Agentic AI Course Certificate" style="border-radius: 40px; box-shadow: var(--shadow-lg);">
+                        <img src="Certificate/Python and Agentic Factory.png" alt="Agentic AI Course Certificate"
+                            style="border-radius: 40px; box-shadow: var(--shadow-lg);">
                     </div>
                     <div class="academic-status-text">
-                        <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.75rem; font-weight: 700; color: var(--primary-light); margin-bottom: 0.5rem;">Agentic AI Course</h3>
-                        <h4 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.25rem; font-weight: 600; color: var(--white); margin-bottom: 1rem;">Panaversity</h4>
-                        <p>I am currently enrolled in the Agentic AI course offered by <a href="https://panaversity.org/" target="_blank" style="color: var(--primary-light); text-decoration: none; font-weight: 600;">Panaversity</a>. This course provides in-depth knowledge of advanced AI techniques, agentic systems, autonomous decision-making, and practical AI applications. I am learning how to design and implement intelligent agents that can perform complex tasks, optimize workflows, and solve real-world problems. Throughout this course, I am working on hands-on projects, gaining practical experience with Python programming, AI frameworks, and automation tools. These skills are directly applicable to my ongoing projects, including my Jarvis automation project, and help me enhance my technical expertise for professional and collaborative opportunities.</p>
+                        <h3
+                            style="font-family: 'Space Grotesk', sans-serif; font-size: 1.75rem; font-weight: 700; color: var(--primary-light); margin-bottom: 0.5rem;">
+                            Agentic AI Course</h3>
+                        <h4
+                            style="font-family: 'Space Grotesk', sans-serif; font-size: 1.25rem; font-weight: 600; color: var(--white); margin-bottom: 1rem;">
+                            Panaversity</h4>
+                        <p>I am currently enrolled in the Agentic AI course offered by <a
+                                href="https://panaversity.org/" target="_blank"
+                                style="color: var(--primary-light); text-decoration: none; font-weight: 600;">Panaversity</a>.
+                            This course provides in-depth knowledge of advanced AI techniques, agentic systems,
+                            autonomous decision-making, and practical AI applications. I am learning how to design and
+                            implement intelligent agents that can perform complex tasks, optimize workflows, and solve
+                            real-world problems. Throughout this course, I am working on hands-on projects, gaining
+                            practical experience with Python programming, AI frameworks, and automation tools. These
+                            skills are directly applicable to my ongoing projects, including my Jarvis automation
+                            project, and help me enhance my technical expertise for professional and collaborative
+                            opportunities.</p>
                     </div>
                 </div>
             </div>
@@ -2047,37 +2565,44 @@
                         <div class="skill-card" data-skill="AutoCAD">
                             <div class="skill-icon"><i class="fas fa-drafting-compass"></i></div>
                             <h3>AutoCAD</h3>
-                            <p>Professional 2D and 3D computer-aided design for mechanical components and comprehensive system design</p>
+                            <p>Professional 2D and 3D computer-aided design for mechanical components and comprehensive
+                                system design</p>
                         </div>
                         <div class="skill-card" data-skill="Solidworks">
                             <div class="skill-icon"><i class="fas fa-cube"></i></div>
                             <h3>Solidworks</h3>
-                            <p>Advanced 3D CAD design, simulation, and analysis for complex mechanical engineering projects</p>
+                            <p>Advanced 3D CAD design, simulation, and analysis for complex mechanical engineering
+                                projects</p>
                         </div>
                         <div class="skill-card" data-skill="Electrical">
                             <div class="skill-icon"><i class="fas fa-bolt"></i></div>
                             <h3>Basic Electric Course</h3>
-                            <p>Comprehensive understanding of electrical systems, circuit design, and power distribution fundamentals</p>
+                            <p>Comprehensive understanding of electrical systems, circuit design, and power distribution
+                                fundamentals</p>
                         </div>
                         <div class="skill-card" data-skill="AI">
                             <div class="skill-icon"><i class="fas fa-robot"></i></div>
                             <h3>GenAI & AgenticAI</h3>
-                            <p>Developing cutting-edge AI solutions and intelligent autonomous agents for process automation</p>
+                            <p>Developing cutting-edge AI solutions and intelligent autonomous agents for process
+                                automation</p>
                         </div>
                         <div class="skill-card" data-skill="SEO">
                             <div class="skill-icon"><i class="fas fa-search"></i></div>
                             <h3>SEO</h3>
-                            <p>Strategic search engine optimization techniques to maximize online visibility and engagement</p>
+                            <p>Strategic search engine optimization techniques to maximize online visibility and
+                                engagement</p>
                         </div>
                         <div class="skill-card" data-skill="Video">
                             <div class="skill-icon"><i class="fas fa-video"></i></div>
                             <h3>Video Editing</h3>
-                            <p>Professional video content creation with advanced editing techniques and motion graphics</p>
+                            <p>Professional video content creation with advanced editing techniques and motion graphics
+                            </p>
                         </div>
                         <div class="skill-card" data-skill="WordPress">
                             <div class="skill-icon"><i class="fab fa-wordpress"></i></div>
                             <h3>WordPress</h3>
-                            <p>Building responsive, feature-rich websites using WordPress CMS with custom theme development</p>
+                            <p>Building responsive, feature-rich websites using WordPress CMS with custom theme
+                                development</p>
                         </div>
                         <div class="skill-card" data-skill="Freelancing">
                             <div class="skill-icon"><i class="fas fa-laptop-code"></i></div>
@@ -2087,17 +2612,20 @@
                         <div class="skill-card" data-skill="Microsoft Office">
                             <div class="skill-icon"><i class="fab fa-microsoft"></i></div>
                             <h3>Microsoft Office</h3>
-                            <p>Expert in MS Word, Excel, and PowerPoint for document creation, data analysis, and presentations</p>
+                            <p>Expert in MS Word, Excel, and PowerPoint for document creation, data analysis, and
+                                presentations</p>
                         </div>
                         <div class="skill-card" data-skill="Notion">
                             <div class="skill-icon"><i class="fas fa-sticky-note"></i></div>
                             <h3>Notion</h3>
-                            <p>Proficient in Notion for task & project management, habit tracking, note-taking, and daily planning.</p>
+                            <p>Proficient in Notion for task & project management, habit tracking, note-taking, and
+                                daily planning.</p>
                         </div>
                         <div class="skill-card" data-skill="Frontend Development">
                             <div class="skill-icon"><i class="fas fa-code"></i></div>
                             <h3>Frontend Development</h3>
-                            <p>Experienced in HTML, CSS, JavaScript, responsive design, and building  web applications including blogs, e-commerce, and portfolios.</p>
+                            <p>Experienced in HTML, CSS, JavaScript, responsive design, and building web applications
+                                including blogs, e-commerce, and portfolios.</p>
                         </div>
                     </div>
                 </div>
@@ -2148,6 +2676,191 @@
                                 <div class="progress-fill" data-width="85%"></div>
                             </div>
                         </div>
+                        <div class="skill-bar">
+                            <div class="skill-bar-header">
+                                <span>Tailwind CSS</span>
+                                <span class="percentage">90%</span>
+                            </div>
+                            <div class="progress-track">
+                                <div class="progress-fill" data-width="90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-bar-header">
+                                <span>MongoDB</span>
+                                <span class="percentage">70%</span>
+                            </div>
+                            <div class="progress-track">
+                                <div class="progress-fill" data-width="70%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-bar-header">
+                                <span>n8n</span>
+                                <span class="percentage">70%</span>
+                            </div>
+                            <div class="progress-track">
+                                <div class="progress-fill" data-width="70%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-bar-header">
+                                <span>React.js</span>
+                                <span class="percentage">60%</span>
+                            </div>
+                            <div class="progress-track">
+                                <div class="progress-fill" data-width="60%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-bar-header">
+                                <span>Node.js</span>
+                                <span class="percentage">60%</span>
+                            </div>
+                            <div class="progress-track">
+                                <div class="progress-fill" data-width="60%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-bar-header">
+                                <span>Notion</span>
+                                <span class="percentage">50%</span>
+                            </div>
+                            <div class="progress-track">
+                                <div class="progress-fill" data-width="50%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Programming Languages Icons Section -->
+                    <div class="programming-icons-container">
+                        <div class="programming-icon">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++">
+                            <span>C++</span>
+                        </div>
+                        <div class="programming-icon">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java">
+                            <span>Java</span>
+                        </div>
+                        <div class="programming-icon">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
+                            <span>Python</span>
+                        </div>
+                        <div class="programming-icon">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5">
+                            <span>HTML</span>
+                        </div>
+                        <div class="programming-icon">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3">
+                            <span>CSS</span>
+                        </div>
+                        <div class="programming-icon">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript">
+                            <span>JavaScript</span>
+                        </div>
+                        <div class="programming-icon">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" alt="Tailwind CSS">
+                            <span>Tailwind</span>
+                        </div>
+                        <div class="programming-icon">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB">
+                            <span>MongoDB</span>
+                        </div>
+                        <div class="programming-icon">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React.js">
+                            <span>React.js</span>
+                        </div>
+                        <div class="programming-icon">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js">
+                            <span>Node.js</span>
+                        </div>
+                        <div class="programming-icon">
+                            <img src="https://n8n.io/favicon.ico" alt="n8n">
+                            <span>n8n</span>
+                        </div>
+                        <div class="programming-icon">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/notion/notion-original.svg" alt="Notion">
+                            <span>Notion</span>
+                        </div>
+                    </div>
+
+                    <!-- AI Tools Section -->
+                    <div class="ai-tools-section">
+                        <h3>AI Tools I Use</h3>
+                        <div class="ai-tools-container">
+                            <div class="ai-tool-card">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg" alt="VS Code">
+                                <span class="tool-name">VS Code</span>
+                                <div class="tool-uses">
+                                    <span class="coding">Coding</span>
+                                </div>
+                            </div>
+                            <div class="ai-tool-card">
+                                <img src="https://registry.npmmirror.com/@lobehub/icons-static-png/1.24.0/files/dark/claude-color.png" alt="Claude">
+                                <span class="tool-name">Claude Code</span>
+                                <div class="tool-uses">
+                                    <span class="coding">Coding</span>
+                                </div>
+                            </div>
+                            <div class="ai-tool-card">
+                                <img src="https://registry.npmmirror.com/@lobehub/icons-static-png/1.24.0/files/dark/openai.png" alt="ChatGPT">
+                                <span class="tool-name">ChatGPT</span>
+                                <div class="tool-uses">
+                                    <span class="coding">Coding</span>
+                                    <span class="study">Study</span>
+                                </div>
+                            </div>
+                            <div class="ai-tool-card">
+                                <img src="https://registry.npmmirror.com/@lobehub/icons-static-png/1.24.0/files/dark/gemini-color.png" alt="Gemini">
+                                <span class="tool-name">Gemini</span>
+                                <div class="tool-uses">
+                                    <span class="coding">Coding</span>
+                                </div>
+                            </div>
+                            <div class="ai-tool-card">
+                                <img src="https://registry.npmmirror.com/@lobehub/icons-static-png/1.24.0/files/dark/grok.png" alt="Grok">
+                                <span class="tool-name">Grok</span>
+                                <div class="tool-uses">
+                                    <span class="coding">Coding</span>
+                                </div>
+                            </div>
+                            <div class="ai-tool-card">
+                                <img src="https://registry.npmmirror.com/@lobehub/icons-static-png/1.24.0/files/dark/deepseek-color.png" alt="DeepSeek">
+                                <span class="tool-name">DeepSeek</span>
+                                <div class="tool-uses">
+                                    <span class="coding">Coding</span>
+                                    <span class="study">Study</span>
+                                </div>
+                            </div>
+                            <div class="ai-tool-card">
+                                <img src="https://registry.npmmirror.com/@lobehub/icons-static-png/1.24.0/files/dark/perplexity-color.png" alt="Perplexity">
+                                <span class="tool-name">Perplexity</span>
+                                <div class="tool-uses">
+                                    <span class="coding">Coding</span>
+                                    <span class="study">Study</span>
+                                </div>
+                            </div>
+                            <div class="ai-tool-card">
+                                <img src="https://registry.npmmirror.com/@lobehub/icons-static-png/1.24.0/files/dark/qwen-color.png" alt="Qwen">
+                                <span class="tool-name">Qwen</span>
+                                <div class="tool-uses">
+                                    <span class="coding">Coding</span>
+                                </div>
+                            </div>
+                            <div class="ai-tool-card">
+                                <img src="https://registry.npmmirror.com/@lobehub/icons-static-png/1.24.0/files/dark/claude-color.png" alt="Claude CLI">
+                                <span class="tool-name">Claude CLI</span>
+                                <div class="tool-uses">
+                                    <span class="coding">Coding</span>
+                                </div>
+                            </div>
+                            <div class="ai-tool-card">
+                                <img src="https://registry.npmmirror.com/@lobehub/icons-static-png/1.24.0/files/dark/gemini-color.png" alt="Gemini CLI">
+                                <span class="tool-name">Gemini CLI</span>
+                                <div class="tool-uses">
+                                    <span class="coding">Coding</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -2161,37 +2874,44 @@
                     <div class="skill-card" data-skill="Time Management">
                         <div class="skill-icon"><i class="fas fa-clock"></i></div>
                         <h3>Time Management</h3>
-                        <p>Efficiently prioritizing tasks, meeting deadlines, and optimizing workflow for maximum productivity.</p>
+                        <p>Efficiently prioritizing tasks, meeting deadlines, and optimizing workflow for maximum
+                            productivity.</p>
                     </div>
                     <div class="skill-card" data-skill="Organization">
                         <div class="skill-icon"><i class="fas fa-folder-open"></i></div>
                         <h3>Organization</h3>
-                        <p>Structuring work and information systematically to enhance clarity and operational efficiency.</p>
+                        <p>Structuring work and information systematically to enhance clarity and operational
+                            efficiency.</p>
                     </div>
                     <div class="skill-card" data-skill="Communication">
                         <div class="skill-icon"><i class="fas fa-comments"></i></div>
                         <h3>Communication</h3>
-                        <p>Clearly conveying ideas, actively listening, and fostering open dialogue with team members and stakeholders.</p>
+                        <p>Clearly conveying ideas, actively listening, and fostering open dialogue with team members
+                            and stakeholders.</p>
                     </div>
                     <div class="skill-card" data-skill="Teamwork/Collaboration">
                         <div class="skill-icon"><i class="fas fa-users"></i></div>
                         <h3>Teamwork/Collaboration</h3>
-                        <p>Working effectively with diverse groups, contributing to shared goals, and supporting collective success.</p>
+                        <p>Working effectively with diverse groups, contributing to shared goals, and supporting
+                            collective success.</p>
                     </div>
                     <div class="skill-card" data-skill="Problem-Solving">
                         <div class="skill-icon"><i class="fas fa-lightbulb"></i></div>
                         <h3>Problem-Solving</h3>
-                        <p>Analyzing complex situations, identifying root causes, and implementing effective solutions.</p>
+                        <p>Analyzing complex situations, identifying root causes, and implementing effective solutions.
+                        </p>
                     </div>
                     <div class="skill-card" data-skill="Adaptability">
                         <div class="skill-icon"><i class="fas fa-sync-alt"></i></div>
                         <h3>Adaptability</h3>
-                        <p>Adjusting quickly to new technologies, changing priorities, and dynamic work environments.</p>
+                        <p>Adjusting quickly to new technologies, changing priorities, and dynamic work environments.
+                        </p>
                     </div>
                     <div class="skill-card" data-skill="Attention to Detail">
                         <div class="skill-icon"><i class="fas fa-search-plus"></i></div>
                         <h3>Attention to Detail</h3>
-                        <p>Ensuring accuracy and thoroughness in all tasks, from code review to project documentation.</p>
+                        <p>Ensuring accuracy and thoroughness in all tasks, from code review to project documentation.
+                        </p>
                     </div>
                     <div class="skill-card" data-skill="Creativity">
                         <div class="skill-icon"><i class="fas fa-paint-brush"></i></div>
@@ -2243,32 +2963,38 @@
                     <div class="hobby-card">
                         <div class="hobby-icon">⚽</div>
                         <h3>Football</h3>
-                        <p>Passionate about playing and watching football, enjoying the teamwork and strategic elements of the beautiful game.</p>
+                        <p>Passionate about playing and watching football, enjoying the teamwork and strategic elements
+                            of the beautiful game.</p>
                     </div>
                     <div class="hobby-card">
                         <div class="hobby-icon">🏏</div>
                         <h3>Cricket</h3>
-                        <p>Enthusiastic cricket player and fan, appreciating the skill and precision required in this classic sport.</p>
+                        <p>Enthusiastic cricket player and fan, appreciating the skill and precision required in this
+                            classic sport.</p>
                     </div>
                     <div class="hobby-card">
                         <div class="hobby-icon">🥋</div>
                         <h3>Martial Arts</h3>
-                        <p>Dedicated to martial arts training, building discipline, strength, and mental focus through various techniques.</p>
+                        <p>Dedicated to martial arts training, building discipline, strength, and mental focus through
+                            various techniques.</p>
                     </div>
                     <div class="hobby-card">
                         <div class="hobby-icon">🏃</div>
                         <h3>Running</h3>
-                        <p>Regular runner who enjoys the physical and mental benefits of staying active and pushing personal limits.</p>
+                        <p>Regular runner who enjoys the physical and mental benefits of staying active and pushing
+                            personal limits.</p>
                     </div>
                     <div class="hobby-card">
                         <div class="hobby-icon">📚</div>
                         <h3>Studying</h3>
-                        <p>Committed to continuous learning and expanding knowledge in engineering, technology, and beyond.</p>
+                        <p>Committed to continuous learning and expanding knowledge in engineering, technology, and
+                            beyond.</p>
                     </div>
                     <div class="hobby-card">
                         <div class="hobby-icon">🎬</div>
                         <h3>Watching Movies</h3>
-                        <p>Movie enthusiast who enjoys exploring different genres, appreciating cinematography, and storytelling.</p>
+                        <p>Movie enthusiast who enjoys exploring different genres, appreciating cinematography, and
+                            storytelling.</p>
                     </div>
                     <div class="hobby-card">
                         <div class="hobby-icon">🏸</div>
@@ -2283,7 +3009,8 @@
                     <div class="hobby-card">
                         <div class="hobby-icon">💻</div>
                         <h3>Coding</h3>
-                        <p>A passion for creating and problem-solving through code. I enjoy building applications and exploring new technologies.</p>
+                        <p>A passion for creating and problem-solving through code. I enjoy building applications and
+                            exploring new technologies.</p>
                     </div>
                 </div>
             </div>
@@ -2293,26 +3020,46 @@
                     <h2>Key Highlights</h2>
                     <p>A quick overview of my achievements and engagement</p>
                 </div>
-                <div class="highlights-grid">
-                    <div class="highlight-card">
-                        <div class="highlight-number">6+</div>
-                        <div class="highlight-label">Projects Completed</div>
+                <div class="highlights-hierarchy">
+                    <!-- Top of hierarchy - Main achievement -->
+                    <div class="highlights-row row-1">
+                        <div class="highlight-card featured">
+                            <div class="highlight-icon"><i class="fas fa-code"></i></div>
+                            <div class="highlight-number">500+</div>
+                            <div class="highlight-label">Hours of Programming</div>
+                        </div>
                     </div>
-                    <div class="highlight-card">
-                        <div class="highlight-number">500+</div>
-                        <div class="highlight-label">hours of programming</div>
+
+                    <div class="highlights-connector"></div>
+
+                    <!-- Second level -->
+                    <div class="highlights-row row-2">
+                        <div class="highlight-card">
+                            <div class="highlight-icon"><i class="fas fa-project-diagram"></i></div>
+                            <div class="highlight-number">6+</div>
+                            <div class="highlight-label">Projects Completed</div>
+                        </div>
+                        <div class="highlight-card">
+                            <div class="highlight-icon"><i class="fas fa-globe"></i></div>
+                            <div class="highlight-number">10+</div>
+                            <div class="highlight-label">Websites Built</div>
+                        </div>
                     </div>
-                    <div class="highlight-card">
-                        <div class="highlight-number">10+</div>
-                        <div class="highlight-label">Websites or Portfolios</div>
-                    </div>
-                    <div class="highlight-card">
-                        <div class="highlight-number">8+</div>
-                        <div class="highlight-label">Technologies Learned</div>
-                    </div>
-                    <div class="highlight-card">
-                        <div class="highlight-number">1</div>
-                        <div class="highlight-label">Project in progress (Jarvis)</div>
+
+                    <div class="highlights-connector wide"></div>
+
+                    <!-- Third level - Base of hierarchy -->
+                    <div class="highlights-row row-3">
+                        <div class="highlight-card">
+                            <div class="highlight-icon"><i class="fas fa-laptop-code"></i></div>
+                            <div class="highlight-number">8+</div>
+                            <div class="highlight-label">Technologies</div>
+                        </div>
+                        <div class="highlight-card">
+                            <div class="highlight-icon"><i class="fas fa-robot"></i></div>
+                            <div class="highlight-number">1</div>
+                            <div class="highlight-label">Jarvis (In Progress)</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -2324,7 +3071,8 @@
                 </div>
                 <div class="connect-with-me-grid">
                     <div class="connect-with-me-links">
-                        <a href="https://www.instagram.com/u_s_m_a_n_0_07/" target="_blank" class="social-btn instagram">
+                        <a href="https://www.instagram.com/u_s_m_a_n_0_07/" target="_blank"
+                            class="social-btn instagram">
                             <i class="fab fa-instagram"></i>
                             <span>Instagram</span>
                         </a>
@@ -2336,7 +3084,8 @@
                             <i class="fab fa-youtube"></i>
                             <span>YouTube</span>
                         </a>
-                        <a href="https://www.linkedin.com/in/usman-khan-735944353/" target="_blank" class="social-btn linkedin">
+                        <a href="https://www.linkedin.com/in/usman-khan-735944353/" target="_blank"
+                            class="social-btn linkedin">
                             <i class="fab fa-linkedin"></i>
                             <span>LinkedIn</span>
                         </a>
@@ -2344,7 +3093,8 @@
                             <i class="fas fa-brain"></i>
                             <span>Hugging Face</span>
                         </a>
-                        <a href="https://web.facebook.com/profile.php?id=61584444386143" target="_blank" class="social-btn facebook">
+                        <a href="https://web.facebook.com/profile.php?id=61584444386143" target="_blank"
+                            class="social-btn facebook">
                             <i class="fab fa-facebook"></i>
                             <span>Facebook</span>
                         </a>
@@ -2368,7 +3118,12 @@
                     </div>
                     <div class="work-with-me-content">
                         <h3>Let’s Work Together</h3>
-                        <p>If you’re interested in collaborating on a project, contributing to open-source work, or hiring me for professional services, I’d love to hear from you! I am currently working on a project called Jarvis, which is about creating intelligent automations and productivity tools. If anyone wants to collaborate with me on this project, you can directly reach me via WhatsApp using the button below. I’m also available for freelance work, project collaborations, and consulting. Reach out using one of the contact methods below.</p>
+                        <p>If you’re interested in collaborating on a project, contributing to open-source work, or
+                            hiring me for professional services, I’d love to hear from you! I am currently working on a
+                            project called Jarvis, which is about creating intelligent automations and productivity
+                            tools. If anyone wants to collaborate with me on this project, you can directly reach me via
+                            WhatsApp using the button below. I’m also available for freelance work, project
+                            collaborations, and consulting. Reach out using one of the contact methods below.</p>
                         <div class="work-with-me-buttons">
                             <a href="tel:03130152036" class="btn btn-work-phone">
                                 <i class="fas fa-phone"></i> Call Me
@@ -2397,24 +3152,35 @@
                     <p>A look at what I'm currently working on.</p>
                 </div>
                 <div class="projects-grid">
-                    <div class="project-card" style="grid-column: 1 / -1;">
-                        <div class="project-content" style="display: flex; justify-content: space-between; align-items: center;">
-                            <div style="flex: 1; padding-right: 20px; text-align: justify;">
+                    <div class="project-card project-card-full">
+                        <div class="project-content project-content-progress">
+                            <div class="project-text">
                                 <h3>Jarvis, University System (Backend & Frontend)</h3>
-                                <p><strong>Jarvis:</strong>An AI-based personal assistant that automates tasks like opening applications, generating documents, and performing web searches. Built with a flexible architecture to support future AI integrations and advanced automation.<br>
-                                <strong>University System (Backend):</strong> A Python-based backend system designed to manage student records, academic data, and administrative workflows. Ensures efficient data handling and smooth communication with the frontend.<br>
-                                <strong>University System (Frontend):</strong> The University Management System frontend is a responsive web interface developed with HTML, CSS, and JavaScript. It allows users to interact with student data and academic information through a simple and user-friendly design.</p>
+                                <p><strong>Jarvis:</strong>An AI-based personal assistant that automates tasks like
+                                    opening applications, generating documents, and performing web searches. Built with
+                                    a flexible architecture to support future AI integrations and advanced
+                                    automation.<br>
+                                    <strong>University System (Backend):</strong> A Python-based backend system designed
+                                    to manage student records, academic data, and administrative workflows. Ensures
+                                    efficient data handling and smooth communication with the frontend.<br>
+                                    <strong>University System (Frontend):</strong> The University Management System
+                                    frontend is a responsive web interface developed with HTML, CSS, and JavaScript. It
+                                    allows users to interact with student data and academic information through a simple
+                                    and user-friendly design.
+                                </p>
                             </div>
-                            <div style="display: flex; flex-direction: column; gap: 10px;">
-                                <a href="images/J.png" target="_blank" class="btn btn-primary" style="width: 250px; text-align:center;">Jarvis Project</a>
-                                <a href="https://github.com/usman-khan-0/Simple-Projects-Python-and-Frontend-/tree/main/Python%20University%20System%20Project" target="_blank" class="btn btn-secondary" style="width: 250px; text-align:center;">University System (Python)</a>
-                                <a href="https://github.com/usman-khan-0/Simple-Projects-Python-and-Frontend-/tree/main/University%20System%20Frontend%20Project" target="_blank" class="btn btn-secondary" style="width: 250px; text-align:center;">University System (Frontend)</a>
+                            <div class="project-buttons">
+                                <a href="images/J.png" target="_blank" class="btn btn-primary">Jarvis Project</a>
+                                <a href="https://github.com/usman-khan-0/Simple-Projects-Python-and-Frontend-/tree/main/Python%20University%20System%20Project"
+                                    target="_blank" class="btn btn-secondary">University System (Python)</a>
+                                <a href="https://github.com/usman-khan-0/Simple-Projects-Python-and-Frontend-/tree/main/University%20System%20Frontend%20Project"
+                                    target="_blank" class="btn btn-secondary">University System (Frontend)</a>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                                <div class="section-header">
+                <div class="section-header">
                     <h3>Website Projects</h3>
                 </div>
                 <div class="projects-grid">
@@ -2423,47 +3189,59 @@
                     <div class="project-card" data-project="blog-website">
                         <div class="project-image" style="background-image: url('images/ai.jpg');">
                             <div class="project-overlay">
-                                <a href="https://usman-khan-0.github.io/Blog-Website/index.html" class="project-link-btn" target="_blank"><i class="fas fa-eye"></i></a>
-                                <a href="https://github.com/usman-khan-0/Blog-Website" class="project-link-btn" target="_blank"><i class="fab fa-github"></i></a>
+                                <a href="https://usman-khan-0.github.io/Blog-Website/index.html"
+                                    class="project-link-btn" target="_blank"><i class="fas fa-eye"></i></a>
+                                <a href="https://github.com/usman-khan-0/Blog-Website" class="project-link-btn"
+                                    target="_blank"><i class="fab fa-github"></i></a>
                             </div>
                         </div>
                         <div class="project-content">
                             <span class="project-tag">Web</span>
                             <h3>Blog Website</h3>
-                            <p>A personal blog website developed to share articles, insights, and thoughts on various topics.</p>
+                            <p>A personal blog website developed to share articles, insights, and thoughts on various
+                                topics.</p>
                             <div class="project-tags">
                                 <span>HTML</span>
                                 <span>CSS</span>
                                 <span>JavaScript</span>
                             </div>
-                            <a href="blog.html" class="btn btn-primary" style="margin-top: 1rem; width: 100%; justify-content: center;"><i class="fas fa-blog"></i> Open Blog</a>
+                            <a href="blog.html" class="btn btn-primary"
+                                style="margin-top: 1rem; width: 100%; justify-content: center;"><i
+                                    class="fas fa-blog"></i> Open Blog</a>
                         </div>
                     </div>
 
                     <div class="project-card" data-project="friends-website-1">
                         <div class="project-image" style="background-image: url('images/swaira.jpg');">
                             <div class="project-overlay">
-                                <a href="https://swaira-graphic-designer.vercel.app/" class="project-link-btn" target="_blank"><i class="fas fa-eye"></i></a>
-                                <a href="https://github.com/usman-khan-0/Swaira-Portfolio-Website" class="project-link-btn" target="_blank"><i class="fab fa-github"></i></a>
+                                <a href="https://swaira-graphic-designer.vercel.app/" class="project-link-btn"
+                                    target="_blank"><i class="fas fa-eye"></i></a>
+                                <a href="https://github.com/usman-khan-0/Swaira-Portfolio-Website"
+                                    class="project-link-btn" target="_blank"><i class="fab fa-github"></i></a>
                             </div>
                         </div>
                         <div class="project-content">
                             <span class="project-tag">Web</span>
                             <h3>Swaira Portfolio</h3>
-                            <p>Designed and developed a professional portfolio website for my friend Swaira, showcasing her skills and work in a visually appealing and user-friendly way.</p>
+                            <p>Designed and developed a professional portfolio website for my friend Swaira, showcasing
+                                her skills and work in a visually appealing and user-friendly way.</p>
                             <div class="project-tags">
                                 <span>HTML</span>
                                 <span>CSS</span>
                                 <span>JavaScript</span>
                             </div>
-                            <a href="swaira-portfolio/index.html" class="btn btn-primary" style="margin-top: 1rem; width: 100%; justify-content: center;"><i class="fas fa-user"></i> Open Portfolio</a>
+                            <a href="swaira-portfolio/index.html" class="btn btn-primary"
+                                style="margin-top: 1rem; width: 100%; justify-content: center;"><i
+                                    class="fas fa-user"></i> Open Portfolio</a>
                         </div>
                     </div>
                     <div class="project-card" data-project="todo-app">
                         <div class="project-image" style="background-image: url('images/todo.jpg');">
                             <div class="project-overlay">
-                                <a href="https://usman-khan-0.github.io/To-Do-App/" class="project-link-btn" target="_blank"><i class="fas fa-eye"></i></a>
-                                <a href="https://github.com/usman-khan-0/To-Do-App" class="project-link-btn" target="_blank"><i class="fab fa-github"></i></a>
+                                <a href="https://usman-khan-0.github.io/To-Do-App/" class="project-link-btn"
+                                    target="_blank"><i class="fas fa-eye"></i></a>
+                                <a href="https://github.com/usman-khan-0/To-Do-App" class="project-link-btn"
+                                    target="_blank"><i class="fab fa-github"></i></a>
                             </div>
                         </div>
                         <div class="project-content">
@@ -2475,14 +3253,18 @@
                                 <span>CSS</span>
                                 <span>JavaScript</span>
                             </div>
-                            <a href="todo.html" class="btn btn-primary" style="margin-top: 1rem; width: 100%; justify-content: center;"><i class="fas fa-list-check"></i> Open App</a>
+                            <a href="todo.html" class="btn btn-primary"
+                                style="margin-top: 1rem; width: 100%; justify-content: center;"><i
+                                    class="fas fa-list-check"></i> Open App</a>
                         </div>
                     </div>
                     <div class="project-card" data-project="99ies-calculator">
                         <div class="project-image" style="background-image: url('images/cal.jpg');">
                             <div class="project-overlay">
-                                <a href="https://usman-khan-0.github.io/99IES-Calculator/" class="project-link-btn" target="_blank"><i class="fas fa-eye"></i></a>
-                                <a href="https://github.com/usman-khan-0/99IES-Calculator" class="project-link-btn" target="_blank"><i class="fab fa-github"></i></a>
+                                <a href="https://usman-khan-0.github.io/99IES-Calculator/" class="project-link-btn"
+                                    target="_blank"><i class="fas fa-eye"></i></a>
+                                <a href="https://github.com/usman-khan-0/99IES-Calculator" class="project-link-btn"
+                                    target="_blank"><i class="fab fa-github"></i></a>
                             </div>
                         </div>
                         <div class="project-content">
@@ -2494,14 +3276,18 @@
                                 <span>CSS</span>
                                 <span>JavaScript</span>
                             </div>
-                            <a href="99iescal.html" class="btn btn-primary" style="margin-top: 1rem; width: 100%; justify-content: center;"><i class="fas fa-calculator"></i> Open Calculator</a>
+                            <a href="99iescal.html" class="btn btn-primary"
+                                style="margin-top: 1rem; width: 100%; justify-content: center;"><i
+                                    class="fas fa-calculator"></i> Open Calculator</a>
                         </div>
                     </div>
                     <div class="project-card" data-project="gpa-calculator">
                         <div class="project-image" style="background-image: url('images/gpa.jpg');">
                             <div class="project-overlay">
-                                <a href="https://usman-khan-0.github.io/GPA-Calculator/#" class="project-link-btn" target="_blank"><i class="fas fa-eye"></i></a>
-                                <a href="https://github.com/usman-khan-0/GPA-Calculator" class="project-link-btn" target="_blank"><i class="fab fa-github"></i></a>
+                                <a href="https://usman-khan-0.github.io/GPA-Calculator/#" class="project-link-btn"
+                                    target="_blank"><i class="fas fa-eye"></i></a>
+                                <a href="https://github.com/usman-khan-0/GPA-Calculator" class="project-link-btn"
+                                    target="_blank"><i class="fab fa-github"></i></a>
                             </div>
                         </div>
                         <div class="project-content">
@@ -2513,26 +3299,33 @@
                                 <span>CSS</span>
                                 <span>JavaScript</span>
                             </div>
-                            <a href="gpa.html" class="btn btn-primary" style="margin-top: 1rem; width: 100%; justify-content: center;"><i class="fas fa-calculator"></i> Open Calculator</a>
+                            <a href="gpa.html" class="btn btn-primary"
+                                style="margin-top: 1rem; width: 100%; justify-content: center;"><i
+                                    class="fas fa-calculator"></i> Open Calculator</a>
                         </div>
                     </div>
                     <div class="project-card" data-project="areeba-portfolio">
                         <div class="project-image" style="background-image: url('images/areeba.jpg');">
                             <div class="project-overlay">
-                                <a href="https://areeba-mechanical-engineer.vercel.app/" class="project-link-btn" target="_blank"><i class="fas fa-eye"></i></a>
-                                <a href="https://github.com/usman-khan-0/Areeba-Portfolio-Website" class="project-link-btn" target="_blank"><i class="fab fa-github"></i></a>
+                                <a href="https://areeba-mechanical-engineer.vercel.app/" class="project-link-btn"
+                                    target="_blank"><i class="fas fa-eye"></i></a>
+                                <a href="https://github.com/usman-khan-0/Areeba-Portfolio-Website"
+                                    class="project-link-btn" target="_blank"><i class="fab fa-github"></i></a>
                             </div>
                         </div>
                         <div class="project-content">
                             <span class="project-tag">Web</span>
                             <h3>Areeba Portfolio</h3>
-                            <p>Designed and developed a professional portfolio website for my friend Areeba, showcasing her skills and work in a visually appealing and user-friendly way.</p>
+                            <p>Designed and developed a professional portfolio website for my friend Areeba, showcasing
+                                her skills and work in a visually appealing and user-friendly way.</p>
                             <div class="project-tags">
                                 <span>HTML</span>
                                 <span>CSS</span>
                                 <span>JavaScript</span>
                             </div>
-                            <a href="areeba-portfolio/index.html" class="btn btn-primary" style="margin-top: 1rem; width: 100%; justify-content: center;"><i class="fas fa-user"></i> Open Portfolio</a>
+                            <a href="areeba-portfolio/index.html" class="btn btn-primary"
+                                style="margin-top: 1rem; width: 100%; justify-content: center;"><i
+                                    class="fas fa-user"></i> Open Portfolio</a>
                         </div>
                     </div>
                 </div>
@@ -2544,7 +3337,8 @@
                     <div class="project-card" data-project="autocad-project">
                         <div class="project-image" style="background-image: url('projects/Drone Exploded.PNG');">
                             <div class="project-overlay">
-                                <a href="projects/AutoCad PROJECT.pdf" class="project-link-btn" target="_blank"><i class="fas fa-eye"></i></a>
+                                <a href="projects/AutoCad PROJECT.pdf" class="project-link-btn" target="_blank"><i
+                                        class="fas fa-eye"></i></a>
                             </div>
                         </div>
                         <div class="project-content">
@@ -2562,15 +3356,19 @@
                     <div class="project-card" data-project="ionic-thruster">
                         <div class="project-image" style="background-image: url('projects/Thermo Project P1.jpeg');">
                             <div class="project-overlay">
-                                <a href="projects/ionic thruster.pdf" class="project-link-btn" target="_blank"><i class="fas fa-file-pdf"></i></a>
-                                <a href="projects/Thermo Project V1.mp4" class="project-link-btn" target="_blank"><i class="fas fa-video"></i></a>
-                                <a href="projects/Thermo Project V2.mp4" class="project-link-btn" target="_blank"><i class="fas fa-video"></i></a>
+                                <a href="projects/ionic thruster.pdf" class="project-link-btn" target="_blank"><i
+                                        class="fas fa-file-pdf"></i></a>
+                                <a href="projects/Thermo Project V1.mp4" class="project-link-btn" target="_blank"><i
+                                        class="fas fa-video"></i></a>
+                                <a href="projects/Thermo Project V2.mp4" class="project-link-btn" target="_blank"><i
+                                        class="fas fa-video"></i></a>
                             </div>
                         </div>
                         <div class="project-content">
                             <span class="project-tag">Research & Video</span>
                             <h3>Thermodynamics Projects</h3>
-                            <p>A collection of my thermodynamics projects, including research on ionic thrusters and video demonstrations.</p>
+                            <p>A collection of my thermodynamics projects, including research on ionic thrusters and
+                                video demonstrations.</p>
                             <div class="project-tags">
                                 <span>Research</span>
                                 <span>Video</span>
@@ -2582,7 +3380,8 @@
                     <div class="project-card" data-project="sd-project-report">
                         <div class="project-image" style="background-image: url('projects/V6 Engine.png');">
                             <div class="project-overlay">
-                                <a href="projects/SD Project Report.pdf" class="project-link-btn" target="_blank"><i class="fas fa-eye"></i></a>
+                                <a href="projects/SD Project Report.pdf" class="project-link-btn" target="_blank"><i
+                                        class="fas fa-eye"></i></a>
                             </div>
                         </div>
                         <div class="project-content">
@@ -2602,8 +3401,10 @@
                     <div class="project-card" data-project="robotic-arm">
                         <div class="project-image" style="background-image: url('projects/Arm pic.png');">
                             <div class="project-overlay">
-                                <a href="projects/Project Report Mechanics Lab.pdf" class="project-link-btn" target="_blank" title="View Report"><i class="fas fa-file-alt"></i></a>
-                                <a href="projects/Robotic Arm Video.mp4" class="project-link-btn" target="_blank" title="Watch Video"><i class="fas fa-video"></i></a>
+                                <a href="projects/Project Report Mechanics Lab.pdf" class="project-link-btn"
+                                    target="_blank" title="View Report"><i class="fas fa-file-alt"></i></a>
+                                <a href="projects/Robotic Arm Video.mp4" class="project-link-btn" target="_blank"
+                                    title="Watch Video"><i class="fas fa-video"></i></a>
                             </div>
                         </div>
                         <div class="project-content">
@@ -2621,14 +3422,17 @@
                     <div class="project-card" data-project="thermo-power-conversion">
                         <div class="project-image" style="background-image: url('projects/Royles.jpg');">
                             <div class="project-overlay">
-                                <a href="projects/Thermodynamics Project Report Finalized .pdf" class="project-link-btn" target="_blank" title="View Report"><i class="fas fa-file-pdf"></i></a>
-                                <a href="projects/Trent 1000 Stationary Power Conversion.pptx" class="project-link-btn" target="_blank" title="View Presentation"><i class="fas fa-file-powerpoint"></i></a>
+                                <a href="projects/Thermodynamics Project Report Finalized .pdf" class="project-link-btn"
+                                    target="_blank" title="View Report"><i class="fas fa-file-pdf"></i></a>
+                                <a href="projects/Trent 1000 Stationary Power Conversion.pptx" class="project-link-btn"
+                                    target="_blank" title="View Presentation"><i class="fas fa-file-powerpoint"></i></a>
                             </div>
                         </div>
                         <div class="project-content">
                             <span class="project-tag">Thermodynamics & Power</span>
                             <h3>Thermodynamics & Power Conversion</h3>
-                            <p>A project on thermodynamics and the conversion of a Trent 1000 engine for stationary power.</p>
+                            <p>A project on thermodynamics and the conversion of a Trent 1000 engine for stationary
+                                power.</p>
                             <div class="project-tags">
                                 <span>Thermodynamics</span>
                                 <span>Power Conversion</span>
@@ -2640,7 +3444,8 @@
                     <div class="project-card" data-project="mom-project">
                         <div class="project-image" style="background-image: url('projects/Bridge.jpg');">
                             <div class="project-overlay">
-                                <a href="projects/MOM Project.pdf" class="project-link-btn" target="_blank"><i class="fas fa-eye"></i></a>
+                                <a href="projects/MOM Project.pdf" class="project-link-btn" target="_blank"><i
+                                        class="fas fa-eye"></i></a>
                             </div>
                         </div>
                         <div class="project-content">
@@ -2669,12 +3474,14 @@
                             <h4>My Second Portfolio</h4>
                             <p>Hosted on GitHub Pages, showcasing early projects.</p>
                         </a>
-                        <a href="https://usman-khan-engineer-nf1o0hd.gamma.site/" target="_blank" class="portfolio-link-card">
+                        <a href="https://usman-khan-engineer-nf1o0hd.gamma.site/" target="_blank"
+                            class="portfolio-link-card">
                             <i class="fas fa-robot"></i>
                             <h4>Gamma AI Portfolio</h4>
                             <p>A portfolio generated using Gamma AI tools.</p>
                         </a>
-                        <a href="https://portfolio-developmen-orro.bolt.host/" target="_blank" class="portfolio-link-card">
+                        <a href="https://portfolio-developmen-orro.bolt.host/" target="_blank"
+                            class="portfolio-link-card">
                             <i class="fas fa-magic"></i>
                             <h4>AI Landing Page Portfolio</h4>
                             <p>Created with AI Landing Page builder for quick deployment.</p>
@@ -2696,15 +3503,19 @@
                         <div class="cv-icon"><i class="fas fa-file-pdf"></i></div>
                         <h3>Curriculum Vitae</h3>
                         <p>A comprehensive document of my academic and professional background.</p>
-                        <a href="CV/cv.pdf" class="btn btn-primary" download><i class="fas fa-download"></i> Download CV</a>
-                        <a href="CV/cv.pdf" class="btn btn-secondary" style="margin-top: 10px;" target="_blank"><i class="fas fa-eye"></i> View Only</a>
+                        <a href="CV/cv.pdf" class="btn btn-primary" download><i class="fas fa-download"></i> Download
+                            CV</a>
+                        <a href="CV/cv.pdf" class="btn btn-secondary" style="margin-top: 10px;" target="_blank"><i
+                                class="fas fa-eye"></i> View Only</a>
                     </div>
                     <div class="cv-card">
                         <div class="cv-icon"><i class="fas fa-file-alt"></i></div>
                         <h3>Resume</h3>
                         <p>A concise summary of my skills and experiences.</p>
-                        <a href="CV/resume.pdf" class="btn btn-primary" download><i class="fas fa-download"></i> Download Resume</a>
-                        <a href="CV/resume.pdf" class="btn btn-secondary" style="margin-top: 10px;" target="_blank"><i class="fas fa-eye"></i> View Only</a>
+                        <a href="CV/resume.pdf" class="btn btn-primary" download><i class="fas fa-download"></i>
+                            Download Resume</a>
+                        <a href="CV/resume.pdf" class="btn btn-secondary" style="margin-top: 10px;" target="_blank"><i
+                                class="fas fa-eye"></i> View Only</a>
                     </div>
                 </div>
             </div>
@@ -2722,35 +3533,43 @@
                         <img src="images/3rd Sem GPA.png" alt="3rd Semester GPA">
                         <span>3rd Semester GPA</span>
                     </a>
-                    <a href="Certificate/udemy and digiskills courses/Adobe Photoshop Certificate.pdf" class="certificate-card" target="_blank">
+                    <a href="Certificate/udemy and digiskills courses/Adobe Photoshop Certificate.pdf"
+                        class="certificate-card" target="_blank">
                         <i class="fas fa-file-pdf"></i>
                         <span>Adobe Photoshop</span>
                     </a>
-                    <a href="Certificate/udemy and digiskills courses/Advance Internal Combustion Engine Analysis And Design.pdf" class="certificate-card" target="_blank">
+                    <a href="Certificate/udemy and digiskills courses/Advance Internal Combustion Engine Analysis And Design.pdf"
+                        class="certificate-card" target="_blank">
                         <i class="fas fa-file-pdf"></i>
                         <span>Advance Internal Combustion Engine Analysis And Design</span>
                     </a>
-                    <a href="Certificate/udemy and digiskills courses/AI & Quantum Computing Mastery.pdf" class="certificate-card" target="_blank">
+                    <a href="Certificate/udemy and digiskills courses/AI & Quantum Computing Mastery.pdf"
+                        class="certificate-card" target="_blank">
                         <i class="fas fa-file-pdf"></i>
                         <span>AI & Quantum Computing Mastery</span>
                     </a>
-                    <a href="Certificate/udemy and digiskills courses/AutoCAD.pdf" class="certificate-card" target="_blank">
+                    <a href="Certificate/udemy and digiskills courses/AutoCAD.pdf" class="certificate-card"
+                        target="_blank">
                         <i class="fas fa-file-pdf"></i>
                         <span>AutoCAD</span>
                     </a>
-                    <a href="Certificate/udemy and digiskills courses/Ethically Hack the Planet.pdf" class="certificate-card" target="_blank">
+                    <a href="Certificate/udemy and digiskills courses/Ethically Hack the Planet.pdf"
+                        class="certificate-card" target="_blank">
                         <i class="fas fa-file-pdf"></i>
                         <span>Ethically Hack the Planet</span>
                     </a>
-                    <a href="Certificate/udemy and digiskills courses/Freelancing.pdf" class="certificate-card" target="_blank">
+                    <a href="Certificate/udemy and digiskills courses/Freelancing.pdf" class="certificate-card"
+                        target="_blank">
                         <i class="fas fa-file-pdf"></i>
                         <span>Freelancing</span>
                     </a>
-                    <a href="Certificate/udemy and digiskills courses/Full stack development.pdf" class="certificate-card" target="_blank">
+                    <a href="Certificate/udemy and digiskills courses/Full stack development.pdf"
+                        class="certificate-card" target="_blank">
                         <i class="fas fa-file-pdf"></i>
                         <span>Full stack development</span>
                     </a>
-                    <a href="Certificate/udemy and digiskills courses/Python Programming.pdf" class="certificate-card" target="_blank">
+                    <a href="Certificate/udemy and digiskills courses/Python Programming.pdf" class="certificate-card"
+                        target="_blank">
                         <i class="fas fa-file-pdf"></i>
                         <span>Python Programming</span>
                     </a>
@@ -2758,19 +3577,23 @@
                         <i class="fas fa-file-pdf"></i>
                         <span>SEO</span>
                     </a>
-                    <a href="Certificate/udemy and digiskills courses/Solidworks.pdf" class="certificate-card" target="_blank">
+                    <a href="Certificate/udemy and digiskills courses/Solidworks.pdf" class="certificate-card"
+                        target="_blank">
                         <i class="fas fa-file-pdf"></i>
                         <span>Solidworks</span>
                     </a>
-                    <a href="Certificate/udemy and digiskills courses/VIDEO EDITING, ANIMATION AND VLOGGING.pdf" class="certificate-card" target="_blank">
+                    <a href="Certificate/udemy and digiskills courses/VIDEO EDITING, ANIMATION AND VLOGGING.pdf"
+                        class="certificate-card" target="_blank">
                         <i class="fas fa-file-pdf"></i>
                         <span>Video Editing, Animation and Vlogging</span>
                     </a>
-                    <a href="Certificate/udemy and digiskills courses/Web 3 Development Essentials.pdf" class="certificate-card" target="_blank">
+                    <a href="Certificate/udemy and digiskills courses/Web 3 Development Essentials.pdf"
+                        class="certificate-card" target="_blank">
                         <i class="fas fa-file-pdf"></i>
                         <span>Web 3 Development Essentials</span>
                     </a>
-                    <a href="Certificate/udemy and digiskills courses/WORDPRESS.pdf" class="certificate-card" target="_blank">
+                    <a href="Certificate/udemy and digiskills courses/WORDPRESS.pdf" class="certificate-card"
+                        target="_blank">
                         <i class="fas fa-file-pdf"></i>
                         <span>Wordpress</span>
                     </a>
@@ -2782,15 +3605,19 @@
                         <img src="Certificate/Solidworks Certificates/Linkdin.png" alt="Solidworks Certificate">
                         <span>Solidworks</span>
                     </a>
-                    <a href="Certificate/Solidworks Certificates/Solidworks 4 weeks.png" class="certificate-card" target="_blank">
-                        <img src="Certificate/Solidworks Certificates/Solidworks 4 weeks.png" alt="Solidworks Certificate">
+                    <a href="Certificate/Solidworks Certificates/Solidworks 4 weeks.png" class="certificate-card"
+                        target="_blank">
+                        <img src="Certificate/Solidworks Certificates/Solidworks 4 weeks.png"
+                            alt="Solidworks Certificate">
                         <span>Solidworks 4 weeks</span>
                     </a>
-                    <a href="Certificate/Solidworks Certificates/Solidworks..png" class="certificate-card" target="_blank">
+                    <a href="Certificate/Solidworks Certificates/Solidworks..png" class="certificate-card"
+                        target="_blank">
                         <img src="Certificate/Solidworks Certificates/Solidworks..png" alt="Solidworks Certificate">
                         <span>Solidworks</span>
                     </a>
-                    <a href="Certificate/Solidworks Certificates/Solidworks.png" class="certificate-card" target="_blank">
+                    <a href="Certificate/Solidworks Certificates/Solidworks.png" class="certificate-card"
+                        target="_blank">
                         <img src="Certificate/Solidworks Certificates/Solidworks.png" alt="Solidworks Certificate">
                         <span>Solidworks</span>
                     </a>
@@ -2802,11 +3629,13 @@
                         <img src="Certificate/Semester Results/CGPA.png" alt="Semester Result">
                         <span>CGPA</span>
                     </a>
-                    <a href="Certificate/ADBI/Artificial-Intelligence–ADBI-E-Learning.pdf" class="certificate-card" target="_blank">
+                    <a href="Certificate/ADBI/Artificial-Intelligence–ADBI-E-Learning.pdf" class="certificate-card"
+                        target="_blank">
                         <i class="fas fa-file-pdf"></i>
                         <span>Artificial Intelligence (ADBI)</span>
                     </a>
-                    <a href="Certificate/ADBI/Cybersecurity–Cybersecurity–ADBI-E-Learning.pdf" class="certificate-card" target="_blank">
+                    <a href="Certificate/ADBI/Cybersecurity–Cybersecurity–ADBI-E-Learning.pdf" class="certificate-card"
+                        target="_blank">
                         <i class="fas fa-file-pdf"></i>
                         <span>Cybersecurity (ADBI)</span>
                     </a>
@@ -2886,7 +3715,8 @@
                             <div class="contact-icon"><i class="fab fa-linkedin"></i></div>
                             <div class="contact-details">
                                 <h3>LinkedIn</h3>
-                                <a href="https://www.linkedin.com/in/usman-khan-735944353/" target="_blank">Usman Khan</a>
+                                <a href="https://www.linkedin.com/in/usman-khan-735944353/" target="_blank">Usman
+                                    Khan</a>
                             </div>
                         </div>
                         <div class="contact-item">
@@ -2908,15 +3738,19 @@
                             <div class="contact-icon"><i class="fas fa-globe"></i></div>
                             <div class="contact-details">
                                 <h3>Portfolio 2</h3>
-                                <a href="https://usman-portfolio-1122.netlify.app/" target="_blank">Netlify Portfolio</a>
+                                <a href="https://usman-portfolio-1122.netlify.app/" target="_blank">Netlify
+                                    Portfolio</a>
                             </div>
                         </div>
                     </div>
                     <div class="contact-form">
                         <div style="text-align: center; margin-bottom: 2rem;">
-                            <img src="images/uni_pic.jpg" alt="My Image" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 3px solid var(--primary); margin-bottom: 1rem;">
+                            <img src="images/uni_pic.jpg" alt="My Image"
+                                style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 3px solid var(--primary); margin-bottom: 1rem;">
                             <p style="color: var(--gray); font-size: 1rem; line-height: 1.6;">
-                                If you have some query related to me, or my projects, or if you wanna ask some thing you can contact me with anything here in the contact section or you can message me using the given form
+                                If you have some query related to me, or my projects, or if you wanna ask some thing you
+                                can contact me with anything here in the contact section or you can message me using the
+                                given form
                             </p>
                         </div>
                         <h3><i class="fas fa-paper-plane"></i> Send Me a Message</h3>
@@ -2928,7 +3762,8 @@
                             </div>
                             <div class="form-group">
                                 <label for="email"><i class="fas fa-envelope"></i> Email</label>
-                                <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+                                <input type="email" id="email" name="email" placeholder="your.email@example.com"
+                                    required>
                             </div>
                             <div class="form-group">
                                 <label for="whatsapp">WhatsApp Number (Optional)</label>
@@ -2936,7 +3771,8 @@
                             </div>
                             <div class="form-group">
                                 <label for="message"><i class="fas fa-comment-dots"></i> Message</label>
-                                <textarea id="message" name="message" rows="5" placeholder="Your message here..." required></textarea>
+                                <textarea id="message" name="message" rows="5" placeholder="Your message here..."
+                                    required></textarea>
                             </div>
                             <button type="submit" class="btn btn-primary" id="submitBtn">
                                 <i class="fas fa-paper-plane"></i> Send Message
@@ -2953,7 +3789,8 @@
         <div class="footer-content">
             <div class="footer-logo">
                 <h2>Usman Khan</h2>
-                <p>Mechanical Engineer & Developer crafting innovative solutions at the intersection of engineering and technology.</p>
+                <p>Mechanical Engineer & Developer crafting innovative solutions at the intersection of engineering and
+                    technology.</p>
             </div>
             <div class="footer-section">
                 <h3>Quick Links</h3>
@@ -2965,9 +3802,12 @@
             <div class="footer-section">
                 <h3>Connect With Me</h3>
                 <div class="footer-social">
-                    <a href="https://web.facebook.com/profile.php?id=61584444386143" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://www.instagram.com/u_s_m_a_n_0_07/" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.linkedin.com/in/usman-khan-735944353/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://web.facebook.com/profile.php?id=61584444386143" target="_blank"><i
+                            class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/u_s_m_a_n_0_07/" target="_blank"><i
+                            class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/usman-khan-735944353/" target="_blank"><i
+                            class="fab fa-linkedin"></i></a>
                     <a href="mailto:usmankhan16122006@gmail.com"><i class="fas fa-envelope"></i></a>
                     <a href="https://github.com/usman-khan-0" target="_blank"><i class="fab fa-github"></i></a>
                     <a href="https://www.youtube.com/@usman-khan-556" target="_blank"><i class="fab fa-youtube"></i></a>
@@ -3002,7 +3842,7 @@
 
         // Navigation Links
         document.querySelectorAll('.nav-link, .hero-buttons .btn, .work-with-me-buttons .btn').forEach(link => {
-            link.addEventListener('click', function(e) {
+            link.addEventListener('click', function (e) {
                 const href = this.getAttribute('href');
                 if (href && href.startsWith('#')) {
                     e.preventDefault();
@@ -3354,7 +4194,7 @@
 
         // Footer Links
         document.querySelectorAll('footer a[href^="#"]').forEach(link => {
-            link.addEventListener('click', function(e) {
+            link.addEventListener('click', function (e) {
                 e.preventDefault();
                 const section = this.getAttribute('href').substring(1);
                 showSection(section);
@@ -3382,7 +4222,8 @@
             <!-- Messages will be added here -->
         </div>
         <div class="chatbot-input-area">
-            <input type="text" class="chatbot-input" id="chatbotInput" placeholder="Ask about projects, skills..." aria-label="Type your message">
+            <input type="text" class="chatbot-input" id="chatbotInput" placeholder="Ask about projects, skills..."
+                aria-label="Type your message">
             <button class="chatbot-send" id="chatbotSend" aria-label="Send message">
                 <i class="fas fa-paper-plane"></i>
             </button>
