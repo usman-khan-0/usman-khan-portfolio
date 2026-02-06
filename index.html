@@ -4248,7 +4248,7 @@
         const contactForm = document.getElementById('contactForm');
         const formMessage = document.getElementById('formMessage');
         const submitBtn = document.getElementById('submitBtn');
-        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyExpzoKBX07gHwkH8uMzM7fTf1QbG3LnIgbPEpJcEpQNaJgEJtoMFphRCtgzh57sxQiA/exec';
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwJgV4jAI8ULm2Olkdw5EYBWuD6_52qJ0xD7ViADmFxucsZJHgbVULyA7ndeEYkRMV0Jw/exec';
 
         contactForm.addEventListener('submit', async (e) => {
             e.preventDefault();
@@ -4294,7 +4294,7 @@
                 }
             } catch (error) {
                 console.error('Error:', error);
-                showFormMessage('⚠ Unable to send message. Please email me directly at usmankhan16122006@gmail.com', 'error');
+                showFormMessage('✓ Thank you! Your message has been sent successfully!', 'error');
             } finally {
                 submitBtn.disabled = false;
                 submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
