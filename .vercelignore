@@ -1,0 +1,12 @@
+.venv
+__pycache__
+*.pyc
+.env
+.git
+.gitignore
+chatbot.py
+main.py
+server.py
+pyproject.toml
+uv.lock
+README.md
