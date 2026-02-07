@@ -1736,43 +1736,596 @@
             line-height: 1.8;
         }
 
-        /* Hobbies Section */
-        .hobbies-grid {
+        /* Hobbies Section - Circular Hierarchy */
+        .hobbies-circular-container {
+            position: relative;
+            width: 100%;
+            max-width: 900px;
+            margin: 3rem auto;
+            padding: 3rem 0;
+            min-height: 700px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hobby-center-card {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 40px rgba(46, 125, 50, 0.4);
+            z-index: 10;
+            border: 3px solid var(--primary-light);
+        }
+
+        .hobby-center-card h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--white);
+            text-align: center;
+            padding: 0 1rem;
+            line-height: 1.3;
+        }
+
+        .hobby-center-card::before {
+            content: '';
+            position: absolute;
+            width: 220px;
+            height: 220px;
+            border: 2px dashed var(--primary-light);
+            border-radius: 50%;
+            animation: rotate 20s linear infinite;
+            opacity: 0.3;
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .hobby-orbit-card {
+            position: absolute;
+            width: 140px;
+            height: 140px;
+            background: var(--dark-secondary);
+            border: 2px solid var(--border);
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            cursor: pointer;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .hobby-orbit-card:hover {
+            border-color: var(--primary);
+            transform: scale(1.1);
+            box-shadow: 0 0 30px rgba(46, 125, 50, 0.3);
+            background: var(--dark);
+        }
+
+        .hobby-orbit-card.active {
+            border-color: var(--primary-light);
+            box-shadow: 0 0 30px rgba(46, 125, 50, 0.5);
+        }
+
+        .hobby-orbit-card .hobby-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .hobby-orbit-card h4 {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--white);
+            line-height: 1.2;
+        }
+
+        /* Position each hobby card in a circle */
+        .hobby-orbit-card:nth-child(2) {
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .hobby-orbit-card:nth-child(3) {
+            top: 10%;
+            right: 10%;
+        }
+
+        .hobby-orbit-card:nth-child(4) {
+            top: 40%;
+            right: 0;
+        }
+
+        .hobby-orbit-card:nth-child(5) {
+            bottom: 10%;
+            right: 10%;
+        }
+
+        .hobby-orbit-card:nth-child(6) {
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .hobby-orbit-card:nth-child(7) {
+            bottom: 10%;
+            left: 10%;
+        }
+
+        .hobby-orbit-card:nth-child(8) {
+            top: 40%;
+            left: 0;
+        }
+
+        .hobby-orbit-card:nth-child(9) {
+            top: 10%;
+            left: 10%;
+        }
+
+        /* Connecting lines - decorative */
+        .hobby-orbit-card::before {
+            content: '';
+            position: absolute;
+            width: 2px;
+            height: 80px;
+            background: linear-gradient(to bottom, var(--primary-light), transparent);
+            top: 50%;
+            left: 50%;
+            transform-origin: top center;
+            opacity: 0.2;
+            pointer-events: none;
+        }
+
+        /* Hobby Detail Modal - Similar to Skills Modal */
+        .hobby-modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(8px);
+            z-index: 9999;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        .hobby-modal-overlay.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        .hobby-modal-content {
+            background: var(--dark-secondary);
+            border: 2px solid var(--primary);
+            border-radius: 24px;
+            padding: 3rem;
+            max-width: 600px;
+            width: 100%;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            animation: modalSlideIn 0.4s ease-out;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-30px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .hobby-modal-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: var(--primary);
+            color: var(--white);
+            border: none;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            transition: var(--transition);
+            z-index: 10;
+        }
+
+        .hobby-modal-close:hover {
+            background: var(--primary-light);
+            transform: rotate(90deg);
+        }
+
+        .hobby-modal-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .hobby-modal-icon {
+            font-size: 5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .hobby-modal-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-light);
+            margin-bottom: 0.5rem;
+        }
+
+        .hobby-modal-subtitle {
+            color: var(--gray);
+            font-size: 1rem;
+        }
+
+        .hobby-modal-body {
+            color: var(--white);
+        }
+
+        .hobby-modal-description {
+            color: var(--gray);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .hobby-modal-details {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 1.5rem;
         }
 
-        .hobby-card {
-            background: var(--dark-secondary);
+        .hobby-detail-item {
+            background: var(--dark);
             border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 2rem;
-            text-align: center;
+            border-radius: 12px;
+            padding: 1.5rem;
             transition: var(--transition);
         }
 
-        .hobby-card:hover {
+        .hobby-detail-item:hover {
             border-color: var(--primary);
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-xl);
+            transform: translateX(5px);
         }
 
-        .hobby-icon {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
+        .hobby-detail-item h4 {
+            color: var(--primary-light);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
-        .hobby-card h3 {
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin-bottom: 0.75rem;
+        .hobby-detail-item h4 i {
+            font-size: 1rem;
         }
 
-        .hobby-card p {
+        .hobby-detail-item p {
             color: var(--gray);
-            font-size: 0.95rem;
+            font-size: 1rem;
             line-height: 1.6;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 1024px) {
+            .hobbies-circular-container {
+                max-width: 700px;
+                min-height: 550px;
+            }
+
+            .hobby-center-card {
+                width: 170px;
+                height: 170px;
+            }
+
+            .hobby-center-card h3 {
+                font-size: 1.2rem;
+            }
+
+            .hobby-orbit-card {
+                width: 120px;
+                height: 120px;
+            }
+
+            .hobby-orbit-card .hobby-icon {
+                font-size: 2rem;
+            }
+
+            .hobby-orbit-card h4 {
+                font-size: 0.75rem;
+            }
+
+            .hobby-modal-content {
+                padding: 2.5rem;
+            }
+
+            .hobby-modal-icon {
+                font-size: 4rem;
+            }
+
+            .hobby-modal-title {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hobbies-circular-container {
+                max-width: 500px;
+                min-height: 500px;
+                padding: 2rem 0;
+            }
+
+            .hobby-center-card {
+                width: 130px;
+                height: 130px;
+            }
+
+            .hobby-center-card h3 {
+                font-size: 1rem;
+                padding: 0 0.5rem;
+            }
+
+            .hobby-orbit-card {
+                width: 90px;
+                height: 90px;
+                padding: 0.5rem;
+            }
+
+            .hobby-orbit-card .hobby-icon {
+                font-size: 1.6rem;
+                margin-bottom: 0.3rem;
+            }
+
+            .hobby-orbit-card h4 {
+                font-size: 0.65rem;
+            }
+
+            /* Adjust positions for smaller screens */
+            .hobby-orbit-card:nth-child(3) {
+                right: 5%;
+            }
+
+            .hobby-orbit-card:nth-child(5) {
+                right: 5%;
+            }
+
+            .hobby-orbit-card:nth-child(7) {
+                left: 5%;
+            }
+
+            .hobby-orbit-card:nth-child(9) {
+                left: 5%;
+            }
+
+            .hobby-modal-content {
+                padding: 2rem;
+                max-height: 85vh;
+            }
+
+            .hobby-modal-icon {
+                font-size: 3.5rem;
+            }
+
+            .hobby-modal-title {
+                font-size: 2rem;
+            }
+
+            .hobby-modal-description {
+                font-size: 1rem;
+            }
+
+            .hobby-detail-item h4 {
+                font-size: 1.1rem;
+            }
+
+            .hobby-detail-item p {
+                font-size: 0.95rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hobbies-circular-container {
+                max-width: 350px;
+                min-height: 400px;
+                padding: 1.5rem 0;
+            }
+
+            .hobby-center-card {
+                width: 100px;
+                height: 100px;
+            }
+
+            .hobby-center-card h3 {
+                font-size: 0.8rem;
+            }
+
+            .hobby-center-card::before {
+                width: 120px;
+                height: 120px;
+            }
+
+            .hobby-orbit-card {
+                width: 70px;
+                height: 70px;
+                padding: 0.3rem;
+            }
+
+            .hobby-orbit-card .hobby-icon {
+                font-size: 1.3rem;
+                margin-bottom: 0.2rem;
+            }
+
+            .hobby-orbit-card h4 {
+                font-size: 0.55rem;
+            }
+
+            /* Tighter positioning for very small screens */
+            .hobby-orbit-card:nth-child(2) {
+                top: -5px;
+            }
+
+            .hobby-orbit-card:nth-child(3) {
+                top: 8%;
+                right: 2%;
+            }
+
+            .hobby-orbit-card:nth-child(4) {
+                top: 38%;
+                right: -5px;
+            }
+
+            .hobby-orbit-card:nth-child(5) {
+                bottom: 8%;
+                right: 2%;
+            }
+
+            .hobby-orbit-card:nth-child(6) {
+                bottom: -5px;
+            }
+
+            .hobby-orbit-card:nth-child(7) {
+                bottom: 8%;
+                left: 2%;
+            }
+
+            .hobby-orbit-card:nth-child(8) {
+                top: 38%;
+                left: -5px;
+            }
+
+            .hobby-orbit-card:nth-child(9) {
+                top: 8%;
+                left: 2%;
+            }
+
+            .hobby-modal-overlay {
+                padding: 0.5rem;
+            }
+
+            .hobby-modal-content {
+                padding: 1.5rem;
+                max-height: 80vh;
+            }
+
+            .hobby-modal-close {
+                width: 40px;
+                height: 40px;
+                font-size: 1.3rem;
+                top: 1rem;
+                right: 1rem;
+            }
+
+            .hobby-modal-icon {
+                font-size: 3rem;
+            }
+
+            .hobby-modal-title {
+                font-size: 1.6rem;
+            }
+
+            .hobby-modal-subtitle {
+                font-size: 0.9rem;
+            }
+
+            .hobby-modal-description {
+                font-size: 0.95rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .hobby-detail-item {
+                padding: 1rem;
+            }
+
+            .hobby-detail-item h4 {
+                font-size: 1rem;
+            }
+
+            .hobby-detail-item p {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .hobbies-circular-container {
+                max-width: 300px;
+                min-height: 350px;
+            }
+
+            .hobby-center-card {
+                width: 85px;
+                height: 85px;
+            }
+
+            .hobby-center-card h3 {
+                font-size: 0.7rem;
+            }
+
+            .hobby-orbit-card {
+                width: 60px;
+                height: 60px;
+            }
+
+            .hobby-orbit-card .hobby-icon {
+                font-size: 1.1rem;
+            }
+
+            .hobby-orbit-card h4 {
+                font-size: 0.5rem;
+            }
+
+            .hobby-modal-content {
+                padding: 1.2rem;
+            }
+
+            .hobby-modal-icon {
+                font-size: 2.5rem;
+            }
+
+            .hobby-modal-title {
+                font-size: 1.4rem;
+            }
+
+            .hobby-detail-item {
+                padding: 0.8rem;
+            }
         }
 
         /* Social Media Section */
@@ -2989,58 +3542,72 @@
                     <h2>My Hobbies & Interests</h2>
                     <p>What I love to do in my free time</p>
                 </div>
-                <div class="hobbies-grid">
-                    <div class="hobby-card">
+                <div class="hobbies-circular-container">
+                    <!-- Center card with heading -->
+                    <div class="hobby-center-card">
+                        <h3>My Hobbies & Interests</h3>
+                    </div>
+
+                    <!-- Orbit cards around the center -->
+                    <div class="hobby-orbit-card" data-hobby="football">
                         <div class="hobby-icon">⚽</div>
-                        <h3>Football</h3>
-                        <p>Passionate about playing and watching football, enjoying the teamwork and strategic elements
-                            of the beautiful game.</p>
+                        <h4>Football</h4>
                     </div>
-                    <div class="hobby-card">
+
+                    <div class="hobby-orbit-card" data-hobby="cricket">
                         <div class="hobby-icon">🏏</div>
-                        <h3>Cricket</h3>
-                        <p>Enthusiastic cricket player and fan, appreciating the skill and precision required in this
-                            classic sport.</p>
+                        <h4>Cricket</h4>
                     </div>
-                    <div class="hobby-card">
+
+                    <div class="hobby-orbit-card" data-hobby="martial-arts">
                         <div class="hobby-icon">🥋</div>
-                        <h3>Martial Arts</h3>
-                        <p>Dedicated to martial arts training, building discipline, strength, and mental focus through
-                            various techniques.</p>
+                        <h4>Martial Arts</h4>
                     </div>
-                    <div class="hobby-card">
+
+                    <div class="hobby-orbit-card" data-hobby="running">
                         <div class="hobby-icon">🏃</div>
-                        <h3>Running</h3>
-                        <p>Regular runner who enjoys the physical and mental benefits of staying active and pushing
-                            personal limits.</p>
+                        <h4>Running</h4>
                     </div>
-                    <div class="hobby-card">
+
+                    <div class="hobby-orbit-card" data-hobby="studying">
                         <div class="hobby-icon">📚</div>
-                        <h3>Studying</h3>
-                        <p>Committed to continuous learning and expanding knowledge in engineering, technology, and
-                            beyond.</p>
+                        <h4>Studying</h4>
                     </div>
-                    <div class="hobby-card">
+
+                    <div class="hobby-orbit-card" data-hobby="movies">
                         <div class="hobby-icon">🎬</div>
-                        <h3>Watching Movies</h3>
-                        <p>Movie enthusiast who enjoys exploring different genres, appreciating cinematography, and
-                            storytelling.</p>
+                        <h4>Movies</h4>
                     </div>
-                    <div class="hobby-card">
+
+                    <div class="hobby-orbit-card" data-hobby="badminton">
                         <div class="hobby-icon">🏸</div>
-                        <h3>Badminton</h3>
-                        <p>Love the fast-paced nature of the game. It's a great way to stay active and sharp.</p>
+                        <h4>Badminton</h4>
                     </div>
-                    <div class="hobby-card">
+
+                    <div class="hobby-orbit-card" data-hobby="online-games">
                         <div class="hobby-icon">🎮</div>
-                        <h3>Online Games</h3>
-                        <p>PUBG, Snooker, Bike Riders</p>
+                        <h4>Online Games</h4>
                     </div>
-                    <div class="hobby-card">
+
+                    <div class="hobby-orbit-card" data-hobby="coding">
                         <div class="hobby-icon">💻</div>
-                        <h3>Coding</h3>
-                        <p>A passion for creating and problem-solving through code. I enjoy building applications and
-                            exploring new technologies.</p>
+                        <h4>Coding</h4>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hobby Detail Modal -->
+            <div id="hobbyModal" class="hobby-modal-overlay">
+                <div class="hobby-modal-content">
+                    <button class="hobby-modal-close" onclick="closeHobbyModal()">&times;</button>
+                    <div class="hobby-modal-header">
+                        <span class="hobby-modal-icon" id="modalHobbyIcon"></span>
+                        <h2 class="hobby-modal-title" id="modalHobbyTitle"></h2>
+                        <p class="hobby-modal-subtitle" id="modalHobbySubtitle"></p>
+                    </div>
+                    <div class="hobby-modal-body">
+                        <p class="hobby-modal-description" id="modalHobbyDescription"></p>
+                        <div class="hobby-modal-details" id="modalHobbyDetails"></div>
                     </div>
                 </div>
             </div>
@@ -4487,6 +5054,281 @@
                 addMessage('Sorry, I encountered an error. Please try again later or email me directly at usmankhan16122006@gmail.com', 'bot');
             }
         }
+
+        // Hobbies Modal Logic - Similar to Skills Modal
+        const hobbiesData = {
+            'football': {
+                icon: '⚽',
+                title: 'Football',
+                subtitle: 'The Beautiful Game',
+                description: 'I am passionate about playing and watching football. The beautiful game teaches me about teamwork, strategy, and dedication. Whether it\'s playing with friends or watching professional matches, football helps me understand the importance of coordination and working towards a common goal.',
+                details: [
+                    {
+                        title: 'Teamwork & Strategy',
+                        icon: 'fa-users',
+                        description: 'Football has taught me the importance of working together towards a common goal and developing strategic thinking.'
+                    },
+                    {
+                        title: 'Physical Fitness',
+                        icon: 'fa-heartbeat',
+                        description: 'Regular football practice keeps me physically fit and helps maintain excellent cardiovascular health.'
+                    },
+                    {
+                        title: 'Competitive Spirit',
+                        icon: 'fa-trophy',
+                        description: 'The competitive nature of football drives me to constantly improve my skills and push my limits.'
+                    }
+                ]
+            },
+            'cricket': {
+                icon: '🏏',
+                title: 'Cricket',
+                subtitle: 'A Game of Precision & Patience',
+                description: 'Cricket is more than just a sport for me - it\'s about precision, patience, and strategy. I am an enthusiastic cricket player and fan, appreciating every aspect of this classic sport.',
+                details: [
+                    {
+                        title: 'Technical Skills',
+                        icon: 'fa-bullseye',
+                        description: 'Cricket requires mastery of various technical skills in batting, bowling, and fielding.'
+                    },
+                    {
+                        title: 'Mental Fortitude',
+                        icon: 'fa-brain',
+                        description: 'Long matches teach patience, focus, and the ability to perform under pressure.'
+                    },
+                    {
+                        title: 'Strategic Gameplay',
+                        icon: 'fa-chess',
+                        description: 'Understanding game situations and making tactical decisions is crucial in cricket.'
+                    }
+                ]
+            },
+            'martial-arts': {
+                icon: '🥋',
+                title: 'Martial Arts',
+                subtitle: 'Discipline & Self-Control',
+                description: 'I am dedicated to martial arts training, which has been instrumental in building my discipline, strength, and mental focus. Through various martial arts techniques, I have learned self-control, respect, and the importance of continuous practice.',
+                details: [
+                    {
+                        title: 'Physical Strength',
+                        icon: 'fa-dumbbell',
+                        description: 'Martial arts training builds comprehensive physical strength, flexibility, and endurance.'
+                    },
+                    {
+                        title: 'Mental Discipline',
+                        icon: 'fa-meditation',
+                        description: 'The practice develops mental resilience, concentration, and self-discipline.'
+                    },
+                    {
+                        title: 'Self-Defense',
+                        icon: 'fa-shield-alt',
+                        description: 'Learning practical self-defense techniques and building confidence in challenging situations.'
+                    }
+                ]
+            },
+            'running': {
+                icon: '🏃',
+                title: 'Running',
+                subtitle: 'Pushing Personal Limits',
+                description: 'Running is my way of maintaining both physical and mental well-being. As a regular runner, I enjoy pushing my personal limits and experiencing the meditative quality of a good run.',
+                details: [
+                    {
+                        title: 'Cardiovascular Health',
+                        icon: 'fa-heart',
+                        description: 'Running improves heart health, stamina, and overall physical fitness.'
+                    },
+                    {
+                        title: 'Mental Clarity',
+                        icon: 'fa-lightbulb',
+                        description: 'Running helps clear my mind, reduce stress, and gain mental clarity.'
+                    },
+                    {
+                        title: 'Goal Achievement',
+                        icon: 'fa-flag-checkered',
+                        description: 'Setting and achieving running milestones teaches persistence and goal-setting.'
+                    }
+                ]
+            },
+            'studying': {
+                icon: '📚',
+                title: 'Studying',
+                subtitle: 'Lifelong Learning Journey',
+                description: 'I am committed to continuous learning and expanding my knowledge in engineering, technology, and beyond. Studying is not just about academic achievement for me - it\'s a lifelong passion.',
+                details: [
+                    {
+                        title: 'Deep Learning',
+                        icon: 'fa-book-open',
+                        description: 'I love diving deep into complex subjects and understanding concepts from first principles.'
+                    },
+                    {
+                        title: 'Practical Application',
+                        icon: 'fa-cogs',
+                        description: 'Applying theoretical knowledge to solve real-world engineering problems.'
+                    },
+                    {
+                        title: 'Continuous Growth',
+                        icon: 'fa-chart-line',
+                        description: 'Staying updated with latest technologies and engineering principles through constant learning.'
+                    }
+                ]
+            },
+            'movies': {
+                icon: '🎬',
+                title: 'Watching Movies',
+                subtitle: 'Art of Storytelling',
+                description: 'As a movie enthusiast, I enjoy exploring different genres and appreciating the art of cinematography and storytelling. Movies provide me with different perspectives on life, culture, and human nature.',
+                details: [
+                    {
+                        title: 'Creative Inspiration',
+                        icon: 'fa-palette',
+                        description: 'Movies inspire creativity and provide unique perspectives on storytelling and visual design.'
+                    },
+                    {
+                        title: 'Cultural Understanding',
+                        icon: 'fa-globe',
+                        description: 'Films from different cultures help me understand diverse perspectives and experiences.'
+                    },
+                    {
+                        title: 'Technical Appreciation',
+                        icon: 'fa-film',
+                        description: 'I enjoy analyzing cinematography, direction, screenplay, and visual effects techniques.'
+                    }
+                ]
+            },
+            'badminton': {
+                icon: '🏸',
+                title: 'Badminton',
+                subtitle: 'Speed & Agility',
+                description: 'I love the fast-paced nature of badminton. It\'s an excellent way to stay active and mentally sharp. The game requires quick reflexes, strategic thinking, and excellent hand-eye coordination.',
+                details: [
+                    {
+                        title: 'Quick Reflexes',
+                        icon: 'fa-bolt',
+                        description: 'Badminton sharpens reaction time and improves hand-eye coordination significantly.'
+                    },
+                    {
+                        title: 'Cardiovascular Workout',
+                        icon: 'fa-running',
+                        description: 'The fast-paced nature provides an excellent cardiovascular workout and builds stamina.'
+                    },
+                    {
+                        title: 'Social Connection',
+                        icon: 'fa-user-friends',
+                        description: 'A great way to connect with friends and fellow enthusiasts through friendly competition.'
+                    }
+                ]
+            },
+            'online-games': {
+                icon: '🎮',
+                title: 'Online Games',
+                subtitle: 'Strategic Gaming',
+                description: 'I enjoy playing online games like PUBG, Snooker, and Bike Riders. Gaming is not just entertainment for me - it\'s about strategic thinking, quick decision-making, and sometimes teamwork.',
+                details: [
+                    {
+                        title: 'Strategic Thinking',
+                        icon: 'fa-brain',
+                        description: 'Online games enhance strategic planning and quick decision-making abilities.'
+                    },
+                    {
+                        title: 'Stress Relief',
+                        icon: 'fa-smile',
+                        description: 'Gaming provides relaxation and stress relief after intense study sessions.'
+                    },
+                    {
+                        title: 'Skill Development',
+                        icon: 'fa-gamepad',
+                        description: 'Competitive gaming pushes me to constantly improve and refine my gaming strategies.'
+                    }
+                ]
+            },
+            'coding': {
+                icon: '💻',
+                title: 'Coding',
+                subtitle: 'Building the Future',
+                description: 'Coding is my passion and one of my favorite hobbies. I love creating solutions through code and exploring new technologies. Whether it\'s building web applications, working on AI projects, or experimenting with new programming languages, coding allows me to turn ideas into reality.',
+                details: [
+                    {
+                        title: 'Problem Solving',
+                        icon: 'fa-puzzle-piece',
+                        description: 'Coding enhances logical thinking and the ability to break down complex problems.'
+                    },
+                    {
+                        title: 'Creative Expression',
+                        icon: 'fa-magic',
+                        description: 'Programming allows me to express creativity by building applications and tools.'
+                    },
+                    {
+                        title: 'Continuous Innovation',
+                        icon: 'fa-rocket',
+                        description: 'Exploring new technologies and frameworks keeps me at the forefront of innovation.'
+                    }
+                ]
+            }
+        };
+
+        // Function to open hobby modal
+        function openHobbyModal(hobbyKey) {
+            const hobby = hobbiesData[hobbyKey];
+            if (!hobby) return;
+
+            // Update modal content
+            document.getElementById('modalHobbyIcon').textContent = hobby.icon;
+            document.getElementById('modalHobbyTitle').textContent = hobby.title;
+            document.getElementById('modalHobbySubtitle').textContent = hobby.subtitle;
+            document.getElementById('modalHobbyDescription').textContent = hobby.description;
+
+            // Build details section
+            const detailsContainer = document.getElementById('modalHobbyDetails');
+            detailsContainer.innerHTML = hobby.details.map(detail => `
+                <div class="hobby-detail-item">
+                    <h4><i class="fas ${detail.icon}"></i> ${detail.title}</h4>
+                    <p>${detail.description}</p>
+                </div>
+            `).join('');
+
+            // Show modal
+            document.getElementById('hobbyModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Function to close hobby modal
+        function closeHobbyModal() {
+            document.getElementById('hobbyModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+            document.querySelectorAll('.hobby-orbit-card').forEach(c => c.classList.remove('active'));
+        }
+
+        // Add click event listeners to all hobby orbit cards
+        document.querySelectorAll('.hobby-orbit-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const hobbyKey = this.getAttribute('data-hobby');
+
+                // Remove active class from all cards
+                document.querySelectorAll('.hobby-orbit-card').forEach(c => c.classList.remove('active'));
+                // Add active class to clicked card
+                this.classList.add('active');
+
+                // Open modal
+                openHobbyModal(hobbyKey);
+            });
+        });
+
+        // Close modal when clicking outside
+        document.getElementById('hobbyModal').addEventListener('click', function(event) {
+            if (event.target === this) {
+                closeHobbyModal();
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                const modal = document.getElementById('hobbyModal');
+                if (modal.classList.contains('active')) {
+                    closeHobbyModal();
+                }
+            }
+        });
     </script>
 </body>
 
