@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Post | AI Insights</title>
+    <link rel="stylesheet" href="blog.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="https://img.icons8.com/color/96/000000/artificial-intelligence.png">
+</head>
+<body>
+    <!-- Navigation -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="blog.html" class="logo">
+                    <i class="fas fa-brain"></i>
+                    <span>AI Insights</span>
+                </a>
+
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html"><i class="fas fa-arrow-left"></i> Back to Portfolio</a></li>
+                    <li><a href="blog.html">Home</a></li>
+                    <li><a href="blog.html#blog">Articles</a></li>
+                    <li><a href="blog.html#about">About</a></li>
+                    <li><a href="blog.html#resources">Resources</a></li>
+                    <li><a href="blog.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Blog Post Detail -->
+    <section class="blog-post-detail" style="display: block;">
+        <div class="container">
+            <a href="blog.html" class="btn-back">
+                <i class="fas fa-arrow-left"></i> Back to Articles
+            </a>
+            <article class="post-content" id="postContent">
+                <!-- Full blog post will be loaded here by JavaScript -->
+                <div style="text-align: center; padding: 4rem 0;">
+                    <i class="fas fa-spinner fa-spin" style="font-size: 3rem; color: var(--primary-color);"></i>
+                    <p style="margin-top: 1rem; color: var(--text-light);">Loading article...</p>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <h3>AI Insights Blog</h3>
+                    <p>Exploring the growth of artificial intelligence and its impact on society, business, and daily life.</p>
+                    <div class="social-links">
+                        <a href="https://github.com/usman-khan-0" target="_blank" aria-label="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/usman-khan-59b2892b4/" target="_blank" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://usman-khan-web-developer.vercel.app" target="_blank" aria-label="Portfolio">
+                            <i class="fas fa-globe"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="blog.html">Home</a></li>
+                        <li><a href="blog.html#blog">Articles</a></li>
+                        <li><a href="blog.html#resources">Resources</a></li>
+                        <li><a href="blog.html#about">About</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-contact">
+                    <h4>Stay Updated</h4>
+                    <p>Subscribe to our newsletter for the latest AI insights</p>
+                    <form class="subscribe-form" id="subscribeForm">
+                        <input type="email" placeholder="Your email address" required>
+                        <button type="submit" class="btn-subscribe">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 AI Insights Blog. Created with <i class="fas fa-heart"></i> by Muhammad Usman Khan</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Load blog data first, then the post display logic -->
+    <script src="blog.js"></script>
+    <script src="blog-post.js"></script>
+</body>
+</html>

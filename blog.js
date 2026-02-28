@@ -1327,11 +1327,8 @@ function renderBlogCards() {
     document.querySelectorAll('.read-more').forEach(button => {
         button.addEventListener('click', function() {
             const postId = parseInt(this.getAttribute('data-id'));
-            openBlogPost(postId);
-            
-            // Update URL without page reload
-            const newUrl = `${window.location.pathname}?post=${postId}`;
-            window.history.pushState({ postId }, '', newUrl);
+            // Navigate to the blog post page in the same tab
+            window.location.href = `blog-post.html?id=${postId}`;
         });
     });
 }
@@ -1348,7 +1345,13 @@ function openBlogPost(postId) {
     document.querySelector('.about-section').style.display = 'none';
     document.querySelector('.resources-section').style.display = 'none';
     document.querySelector('.hero').style.display = 'none';
-    
+
+    // Hide AI overview section if it exists
+    const aiOverviewSection = document.querySelector('.ai-overview-section');
+    if (aiOverviewSection) {
+        aiOverviewSection.style.display = 'none';
+    }
+
     blogPostDetail.style.display = 'block';
     
     // Scroll to top of the page
@@ -1360,12 +1363,18 @@ function setupEventListeners() {
     // Back to blog button
     backToBlogBtn.addEventListener('click', function() {
         blogPostDetail.style.display = 'none';
-        
+
         // Show all sections again
         document.querySelector('.blog-container').style.display = 'block';
         document.querySelector('.about-section').style.display = 'block';
         document.querySelector('.resources-section').style.display = 'block';
         document.querySelector('.hero').style.display = 'block';
+
+        // Show AI overview section if it exists
+        const aiOverviewSection = document.querySelector('.ai-overview-section');
+        if (aiOverviewSection) {
+            aiOverviewSection.style.display = 'block';
+        }
         
         // Update URL
         window.history.pushState({}, '', window.location.pathname);
@@ -1400,6 +1409,12 @@ function setupEventListeners() {
             document.querySelector('.about-section').style.display = 'block';
             document.querySelector('.resources-section').style.display = 'block';
             document.querySelector('.hero').style.display = 'block';
+
+            // Show AI overview section if it exists
+            const aiOverviewSection = document.querySelector('.ai-overview-section');
+            if (aiOverviewSection) {
+                aiOverviewSection.style.display = 'block';
+            }
         }
     });
     

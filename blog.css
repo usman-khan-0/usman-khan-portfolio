@@ -294,6 +294,319 @@ a {
     flex-grow: 1;
 }
 
+/* AI Overview Section */
+.ai-overview-section {
+    padding: 80px 0;
+    background-color: white;
+}
+
+.ai-intro {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    margin-bottom: 4rem;
+}
+
+.ai-intro-content h3 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-color);
+}
+
+.ai-intro-content p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-light);
+}
+
+.ai-intro-image {
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.ai-intro-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* AI Stats */
+.ai-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin: 4rem 0;
+}
+
+.stat-card {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 2rem;
+    border-radius: 15px;
+    color: white;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-10px);
+}
+
+.stat-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    opacity: 0.9;
+}
+
+.stat-card h4 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.stat-card p {
+    font-size: 1rem;
+    opacity: 0.95;
+    margin-bottom: 0;
+}
+
+/* AI Categories */
+.ai-categories {
+    margin: 5rem 0;
+}
+
+.ai-categories h3 {
+    font-size: 2.2rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--text-color);
+}
+
+.category-grid {
+    display: grid;
+    gap: 3rem;
+}
+
+.category-card {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 2rem;
+    background: var(--background-alt);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+.category-card:hover {
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px);
+}
+
+.category-image {
+    height: 100%;
+    overflow: hidden;
+}
+
+.category-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.category-card:hover .category-image img {
+    transform: scale(1.1);
+}
+
+.category-content {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.category-content h4 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.category-content h4 i {
+    font-size: 1.8rem;
+}
+
+.category-content p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+}
+
+.category-content ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.category-content ul li {
+    padding: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    color: var(--text-color);
+}
+
+.category-content ul li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+/* AI Applications */
+.ai-applications {
+    margin: 5rem 0;
+}
+
+.ai-applications h3 {
+    font-size: 2.2rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--text-color);
+}
+
+.applications-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.application-card {
+    position: relative;
+    height: 300px;
+    border-radius: 15px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.application-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.application-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+    padding: 2rem;
+    color: white;
+    transform: translateY(60%);
+    transition: transform 0.3s ease;
+}
+
+.application-card:hover .application-overlay {
+    transform: translateY(0);
+}
+
+.application-card:hover img {
+    transform: scale(1.1);
+}
+
+.application-overlay h4 {
+    font-size: 1.5rem;
+    margin-bottom: 0.8rem;
+    color: white;
+}
+
+.application-overlay p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    opacity: 0.95;
+    margin-bottom: 0;
+}
+
+/* AI Future */
+.ai-future {
+    margin: 5rem 0;
+    padding: 4rem;
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0e7ff 100%);
+    border-radius: 20px;
+}
+
+.ai-future h3 {
+    font-size: 2.2rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--text-color);
+}
+
+.future-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.future-image {
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.future-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.future-text p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-light);
+    margin-bottom: 2rem;
+}
+
+.future-points {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.future-point {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+}
+
+.future-point i {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin-top: 0.2rem;
+}
+
+.future-point h5 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+}
+
+.future-point p {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    margin-bottom: 0;
+    line-height: 1.6;
+}
+
 /* About Section */
 .about-section {
     padding: 80px 0;
@@ -559,22 +872,50 @@ a {
     h1 {
         font-size: 2.2rem;
     }
-    
+
     h2 {
         font-size: 1.8rem;
     }
-    
+
     .hero-title {
         font-size: 2.5rem;
     }
-    
+
     .about-content {
         grid-template-columns: 1fr;
         gap: 3rem;
     }
-    
+
     .about-image {
         order: -1;
+    }
+
+    .ai-intro {
+        grid-template-columns: 1fr;
+    }
+
+    .ai-intro-image {
+        order: -1;
+    }
+
+    .category-card {
+        grid-template-columns: 1fr;
+    }
+
+    .category-image {
+        height: 250px;
+    }
+
+    .future-content {
+        grid-template-columns: 1fr;
+    }
+
+    .future-image {
+        order: -1;
+    }
+
+    .ai-stats {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     }
 }
 
@@ -582,7 +923,7 @@ a {
     .navbar {
         position: relative;
     }
-    
+
     .nav-menu {
         position: absolute;
         top: 100%;
@@ -595,61 +936,95 @@ a {
         display: none;
         z-index: 99;
     }
-    
+
     .nav-menu.active {
         display: flex;
     }
-    
+
     .nav-menu li {
         width: 100%;
     }
-    
+
     .nav-menu a {
         display: block;
         padding: 0.8rem 0;
         border-bottom: 1px solid var(--border-color);
     }
-    
+
     .nav-menu a:last-child {
         border-bottom: none;
     }
-    
+
     .menu-toggle {
         display: block;
     }
-    
+
     .hero {
         padding: 60px 0;
     }
-    
+
     .hero-title {
         font-size: 2rem;
     }
-    
+
     .hero-subtitle {
         font-size: 1.1rem;
     }
-    
-    .blog-container, .about-section, .resources-section {
+
+    .blog-container, .about-section, .resources-section, .ai-overview-section {
         padding: 60px 0;
     }
-    
+
     .post-title {
         font-size: 2rem;
     }
-    
+
     .subscribe-form {
         flex-direction: column;
     }
-    
+
     .subscribe-form input {
         border-radius: var(--radius);
         margin-bottom: 10px;
     }
-    
+
     .btn-subscribe {
         border-radius: var(--radius);
         width: 100%;
+    }
+
+    .ai-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .stat-card h4 {
+        font-size: 1.6rem;
+    }
+
+    .applications-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .application-card {
+        height: 250px;
+    }
+
+    .ai-future {
+        padding: 2rem;
+    }
+
+    .ai-categories h3,
+    .ai-applications h3,
+    .ai-future h3 {
+        font-size: 1.8rem;
+    }
+
+    .category-content {
+        padding: 1.5rem;
+    }
+
+    .category-content h4 {
+        font-size: 1.3rem;
     }
 }
 
