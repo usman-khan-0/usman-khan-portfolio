@@ -137,6 +137,49 @@
             width: 100%;
         }
 
+        /* Projects Dropdown */
+        .nav-dropdown {
+            position: relative;
+        }
+
+        .nav-dropdown .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #0a0a0a;
+            border: 1px solid var(--dark);
+            border-radius: 8px;
+            padding: 0.5rem 0;
+            min-width: 180px;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 1000;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+        }
+
+        .nav-dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 0.6rem 1rem;
+            color: var(--gray);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: var(--transition);
+            white-space: nowrap;
+        }
+
+        .dropdown-menu a:hover {
+            color: var(--white);
+            background: var(--dark);
+        }
+
         .mobile-nav-toggle {
             display: none;
             background: none;
@@ -2980,9 +3023,16 @@
             </a>
             <div class="nav-links">
                 <a href="#home" class="nav-link active" title="Home"><i class="fas fa-home"></i></a>
-                <a href="#projects" class="nav-link" title="Projects"><i class="fas fa-folder-open"></i></a>
+                <div class="nav-dropdown">
+                    <a href="#projects" class="nav-link" title="Projects"><i class="fas fa-folder-open"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="in_progress.html">In Progress</a>
+                        <a href="Engineering_project.html">Engineering Projects</a>
+                        <a href="websites.html">Websites</a>
+                    </div>
+                </div>
                 <a href="#cv" class="nav-link" title="CV"><i class="fas fa-file-alt"></i></a>
-                <a href="#certificates" class="nav-link" title="Certificates"><i class="fas fa-certificate"></i></a>
+                <a href="certificates.html" class="nav-link" title="Certificates"><i class="fas fa-certificate"></i></a>
                 <a href="#learning-journey" class="nav-link" title="Learning Journey"><i class="fas fa-road"></i></a>
                 <a href="#contact" class="nav-link" title="Contact"><i class="fas fa-envelope"></i></a>
             </div>
@@ -4524,7 +4574,7 @@
                 <h3>Quick Links</h3>
                 <a href="#home">Home</a>
                 <a href="#projects">Projects</a>
-                <a href="#certificates">Certificates</a>
+                <a href="certificates.html">Certificates</a>
                 <a href="#contact">Contact</a>
             </div>
             <div class="footer-section">
