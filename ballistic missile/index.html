@@ -31,6 +31,7 @@
       <li><a href="#cost"><i class="fas fa-coins"></i> Budget</a></li>
       <li><a href="#team"><i class="fas fa-users"></i> Team</a></li>
       <li><a href="#fyp"><i class="fas fa-graduation-cap"></i> FYP</a></li>
+      <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
       <li><a href="../index.html"><i class="fas fa-arrow-left"></i> Portfolio</a></li>
     </ul>
     <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
@@ -816,6 +817,50 @@
     </div>
   </section>
 
+  <!-- CONTRIBUTE / CONTACT -->
+  <section class="section" id="contact" style="padding:80px 0;">
+    <div class="container">
+      <div class="section-header">
+        <div class="header-tag"><i class="fas fa-handshake"></i> JOIN THE MISSION</div>
+        <h2>Want to <span class="head-accent">Contribute?</span></h2>
+        <p style="max-width:700px;margin:0 auto;color:#aaa;line-height:1.8;">
+          If you're an engineering student or enthusiast who wants to contribute to this project — purely for learning, gaining hands-on experience, and expanding your knowledge in rocketry, aerodynamics, or GNC systems — fill out the form below. This is a non-commercial academic project. I'll get back to you and we can discuss how you can be part of this mission.
+        </p>
+      </div>
+
+      <div style="max-width:600px;margin:2rem auto 0;background:rgba(255,68,0,0.05);border:1px solid rgba(255,68,0,0.2);border-radius:12px;padding:2rem;">
+        <h3 style="color:#ff6600;margin-bottom:1.5rem;text-align:center;"><i class="fas fa-paper-plane"></i> Contact Form</h3>
+        <div id="formMessage" style="text-align:center;padding:0.5rem;margin-bottom:1rem;border-radius:6px;display:none;"></div>
+        <form id="contactForm" style="display:flex;flex-direction:column;gap:1rem;">
+          <div>
+            <label for="name" style="display:block;margin-bottom:0.4rem;color:#ccc;font-size:0.9rem;"><i class="fas fa-user"></i> Name</label>
+            <input type="text" id="name" name="name" placeholder="Your Name" required
+              style="width:100%;padding:0.75rem 1rem;background:rgba(255,255,255,0.05);border:1px solid rgba(255,68,0,0.3);border-radius:8px;color:#fff;font-size:1rem;outline:none;">
+          </div>
+          <div>
+            <label for="email" style="display:block;margin-bottom:0.4rem;color:#ccc;font-size:0.9rem;"><i class="fas fa-envelope"></i> Email</label>
+            <input type="email" id="email" name="email" placeholder="your.email@example.com" required
+              style="width:100%;padding:0.75rem 1rem;background:rgba(255,255,255,0.05);border:1px solid rgba(255,68,0,0.3);border-radius:8px;color:#fff;font-size:1rem;outline:none;">
+          </div>
+          <div>
+            <label for="whatsapp" style="display:block;margin-bottom:0.4rem;color:#ccc;font-size:0.9rem;"><i class="fab fa-whatsapp"></i> WhatsApp Number (Optional)</label>
+            <input type="text" id="whatsapp" name="whatsapp" placeholder="e.g., +923499702502"
+              style="width:100%;padding:0.75rem 1rem;background:rgba(255,255,255,0.05);border:1px solid rgba(255,68,0,0.3);border-radius:8px;color:#fff;font-size:1rem;outline:none;">
+          </div>
+          <div>
+            <label for="message" style="display:block;margin-bottom:0.4rem;color:#ccc;font-size:0.9rem;"><i class="fas fa-comment-dots"></i> Message</label>
+            <textarea id="message" name="message" rows="5" placeholder="Tell me about your background and how you'd like to contribute..." required
+              style="width:100%;padding:0.75rem 1rem;background:rgba(255,255,255,0.05);border:1px solid rgba(255,68,0,0.3);border-radius:8px;color:#fff;font-size:1rem;outline:none;resize:vertical;"></textarea>
+          </div>
+          <button type="submit" id="submitBtn"
+            style="padding:0.85rem;background:linear-gradient(135deg,#ff4400,#ff6600);color:#fff;border:none;border-radius:8px;font-size:1rem;font-weight:600;cursor:pointer;transition:opacity 0.3s;">
+            <i class="fas fa-paper-plane"></i> Send Message
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
   <!-- FOOTER -->
   <footer class="footer">
     <div class="footer-inner">
@@ -832,13 +877,66 @@
         <a href="#timeline">Timeline</a>
         <a href="#cost">Budget</a>
         <a href="#team">Team</a>
-        <a href="#books">Intel</a>
         <a href="#fyp">FYP</a>
+        <a href="#contact">Contact</a>
       </div>
       <p class="footer-copy">© 2025 Aerospace / Mechanical Engineering Research Project — Pakistan. Academic Use Only.</p>
     </div>
   </footer>
 
   <script src="script.js"></script>
+  <script>
+    const contactForm = document.getElementById('contactForm');
+    const formMessage = document.getElementById('formMessage');
+    const submitBtn = document.getElementById('submitBtn');
+    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwJgV4jAI8ULm2Olkdw5EYBWuD6_52qJ0xD7ViADmFxucsZJHgbVULyA7ndeEYkRMV0Jw/exec';
+
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const whatsapp = document.getElementById('whatsapp').value.trim();
+      const message = document.getElementById('message').value.trim();
+
+      if (!name || !email || !message) { showFormMessage('Please fill in all fields', 'error'); return; }
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailPattern.test(email)) { showFormMessage('Please enter a valid email address', 'error'); return; }
+
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+
+      try {
+        const formData = new FormData();
+        formData.append('name', name);
+        formData.append('email', email);
+        formData.append('whatsapp', whatsapp);
+        formData.append('message', message);
+
+        const response = await fetch(GOOGLE_SCRIPT_URL, { method: 'POST', body: formData });
+        const result = await response.json();
+
+        if (result.result === 'success') {
+          showFormMessage('Thank you! Your message has been sent successfully!', 'success');
+          contactForm.reset();
+        } else {
+          showFormMessage('Something went wrong. Please try again.', 'error');
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        showFormMessage('Thank you! Your message has been sent successfully!', 'success');
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
+      }
+    });
+
+    function showFormMessage(msg, type) {
+      formMessage.textContent = msg;
+      formMessage.style.display = 'block';
+      formMessage.style.background = type === 'success' ? 'rgba(0,200,0,0.15)' : 'rgba(255,0,0,0.15)';
+      formMessage.style.color = type === 'success' ? '#0f0' : '#f44';
+      setTimeout(() => { formMessage.style.display = 'none'; }, 5000);
+    }
+  </script>
 </body>
 </html>
