@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Small-Scale Ballistic Missile — FYP Research</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Exo+2:wght@300;400;500;600;700;800&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+
+  <!-- SCANLINE OVERLAY -->
+  <div class="scanlines" aria-hidden="true"></div>
+  <div class="noise-overlay" aria-hidden="true"></div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-brand">
+      <div class="brand-icon"><i class="fas fa-crosshairs"></i></div>
+      <div class="brand-text">
+        <span class="brand-main">BALLISTIC-FYP</span>
+        <span class="brand-sub">CLASSIFIED RESEARCH</span>
+      </div>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#hero"><i class="fas fa-home"></i> Base</a></li>
+      <li><a href="#overview"><i class="fas fa-crosshairs"></i> Overview</a></li>
+      <li><a href="#flowchart"><i class="fas fa-sitemap"></i> Stages</a></li>
+      <li><a href="#timeline"><i class="fas fa-clock"></i> Timeline</a></li>
+      <li><a href="#cost"><i class="fas fa-coins"></i> Budget</a></li>
+      <li><a href="#team"><i class="fas fa-users"></i> Team</a></li>
+      <li><a href="#books"><i class="fas fa-book"></i> Intel</a></li>
+      <li><a href="#fyp"><i class="fas fa-graduation-cap"></i> FYP</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-radar">
+      <div class="radar-circle r1"></div>
+      <div class="radar-circle r2"></div>
+      <div class="radar-circle r3"></div>
+      <div class="radar-circle r4"></div>
+      <div class="radar-sweep"></div>
+      <div class="radar-dot d1"></div>
+      <div class="radar-dot d2"></div>
+      <div class="radar-dot d3"></div>
+    </div>
+    <div class="hero-grid-overlay"></div>
+
+    <div class="hero-content">
+      <div class="status-bar">
+        <span class="status-dot"></span>
+        <span class="status-text">SYSTEM ONLINE — FYP PROJECT 2024</span>
+        <span class="status-classify">ACADEMIC USE ONLY</span>
+      </div>
+
+      <div class="classify-stamp">UNCLASSIFIED // ACADEMIC</div>
+
+      <h1 class="hero-title">
+        <span class="title-line-1">Small-Scale</span>
+        <span class="title-line-2">BALLISTIC MISSILE</span>
+        <span class="title-line-3">Development System</span>
+      </h1>
+
+      <p class="hero-tagline">
+        <span class="bracket">[</span>
+        Final Year Project — Integrated Design, Propulsion &amp; Guidance Research
+        <span class="bracket">]</span>
+      </p>
+
+      <p class="hero-desc">
+        An academic-grade engineering research project covering structural design, solid propellant propulsion, flight dynamics, guidance systems, and trajectory simulation for a small-scale ballistic missile prototype.
+      </p>
+
+      <div class="hero-btns">
+        <a href="#flowchart" class="btn-primary">
+          <i class="fas fa-sitemap"></i> VIEW MISSION STAGES
+        </a>
+        <a href="#overview" class="btn-ghost">
+          <i class="fas fa-file-alt"></i> PROJECT BRIEF
+        </a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat-box">
+          <span class="s-val" data-target="8">0</span>
+          <span class="s-lbl">Stages</span>
+        </div>
+        <div class="stat-sep">|</div>
+        <div class="stat-box">
+          <span class="s-val" data-target="62">0</span>
+          <span class="s-lbl">Est. Days</span>
+        </div>
+        <div class="stat-sep">|</div>
+        <div class="stat-box">
+          <span class="s-val" data-target="5">0</span>
+          <span class="s-lbl">Engineers</span>
+        </div>
+        <div class="stat-sep">|</div>
+        <div class="stat-box">
+          <span class="s-val" data-target="6">0</span>
+          <span class="s-lbl">Tools</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Missile SVG -->
+    <div class="hero-missile-wrap">
+      <div class="missile-container">
+        <div class="target-lock tl-outer"></div>
+        <div class="target-lock tl-inner"></div>
+        <svg class="missile-svg" viewBox="0 0 140 520" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="mBody" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" style="stop-color:#1a1200"/>
+              <stop offset="30%" style="stop-color:#3a2800"/>
+              <stop offset="60%" style="stop-color:#4a3400"/>
+              <stop offset="100%" style="stop-color:#1a1200"/>
+            </linearGradient>
+            <linearGradient id="mNose" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#cc3300"/>
+              <stop offset="100%" style="stop-color:#661100"/>
+            </linearGradient>
+            <linearGradient id="mFlame" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" style="stop-color:#ff6600"/>
+              <stop offset="40%" style="stop-color:#ff3300;stop-opacity:0.9"/>
+              <stop offset="100%" style="stop-color:#ff0000;stop-opacity:0"/>
+            </linearGradient>
+            <linearGradient id="mExhaust" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" style="stop-color:#ffaa00;stop-opacity:0.6"/>
+              <stop offset="100%" style="stop-color:#ff4400;stop-opacity:0"/>
+            </linearGradient>
+          </defs>
+          <!-- Warhead nose -->
+          <polygon points="70,8 92,80 48,80" fill="url(#mNose)" stroke="#cc3300" stroke-width="1"/>
+          <!-- Nose tip glint -->
+          <line x1="70" y1="8" x2="70" y2="30" stroke="#ff4400" stroke-width="1" opacity="0.7"/>
+          <!-- Body section 1 (warhead) -->
+          <rect x="48" y="80" width="44" height="60" rx="2" fill="#2a1800" stroke="#cc3300" stroke-width="1"/>
+          <!-- Red band -->
+          <rect x="48" y="94" width="44" height="12" fill="#cc3300" opacity="0.8"/>
+          <rect x="48" y="114" width="44" height="4" fill="#cc3300" opacity="0.4"/>
+          <!-- Body separator ring -->
+          <rect x="44" y="140" width="52" height="8" rx="2" fill="#4a3000" stroke="#886600" stroke-width="1"/>
+          <!-- Body section 2 (guidance) -->
+          <rect x="48" y="148" width="44" height="90" rx="2" fill="url(#mBody)" stroke="#664400" stroke-width="1"/>
+          <!-- Panel lines -->
+          <line x1="70" y1="148" x2="70" y2="238" stroke="#553300" stroke-width="0.8"/>
+          <line x1="48" y1="180" x2="92" y2="180" stroke="#553300" stroke-width="0.8"/>
+          <line x1="48" y1="210" x2="92" y2="210" stroke="#553300" stroke-width="0.8"/>
+          <!-- Guidance window -->
+          <rect x="56" y="188" width="28" height="16" rx="3" fill="none" stroke="#ff9900" stroke-width="1.5"/>
+          <rect x="58" y="190" width="24" height="12" rx="2" fill="#1a0800" stroke="#cc6600" stroke-width="0.5"/>
+          <circle cx="70" cy="196" r="3" fill="#ff9900" opacity="0.8"/>
+          <!-- Body separator ring 2 -->
+          <rect x="44" y="238" width="52" height="8" rx="2" fill="#4a3000" stroke="#886600" stroke-width="1"/>
+          <!-- Body section 3 (propulsion) -->
+          <rect x="48" y="246" width="44" height="160" rx="2" fill="url(#mBody)" stroke="#664400" stroke-width="1"/>
+          <!-- Panel lines on propulsion section -->
+          <line x1="70" y1="246" x2="70" y2="406" stroke="#553300" stroke-width="0.8"/>
+          <line x1="48" y1="286" x2="92" y2="286" stroke="#553300" stroke-width="0.6"/>
+          <line x1="48" y1="326" x2="92" y2="326" stroke="#553300" stroke-width="0.6"/>
+          <line x1="48" y1="366" x2="92" y2="366" stroke="#553300" stroke-width="0.6"/>
+          <!-- Warning stripes -->
+          <rect x="48" y="260" width="44" height="18" fill="none"/>
+          <line x1="48" y1="260" x2="68" y2="278" stroke="#cc3300" stroke-width="2.5" opacity="0.6"/>
+          <line x1="58" y1="260" x2="78" y2="278" stroke="#cc3300" stroke-width="2.5" opacity="0.6"/>
+          <line x1="68" y1="260" x2="88" y2="278" stroke="#cc3300" stroke-width="2.5" opacity="0.6"/>
+          <rect x="48" y="260" width="44" height="18" fill="transparent"/>
+          <!-- Nozzle housing -->
+          <rect x="44" y="406" width="52" height="20" rx="3" fill="#2a1800" stroke="#886600" stroke-width="1.5"/>
+          <!-- Nozzle -->
+          <polygon points="55,426 85,426 90,460 50,460" fill="#1a0f00" stroke="#cc6600" stroke-width="1.5"/>
+          <!-- Nozzle inner -->
+          <ellipse cx="70" cy="460" rx="20" ry="8" fill="#0a0500" stroke="#ff6600" stroke-width="1.5"/>
+          <!-- Fins -->
+          <polygon points="48,360 20,440 44,430" fill="#2a1800" stroke="#886600" stroke-width="1"/>
+          <polygon points="92,360 120,440 96,430" fill="#2a1800" stroke="#886600" stroke-width="1"/>
+          <!-- Small canard fins -->
+          <polygon points="48,150 30,175 48,170" fill="#331a00" stroke="#664400" stroke-width="0.8"/>
+          <polygon points="92,150 110,175 92,170" fill="#331a00" stroke="#664400" stroke-width="0.8"/>
+          <!-- Exhaust flame -->
+          <ellipse cx="70" cy="475" rx="16" ry="32" fill="url(#mFlame)" class="m-flame"/>
+          <ellipse cx="70" cy="490" rx="8" ry="20" fill="url(#mExhaust)" class="m-exhaust"/>
+          <!-- Bolts/rivets -->
+          <circle cx="54" cy="144" r="2.5" fill="#886600"/>
+          <circle cx="70" cy="144" r="2.5" fill="#886600"/>
+          <circle cx="86" cy="144" r="2.5" fill="#886600"/>
+          <circle cx="54" cy="242" r="2.5" fill="#886600"/>
+          <circle cx="70" cy="242" r="2.5" fill="#886600"/>
+          <circle cx="86" cy="242" r="2.5" fill="#886600"/>
+        </svg>
+        <div class="missile-glow"></div>
+        <div class="trajectory-line"></div>
+      </div>
+    </div>
+
+    <div class="scroll-hint"><i class="fas fa-chevron-down"></i><span>SCROLL</span></div>
+  </section>
+
+  <!-- OVERVIEW -->
+  <section class="section overview-section" id="overview">
+    <div class="container">
+      <div class="section-header">
+        <div class="header-tag"><i class="fas fa-crosshairs"></i> PROJECT OVERVIEW</div>
+        <h2>Small-Scale Ballistic Missile<br/><span class="head-accent">Final Year Project</span></h2>
+        <p>A comprehensive academic research project simulating real-world ballistic missile development at a reduced academic scale — covering every engineering discipline from propellant chemistry to guidance algorithms.</p>
+      </div>
+
+      <div class="overview-grid">
+        <div class="ov-card reveal">
+          <div class="ov-icon" style="--ic:#ff4400"><i class="fas fa-fire"></i></div>
+          <h3>Propulsion System</h3>
+          <p>Solid-propellant rocket motor design, thrust curve analysis, and nozzle geometry optimization for controlled burn performance.</p>
+        </div>
+        <div class="ov-card reveal">
+          <div class="ov-icon" style="--ic:#ff9900"><i class="fas fa-drafting-compass"></i></div>
+          <h3>Structural Design</h3>
+          <p>Lightweight airframe engineering using composite materials, aeroelastic analysis, and load-bearing optimization for flight loads.</p>
+        </div>
+        <div class="ov-card reveal">
+          <div class="ov-icon" style="--ic:#ffcc00"><i class="fas fa-compass"></i></div>
+          <h3>Guidance & Control</h3>
+          <p>IMU-based inertial guidance, fin-actuated control surfaces, and PID flight controller for trajectory correction mid-flight.</p>
+        </div>
+        <div class="ov-card reveal">
+          <div class="ov-icon" style="--ic:#ff6600"><i class="fas fa-chart-line"></i></div>
+          <h3>Trajectory Analysis</h3>
+          <p>6-DOF flight simulation, ballistic flight path prediction, range/altitude trade studies, and impact point estimation.</p>
+        </div>
+        <div class="ov-card reveal">
+          <div class="ov-icon" style="--ic:#cc3300"><i class="fas fa-wind"></i></div>
+          <h3>CFD / Aerodynamics</h3>
+          <p>ANSYS-based airflow simulation to quantify drag, stability derivatives, and shock wave behavior at transonic speeds.</p>
+        </div>
+        <div class="ov-card reveal">
+          <div class="ov-icon" style="--ic:#ff9900"><i class="fas fa-microchip"></i></div>
+          <h3>Avionics & Sensors</h3>
+          <p>On-board data acquisition, GPS/INS integration, telemetry downlink, and flight computer hardware selection and integration.</p>
+        </div>
+      </div>
+
+      <div class="tools-bar reveal">
+        <span class="tools-label"><i class="fas fa-tools"></i> ENGINEERING TOOLS:</span>
+        <div class="tools-list">
+          <span>SolidWorks</span>
+          <span>ANSYS Fluent</span>
+          <span>MATLAB / Simulink</span>
+          <span>OpenRocket</span>
+          <span>Python / SciPy</span>
+          <span>Fusion 360</span>
+          <span>Arduino / STM32</span>
+          <span>RASAero II</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FLOWCHART -->
+  <section class="section flowchart-section" id="flowchart">
+    <div class="container">
+      <div class="section-header">
+        <div class="header-tag"><i class="fas fa-sitemap"></i> MISSION FLOWCHART</div>
+        <h2>Development <span class="head-accent">Stage Sequence</span></h2>
+        <p>Click any stage to expand classified technical details for that phase.</p>
+      </div>
+
+      <div class="flowchart" id="flowchart">
+
+        <!-- STAGE 1 -->
+        <div class="flow-item reveal" data-stage="1">
+          <div class="flow-node" onclick="toggleStage(1)" tabindex="0" role="button" aria-expanded="false">
+            <div class="fn-badge">01</div>
+            <div class="fn-icon" style="--nc:#ff4400"><i class="fas fa-ruler-combined"></i></div>
+            <div class="fn-text">
+              <h3>Conceptual Design & Requirements</h3>
+              <p>Mission specs, geometry sizing, mass budget</p>
+            </div>
+            <div class="fn-expand"><i class="fas fa-plus"></i></div>
+          </div>
+          <div class="flow-detail" id="det-1">
+            <div class="detail-panel">
+              <div class="dp-img">
+                <img src="https://images.unsplash.com/photo-1517976547714-720226b864c1?w=600&q=80" alt="Design" loading="lazy" />
+                <div class="dp-img-label">CONCEPT DESIGN PHASE</div>
+              </div>
+              <div class="dp-body">
+                <h4><i class="fas fa-ruler-combined"></i> Conceptual Design & Mission Requirements</h4>
+                <p>Every ballistic missile project begins by defining the mission envelope — target range, payload mass, apogee altitude, and acceptable impact dispersion. These requirements drive all downstream design decisions.</p>
+                <div class="dp-points">
+                  <div class="dp-pt"><span class="pt-bullet">▶</span><div><strong>Mission Definition:</strong> Target range (100–500 m for small-scale), maximum altitude (150–500 m), payload type (data logger or dummy mass), and recovery system requirements.</div></div>
+                  <div class="dp-pt"><span class="pt-bullet">▶</span><div><strong>Geometric Sizing:</strong> Fineness ratio (L/D = 10–15) selected to balance drag and structural length. Nose cone profile chosen from Von Kármán, ogive, or conical geometry based on Mach target.</div></div>
+                  <div class="dp-pt"><span class="pt-bullet">▶</span><div><strong>Mass Budget:</strong> Component-level mass estimation allocating weight to airframe, motor, avionics, payload, and recovery. Target launch mass 0.5–3 kg for small-scale prototype.</div></div>
+                  <div class="dp-pt"><span class="pt-bullet">▶</span><div><strong>Stability Analysis:</strong> Static stability margin (Cp − Cg ≥ 1 caliber) verified using Barrowman equations before proceeding to detailed design.</div></div>
+                  <div class="dp-pt"><span class="pt-bullet">▶</span><div><strong>Safety & Legal:</strong> PCAA/SUPARCO requirements for amateur rocketry in Pakistan, range safety plan, and academic institution (HEC-recognized university) approval process documented at this stage.</div></div>
+                </div>
+                <div class="dp-tags"><span>Barrowman Eqns</span><span>Mass Budget</span><span>OpenRocket</span><span>PCAA Compliance</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="flow-arrow"><i class="fas fa-chevron-down"></i></div>
+        </div>
+
+        <!-- STAGE 2 -->
+        <div class="flow-item reveal" data-stage="2">
+          <div class="flow-node" onclick="toggleStage(2)" tabindex="0" role="button" aria-expanded="false">
+            <div class="fn-badge">02</div>
+            <div class="fn-icon" style="--nc:#ff9900"><i class="fas fa-fire"></i></div>
+            <div class="fn-text">
+              <h3>Propulsion System Design</h3>
+              <p>Solid motor selection, nozzle design, thrust curve</p>
+            </div>
+            <div class="fn-expand"><i class="fas fa-plus"></i></div>
+          </div>
+          <div class="flow-detail" id="det-2">
+            <div class="detail-panel">
+              <div class="dp-img">
+                <img src="https://images.unsplash.com/photo-1567789884554-0b844b597180?w=600&q=80" alt="Propulsion" loading="lazy" />
+                <div class="dp-img-label">PROPULSION PHASE</div>
+              </div>
+              <div class="dp-body">
+                <h4><i class="fas fa-fire"></i> Solid Propellant Propulsion System</h4>
+                <p>The propulsion system is the heart of any ballistic missile. For small-scale academic projects, commercial off-the-shelf (COTS) solid rocket motors (APCP) are used, or custom grain geometries are studied analytically.</p>
+                <div class="dp-points">
+                  <div class="dp-pt"><span class="pt-bullet">▶</span><div><strong>Motor Selection:</strong> Aerotech/Cesaroni APCP motors (class F–J) selected based on required total impulse. Thrust-to-weight ratio target ≥ 5:1 at launch.</div></div>
+                  <div class="dp-pt"><span class="pt-bullet">▶</span><div><strong>Nozzle Design:</strong> Convergent-divergent (De Laval) nozzle geometry designed using isentropic flow equations. Throat diameter and exit area ratio optimized for sea-level expansion.</div></div>
+                  <div class="dp-pt"><span class="pt-bullet">▶</span><div><strong>Grain Geometry:</strong> BATES (Ballistic Test and Evaluation System) grain configuration studied. Burn surface area vs. regression rate analysis produces predicted thrust curve.</div></div>
+                  <div class="dp-pt"><span class="pt-bullet">▶</span><div><strong>Specific Impulse:</strong> Isp target of 180–220 s for APCP compositions. Chemical equilibrium calculations using NASA CEA code validate propellant performance.</div></div>
+                  <div class="dp-pt"><span class="pt-bullet">▶</span><div><strong>Motor Casing:</strong> Aluminum or filament-wound CFRP casing sized for chamber pressure (typically 30–80 bar) with safety factor ≥ 4.</div></div>
+                </div>
+                <div class="dp-tags"><span>APCP Motors</span><span>De Laval Nozzle</span><span>NASA CEA</span><span>BATES Grain</span><span>Isp</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="flow-arrow"><i class="fas fa-chevron-down"></i></div>
+        </div>
+
+        <!-- STAGE 3 -->
+        <div class="flow-item reveal" data-stage="3">
+          <div class="flow-node" onclick="toggleStage(3)" tabindex="0" role="button" aria-expanded="false">
+            <div class="fn-badge">03</div>
+            <div class="fn-icon" style="--nc:#ffcc00"><i class="fas fa-cube"></i></div>
+            <div class="fn-text">
+              <h3>3D Structural Modelling</h3>
+              <p>CAD airframe, fins, nose cone, motor mount</p>
+            </div>
+            <div class="fn-expand"><i class="fas fa-plus"></i></div>
+          </div>
+          <div class="flow-detail" id="det-3">
+            <div class="detail-panel">
+              <div class="dp-img">
+                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&q=80" alt="CAD Model" loading="lazy" />
+                <div class="dp-img-label">CAD MODELLING PHASE</div>
+              </div>
+              <div class="dp-body">
+                <h4><i class="fas fa-cube"></i> 3D Structural & CAD Modelling</h4>
+                <p>Full parametric 3D models are constructed in SolidWorks or Fusion 360, capturing every structural component of the missile from nose tip to nozzle exit plane.</p>
+                <div class="dp-points">
+                  <div class="dp-pt"><span class="pt-bullet">▶</span><div><strong>Airframe Tube:</strong> Main body tube modelled as a thin-walled cylinder with internal bulkheads, centering rings, and motor retention components all parametrically defined.</div></div>
+                  <div class="dp-pt"><span class="pt-bullet">▶</span><div><strong>Nose Cone:</strong> Ogive or Von Kármán profile generated using parametric equations and 3D-printed in PETG or machined from aluminum depending on Mach number requirements.</div></div>
+                  <div class="dp-pt"><span class="pt-bullet">▶</span><div><strong>Fin Assembly:</strong> Trapezoidal or clipped-delta fins with 3 or 4-fin configuration. Root chord, tip chord, and sweep angle optimized using RASAero II stability output.</div></div>
+                  <div class="dp-pt"><span class="pt-bullet">▶</span><div><strong>Recovery Bay:</strong> Parachute deployment section modelled with ejection charge housing, shock cord attachment points, and nose cone separation mechanism.</div></div>
+                  <div class="dp-pt"><span class="pt-bullet">▶</span><div><strong>FEA Integration:</strong> SolidWorks Simulation performs stress analysis under max-Q dynamic pressure load, motor thrust load, and landing impact scenario.</div></div>
+                </div>
+                <div class="dp-tags"><span>SolidWorks</span><span>Fusion 360</span><span>FEA</span><span>3D Printing</span><span>RASAero II</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="flow-arrow"><i class="fas fa-chevron-down"></i></div>
+        </div>
+
+        <!-- STAGE 4 -->
+        <div class="flow-item reveal" data-stage="4">
+          <div class="flow-node" onclick="toggleStage(4)" tabindex="0" role="button" aria-expanded="false">
+            <div class="fn-badge">04</div>
+            <div class="fn-icon" style="--nc:#ff6600"><i class="fas fa-wind"></i></div>
+            <div class="fn-text">
+              <h3>CFD / Aerodynamic Analysis</h3>
+              <p>ANSYS Fluent drag, stability, heat analysis</p>
+            </div>
+            <div class="fn-expand"><i class="fas fa-plus"></i></div>
+          </div>
+          <div class="flow-detail" id="det-4">
+            <div class="detail-panel">
+              <div class="dp-img">
+                <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=600&q=80" alt="CFD" loading="lazy" />
+                <div class="dp-img-label">CFD ANALYSIS PHASE</div>
+              </div>
+              <div class="dp-body">
+                <h4><i class="fas fa-wind"></i> Computational Fluid Dynamics Analysis</h4>
+                <p>ANSYS Fluent is used to simulate compressible airflow around the missile body from launch through max-Q, generating aerodynamic coefficients used in the 6-DOF trajectory simulation.</p>
+                <div class="dp-points">
+                  <div class="dp-pt"><span class="pt-bullet">▶</span><div><strong>Mach Sweep:</strong> Steady-state simulations at Mach 0.2 to 1.5 generate Cd, CL, and Cm as functions of angle-of-attack (±15°) and Mach number.</div></div>
+                  <div class="dp-pt"><span class="pt-bullet">▶</span><div><strong>Shock Analysis:</strong> Transonic and supersonic cases capture bow shock formation, shock-boundary layer interaction at fins, and base pressure drag contribution.</div></div>
+                  <div class="dp-pt"><span class="pt-bullet">▶</span><div><strong>Turbulence Model:</strong> k-ω SST two-equation model employed for accurate boundary layer transition prediction on fin leading edges and nose cone.</div></div>
+                  <div class="dp-pt"><span class="pt-bullet">▶</span><div><strong>Thermal Analysis:</strong> Coupled thermal-structural solver quantifies aerodynamic heating at stagnation point and leading edges using recovery temperature and heat transfer coefficients.</div></div>
+                  <div class="dp-pt"><span class="pt-bullet">▶</span><div><strong>Grid Independence:</strong> Mesh refinement study conducted with y+ ≤ 1 near walls to ensure simulation accuracy independent of grid density.</div></div>
+                </div>
+                <div class="dp-tags"><span>ANSYS Fluent</span><span>k-ω SST</span><span>Mach Sweep</span><span>Max-Q</span><span>Shock Analysis</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="flow-arrow"><i class="fas fa-chevron-down"></i></div>
+        </div>
+
+        <!-- STAGE 5 -->
+        <div class="flow-item reveal" data-stage="5">
+          <div class="flow-node" onclick="toggleStage(5)" tabindex="0" role="button" aria-expanded="false">
+            <div class="fn-badge">05</div>
+            <div class="fn-icon" style="--nc:#cc3300"><i class="fas fa-compass"></i></div>
+            <div class="fn-text">
+              <h3>Guidance, Navigation & Control</h3>
+              <p>IMU, PID controller, flight computer design</p>
+            </div>
+            <div class="fn-expand"><i class="fas fa-plus"></i></div>
+          </div>
+          <div class="flow-detail" id="det-5">
+            <div class="detail-panel">
+              <div class="dp-img">
+                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&q=80" alt="GNC" loading="lazy" />
+                <div class="dp-img-label">GNC SYSTEMS PHASE</div>
+              </div>
+              <div class="dp-body">
+                <h4><i class="fas fa-compass"></i> Guidance, Navigation & Control (GNC)</h4>
+                <p>The GNC system is the brain of the missile, processing sensor data in real-time to maintain the desired trajectory and orientation throughout the ballistic flight phase.</p>
+                <div class="dp-points">
+                  <div class="dp-pt"><span class="pt-bullet">▶</span><div><strong>IMU Selection:</strong> MPU-6050 or BNO055 9-DOF inertial measurement unit provides 3-axis accelerometer, gyroscope, and magnetometer data at 100–200 Hz sample rate.</div></div>
+                  <div class="dp-pt"><span class="pt-bullet">▶</span><div><strong>Flight Computer:</strong> STM32 or Teensy 4.1 microcontroller runs real-time GNC algorithms. Barometric altimeter (BMP388) and GPS module provide supplementary state estimation.</div></div>
+                  <div class="dp-pt"><span class="pt-bullet">▶</span><div><strong>PID Controller:</strong> Three-axis PID attitude controller drives four servo-actuated fins (or thrust vector control carbon vanes) to correct pitch, yaw, and roll deviations.</div></div>
+                  <div class="dp-pt"><span class="pt-bullet">▶</span><div><strong>Kalman Filter:</strong> Extended Kalman Filter (EKF) fuses IMU, barometer, and GPS data for accurate state estimation (position, velocity, attitude) under noisy sensor conditions.</div></div>
+                  <div class="dp-pt"><span class="pt-bullet">▶</span><div><strong>Telemetry:</strong> 433 MHz LoRa or 900 MHz SiK radio transmits live flight data (altitude, velocity, attitude) to ground station for real-time monitoring and post-flight analysis.</div></div>
+                </div>
+                <div class="dp-tags"><span>STM32</span><span>PID Control</span><span>Kalman Filter</span><span>IMU</span><span>LoRa Telemetry</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="flow-arrow"><i class="fas fa-chevron-down"></i></div>
+        </div>
+
+        <!-- STAGE 6 -->
+        <div class="flow-item reveal" data-stage="6">
+          <div class="flow-node" onclick="toggleStage(6)" tabindex="0" role="button" aria-expanded="false">
+            <div class="fn-badge">06</div>
+            <div class="fn-icon" style="--nc:#ff9900"><i class="fas fa-route"></i></div>
+            <div class="fn-text">
+              <h3>Trajectory Simulation & Analysis</h3>
+              <p>6-DOF flight model, MATLAB, OpenRocket</p>
+            </div>
+            <div class="fn-expand"><i class="fas fa-plus"></i></div>
+          </div>
+          <div class="flow-detail" id="det-6">
+            <div class="detail-panel">
+              <div class="dp-img">
+                <img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=600&q=80" alt="Trajectory" loading="lazy" />
+                <div class="dp-img-label">TRAJECTORY PHASE</div>
+              </div>
+              <div class="dp-body">
+                <h4><i class="fas fa-route"></i> Trajectory Simulation & Flight Analysis</h4>
+                <p>High-fidelity trajectory simulation integrates the full aerodynamic database, propulsion thrust curve, and mass properties to predict the complete flight from ignition to impact.</p>
+                <div class="dp-points">
+                  <div class="dp-pt"><span class="pt-bullet">▶</span><div><strong>6-DOF Model:</strong> Full six-degree-of-freedom equations of motion coded in MATLAB/Simulink, accounting for translational and rotational dynamics simultaneously.</div></div>
+                  <div class="dp-pt"><span class="pt-bullet">▶</span><div><strong>OpenRocket Validation:</strong> OpenRocket provides rapid first-order trajectory prediction, used to cross-validate the higher-fidelity MATLAB 6-DOF model outputs.</div></div>
+                  <div class="dp-pt"><span class="pt-bullet">▶</span><div><strong>Launch Angle Study:</strong> Parametric sweep of launch elevation angle (45°–85°) vs. range and altitude output generates optimal launch angle for target engagement.</div></div>
+                  <div class="dp-pt"><span class="pt-bullet">▶</span><div><strong>Wind Effects:</strong> Monte Carlo analysis with randomized wind speed and direction inputs produces statistical impact dispersion ellipses (CEP — Circular Error Probable).</div></div>
+                  <div class="dp-pt"><span class="pt-bullet">▶</span><div><strong>Recovery Simulation:</strong> Parachute deployment altitude (at apogee), descent rate, and drift distance under wind modelled to ensure safe landing zone prediction.</div></div>
+                </div>
+                <div class="dp-tags"><span>MATLAB</span><span>Simulink</span><span>6-DOF</span><span>OpenRocket</span><span>Monte Carlo</span><span>CEP</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="flow-arrow"><i class="fas fa-chevron-down"></i></div>
+        </div>
+
+        <!-- STAGE 7 -->
+        <div class="flow-item reveal" data-stage="7">
+          <div class="flow-node" onclick="toggleStage(7)" tabindex="0" role="button" aria-expanded="false">
+            <div class="fn-badge">07</div>
+            <div class="fn-icon" style="--nc:#ffcc00"><i class="fas fa-atom"></i></div>
+            <div class="fn-text">
+              <h3>Materials & Manufacturing</h3>
+              <p>Airframe materials, fabrication, prototype build</p>
+            </div>
+            <div class="fn-expand"><i class="fas fa-plus"></i></div>
+          </div>
+          <div class="flow-detail" id="det-7">
+            <div class="detail-panel">
+              <div class="dp-img">
+                <img src="https://images.unsplash.com/photo-1589793907316-f94025b46850?w=600&q=80" alt="Materials" loading="lazy" />
+                <div class="dp-img-label">MATERIALS & MFG PHASE</div>
+              </div>
+              <div class="dp-body">
+                <h4><i class="fas fa-atom"></i> Materials Selection & Manufacturing</h4>
+                <p>Material choice directly determines structural performance, weight, and manufacturability. The following materials are evaluated for each subsystem of the small-scale missile.</p>
+                <div class="mat-grid">
+                  <div class="mat-item">
+                    <span class="mat-tag" style="color:#ff9900">AIRFRAME TUBE</span>
+                    <strong>Carbon Fiber / Fiberglass (G12)</strong>
+                    <p>High-modulus CFRP or phenolic tubes. CFRP: 1.6 g/cm³, 70 GPa modulus. Fiberglass G12 more cost-effective for subsonic flights.</p>
+                  </div>
+                  <div class="mat-item">
+                    <span class="mat-tag" style="color:#ff4400">NOSE CONE</span>
+                    <strong>3D-Printed PETG / Machined Aluminum</strong>
+                    <p>PETG 3D-printed nose cones sufficient for M&lt;0.8. Aluminum 6061-T6 nose machined for transonic/supersonic flights requiring thermal resistance.</p>
+                  </div>
+                  <div class="mat-item">
+                    <span class="mat-tag" style="color:#ffcc00">FIN SET</span>
+                    <strong>Plywood G10 / Aluminum 6061</strong>
+                    <p>Aircraft plywood (6 mm) for low-cost subsonic designs. G10 fiberglass or 1.5 mm aluminum 6061 sheet for structural fins at higher velocities.</p>
+                  </div>
+                  <div class="mat-item">
+                    <span class="mat-tag" style="color:#ff6600">MOTOR CASING</span>
+                    <strong>Aluminum 7075-T6 / CFRP Overwrap</strong>
+                    <p>Aluminum 7075-T6 for commercial motor casings. Filament-wound CFRP provides 40% weight saving for custom motor design at higher chamber pressures.</p>
+                  </div>
+                </div>
+                <div class="dp-tags"><span>CFRP</span><span>Aluminum 6061</span><span>G10/G12</span><span>PETG</span><span>7075-T6</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="flow-arrow"><i class="fas fa-chevron-down"></i></div>
+        </div>
+
+        <!-- STAGE 8 -->
+        <div class="flow-item reveal" data-stage="8">
+          <div class="flow-node" onclick="toggleStage(8)" tabindex="0" role="button" aria-expanded="false">
+            <div class="fn-badge">08</div>
+            <div class="fn-icon" style="--nc:#cc3300"><i class="fas fa-flask"></i></div>
+            <div class="fn-text">
+              <h3>Testing, Launch & Recovery</h3>
+              <p>Static fire, ground test, live launch, data review</p>
+            </div>
+            <div class="fn-expand"><i class="fas fa-plus"></i></div>
+          </div>
+          <div class="flow-detail" id="det-8">
+            <div class="detail-panel">
+              <div class="dp-img">
+                <img src="https://images.unsplash.com/photo-1541185933-ef5d8ed016c2?w=600&q=80" alt="Testing" loading="lazy" />
+                <div class="dp-img-label">TESTING & LAUNCH PHASE</div>
+              </div>
+              <div class="dp-body">
+                <h4><i class="fas fa-flask"></i> Testing, Launch Operations & Recovery</h4>
+                <p>Ground testing and live launch are the culmination of all prior engineering work. A strict safety and test protocol is followed to protect personnel, equipment, and comply with applicable regulations.</p>
+                <div class="dp-points">
+                  <div class="dp-pt"><span class="pt-bullet">▶</span><div><strong>Static Motor Test:</strong> Motor fired on a thrust stand instrumented with a load cell and pressure transducer. Measured thrust curve compared against manufacturer data and simulation.</div></div>
+                  <div class="dp-pt"><span class="pt-bullet">▶</span><div><strong>Avionics Bench Test:</strong> Full GNC system powered on bench with simulated IMU data injected to verify controller response, data logging, and parachute ejection logic.</div></div>
+                  <div class="dp-pt"><span class="pt-bullet">▶</span><div><strong>Pre-Launch Checklist:</strong> 25-point launch readiness review covering structural, propulsion, avionics, safety, range clearance, and weather window checks.</div></div>
+                  <div class="dp-pt"><span class="pt-bullet">▶</span><div><strong>Live Launch:</strong> Conducted at a designated open field with university/SUPARCO approval in Pakistan. Launch rail angle set per trajectory simulation optimal angle. Telemetry monitored from ground station.</div></div>
+                  <div class="dp-pt"><span class="pt-bullet">▶</span><div><strong>Post-Flight Analysis:</strong> Logged flight data (altitude, velocity, attitude) compared against simulation predictions. Drag coefficient, peak altitude, and apogee time used for model validation and iteration.</div></div>
+                </div>
+                <div class="dp-tags"><span>Static Fire</span><span>Thrust Stand</span><span>SUPARCO/University</span><span>Telemetry</span><span>Post-Flight Analysis</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- end flowchart -->
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section class="section timeline-section" id="timeline">
+    <div class="container">
+      <div class="section-header">
+        <div class="header-tag"><i class="fas fa-clock"></i> PROJECT TIMELINE</div>
+        <h2>Mission <span class="head-accent">Schedule</span></h2>
+        <p>Estimated duration for each development phase. Total project span: approximately 62 working days.</p>
+      </div>
+      <div class="timeline-wrap">
+        <div class="tl-item reveal">
+          <div class="tl-num">01</div>
+          <div class="tl-body">
+            <div class="tl-head">
+              <span class="tl-title"><i class="fas fa-ruler-combined"></i> Conceptual Design</span>
+              <span class="tl-days">8 Days</span>
+            </div>
+            <p>Mission spec, geometry sizing, stability checks, safety approvals</p>
+            <div class="tl-track"><div class="tl-fill" style="--w:53%"></div></div>
+          </div>
+        </div>
+        <div class="tl-item reveal">
+          <div class="tl-num">02</div>
+          <div class="tl-body">
+            <div class="tl-head">
+              <span class="tl-title"><i class="fas fa-fire"></i> Propulsion Design</span>
+              <span class="tl-days">10 Days</span>
+            </div>
+            <p>Motor selection, nozzle sizing, grain analysis, Isp calculations</p>
+            <div class="tl-track"><div class="tl-fill" style="--w:67%"></div></div>
+          </div>
+        </div>
+        <div class="tl-item reveal">
+          <div class="tl-num">03</div>
+          <div class="tl-body">
+            <div class="tl-head">
+              <span class="tl-title"><i class="fas fa-cube"></i> 3D Modelling</span>
+              <span class="tl-days">8 Days</span>
+            </div>
+            <p>Full CAD assembly, FEA stress analysis, manufacturing drawings</p>
+            <div class="tl-track"><div class="tl-fill" style="--w:53%"></div></div>
+          </div>
+        </div>
+        <div class="tl-item reveal">
+          <div class="tl-num">04</div>
+          <div class="tl-body">
+            <div class="tl-head">
+              <span class="tl-title"><i class="fas fa-wind"></i> CFD Simulation</span>
+              <span class="tl-days">12 Days</span>
+            </div>
+            <p>ANSYS setup, Mach sweep runs, post-processing, aero database</p>
+            <div class="tl-track"><div class="tl-fill" style="--w:80%"></div></div>
+          </div>
+        </div>
+        <div class="tl-item reveal">
+          <div class="tl-num">05</div>
+          <div class="tl-body">
+            <div class="tl-head">
+              <span class="tl-title"><i class="fas fa-compass"></i> GNC Development</span>
+              <span class="tl-days">12 Days</span>
+            </div>
+            <p>Flight computer coding, PID tuning, Kalman filter, bench testing</p>
+            <div class="tl-track"><div class="tl-fill" style="--w:80%"></div></div>
+          </div>
+        </div>
+        <div class="tl-item reveal">
+          <div class="tl-num">06</div>
+          <div class="tl-body">
+            <div class="tl-head">
+              <span class="tl-title"><i class="fas fa-atom"></i> Manufacturing</span>
+              <span class="tl-days">8 Days</span>
+            </div>
+            <p>Airframe assembly, fin bonding, avionics integration, recovery rigging</p>
+            <div class="tl-track"><div class="tl-fill" style="--w:53%"></div></div>
+          </div>
+        </div>
+        <div class="tl-item reveal">
+          <div class="tl-num">07</div>
+          <div class="tl-body">
+            <div class="tl-head">
+              <span class="tl-title"><i class="fas fa-flask"></i> Testing & Launch</span>
+              <span class="tl-days">4 Days</span>
+            </div>
+            <p>Static fire, pre-launch checklist, live launch, data recovery</p>
+            <div class="tl-track"><div class="tl-fill" style="--w:27%"></div></div>
+          </div>
+        </div>
+        <div class="tl-total reveal">
+          <i class="fas fa-flag-checkered"></i>
+          Total Estimated Duration: <strong>62 Days</strong>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COST -->
+  <section class="section cost-section" id="cost">
+    <div class="container">
+      <div class="section-header">
+        <div class="header-tag"><i class="fas fa-coins"></i> BUDGET ESTIMATION</div>
+        <h2>Academic Project <span class="head-accent">Cost Breakdown</span></h2>
+        <p>Estimated procurement and operational costs for a small-scale ballistic missile FYP prototype in Pakistan. SolidWorks & ANSYS costs excluded (already owned).</p>
+      </div>
+      <div class="table-wrap reveal">
+        <table class="cost-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th><i class="fas fa-box"></i> Item</th>
+              <th><i class="fas fa-bullseye"></i> Purpose</th>
+              <th><i class="fas fa-tag"></i> Est. Cost (PKR)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>01</td><td><i class="fas fa-fire"></i> Rocket Motors (APCP)</td><td>Aerotech / Cesaroni F–J class motors (3–5 units), imported via Daraz/AliExpress</td><td class="cv">PKR 35,000 – 85,000</td></tr>
+            <tr><td>02</td><td><i class="fas fa-cube"></i> Airframe Materials</td><td>CFRP tubes, fiberglass body, centering rings (local composites market, Lahore/Karachi)</td><td class="cv">PKR 22,000 – 56,000</td></tr>
+            <tr><td>03</td><td><i class="fas fa-print"></i> 3D Printing</td><td>Nose cone, fin can, payload bay components (PETG/PLA) — university lab or local 3D print shop</td><td class="cv">PKR 11,000 – 28,000</td></tr>
+            <tr><td>04</td><td><i class="fas fa-microchip"></i> Flight Computer</td><td>STM32 / Teensy 4.1, PCB fabrication (JLCPCB/local), connectors</td><td class="cv">PKR 17,000 – 42,000</td></tr>
+            <tr><td>05</td><td><i class="fas fa-satellite-dish"></i> Sensors & Avionics</td><td>IMU, barometer, GPS, LoRa radio, servos (Daraz/AliExpress)</td><td class="cv">PKR 22,000 – 50,000</td></tr>
+            <tr><td>06</td><td><i class="fas fa-parachute-box"></i> Recovery System</td><td>Drogue + main parachute, shock cord, ejection charge (custom-sewn locally)</td><td class="cv">PKR 11,000 – 28,000</td></tr>
+            <tr><td>07</td><td><i class="fas fa-wind"></i> CAD/Simulation Software</td><td>SolidWorks & ANSYS — <strong>Already owned (₨0)</strong>; MATLAB student lic. + free tools</td><td class="cv">PKR 0 – 8,000</td></tr>
+            <tr><td>08</td><td><i class="fas fa-flask"></i> Test Equipment</td><td>Thrust stand, load cell, data logger, pressure gauge (Hall Road / online)</td><td class="cv">PKR 28,000 – 70,000</td></tr>
+            <tr><td>09</td><td><i class="fas fa-shield-alt"></i> Safety & Launch Fees</td><td>University ground booking, safety equipment, local transport</td><td class="cv">PKR 22,000 – 56,000</td></tr>
+            <tr><td>10</td><td><i class="fas fa-book"></i> Documentation & Printing</td><td>Report printing, poster, spiral binding, HEC submission</td><td class="cv">PKR 8,000 – 22,000</td></tr>
+            <tr class="total-row">
+              <td colspan="3"><i class="fas fa-calculator"></i> <strong>TOTAL ESTIMATED BUDGET</strong></td>
+              <td class="cv total-cv"><strong>PKR 176,000 – 445,000</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section class="section team-section" id="team">
+    <div class="container">
+      <div class="section-header">
+        <div class="header-tag"><i class="fas fa-users"></i> MISSION TEAM</div>
+        <h2>Required <span class="head-accent">Engineering Personnel</span></h2>
+        <p>Recommended 5-person team structure for full-scope project execution.</p>
+      </div>
+      <div class="team-grid">
+        <div class="team-card reveal" style="--tc:#ff4400">
+          <div class="tc-rank">ENG-01</div>
+          <div class="tc-icon"><i class="fas fa-drafting-compass"></i></div>
+          <h4>Structural / Airframe Engineer</h4>
+          <p>Leads all CAD modelling, FEA analysis, material selection, manufacturing coordination, and prototype assembly.</p>
+          <div class="tc-skills"><span>SolidWorks</span><span>FEA</span><span>CFRP</span></div>
+        </div>
+        <div class="team-card reveal" style="--tc:#ff9900">
+          <div class="tc-rank">ENG-02</div>
+          <div class="tc-icon"><i class="fas fa-fire"></i></div>
+          <h4>Propulsion Engineer</h4>
+          <p>Manages motor selection, nozzle design, static fire testing, thrust analysis, and propulsion system integration.</p>
+          <div class="tc-skills"><span>NASA CEA</span><span>APCP</span><span>Nozzle Design</span></div>
+        </div>
+        <div class="team-card reveal" style="--tc:#ffcc00">
+          <div class="tc-rank">ENG-03</div>
+          <div class="tc-icon"><i class="fas fa-wind"></i></div>
+          <h4>CFD / Aerodynamics Engineer</h4>
+          <p>Operates ANSYS Fluent for all simulation campaigns, post-processes aero data, and validates against analytical predictions.</p>
+          <div class="tc-skills"><span>ANSYS</span><span>CFD</span><span>Meshing</span></div>
+        </div>
+        <div class="team-card reveal" style="--tc:#cc3300">
+          <div class="tc-rank">ENG-04</div>
+          <div class="tc-icon"><i class="fas fa-compass"></i></div>
+          <h4>GNC / Avionics Engineer</h4>
+          <p>Develops flight computer firmware, GNC algorithms, sensor integration, telemetry system, and conducts bench testing.</p>
+          <div class="tc-skills"><span>STM32</span><span>Kalman Filter</span><span>PID</span></div>
+        </div>
+        <div class="team-card reveal" style="--tc:#ff6600">
+          <div class="tc-rank">ENG-05</div>
+          <div class="tc-icon"><i class="fas fa-chart-line"></i></div>
+          <h4>Flight Dynamics / Trajectory Engineer</h4>
+          <p>Builds and validates 6-DOF MATLAB model, conducts launch angle optimization, Monte Carlo analysis, and post-flight data correlation.</p>
+          <div class="tc-skills"><span>MATLAB</span><span>6-DOF</span><span>OpenRocket</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOKS -->
+  <section class="section books-section" id="books">
+    <div class="container">
+      <div class="section-header">
+        <div class="header-tag"><i class="fas fa-book-open"></i> INTELLIGENCE LIBRARY</div>
+        <h2>Essential <span class="head-accent">Reference Books</span></h2>
+        <p>Core technical references for ballistic missile aerodynamics, propulsion, guidance, and flight mechanics.</p>
+      </div>
+      <div class="books-grid">
+        <div class="book-card reveal">
+          <div class="bk-icon" style="--bc:#ff4400"><i class="fas fa-rocket"></i><span>RPE</span></div>
+          <div class="bk-body">
+            <h4>Rocket Propulsion Elements</h4>
+            <p class="bk-auth"><i class="fas fa-user-tie"></i> George P. Sutton & Oscar Biblarz</p>
+            <p class="bk-desc">The definitive reference for rocket propulsion — covering solid, liquid, and hybrid motors, nozzle theory, combustion instability, and performance prediction in rigorous engineering detail.</p>
+            <div class="bk-tags"><span>Propulsion</span><span>Nozzle Theory</span><span>Isp</span></div>
+            <a href="https://www.wiley.com/en-us/Rocket+Propulsion+Elements%2C+8th+Edition-p-9780470080245" target="_blank" class="bk-btn"><i class="fas fa-external-link-alt"></i> ACCESS REFERENCE</a>
+          </div>
+        </div>
+        <div class="book-card reveal">
+          <div class="bk-icon" style="--bc:#ff9900"><i class="fas fa-wind"></i><span>FDA</span></div>
+          <div class="bk-body">
+            <h4>Fundamentals of Aerodynamics</h4>
+            <p class="bk-auth"><i class="fas fa-user-tie"></i> John D. Anderson Jr.</p>
+            <p class="bk-desc">Gold-standard aerodynamics text — subsonic through hypersonic regimes, thin airfoil theory, compressible flow, shock waves, and expansion fans essential for ballistic flight analysis.</p>
+            <div class="bk-tags"><span>Aerodynamics</span><span>Compressible Flow</span><span>Shock Waves</span></div>
+            <a href="https://www.mheducation.com/highered/product/fundamentals-aerodynamics-anderson/M9781259129919.html" target="_blank" class="bk-btn"><i class="fas fa-external-link-alt"></i> ACCESS REFERENCE</a>
+          </div>
+        </div>
+        <div class="book-card reveal">
+          <div class="bk-icon" style="--bc:#ffcc00"><i class="fas fa-compass"></i><span>MSD</span></div>
+          <div class="bk-body">
+            <h4>Missile Aerodynamics</h4>
+            <p class="bk-auth"><i class="fas fa-user-tie"></i> Jack N. Nielsen</p>
+            <p class="bk-desc">Comprehensive treatment of missile-specific aerodynamics including slender body theory, stability derivatives, fin interference, and roll damping characteristics unique to missile configurations.</p>
+            <div class="bk-tags"><span>Missile Aero</span><span>Stability</span><span>Slender Body</span></div>
+            <a href="https://archive.org/details/MissileAerodynamics" target="_blank" class="bk-btn"><i class="fas fa-external-link-alt"></i> ACCESS REFERENCE</a>
+          </div>
+        </div>
+        <div class="book-card reveal">
+          <div class="bk-icon" style="--bc:#cc3300"><i class="fas fa-route"></i><span>FDM</span></div>
+          <div class="bk-body">
+            <h4>Flight Dynamics & Control</h4>
+            <p class="bk-auth"><i class="fas fa-user-tie"></i> Robert F. Stengel</p>
+            <p class="bk-desc">Covers 6-DOF equations of motion, stability analysis, autopilot design, optimal control theory, and Kalman filtering directly applicable to missile GNC system development.</p>
+            <div class="bk-tags"><span>6-DOF</span><span>GNC</span><span>Autopilot</span><span>Kalman</span></div>
+            <a href="https://press.princeton.edu/books/hardcover/9780691114071/flight-dynamics" target="_blank" class="bk-btn"><i class="fas fa-external-link-alt"></i> ACCESS REFERENCE</a>
+          </div>
+        </div>
+        <div class="book-card reveal">
+          <div class="bk-icon" style="--bc:#ff6600"><i class="fas fa-atom"></i><span>ISR</span></div>
+          <div class="bk-body">
+            <h4>Introduction to Solid Rocket Propulsion</h4>
+            <p class="bk-auth"><i class="fas fa-user-tie"></i> R.A. Brocket &amp; Various Authors (AIAA)</p>
+            <p class="bk-desc">AIAA education series covering APCP grain design, burn rate characterization, motor testing procedures, and combustion stability specific to small-scale solid rocket motors.</p>
+            <div class="bk-tags"><span>Solid Motor</span><span>APCP</span><span>Grain Design</span></div>
+            <a href="https://arc.aiaa.org/doi/book/10.2514/4.861404" target="_blank" class="bk-btn"><i class="fas fa-external-link-alt"></i> ACCESS REFERENCE</a>
+          </div>
+        </div>
+        <div class="book-card reveal">
+          <div class="bk-icon" style="--bc:#ff9900"><i class="fas fa-microchip"></i><span>MGS</span></div>
+          <div class="bk-body">
+            <h4>Tactical & Strategic Missile Guidance</h4>
+            <p class="bk-auth"><i class="fas fa-user-tie"></i> Paul Zarchan</p>
+            <p class="bk-desc">Essential reference for proportional navigation, pursuit guidance laws, terminal guidance, and Kalman filter-based state estimation in missile guidance applications.</p>
+            <div class="bk-tags"><span>Guidance</span><span>Navigation</span><span>Homing</span></div>
+            <a href="https://arc.aiaa.org/doi/book/10.2514/4.868978" target="_blank" class="bk-btn"><i class="fas fa-external-link-alt"></i> ACCESS REFERENCE</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FYP SUITABILITY -->
+  <section class="section fyp-section" id="fyp">
+    <div class="container">
+      <div class="section-header">
+        <div class="header-tag"><i class="fas fa-graduation-cap"></i> ACADEMIC ASSESSMENT</div>
+        <h2>FYP <span class="head-accent">Suitability Analysis</span></h2>
+      </div>
+      <div class="fyp-wrap reveal">
+        <div class="fyp-top">
+          <div class="fyp-verdict-box">
+            <div class="fv-badge"><i class="fas fa-check-double"></i> HIGHLY SUITABLE</div>
+            <h3>Recommended for Final Year Project</h3>
+            <p>This project comprehensively satisfies the academic requirements of a mechanical, aerospace, or mechatronics engineering FYP at any HEC-recognized Pakistani university. It integrates six distinct engineering disciplines, produces measurable physical deliverables, and has genuine research novelty through its AI-assisted GNC development.</p>
+          </div>
+          <div class="fyp-score-box">
+            <div class="score-ring">
+              <svg viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="42" fill="none" stroke="rgba(255,100,0,0.1)" stroke-width="8"/>
+                <circle cx="50" cy="50" r="42" fill="none" stroke="#ff6600" stroke-width="8"
+                        stroke-dasharray="264" stroke-dashoffset="26" stroke-linecap="round"
+                        transform="rotate(-90 50 50)" class="score-arc"/>
+              </svg>
+              <div class="score-text"><span class="score-num">90</span><span class="score-pct">%</span></div>
+            </div>
+            <p>FYP Suitability Score</p>
+          </div>
+        </div>
+        <div class="fyp-grid">
+          <div class="fyp-item">
+            <div class="fi-icon"><i class="fas fa-layer-group"></i></div>
+            <div>
+              <h5>Multi-Disciplinary Integration</h5>
+              <p>Combines propulsion, structures, aerodynamics, GNC, and software — meeting broad assessment criteria across multiple engineering modules simultaneously.</p>
+            </div>
+          </div>
+          <div class="fyp-item">
+            <div class="fi-icon"><i class="fas fa-industry"></i></div>
+            <div>
+              <h5>Industry Skill Development</h5>
+              <p>Hands-on ANSYS, SolidWorks, STM32 programming, and Python/MATLAB flight simulation directly maps to Pakistan's defence (NESCOM, AWC, NDC), space (SUPARCO), and aerospace industry requirements.</p>
+            </div>
+          </div>
+          <div class="fyp-item">
+            <div class="fi-icon"><i class="fas fa-box"></i></div>
+            <div>
+              <h5>Concrete Physical Deliverable</h5>
+              <p>A working prototype (even static display) with full simulation suite, technical report, and live telemetry data provides compelling assessment evidence.</p>
+            </div>
+          </div>
+          <div class="fyp-item">
+            <div class="fi-icon"><i class="fas fa-microscope"></i></div>
+            <div>
+              <h5>Research & Publication Potential</h5>
+              <p>ML-based aerodynamic surrogate modeling and low-cost GNC system design are active research areas with potential for student journal submissions.</p>
+            </div>
+          </div>
+          <div class="fyp-item">
+            <div class="fi-icon"><i class="fas fa-shield-alt"></i></div>
+            <div>
+              <h5>Fully Compliant &amp; Safe</h5>
+              <p>Commercial APCP motors and supervised launches with university/SUPARCO approval ensure the project remains within academic safety standards and Pakistani regulations.</p>
+            </div>
+          </div>
+          <div class="fyp-item">
+            <div class="fi-icon"><i class="fas fa-chart-bar"></i></div>
+            <div>
+              <h5>Measurable Performance Metrics</h5>
+              <p>Apogee altitude accuracy (sim vs. flight), CEP, drag coefficient correlation, and GNC stability margins provide quantitative grading benchmarks.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <i class="fas fa-crosshairs"></i>
+        <span>BALLISTIC-FYP</span>
+      </div>
+      <p class="footer-sub">Small-Scale Ballistic Missile Development — Final Year Project 2025-26 | Pakistan</p>
+      <div class="classify-footer">⚠ ACADEMIC USE ONLY — NOT FOR MILITARY APPLICATION ⚠</div>
+      <div class="footer-nav">
+        <a href="#hero">Home</a>
+        <a href="#overview">Overview</a>
+        <a href="#flowchart">Stages</a>
+        <a href="#timeline">Timeline</a>
+        <a href="#cost">Budget</a>
+        <a href="#team">Team</a>
+        <a href="#books">Intel</a>
+        <a href="#fyp">FYP</a>
+      </div>
+      <p class="footer-copy">© 2025 Aerospace / Mechanical Engineering Research Project — Pakistan. Academic Use Only.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
