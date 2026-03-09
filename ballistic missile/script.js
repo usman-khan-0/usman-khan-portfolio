@@ -14,6 +14,8 @@ document.addEventListener('DOMContentLoaded', () => {
   colorizeFlowNodes();
   initTableGlow();
   initKeyboardAccess();
+  initMobileMenus();
+  initTouchInteractions();
   printConsoleHeader();
 });
 
@@ -363,3 +365,100 @@ function printConsoleHeader() {
   console.log('%c[STATUS] All modules initialized. Launch sequence STANDBY.', 'color:#ffcc00; font-family:monospace; font-size:10px;');
   console.log('%c[NOTICE] This is an academic project. For educational purposes only.', 'color:#888; font-family:monospace; font-size:10px;');
 }
+
+
+// ---- MOBILE MENU SCROLL LOCK ----
+function initMobileMenus() {
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('navLinks');
+  
+  if (!hamburger || !navLinks) return;
+  
+  // Prevent body scroll when menu is open on mobile
+  const observer = new MutationObserver(() => {
+    if (navLinks.classList.contains('open')) {
+      document.body.style.overflow = 'hidden';
+      hamburger.setAttribute('aria-expanded', 'true');
+    } else {
+      document.body.style.overflow = '';
+      hamburger.setAttribute('aria-expanded', 'false');
+    }
+  });
+  
+  observer.observe(navLinks, { attributes: true, attributeFilter: ['class'] });
+}
+
+
+// ---- TOUCH INTERACTIONS ----
+function initTouchInteractions() {
+  // Add touch-friendly hover states
+  const touchElements = document.querySelectorAll('.ov-card, .team-card, .flow-node, .tl-item');
+  
+  touchElements.forEach(el => {
+    el.addEventListener('touchstart', () => {
+      el.classList.add('touch-hover');
+    }, { passive: true });
+    
+    el.addEventListener('touchend', () => {
+      setTimeout(() => el.classList.remove('touch-hover'), 300);
+    }, { passive: true });
+  });
+  
+  // Swipe gesture for closing mobile menu
+  let touchStartX = 0;
+  let touchEndX = 0;
+  
+  const navLinks = document.getElementById('navLinks');
+  if (navLinks) {
+    navLinks.addEventListener('touchstart', e => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+    
+    navLinks.addEventListener('touchend', e => {
+      touchEndX = e.changedTouches[0].screenX;
+      const swipeDistance = touchStartX - touchEndX;
+      
+      // Swipe left to close (if menu is open)
+      if (swipeDistance > 50 && navLinks.classList.contains('open')) {
+        navLinks.classList.remove('open');
+      }
+    }, { passive: true });
+  }
+}
+
+
+// ---- RESPONSIVE TABLE SCROLL INDICATORS ----
+function initTableScrollIndicators() {
+  const tables = document.querySelectorAll('.range-table, .cost-table');
+  
+  tables.forEach(table => {
+    const wrapper = table.parentElement;
+    if (wrapper && wrapper.scrollWidth > wrapper.clientWidth) {
+      wrapper.classList.add('scrollable-table');
+    }
+  });
+}
+
+// Run on load and resize
+window.addEventListener('resize', initTableScrollIndicators, { passive: true });
+initTableScrollIndicators();
+
+
+// ---- SMOOTH SCROLL OFFSET FOR MOBILE ----
+function getScrollOffset() {
+  const navbar = document.getElementById('navbar');
+  return navbar ? navbar.offsetHeight + 10 : 90;
+}
+
+// Update smooth scroll with dynamic offset
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const offset = getScrollOffset();
+      const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
+      window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+    }
+  });
+});

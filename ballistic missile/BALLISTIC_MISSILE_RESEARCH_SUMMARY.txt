@@ -1,0 +1,1422 @@
+================================================================================
+                    BALLISTIC MISSILE FYP RESEARCH DOCUMENT
+                    Small-Scale Ballistic Missile Development
+                         Final Year Project 2025-26
+================================================================================
+
+Document Version: 1.0
+Project Type: Academic Research (HEC-Recognized University, Pakistan)
+Classification: UNCLASSIFIED // ACADEMIC USE ONLY
+Compliance: PCAA/SUPARCO Regulations for Amateur Rocketry
+
+================================================================================
+                              TABLE OF CONTENTS
+================================================================================
+
+1. Project Overview & Description
+2. Six Core Engineering Disciplines
+3. Eight Development Stages (Detailed)
+4. Missile Types & Classification
+5. Flight Phases
+6. Key Technical Specifications
+7. Structural Design Guide
+8. Automation & Flight Control
+9. Project Timeline
+10. Budget Estimation
+11. Team Structure
+12. FYP Suitability Analysis
+13. References & Sources
+14. Online Resources
+
+================================================================================
+                    1. PROJECT OVERVIEW & DESCRIPTION
+================================================================================
+
+TITLE: Small-Scale Ballistic Missile Development System
+
+DESCRIPTION:
+An academic-grade engineering research project covering structural design, solid 
+propellant propulsion, flight dynamics, guidance systems, and trajectory 
+simulation for a small-scale ballistic missile prototype.
+
+PROJECT SCOPE:
+This comprehensive academic research project simulates real-world ballistic 
+missile development at a reduced academic scale — covering every engineering 
+discipline from propellant chemistry to guidance algorithms.
+
+TARGET SPECIFICATIONS (Small-Scale Academic Prototype):
+- Target Range: 100–500 meters
+- Maximum Altitude: 150–500 meters
+- Launch Mass: 0.5–3 kg
+- Payload: Data logger or dummy mass
+
+PROJECT STATISTICS:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  • Development Stages:     8                                                │
+│  • Estimated Duration:     62 Days                                          │
+│  • Required Engineers:     5                                                │
+│  • Engineering Tools:      8+                                               │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+================================================================================
+                    2. SIX CORE ENGINEERING DISCIPLINES
+================================================================================
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  1. PROPULSION SYSTEM                                                       │
+│     Solid-propellant rocket motor design, thrust curve analysis, and        │
+│     nozzle geometry optimization for controlled burn performance.           │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  2. STRUCTURAL DESIGN                                                       │
+│     Lightweight airframe engineering using composite materials,             │
+│     aeroelastic analysis, and load-bearing optimization for flight loads.   │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  3. GUIDANCE & CONTROL                                                      │
+│     IMU-based inertial guidance, fin-actuated control surfaces, and PID     │
+│     flight controller for trajectory correction mid-flight.                 │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  4. TRAJECTORY ANALYSIS                                                     │
+│     6-DOF flight simulation, ballistic flight path prediction,              │
+│     range/altitude trade studies, and impact point estimation.              │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  5. CFD / AERODYNAMICS                                                      │
+│     ANSYS-based airflow simulation to quantify drag, stability derivatives, │
+│     and shock wave behavior at transonic speeds.                            │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  6. AVIONICS & SENSORS                                                      │
+│     On-board data acquisition, GPS/INS integration, telemetry downlink,     │
+│     and flight computer hardware selection and integration.                 │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+ENGINEERING TOOLS USED:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  SolidWorks       │ ANSYS Fluent    │ MATLAB/Simulink │ OpenRocket         │
+│  Python/SciPy     │ Fusion 360      │ Arduino/STM32   │ RASAero II         │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+================================================================================
+                    3. EIGHT DEVELOPMENT STAGES (DETAILED)
+================================================================================
+
+───────────────────────────────────────────────────────────────────────────────
+STAGE 01: CONCEPTUAL DESIGN & REQUIREMENTS
+───────────────────────────────────────────────────────────────────────────────
+
+MISSION DEFINITION:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  • Target Range:       100–500 m (for small-scale academic prototype)       │
+│  • Maximum Altitude:   150–500 m                                            │
+│  • Payload Type:       Data logger or dummy mass                            │
+│  • Recovery System:    Dual-deployment parachute (drogue + main)            │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+GEOMETRIC SIZING:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  • Fineness Ratio (L/D): 10–15 (to balance drag and structural length)      │
+│  • Nose Cone Profile:    Von Kármán, ogive, or conical (based on Mach)      │
+│  • Body Diameter:        75–150 mm (based on motor size)                    │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+MASS BUDGET:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  Component          │ Allocation                                            │
+│  ─────────────────────────────────────────────────────────────────────────  │
+│  • Airframe         │ Composite tube, bulkheads, nose cone                 │
+│  • Motor            │ Solid propellant rocket motor (APCP)                 │
+│  • Avionics         │ Flight computer, IMU, barometer, GPS                 │
+│  • Payload          │ Data logger, sensors                                 │
+│  • Recovery         │ Parachutes, shock cord, ejection charge              │
+│  ─────────────────────────────────────────────────────────────────────────  │
+│  Target Launch Mass: 0.5–3 kg                                               │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+STABILITY ANALYSIS:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  • Static Stability Margin: Cp − Cg ≥ 1 caliber (body diameter)            │
+│  • Calculation Method:    Barrowman equations                               │
+│  • Verification Tool:     OpenRocket, RASAero II                            │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+SAFETY & LEGAL COMPLIANCE:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  • PCAA/SUPARCO requirements for amateur rocketry in Pakistan              │
+│  • Range safety plan documentation                                         │
+│  • HEC-recognized university approval process                              │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+───────────────────────────────────────────────────────────────────────────────
+STAGE 02: PROPULSION SYSTEM DESIGN
+───────────────────────────────────────────────────────────────────────────────
+
+MOTOR SELECTION:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  • Motor Type:       Aerotech/Cesaroni APCP motors (class F–J)             │
+│  • Selection Basis:  Required total impulse                                │
+│  • TWR Target:       ≥ 5:1 at launch                                       │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+NOZZLE DESIGN:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  • Geometry:         Convergent-divergent (De Laval) nozzle                │
+│  • Design Method:    Isentropic flow equations                             │
+│  • Optimization:     Throat diameter and exit area ratio for sea-level     │
+│  • Expansion Ratio:  Calculated for optimal sea-level performance          │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+GRAIN GEOMETRY:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  • Configuration:    BATES (Ballistic Test and Evaluation System) grain    │
+│  • Analysis:         Burn surface area vs. regression rate                 │
+│  • Output:           Predicted thrust curve                                │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+SPECIFIC IMPULSE:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  • Isp Target:       180–220 s for APCP compositions                       │
+│  • Validation:       NASA CEA code for chemical equilibrium calculations   │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+MOTOR CASING:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  • Material:         Aluminum or filament-wound CFRP                       │
+│  • Chamber Pressure: 30–80 bar                                             │
+│  • Safety Factor:    ≥ 4                                                   │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+───────────────────────────────────────────────────────────────────────────────
+STAGE 03: 3D STRUCTURAL MODELLING
+───────────────────────────────────────────────────────────────────────────────
+
+AIRFRAME TUBE:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  • Modelling:        Thin-walled cylinder in SolidWorks/Fusion 360         │
+│  • Internal Features: Bulkheads, centering rings, motor retention          │
+│  • Definition:       Parametrically defined for design iterations          │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+NOSE CONE:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  • Profile:          Ogive or Von Kármán (parametric equations)            │
+│  • Manufacturing:    3D-printed (PETG) or machined aluminum                │
+│  • Selection:        Based on Mach number requirements                     │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+FIN ASSEMBLY:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  • Planform:         Trapezoidal or clipped-delta                          │
+│  • Configuration:    3-fin (lower drag) or 4-fin (better stability)        │
+│  • Optimization:     Root chord, tip chord, sweep angle via RASAero II     │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+RECOVERY BAY:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  • Components:       Parachute deployment section                          │
+│  • Features:         Ejection charge housing, shock cord attachment        │
+│  • Mechanism:        Nose cone separation system                           │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+FEA INTEGRATION:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  • Software:         SolidWorks Simulation                                 │
+│  • Load Cases:       Max-Q dynamic pressure, motor thrust, landing impact  │
+│  • Output:           Stress distribution, factor of safety                 │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+───────────────────────────────────────────────────────────────────────────────
+STAGE 04: CFD / AERODYNAMIC ANALYSIS
+───────────────────────────────────────────────────────────────────────────────
+
+MACH SWEEP:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  • Range:            Mach 0.2 to 1.5                                       │
+│  • Output:           Cd, CL, Cm vs. angle-of-attack (±15°) and Mach        │
+│  • Simulation Type:  Steady-state compressible flow                        │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+SHOCK ANALYSIS:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  • Transonic Cases:  Bow shock formation captured                          │
+│  • Supersonic Cases: Shock-boundary layer interaction at fins              │
+│  • Base Drag:        Pressure drag contribution quantified                 │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+TURBULENCE MODEL:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  • Model:            k-ω SST two-equation model                            │
+│  • Application:      Boundary layer transition prediction                  │
+│  • Locations:        Fin leading edges, nose cone                          │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+THERMAL ANALYSIS:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  • Solver:           Coupled thermal-structural                            │
+│  • Quantification:   Aerodynamic heating at stagnation point               │
+│  • Leading Edges:    Heat transfer coefficients calculated                 │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+GRID INDEPENDENCE:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  • Method:           Mesh refinement study                                 │
+│  • Criterion:        y+ ≤ 1 near walls                                     │
+│  • Purpose:          Ensure simulation accuracy independent of grid        │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+───────────────────────────────────────────────────────────────────────────────
+STAGE 05: GUIDANCE, NAVIGATION & CONTROL (GNC)
+───────────────────────────────────────────────────────────────────────────────
+
+IMU SELECTION:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  • Options:          MPU-6050 or BNO055 9-DOF IMU                          │
+│  • Sensors:          3-axis accelerometer, gyroscope, magnetometer         │
+│  • Sample Rate:      100–200 Hz                                            │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+FLIGHT COMPUTER:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  • Microcontroller:  STM32 or Teensy 4.1                                   │
+│  • Supplementary:    Barometric altimeter (BMP388), GPS module             │
+│  • Function:         Real-time GNC algorithms                              │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+PID CONTROLLER:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  • Type:             Three-axis PID attitude controller                    │
+│  • Actuators:        Four servo-actuated fins or TVC carbon vanes          │
+│  • Function:         Correct pitch, yaw, and roll deviations               │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+KALMAN FILTER:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  • Type:             Extended Kalman Filter (EKF)                          │
+│  • Inputs:           IMU, barometer, GPS data                              │
+│  • Output:           Accurate state estimation (position, velocity,        │
+│                      attitude) under noisy sensor conditions               │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+TELEMETRY:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  • Radio:            433 MHz LoRa or 900 MHz SiK                           │
+│  • Data:             Live flight data (altitude, velocity, attitude)       │
+│  • Purpose:          Real-time monitoring and post-flight analysis         │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+───────────────────────────────────────────────────────────────────────────────
+STAGE 06: TRAJECTORY SIMULATION & ANALYSIS
+───────────────────────────────────────────────────────────────────────────────
+
+6-DOF MODEL:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  • Software:         MATLAB/Simulink                                       │
+│  • Equations:        Full six-degree-of-freedom motion                     │
+│  • Dynamics:         Translational and rotational (simultaneous)           │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+OPENROCKET VALIDATION:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  • Purpose:          Rapid first-order trajectory prediction               │
+│  • Use:              Cross-validate MATLAB 6-DOF model outputs             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+LAUNCH ANGLE STUDY:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  • Method:           Parametric sweep of launch elevation angle            │
+│  • Range:            45°–85°                                               │
+│  • Output:           Optimal launch angle for target engagement            │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+WIND EFFECTS:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  • Method:           Monte Carlo analysis                                  │
+│  • Inputs:           Randomized wind speed and direction                   │
+│  • Output:           Statistical impact dispersion ellipses (CEP)          │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+RECOVERY SIMULATION:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  • Deployment:       Parachute at apogee                                   │
+│  • Modelling:        Descent rate and drift distance under wind            │
+│  • Purpose:          Safe landing zone prediction                          │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+───────────────────────────────────────────────────────────────────────────────
+STAGE 07: MATERIALS & MANUFACTURING
+───────────────────────────────────────────────────────────────────────────────
+
+AIRFRAME TUBE:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  • Material:         Carbon Fiber / Fiberglass (G12)                       │
+│  • CFRP Properties:  1.6 g/cm³ density, 70 GPa modulus                     │
+│  • Selection:        Fiberglass G12 more cost-effective for subsonic       │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+NOSE CONE:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  • Subsonic (M<0.8): 3D-Printed PETG                                       │
+│  • Transonic/Supersonic: Machined Aluminum 6061-T6                         │
+│  • Selection:        Based on thermal resistance requirements              │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+FIN SET:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  • Subsonic:         Aircraft plywood (6 mm)                               │
+│  • Higher Velocity:  G10 fiberglass or 1.5 mm aluminum 6061                │
+│  • Selection:        Based on structural requirements                      │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+MOTOR CASING:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  • Standard:         Aluminum 7075-T6                                      │
+│  • High Performance: Filament-wound CFRP overwrap                          │
+│  • Weight Saving:    CFRP provides 40% weight reduction                    │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+───────────────────────────────────────────────────────────────────────────────
+STAGE 08: TESTING, LAUNCH & RECOVERY
+───────────────────────────────────────────────────────────────────────────────
+
+STATIC MOTOR TEST:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  • Setup:            Motor on thrust stand                                 │
+│  • Instrumentation:  Load cell and pressure transducer                     │
+│  • Comparison:       Measured thrust curve vs. manufacturer data           │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+AVIONICS BENCH TEST:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  • Setup:            Full GNC system powered on bench                      │
+│  • Input:            Simulated IMU data injected                           │
+│  • Verification:     Controller response, data logging, ejection logic     │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+PRE-LAUNCH CHECKLIST:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  • Review:           25-point launch readiness                             │
+│  • Coverage:         Structural, propulsion, avionics, safety, range,      │
+│                      weather                                               │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+LIVE LAUNCH:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  • Location:         Designated open field                                 │
+│  • Approval:         University/SUPARCO                                    │
+│  • Setup:            Launch rail angle per trajectory simulation           │
+│  • Monitoring:       Telemetry from ground station                         │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+POST-FLIGHT ANALYSIS:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  • Data:             Logged flight data (altitude, velocity, attitude)     │
+│  • Comparison:       vs. simulation predictions                            │
+│  • Validation:       Drag coefficient, peak altitude, apogee time          │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+================================================================================
+                    4. MISSILE TYPES & CLASSIFICATION
+================================================================================
+
+RANGE-BASED CLASSIFICATION TABLE:
+┌──────────────────────────┬──────────┬──────────────────┬──────────────────┬─────────────────────────────┐
+│ Type                     │ Abbrev.  │ Range (km)       │ Range (miles)    │ Examples                    │
+├──────────────────────────┼──────────┼──────────────────┼──────────────────┼─────────────────────────────┤
+│ Tactical Ballistic       │ TBM      │ < 300 km         │ < 190 mi         │ ATACMS, Tochka, Iskander-M  │
+│ Short-Range Ballistic    │ SRBM     │ 300 – 1,000 km   │ 190 – 620 mi     │ Scud-B, Prithvi-I, Fateh-110│
+│ Medium-Range Ballistic   │ MRBM     │ 1,000 – 3,500 km │ 620 – 2,170 mi   │ Agni-II, Shaheen-II, DF-21  │
+│ Intermediate-Range       │ IRBM     │ 3,500 – 5,500 km │ 2,200 – 3,400 mi │ Agni-III, Shaheen-III, DF-26│
+│ Intercontinental         │ ICBM     │ > 5,500 km       │ > 3,400 mi       │ Minuteman-III, RS-24 Yars   │
+│ Submarine-Launched       │ SLBM     │ Variable         │ Variable         │ Trident-II, K-4, R-30 Bulava│
+└──────────────────────────┴──────────┴──────────────────┴──────────────────┴─────────────────────────────┘
+
+Source: Defense Intelligence Ballistic Missile Analysis Committee (2017), Praeger Security International
+
+================================================================================
+                    5. FLIGHT PHASES
+================================================================================
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  BOOST PHASE                                                                │
+│  ─────────────                                                              │
+│  • Description:    Powered flight from ignition to fuel exhaustion          │
+│  • Propulsion:     Multi-stage rocket with internal computers               │
+│  • Events:         Stage separation occurs                                  │
+│  • Duration:       Tenths of seconds to several minutes                     │
+│  • Characteristics: Maximum acceleration and dynamic pressure (max-Q)       │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  MID-COURSE PHASE                                                           │
+│  ──────────────────                                                         │
+│  • Description:    Longest trajectory phase, missile in free flight         │
+│  • Thrust:         None (ballistic coast)                                   │
+│  • Altitude:       May travel through space at extreme altitudes            │
+│  • Apogee:         ~4,500 km for ICBMs                                      │
+│  • Velocity:       7.5–10 km/s (4–5 nautical miles/s)                       │
+│  • Characteristics: Warhead/payload with possible countermeasures,          │
+│                     MIRV and decoy deployment                               │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  TERMINAL/RE-ENTRY PHASE                                                    │
+│  ─────────────────────                                                      │
+│  • Description:    Begins at atmospheric re-entry                           │
+│  • Forces:         Aerodynamic forces become significant                    │
+│  • Heating:        Extreme aerodynamic heating (up to 2,000°C)              │
+│  • Re-entry Velocity: 6–8 km/s (22,000–29,000 km/h)                        │
+│  • Characteristics: Atmospheric drag significantly affects trajectory,      │
+│                     final impact point determination                        │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+================================================================================
+                    6. KEY TECHNICAL SPECIFICATIONS
+================================================================================
+
+THROW-WEIGHT:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  • Definition:       Measure of effective payload weight (kg or tonnes)     │
+│  • Includes:         Warheads, re-entry vehicles, dispensing mechanisms,    │
+│                      penetration aids                                       │
+│  • Excludes:         Booster rockets and fuel                               │
+│  • Application:      Classification criterion in arms control treaties      │
+│                      (SALT)                                                 │
+│  • Heaviest:         Russian SS-18, Chinese CSS-4                           │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+MIRV TECHNOLOGY:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  • Full Form:        Multiple Independently Targetable Re-entry Vehicles    │
+│  • Capability:       Single missile carries multiple warheads for different │
+│                      targets                                                │
+│  • Deployment:       Post-boost vehicle (PBV) or "bus" maneuvers to         │
+│                      release RVs + decoys + chaff                           │
+│  • First MIRV ICBM:  Minuteman III (1970)                                   │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+TRAJECTORY VARIANTS:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  • Standard:         Traditional ballistic arc                              │
+│  • Depressed:        Flatter trajectory to evade ABM systems                │
+│  • Lofted:           Higher apogee, reduced range (used for testing)        │
+│  • Minimum-Energy:   Maximizes throw-weight                                 │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+HYPERSONIC FLIGHT:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  • Speed:            Mach 5+ during re-entry                                │
+│  • HGV:              Hypersonic glide vehicles perform atmospheric          │
+│                      maneuvers                                              │
+│  • Distinction:      Real-time aerodynamic calculations vs. traditional     │
+│                      ballistic trajectory                                   │
+│  • Examples:         Kinzhal, Oreshnik, Avangard                            │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+================================================================================
+                    7. STRUCTURAL DESIGN GUIDE
+================================================================================
+
+7.1 AIRFRAME / BODY TUBE DESIGN
+─────────────────────────────────
+
+GEOMETRY & SIZING:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  Parameter        │ Specification                                          │
+│  ─────────────────────────────────────────────────────────────────────────  │
+│  Diameter         │ 75–150 mm (based on motor size)                        │
+│  Length           │ Determined by fineness ratio (L/D = 10–15)             │
+│  Wall Thickness   │ 2–4 mm (composite), 1.5–3 mm (aluminum)                │
+│  Material         │ CFRP, fiberglass G12, aluminum 6061-T6                 │
+│  Surface Finish   │ Smooth exterior (minimize skin friction drag)          │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+STRUCTURAL CONSIDERATIONS:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  • Max-Q Resistance:     Withstand maximum dynamic pressure without         │
+│                          buckling                                           │
+│  • Motor Thrust Load:    Bulkheads transfer thrust to airframe              │
+│  • Landing Impact:       Reinforced sections at recovery attachment points  │
+│  • Thermal Protection:   Internal insulation near motor section             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+DESIGN FORMULAS:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                                                                             │
+│  Fineness Ratio = Length / Diameter (Optimal: 10–15)                       │
+│                                                                             │
+│  Critical Buckling Pressure:                                                │
+│  P_cr = (2 × E × t³) / (D³ × (1 - ν²))                                     │
+│                                                                             │
+│  Where:                                                                     │
+│    E  = Young's modulus                                                     │
+│    t  = Wall thickness                                                      │
+│    D  = Diameter                                                            │
+│    ν  = Poisson's ratio                                                     │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+7.2 NOSE CONE DESIGN
+────────────────────
+
+PROFILE TYPES COMPARISON:
+┌──────────────┬──────────────────────┬──────────────────┬───────────────────┐
+│ Profile Type │ Equation             │ Best For         │ Drag              │
+├──────────────┼──────────────────────┼──────────────────┼───────────────────┤
+│ Conical      │ y = (R/L)×x          │ Subsonic (M<0.8) │ Higher drag,      │
+│              │                      │                  │ simple mfg.       │
+│ Tangent Ogive│ y = R - √(R² - x²)   │ Transonic        │ Good balance,     │
+│              │                      │ (M = 0.8–1.2)    │ popular choice    │
+│ Von Kármán   │ y = f(x, M, L/D)     │ Supersonic       │ Minimum wave drag,│
+│              │                      │ (M > 1.2)        │ optimal           │
+│ Parabolic    │ y = (R/L²)×x²        │ Low supersonic   │ Simple, moderate  │
+└──────────────┴──────────────────────┴──────────────────┴───────────────────┘
+
+MANUFACTURING OPTIONS:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  • 3D Printing:      PETG/PLA for M < 0.8, infill ≥ 40%                    │
+│  • CNC Machining:    Aluminum 6061-T6 for transonic/supersonic             │
+│  • Composite Layup:  Carbon fiber over foam core                           │
+│  • Wood Turning:     Hardwood for low-speed prototypes                     │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+ATTACHMENT METHODS:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  • Shoulder Fit:       Press-fit with friction retention                    │
+│  • Screw Attachment:   Internal threads with retention screw                │
+│  • Bayonet Mount:      Twist-lock for quick release                         │
+│  • Shear Pin:          For parachute deployment separation                  │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+7.3 FIN DESIGN & ATTACHMENT
+───────────────────────────
+
+FIN GEOMETRY PARAMETERS:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  Parameter       │ Specification                                            │
+│  ─────────────────────────────────────────────────────────────────────────  │
+│  Number of Fins  │ 3-fin (lower drag) or 4-fin (better stability)           │
+│  Planform        │ Trapezoidal, clipped-delta, or elliptical                │
+│  Root Chord      │ 25–40% of body length                                    │
+│  Tip Chord       │ 40–60% of root chord                                     │
+│  Semi-span       │ 15–25% of body diameter                                  │
+│  Sweep Angle     │ 30–45° for transonic/supersonic                          │
+│  Thickness       │ 3–6 mm (airfoil or flat plate)                           │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+MATERIALS & CONSTRUCTION:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  • Aircraft Plywood:   3–6 mm birch, epoxy-coated (subsonic)               │
+│  • G10 Fiberglass:     2–4 mm, excellent strength-to-weight                │
+│  • Aluminum 6061:      1.5–3 mm sheet, machined or waterjet                │
+│  • Carbon Fiber:       Pre-preg layup, autoclave cured (high performance)  │
+│  • 3D Printed:         PETG/ABS with ≥60% infill (prototypes)              │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+CRITICAL DESIGN CHECK:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  ⚠ STATIC STABILITY: Cp - Cg ≥ 1 caliber (body diameter)                  │
+│                                                                             │
+│  • Calculation:  Barrowman equations or RASAero II                         │
+│  • Fin Flutter:  Velocity must exceed max expected speed by 20% margin     │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+FIN ATTACHMENT METHODS:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  1. Through-Wall Mounting                                                   │
+│     Fin root passes through airframe wall, bonded with epoxy.              │
+│     Strongest method, requires precise cutting.                            │
+│                                                                             │
+│  2. Surface Mount                                                           │
+│     Fin bonded to exterior surface. Simpler but weaker.                    │
+│     Suitable for small fins.                                               │
+│                                                                             │
+│  3. Fin Can                                                                 │
+│     Fins attached to separate tube that slides into main airframe.         │
+│     Modular design.                                                        │
+│                                                                             │
+│  4. Integrated                                                              │
+│     3D printed or molded as single piece with airframe.                    │
+│     No bonding required.                                                   │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+7.4 MOTOR MOUNT ASSEMBLY
+────────────────────────
+
+MOTOR TUBE SPECIFICATIONS:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  Parameter         │ Specification                                          │
+│  ─────────────────────────────────────────────────────────────────────────  │
+│  Material          │ Aluminum 6061-T6 or phenolic tube                      │
+│  Wall Thickness    │ 3–5 mm (depends on chamber pressure)                   │
+│  Length            │ Motor length + 20–30 mm clearance                      │
+│  Inner Diameter    │ Motor OD + 0.5–1 mm slip fit                           │
+│  Thermal Protection│ Ceramic coating or insulating liner                    │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+CENTERING RINGS:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  • Material:     6–10 mm plywood, G10, or aluminum                         │
+│  • Quantity:     2 rings (forward and aft)                                 │
+│  • Function:     Center motor tube in airframe, transfer thrust            │
+│  • Bonding:      Epoxy to both motor tube and airframe interior            │
+│  • Vent Holes:   3–4 holes for pressure equalization                       │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+THRUST TRANSFER:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  • Aft Ring:       Primary thrust bearing surface                          │
+│  • Retainer:       Screw or clip prevents motor ejection                   │
+│  • Forward Ring:   Locates motor, minimal thrust load                      │
+│  • Engine Hook:    For commercial motor retention                          │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+NOZZLE CLEARANCE:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  • Exit Distance:    Nozzle extends 10–20 mm aft of airframe               │
+│  • Heat Shield:      Stainless steel or ceramic at aft end                 │
+│  • Exhaust Path:     Unobstructed flow, no impingement                     │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+7.5 BULKHEADS & RECOVERY SYSTEM
+────────────────────────────────
+
+BULKHEAD DESIGN:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  Component         │ Specification                                          │
+│  ─────────────────────────────────────────────────────────────────────────  │
+│  Forward Bulkhead  │ Separates payload/avionics from recovery bay           │
+│  Aft Bulkhead      │ Separates recovery bay from motor section              │
+│  Material          │ 6–12 mm plywood or aluminum plate                      │
+│  Attachment        │ Epoxy bonded + screws for redundancy                   │
+│  Wire Pass-Through │ Grommet-protected holes for avionics wiring            │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+RECOVERY SYSTEM COMPONENTS:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  • Parachute:      Drogue (small, high-altitude) + main (large, landing)   │
+│  • Shock Cord:     Kevlar or nylon webbing, 2–3× rocket length             │
+│  • Ejection Charge: Black powder charge (1–3 grams) for separation         │
+│  • Piston/Plate:   Pushes nose cone out without damaging parachute         │
+│  • Deployment Bag: Protects parachute during ejection                      │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+RECOVERY SEQUENCE:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  1. Apogee detected by flight computer (accelerometer + barometer)         │
+│  2. Drogue ejection charge fires → nose cone separates → drogue deploys    │
+│  3. Descent to ~300 m altitude                                             │
+│  4. Main ejection charge fires → drogue jettisoned → main parachute        │
+│  5. Controlled descent at 5–7 m/s to landing zone                          │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+7.6 STEP-BY-STEP ASSEMBLY PROCEDURE
+───────────────────────────────────
+
+PHASE 1: AIRFRAME PREPARATION (Steps 1-6)
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  1. Cut body tube to final length (fine-tooth saw or tube cutter)          │
+│  2. Sand cut edges smooth, deburr interior and exterior                    │
+│  3. Mark fin slot locations (alignment jig: 120° for 3-fin, 90° for 4-fin) │
+│  4. Cut fin slots (router/Dremel with guide, depth = 1.5× fin root)        │
+│  5. Drill vent holes (4× 6 mm near forward and aft ends)                   │
+│  6. Clean interior with isopropyl alcohol for bonding prep                 │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+PHASE 2: MOTOR MOUNT ASSEMBLY (Steps 7-13)
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  7.  Cut motor tube to length (motor + 25 mm)                              │
+│  8.  Cut centering rings from plywood/G10                                  │
+│  9.  Test fit motor tube through centering rings (slight friction)         │
+│  10. Apply epoxy to motor tube, slide on centering rings, wipe excess      │
+│  11. Allow epoxy to cure 24 hours at room temperature                      │
+│  12. Install motor retainer (screw threads or engine hook) at aft end      │
+│  13. Slide motor mount into airframe, bond aft centering ring              │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+PHASE 3: FIN INSTALLATION (Steps 14-21)
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  14. Cut fins from material using template (identical geometry)            │
+│  15. Sand fins to airfoil shape (rounded LE, sharp TE)                    │
+│  16. Dry-fit fins into slots (snug fit without gaps)                       │
+│  17. Apply epoxy to fin root and slot walls                                │
+│  18. Insert fins, ensure perpendicular alignment (use square tool)         │
+│  19. Apply fillet bead along fin-airframe joint (epoxy + microballoons)    │
+│  20. Allow 24 hours cure time, sand fillets smooth                         │
+│  21. Prime and paint fins if desired (multiple light coats)                │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+PHASE 4: BULKHEADS & RECOVERY (Steps 22-29)
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  22. Cut bulkheads from plywood/aluminum (diameter = airframe ID - 0.5 mm) │
+│  23. Drill wire pass-through holes, install grommets                       │
+│  24. Bond aft bulkhead above motor mount (epoxy + screws)                  │
+│  25. Install shock cord anchor point on forward bulkhead                   │
+│  26. Assemble parachute, shock cord, and deployment bag                    │
+│  27. Load black powder ejection charge in deployment well                  │
+│  28. Thread avionics wiring through bulkhead pass-throughs                 │
+│  29. Verify all connections and clearances                                 │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+PHASE 5: NOSE CONE & FINAL ASSEMBLY (Steps 30-37)
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  30. Machine or 3D print nose cone to specification                        │
+│  31. Sand nose cone shoulder for smooth fit (no binding, no wobble)        │
+│  32. Install retention screw or bayonet mount                              │
+│  33. Attach shock cord to nose cone base                                   │
+│  34. Install avionics bay (flight computer, battery, sensors)              │
+│  35. Pack recovery system (deployment bag → parachute → shock cord)        │
+│  36. Final balance check: locate CG with motor installed                   │
+│  37. Apply final paint/decal scheme (lightweight paint only)               │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+================================================================================
+                    8. AUTOMATION & FLIGHT CONTROL
+================================================================================
+
+8.1 FLIGHT COMPUTER HARDWARE ARCHITECTURE
+─────────────────────────────────────────
+
+MICROCONTROLLER OPTIONS:
+┌──────────────────────┬──────────────────────────────────────────────────────┐
+│ Microcontroller      │ Specifications                                       │
+├──────────────────────┼──────────────────────────────────────────────────────┤
+│ STM32F4/F7           │ 168–216 MHz, FPU, DSP, 512KB–2MB Flash              │
+│ Teensy 4.1           │ 600 MHz, 1MB Flash, rapid prototyping               │
+│ Pixhawk (Cube)       │ Dual IMU, redundant sensors, aerospace-grade        │
+│ Arduino Due          │ 84 MHz ARM Cortex-M3, beginner-friendly             │
+└──────────────────────┴──────────────────────────────────────────────────────┘
+
+KEY REQUIREMENTS:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  • Clock Speed:      ≥ 100 MHz for real-time control loops                 │
+│  • FPU:              Hardware floating-point for fast math                 │
+│  • ADC:              12-bit+ for sensor readings                           │
+│  • Timers:           Multiple hardware timers for PWM generation           │
+│  • Communication:    UART, SPI, I2C for sensor interfacing                 │
+│  • Memory:           ≥ 256 KB Flash, ≥ 64 KB RAM                           │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+RECOMMENDED: STM32F405/F446
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  • CPU:        ARM Cortex-M4 @ 168 MHz with FPU and DSP instructions       │
+│  • Memory:     192 KB SRAM, 1 MB Flash, external SPI Flash support         │
+│  • Peripherals: 3× SPI, 3× I2C, 6× UART, 12× timers, 3× ADC (12-bit)       │
+│  • Why STM32?: Industry standard, excellent HAL library, low power         │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+8.2 SENSOR SUITE & INTERFACING
+──────────────────────────────
+
+IMU (INERTIAL MEASUREMENT UNIT):
+┌──────────────┬─────────────────────────────────┬───────────────────────────┐
+│ Model        │ Type                            │ Interface                 │
+├──────────────┼─────────────────────────────────┼───────────────────────────┤
+│ MPU-6050     │ 6-DOF (gyro+accel), budget      │ I2C                       │
+│ BNO055       │ 9-DOF with sensor fusion        │ UART/I2C                  │
+│ ICM-20948    │ 9-DOF, low noise                │ SPI/I2C                   │
+│ BMI088       │ High-g accel, aerospace-grade   │ SPI                       │
+└──────────────┴─────────────────────────────────┴───────────────────────────┘
+
+BAROMETRIC ALTIMETER:
+┌──────────────┬─────────────────────────────────┬───────────────────────────┐
+│ Model        │ Accuracy                        │ Interface                 │
+├──────────────┼─────────────────────────────────┼───────────────────────────┤
+│ BMP388       │ ±0.5 m                          │ I2C/SPI                   │
+│ MS5611       │ ±10 cm, high-speed              │ I2C/SPI                   │
+│ LPS25H       │ ±0.3 m, low power               │ I2C                       │
+└──────────────┴─────────────────────────────────┴───────────────────────────┘
+
+GPS MODULE (OPTIONAL):
+┌──────────────┬─────────────────────────────────┬───────────────────────────┐
+│ Model        │ Update Rate                     │ Accuracy                  │
+├──────────────┼─────────────────────────────────┼───────────────────────────┤
+│ UBlox NEO-M8N│ 10 Hz                           │ 2.5 m CEP                 │
+│ BN-880       │ 10 Hz                           │ Built-in compass          │
+│ F9P RTK      │ 10 Hz                           │ Centimeter-level          │
+└──────────────┴─────────────────────────────────┴───────────────────────────┘
+
+ADDITIONAL SENSORS:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  • Magnetometer:     HMC5883L, QMC5883L (heading reference)                │
+│  • Current Sensor:   INA219 (battery monitoring)                           │
+│  • Voltage Divider:  Battery voltage monitoring                            │
+│  • Temperature:      Internal IMU or external thermistor                   │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+SENSOR FUSION ARCHITECTURE:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                                                                             │
+│  ┌─────────────┐    ┌─────────────┐    ┌─────────────┐    ┌─────────────┐  │
+│  │    IMU      │    │ Barometer   │    │    GPS      │    │   Kalman    │  │
+│  │ Gyro+Accel  │───▶│  Altitude   │───▶│  Position   │───▶│   Filter    │  │
+│  │ 100-200 Hz  │    │  50-100 Hz  │    │   10 Hz     │    │   Output    │  │
+│  └─────────────┘    └─────────────┘    └─────────────┘    └─────────────┘  │
+│                                                                    │        │
+│                                                                    ▼        │
+│                                                          Fused State        │
+│                                                      (Position, Velocity,   │
+│                                                           Attitude)         │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+8.3 PID FLIGHT CONTROL SYSTEM
+────────────────────────────
+
+PID CONTROLLER FUNDAMENTALS:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                                                                             │
+│  output = Kp × error + Ki × ∫error × dt + Kd × d(error)/dt                 │
+│                                                                             │
+│  Where:                                                                     │
+│    Kp (Proportional):  Response to current error                           │
+│    Ki (Integral):      Eliminates steady-state error                       │
+│    Kd (Derivative):    Dampens oscillations, predicts future               │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+THREE-AXIS CONTROL:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  Axis      │ Description                                                    │
+│  ─────────────────────────────────────────────────────────────────────────  │
+│  Pitch     │ Nose up/down rotation                                          │
+│  Yaw       │ Nose left/right rotation                                       │
+│  Roll      │ Clockwise/counterclockwise rotation                            │
+│                                                                             │
+│  Control Loop Rate: 500–1000 Hz for stable flight                          │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+FIN ACTUATION (SERVO MOTORS):
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  • Servo Type:       Digital high-speed (0.06–0.08 sec/60°)                │
+│  • Torque:           ≥ 5 kg·cm (small fins), ≥ 10 kg·cm (larger)           │
+│  • Examples:         BMS-2275, MKS DS95i, Hitec D85MG                      │
+│  • Control Signal:   PWM (50 Hz, 1000–2000 μs pulse width)                 │
+│  • Power:            5–6 V BEC (Battery Eliminator Circuit)                │
+│  • Mounting:         Direct horn attachment or pushrod linkage             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+THRUST VECTOR CONTROL (TVC):
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  • Method:           Gimbaled nozzle with 2–4 actuators                    │
+│  • Actuators:        High-torque servos or linear actuators                │
+│  • Deflection:       ±3–5° vectoring angle                                 │
+│  • Response:         Must be faster than aerodynamic control               │
+│  • Advantage:        Control at low speeds (before fins are effective)     │
+│  • Complexity:       Higher than fin control, requires robust mechanism    │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+PID TUNING PROCEDURE:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  Step 1: Initialize                                                         │
+│          Set Ki = 0, Kd = 0. Start with low Kp (0.1–0.5).                  │
+│                                                                             │
+│  Step 2: Tune Kp                                                            │
+│          Increase Kp until system oscillates, then reduce by 30%.          │
+│                                                                             │
+│  Step 3: Tune Kd                                                            │
+│          Add derivative gain to dampen oscillations.                       │
+│          Watch for noise amplification.                                    │
+│                                                                             │
+│  Step 4: Tune Ki                                                            │
+│          Add integral gain to eliminate steady-state error.                │
+│          Use sparingly.                                                    │
+│                                                                             │
+│  Step 5: Flight Test                                                        │
+│          Fine-tune gains based on actual flight performance.               │
+│          Log data for analysis.                                            │
+│                                                                             │
+│  Typical Values:                                                            │
+│    Kp: 0.5–2.0                                                              │
+│    Ki: 0.001–0.01                                                           │
+│    Kd: 0.05–0.2 (axis-dependent)                                            │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+8.4 GUIDANCE & NAVIGATION ALGORITHMS
+────────────────────────────────────
+
+EXTENDED KALMAN FILTER (EKF):
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                                                                             │
+│  PREDICT STEP:                                                              │
+│  ───────────────                                                            │
+│  x̂ₖ⁻ = F × x̂ₖ₋₁ + B × uₖ                                                   │
+│  Pₖ⁻ = F × Pₖ₋₁ × Fᵀ + Q                                                    │
+│                                                                             │
+│  UPDATE STEP:                                                               │
+│  ─────────────                                                              │
+│  Kₖ = Pₖ⁻ × Hᵀ × (H × Pₖ⁻ × Hᵀ + R)⁻¹                                      │
+│  x̂ₖ = x̂ₖ⁻ + Kₖ × (zₖ - H × x̂ₖ⁻)                                           │
+│                                                                             │
+│  Where:                                                                     │
+│    x̂ = State estimate                                                      │
+│    P = Error covariance                                                    │
+│    K = Kalman gain                                                         │
+│    F = State transition matrix                                             │
+│    H = Observation matrix                                                  │
+│    Q = Process noise covariance                                            │
+│    R = Measurement noise covariance                                        │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+FLIGHT STATE MACHINE:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  State           │ Description                                              │
+│  ─────────────────────────────────────────────────────────────────────────  │
+│  1. IDLE         │ Pre-launch, system checks                                │
+│  2. LAUNCH DETECT│ Acceleration threshold trigger                           │
+│  3. BOOST        │ Powered ascent, active control                           │
+│  4. COAST        │ Ballistic ascent to apogee                               │
+│  5. APOGEE       │ Drogue parachute deployment                              │
+│  6. DESCENT      │ Main parachute deployment                                │
+│  7. LANDING      │ Touchdown detected, data save                            │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+LAUNCH DETECTION ALGORITHM:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                                                                             │
+│  // Launch detection threshold                                              │
+│  const float LAUNCH_ACCEL = 2.5; // g                                      │
+│                                                                             │
+│  if (accel_magnitude > LAUNCH_ACCEL) {                                      │
+│      flight_state = BOOST;                                                  │
+│      launch_time = millis();                                                │
+│  }                                                                          │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+APOGEE DETECTION ALGORITHM:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                                                                             │
+│  if (vertical_velocity < -0.5 && prev_velocity >= 0) {                      │
+│      deploy_drogue();                                                       │
+│      flight_state = APOGEE;                                                 │
+│  }                                                                          │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+8.5 SOFTWARE ARCHITECTURE & CODE STRUCTURE
+──────────────────────────────────────────
+
+MAIN LOOP STRUCTURE:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                                                                             │
+│  void loop() {                                                              │
+│      // Read sensors (1000 Hz)                                              │
+│      readIMU();                                                             │
+│      readBarometer();                                                       │
+│      readGPS();                                                             │
+│                                                                             │
+│      // Sensor fusion (500 Hz)                                              │
+│      kalmanUpdate();                                                        │
+│                                                                             │
+│      // Flight state machine                                                │
+│      updateFlightState();                                                   │
+│                                                                             │
+│      // PID control (500-1000 Hz)                                           │
+│      pidCompute();                                                          │
+│      updateServos();                                                        │
+│                                                                             │
+│      // Data logging (50 Hz)                                                │
+│      logFlightData();                                                       │
+│      telemetryTransmit();                                                   │
+│  }                                                                          │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+KEY SOFTWARE MODULES:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  • sensor_drivers.cpp:     IMU, barometer, GPS drivers                     │
+│  • kalman_filter.cpp:      EKF implementation                              │
+│  • pid_controller.cpp:     3-axis PID control                              │
+│  • flight_state.cpp:       State machine logic                             │
+│  • servo_output.cpp:       PWM generation                                  │
+│  • data_logger.cpp:        SD card logging                                 │
+│  • telemetry.cpp:          LoRa radio communication                        │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+DEVELOPMENT ENVIRONMENT:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  • IDE:            STM32CubeIDE, PlatformIO, or Arduino IDE                │
+│  • Debugging:      ST-Link V2 debugger, serial printf, logic analyzer      │
+│  • Version Control: Git + GitHub for code management                       │
+│  • Simulation:     MATLAB/Simulink for control design                      │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+8.6 TELEMETRY & GROUND STATION
+──────────────────────────────
+
+RADIO COMMUNICATION OPTIONS:
+┌──────────────────────┬──────────────┬──────────────┬───────────────────────┐
+│ Radio                │ Frequency    │ Range        │ Data Rate             │
+├──────────────────────┼──────────────┼──────────────┼───────────────────────┤
+│ LoRa                 │ 433/915 MHz  │ 5–10 km      │ Low                   │
+│ SiK Radio            │ 915 MHz      │ 300 m–2 km   │ Medium (MAVLink)      │
+│ nRF24L01             │ 2.4 GHz      │ 100 m        │ High                  │
+│ XBee                 │ 2.4 GHz      │ 1–2 km       │ Medium                │
+└──────────────────────┴──────────────┴──────────────┴───────────────────────┘
+
+TELEMETRY DATA TRANSMITTED:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  • Altitude        (barometric + GPS)                                      │
+│  • Velocity        (vertical + horizontal)                                 │
+│  • Attitude        (pitch, roll, yaw)                                      │
+│  • Acceleration    (3-axis)                                                │
+│  • GPS Coordinates                                                         │
+│  • Battery Voltage                                                         │
+│  • Flight State                                                            │
+│  • Timestamp                                                               │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+GROUND STATION SOFTWARE OPTIONS:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  • Mission Planner:        Windows-based, MAVLink protocol, full-featured  │
+│  • QGroundControl:         Cross-platform, modern UI, MAVLink              │
+│  • Custom Python GUI:      PyQt/Matplotlib, fully customizable             │
+│  • Arduino Serial Plotter: Simple debugging, basic visualization           │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+================================================================================
+                    9. PROJECT TIMELINE
+================================================================================
+
+┌────────┬─────────────────────────┬────────────┬─────────────────────────────┐
+│ Phase  │ Task                    │ Duration   │ Key Activities              │
+├────────┼─────────────────────────┼────────────┼─────────────────────────────┤
+│   01   │ Conceptual Design       │ 8 Days     │ Mission spec, geometry      │
+│        │                         │            │ sizing, stability checks,   │
+│        │                         │            │ safety approvals            │
+├────────┼─────────────────────────┼────────────┼─────────────────────────────┤
+│   02   │ Propulsion Design       │ 10 Days    │ Motor selection, nozzle     │
+│        │                         │            │ sizing, grain analysis,     │
+│        │                         │            │ Isp calculations          │
+├────────┼─────────────────────────┼────────────┼─────────────────────────────┤
+│   03   │ 3D Modelling            │ 8 Days     │ Full CAD assembly, FEA      │
+│        │                         │            │ stress analysis, mfg.       │
+│        │                         │            │ drawings                    │
+├────────┼─────────────────────────┼────────────┼─────────────────────────────┤
+│   04   │ CFD Simulation          │ 12 Days    │ ANSYS setup, Mach sweep     │
+│        │                         │            │ runs, post-processing,      │
+│        │                         │            │ aero database               │
+├────────┼─────────────────────────┼────────────┼─────────────────────────────┤
+│   05   │ GNC Development         │ 12 Days    │ Flight computer coding,     │
+│        │                         │            │ PID tuning, Kalman filter,  │
+│        │                         │            │ bench testing               │
+├────────┼─────────────────────────┼────────────┼─────────────────────────────┤
+│   06   │ Manufacturing           │ 8 Days     │ Airframe assembly, fin      │
+│        │                         │            │ bonding, avionics           │
+│        │                         │            │ integration, recovery       │
+├────────┼─────────────────────────┼────────────┼─────────────────────────────┤
+│   07   │ Testing & Launch        │ 4 Days     │ Static fire, pre-launch     │
+│        │                         │            │ checklist, live launch,     │
+│        │                         │            │ data recovery               │
+└────────┴─────────────────────────┴────────────┴─────────────────────────────┘
+
+TOTAL ESTIMATED DURATION: 62 Days
+
+================================================================================
+                    10. BUDGET ESTIMATION
+================================================================================
+
+┌──────┬─────────────────────────────┬───────────────────────────┬───────────────────────┐
+│  #   │ Item                        │ Purpose                   │ Est. Cost (PKR)       │
+├──────┼─────────────────────────────┼───────────────────────────┼───────────────────────┤
+│  01  │ Rocket Motors (APCP)        │ Aerotech/Cesaroni F–J     │ 35,000 – 85,000       │
+│      │                             │ class motors (3–5 units)  │                       │
+├──────┼─────────────────────────────┼───────────────────────────┼───────────────────────┤
+│  02  │ Airframe Materials          │ CFRP tubes, fiberglass    │ 22,000 – 56,000       │
+│      │                             │ body, centering rings     │                       │
+├──────┼─────────────────────────────┼───────────────────────────┼───────────────────────┤
+│  03  │ 3D Printing                 │ Nose cone, fin can,       │ 11,000 – 28,000       │
+│      │                             │ payload bay (PETG/PLA)    │                       │
+├──────┼─────────────────────────────┼───────────────────────────┼───────────────────────┤
+│  04  │ Flight Computer             │ STM32/Teensy 4.1, PCB     │ 17,000 – 42,000       │
+│      │                             │ fabrication, connectors   │                       │
+├──────┼─────────────────────────────┼───────────────────────────┼───────────────────────┤
+│  05  │ Sensors & Avionics          │ IMU, barometer, GPS,      │ 22,000 – 50,000       │
+│      │                             │ LoRa radio, servos        │                       │
+├──────┼─────────────────────────────┼───────────────────────────┼───────────────────────┤
+│  06  │ Recovery System             │ Drogue + main parachute,  │ 11,000 – 28,000       │
+│      │                             │ shock cord, ejection      │                       │
+├──────┼─────────────────────────────┼───────────────────────────┼───────────────────────┤
+│  07  │ CAD/Simulation Software     │ SolidWorks & ANSYS        │ 0 – 8,000             │
+│      │                             │ (already owned); MATLAB   │                       │
+├──────┼─────────────────────────────┼───────────────────────────┼───────────────────────┤
+│  08  │ Test Equipment              │ Thrust stand, load cell,  │ 28,000 – 70,000       │
+│      │                             │ data logger, pressure     │                       │
+├──────┼─────────────────────────────┼───────────────────────────┼───────────────────────┤
+│  09  │ Safety & Launch Fees        │ University ground booking,│ 22,000 – 56,000       │
+│      │                             │ safety equipment, transport│                      │
+├──────┼─────────────────────────────┼───────────────────────────┼───────────────────────┤
+│  10  │ Documentation & Printing    │ Report printing, poster,  │ 8,000 – 22,000        │
+│      │                             │ spiral binding, HEC sub.  │                       │
+├──────┴─────────────────────────────┴───────────────────────────┼───────────────────────┤
+│ TOTAL ESTIMATED BUDGET                                          │ 176,000 – 445,000   │
+└─────────────────────────────────────────────────────────────────┴───────────────────────┘
+
+Note: Costs are in Pakistani Rupees (PKR). SolidWorks & ANSYS costs excluded (already owned).
+
+================================================================================
+                    11. TEAM STRUCTURE (5 ENGINEERS)
+================================================================================
+
+┌──────────┬─────────────────────────────┬─────────────────────────────────────────────────┐
+│  Role    │ Responsibilities            │ Key Skills                                      │
+├──────────┼─────────────────────────────┼─────────────────────────────────────────────────┤
+│ ENG-01   │ Structural / Airframe       │ • CAD modelling (SolidWorks)                    │
+│          │ Engineer                    │ • FEA analysis                                  │
+│          │                             │ • Material selection (CFRP, composites)         │
+│          │                             │ • Manufacturing coordination                    │
+│          │                             │ • Prototype assembly                            │
+├──────────┼─────────────────────────────┼─────────────────────────────────────────────────┤
+│ ENG-02   │ Propulsion Engineer         │ • Motor selection (APCP)                        │
+│          │                             │ • Nozzle design (De Laval)                      │
+│          │                             │ • Static fire testing                           │
+│          │                             │ • Thrust analysis (NASA CEA)                    │
+│          │                             │ • Propulsion integration                        │
+├──────────┼─────────────────────────────┼─────────────────────────────────────────────────┤
+│ ENG-03   │ CFD / Aerodynamics          │ • ANSYS Fluent simulation                       │
+│          │ Engineer                    │ • Meshing & post-processing                     │
+│          │                             │ • Aero data validation                          │
+│          │                             │ • Mach sweep analysis                           │
+├──────────┼─────────────────────────────┼─────────────────────────────────────────────────┤
+│ ENG-04   │ GNC / Avionics Engineer     │ • Flight computer firmware (STM32)              │
+│          │                             │ • GNC algorithms                                │
+│          │                             │ • Sensor integration (IMU, GPS, barometer)      │
+│          │                             │ • Kalman filter implementation                  │
+│          │                             │ • Telemetry system                              │
+│          │                             │ • Bench testing                                 │
+├──────────┼─────────────────────────────┼─────────────────────────────────────────────────┤
+│ ENG-05   │ Flight Dynamics /           │ • 6-DOF MATLAB model                            │
+│          │ Trajectory Engineer         │ • Launch angle optimization                     │
+│          │                             │ • Monte Carlo analysis                          │
+│          │                             │ • OpenRocket simulation                         │
+│          │                             │ • Post-flight data correlation                  │
+└──────────┴─────────────────────────────┴─────────────────────────────────────────────────┘
+
+================================================================================
+                    12. FYP SUITABILITY ANALYSIS
+================================================================================
+
+VERDICT: HIGHLY SUITABLE (90% FYP Suitability Score)
+
+This project comprehensively satisfies the academic requirements of a mechanical, 
+aerospace, or mechatronics engineering FYP at any HEC-recognized Pakistani university.
+
+SIX KEY SUITABILITY FACTORS:
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  1. MULTI-DISCIPLINARY INTEGRATION                                          │
+│     Combines propulsion, structures, aerodynamics, GNC, and software —      │
+│     meeting broad assessment criteria across multiple engineering modules   │
+│     simultaneously.                                                         │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  2. INDUSTRY SKILL DEVELOPMENT                                              │
+│     Hands-on ANSYS, SolidWorks, STM32 programming, and Python/MATLAB        │
+│     flight simulation directly maps to Pakistan's defence (NESCOM, AWC,     │
+│     NDC), space (SUPARCO), and aerospace industry requirements.             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  3. CONCRETE PHYSICAL DELIVERABLE                                           │
+│     A working prototype (even static display) with full simulation suite,   │
+│     technical report, and live telemetry data provides compelling           │
+│     assessment evidence.                                                    │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  4. RESEARCH & PUBLICATION POTENTIAL                                        │
+│     ML-based aerodynamic surrogate modeling and low-cost GNC system design  │
+│     are active research areas with potential for student journal            │
+│     submissions.                                                            │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  5. FULLY COMPLIANT & SAFE                                                  │
+│     Commercial APCP motors and supervised launches with university/SUPARCO  │
+│     approval ensure the project remains within academic safety standards    │
+│     and Pakistani regulations.                                              │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  6. MEASURABLE PERFORMANCE METRICS                                          │
+│     Apogee altitude accuracy (sim vs. flight), CEP, drag coefficient        │
+│     correlation, and GNC stability margins provide quantitative grading     │
+│     benchmarks.                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+================================================================================
+                    13. REFERENCES & SOURCES
+================================================================================
+
+CATEGORY 1: BALLISTIC MISSILES (4 References)
+─────────────────────────────────────────────
+[1]  Defense Intelligence Ballistic Missile Analysis Committee. 
+     "Ballistic Missiles of the World". Praeger Security International, 2017.
+
+[2]  Futter, Andrew. 
+     "Ballistic Missile Defence and US National Security Policy". 
+     Routledge, 2013.
+
+[3]  Neufeld, Jacob. 
+     "The Development of Ballistic Missiles in the United States Air Force, 
+     1945-1960". Smithsonian Institution Press, 1990.
+
+[4]  Wikipedia Contributors. 
+     "Ballistic Missile". Wikipedia, The Free Encyclopedia. 
+     Wikimedia Foundation.
+
+
+CATEGORY 2: ROCKET PROPULSION (5 References)
+────────────────────────────────────────────
+[5]  NASA Chemical Equilibrium with Applications (CEA) Code. 
+     NASA Glenn Research Center.
+
+[6]  Wikipedia Contributors. 
+     "Solid-propellant rocket". Wikipedia, The Free Encyclopedia. 
+     Wikimedia Foundation.
+
+[7]  Aerotech Inc. 
+     "APCP Motor Technology". Technical Documentation, 2023.
+
+[8]  Cesaroni Technology. 
+     "Solid Rocket Motor Design Handbook". 2022.
+
+[9]  Space Shuttle Solid Rocket Booster Technical Specifications. 
+     NASA Historical Archive.
+
+
+CATEGORY 3: GUIDANCE & NAVIGATION (5 References)
+────────────────────────────────────────────────
+[10] Wikipedia Contributors. 
+     "Inertial navigation system". Wikipedia, The Free Encyclopedia. 
+     Wikimedia Foundation.
+
+[11] Titterton, David H., and John L. Weston. 
+     "Strapdown Inertial Navigation Technology". IET, 2004.
+
+[12] Brown, Robert Grover, and Patrick Y.C. Hwang. 
+     "Introduction to Random Signals and Applied Kalman Filtering". 
+     Wiley, 2012.
+
+[13] DARPA Micro-PNT Program. 
+     "Timing & Inertial Measurement Unit (TIMU) Technology". 2012.
+
+[14] U.S. Army Research Laboratory. 
+     "MEMS Sensor Array for Projectile Navigation". 2012.
+
+
+CATEGORY 4: AERODYNAMICS & CFD (5 References)
+─────────────────────────────────────────────
+[15] ANSYS Inc. 
+     "ANSYS Fluent Theory Guide". 2023.
+
+[16] Barrowman, James S. 
+     "The Practical Calculation of the Aerodynamic Characteristics of 
+     Slender Finned Vehicles". NASA CR-190, 1967.
+
+[17] RASAero II. 
+     "Rocket Aerodynamic Analysis and Flight Simulation Software". 
+     Technical Documentation.
+
+[18] Wikipedia Contributors. 
+     "Hypersonic flight". Wikipedia, The Free Encyclopedia. 
+     Wikimedia Foundation.
+
+[19] Sandia National Laboratories. 
+     "Hypersonic Materials Testing Program". 2022.
+
+
+CATEGORY 5: FLIGHT DYNAMICS (5 References)
+──────────────────────────────────────────
+[20] OpenRocket Project. 
+     "OpenRocket Technical Documentation". 2023.
+
+[21] MathWorks. 
+     "MATLAB/Simulink 6-DOF Flight Dynamics Modeling". Documentation, 2023.
+
+[22] Stengel, Robert F. 
+     "Flight Dynamics". Princeton University Press, 2004.
+
+[23] Zipfel, Peter H. 
+     "Modeling and Simulation of Aerospace Vehicle Dynamics". 
+     AIAA Education Series, 2014.
+
+[24] NASA. 
+     "Six-Degree-of-Freedom Equations of Motion". Technical Reference.
+
+
+CATEGORY 6: MATERIALS & MANUFACTURING (5 References)
+────────────────────────────────────────────────────
+[25] Callister, William D. 
+     "Materials Science and Engineering: An Introduction". Wiley, 2018.
+
+[26] ASM International. 
+     "Aerospace Materials Handbook". 2021.
+
+[27] Hexcel Corporation. 
+     "Carbon Fiber Composite Materials for Aerospace". 
+     Technical Data Sheet, 2023.
+
+[28] Aircraft Spruce & Specialty Co. 
+     "Aircraft Materials Catalog". 2023.
+
+[29] NASA. 
+     "Thermal Protection Systems for Hypersonic Vehicles". 
+     Technical Report, 2021.
+
+
+TOTAL REFERENCES: 29
+
+================================================================================
+                    14. ONLINE RESOURCES
+================================================================================
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  OFFICIAL SPACE AGENCIES                                                    │
+│  ─────────────────────                                                      │
+│  • NASA Official Website:           https://www.nasa.gov/                   │
+│  • European Space Agency:           https://www.esa.int/                    │
+│  • SUPARCO (Pakistan):              https://www.suparco.gov.pk/             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  ROCKETRY ORGANIZATIONS                                                     │
+│  ───────────────────                                                        │
+│  • Apogee Rockets Education:        https://www.apogeerockets.com/          │
+│  • National Association of Rocketry: https://www.rocketry.org/              │
+│  • Aerotech Rocket Motors:          https://www.aerotech-rocket.com/        │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+================================================================================
+                         ACADEMIC DISCLAIMER
+================================================================================
+
+This research project is conducted STRICTLY FOR ACADEMIC AND EDUCATIONAL 
+PURPOSES as a Final Year Project (FYP) at an HEC-recognized university in 
+Pakistan.
+
+All information presented is based on publicly available sources and is 
+intended for learning aerospace engineering principles.
+
+This project complies with PCAA and SUPARCO regulations for amateur rocketry 
+and is NOT INTENDED FOR ANY MILITARY OR WEAPONIZATION APPLICATIONS.
+
+================================================================================
+                              END OF DOCUMENT
+================================================================================
+
+Document Location: E:\Projects\New Portfolio\usman-khan-portfolio\ballistic missile\index.html
+Total HTML Lines: 2,168 lines
+Document Generated: 2025
+Classification: UNCLASSIFIED // ACADEMIC USE ONLY
+
+================================================================================
