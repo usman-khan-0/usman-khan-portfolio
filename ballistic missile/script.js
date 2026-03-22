@@ -4,8 +4,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   initScrollProgress();
-  initNavbar();
-  initHamburger();
+  initVerticalNavigation();
   initCounters();
   initReveal();
   initTimelineFills();
@@ -34,44 +33,53 @@ function initScrollProgress() {
 }
 
 
-// ---- NAVBAR ----
-function initNavbar() {
-  const nav = document.getElementById('navbar');
-  if (!nav) return;
+// ---- VERTICAL NAVIGATION SIDEBAR ----
+function initVerticalNavigation() {
+  const toggle = document.getElementById('verticalNavToggle');
+  const sidebar = document.getElementById('verticalNavSidebar');
+  const overlay = document.getElementById('navOverlay');
+  const close = document.getElementById('verticalNavClose');
+  
+  if (!toggle || !sidebar || !overlay) return;
 
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 50);
-  }, { passive: true });
+  const openNav = () => {
+    toggle.classList.add('active');
+    sidebar.classList.add('active');
+    overlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  };
 
-  // Active link tracking
-  const sections = document.querySelectorAll('section[id]');
-  const links = document.querySelectorAll('.nav-links a');
+  const closeNav = () => {
+    toggle.classList.remove('active');
+    sidebar.classList.remove('active');
+    overlay.classList.remove('active');
+    document.body.style.overflow = '';
+  };
 
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        const id = e.target.id;
-        links.forEach(l => l.classList.toggle('active-link', l.getAttribute('href') === '#' + id));
-      }
-    });
-  }, { threshold: 0.4 });
-
-  sections.forEach(s => obs.observe(s));
-}
-
-
-// ---- HAMBURGER ----
-function initHamburger() {
-  const btn = document.getElementById('hamburger');
-  const links = document.getElementById('navLinks');
-  if (!btn || !links) return;
-
-  btn.addEventListener('click', () => {
-    links.classList.toggle('open');
+  toggle.addEventListener('click', () => {
+    if (sidebar.classList.contains('active')) {
+      closeNav();
+    } else {
+      openNav();
+    }
   });
 
-  links.querySelectorAll('a').forEach(a => {
-    a.addEventListener('click', () => links.classList.remove('open'));
+  if (close) {
+    close.addEventListener('click', closeNav);
+  }
+
+  overlay.addEventListener('click', closeNav);
+
+  // Close when clicking a link
+  sidebar.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', closeNav);
+  });
+
+  // Keyboard accessibility
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && sidebar.classList.contains('active')) {
+      closeNav();
+    }
   });
 }
 
@@ -369,23 +377,7 @@ function printConsoleHeader() {
 
 // ---- MOBILE MENU SCROLL LOCK ----
 function initMobileMenus() {
-  const hamburger = document.getElementById('hamburger');
-  const navLinks = document.getElementById('navLinks');
-  
-  if (!hamburger || !navLinks) return;
-  
-  // Prevent body scroll when menu is open on mobile
-  const observer = new MutationObserver(() => {
-    if (navLinks.classList.contains('open')) {
-      document.body.style.overflow = 'hidden';
-      hamburger.setAttribute('aria-expanded', 'true');
-    } else {
-      document.body.style.overflow = '';
-      hamburger.setAttribute('aria-expanded', 'false');
-    }
-  });
-  
-  observer.observe(navLinks, { attributes: true, attributeFilter: ['class'] });
+  // Handled by initVerticalNavigation
 }
 
 
@@ -393,34 +385,37 @@ function initMobileMenus() {
 function initTouchInteractions() {
   // Add touch-friendly hover states
   const touchElements = document.querySelectorAll('.ov-card, .team-card, .flow-node, .tl-item');
-  
+
   touchElements.forEach(el => {
     el.addEventListener('touchstart', () => {
       el.classList.add('touch-hover');
     }, { passive: true });
-    
+
     el.addEventListener('touchend', () => {
       setTimeout(() => el.classList.remove('touch-hover'), 300);
     }, { passive: true });
   });
-  
-  // Swipe gesture for closing mobile menu
+
+  // Swipe gesture for closing vertical sidebar
   let touchStartX = 0;
   let touchEndX = 0;
-  
-  const navLinks = document.getElementById('navLinks');
-  if (navLinks) {
-    navLinks.addEventListener('touchstart', e => {
+
+  const sidebar = document.getElementById('verticalNavSidebar');
+  if (sidebar) {
+    sidebar.addEventListener('touchstart', e => {
       touchStartX = e.changedTouches[0].screenX;
     }, { passive: true });
-    
-    navLinks.addEventListener('touchend', e => {
+
+    sidebar.addEventListener('touchend', e => {
       touchEndX = e.changedTouches[0].screenX;
       const swipeDistance = touchStartX - touchEndX;
-      
-      // Swipe left to close (if menu is open)
-      if (swipeDistance > 50 && navLinks.classList.contains('open')) {
-        navLinks.classList.remove('open');
+
+      // Swipe left to close (if sidebar is open)
+      if (swipeDistance > 50 && sidebar.classList.contains('active')) {
+        sidebar.classList.remove('active');
+        document.getElementById('navOverlay')?.classList.remove('active');
+        document.getElementById('verticalNavToggle')?.classList.remove('active');
+        document.body.style.overflow = '';
       }
     }, { passive: true });
   }
@@ -444,10 +439,9 @@ window.addEventListener('resize', initTableScrollIndicators, { passive: true });
 initTableScrollIndicators();
 
 
-// ---- SMOOTH SCROLL OFFSET FOR MOBILE ----
+// ---- SMOOTH SCROLL OFFSET ----
 function getScrollOffset() {
-  const navbar = document.getElementById('navbar');
-  return navbar ? navbar.offsetHeight + 10 : 90;
+  return 80; // Fixed offset for clean scroll positioning
 }
 
 // Update smooth scroll with dynamic offset

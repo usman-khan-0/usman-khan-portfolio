@@ -14,16 +14,27 @@
   <div class="scanlines" aria-hidden="true"></div>
   <div class="noise-overlay" aria-hidden="true"></div>
 
-  <!-- NAVBAR -->
-  <nav class="navbar" id="navbar">
-    <div class="nav-brand">
-      <div class="brand-icon"><i class="fas fa-crosshairs"></i></div>
-      <div class="brand-text">
-        <span class="brand-main">BALLISTIC-FYP</span>
-        <span class="brand-sub">CLASSIFIED RESEARCH</span>
+  <!-- VERTICAL NAVIGATION SIDEBAR -->
+  <div class="nav-overlay" id="navOverlay"></div>
+  
+  <button class="vertical-nav-toggle" id="verticalNavToggle" aria-label="Toggle Navigation">
+    <span class="bar"></span>
+  </button>
+  
+  <aside class="vertical-nav-sidebar" id="verticalNavSidebar">
+    <div class="vertical-nav-header">
+      <div class="nav-brand">
+        <div class="brand-icon"><i class="fas fa-crosshairs"></i></div>
+        <div class="brand-text">
+          <span class="brand-main">BALLISTIC-FYP</span>
+          <span class="brand-sub">CLASSIFIED RESEARCH</span>
+        </div>
       </div>
+      <button class="vertical-nav-close" id="verticalNavClose" aria-label="Close Navigation">
+        <i class="fas fa-times"></i>
+      </button>
     </div>
-    <ul class="nav-links" id="navLinks">
+    <ul class="vertical-nav-links">
       <li><a href="#hero"><i class="fas fa-home"></i> Base</a></li>
       <li><a href="#overview"><i class="fas fa-crosshairs"></i> Overview</a></li>
       <li><a href="#flowchart"><i class="fas fa-sitemap"></i> Stages</a></li>
@@ -38,8 +49,7 @@
       <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
       <li><a href="../index.html"><i class="fas fa-arrow-left"></i> Portfolio</a></li>
     </ul>
-    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
-  </nav>
+  </aside>
 
   <!-- HERO -->
   <section class="hero" id="hero">

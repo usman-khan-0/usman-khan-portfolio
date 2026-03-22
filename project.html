@@ -148,6 +148,49 @@
             padding: 0.5rem;
         }
 
+        /* Projects Dropdown */
+        .nav-dropdown {
+            position: relative;
+        }
+
+        .nav-dropdown .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #0a0a0a;
+            border: 1px solid var(--dark);
+            border-radius: 8px;
+            padding: 0.5rem 0;
+            min-width: 180px;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 1000;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+        }
+
+        .nav-dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 0.6rem 1rem;
+            color: var(--gray);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: var(--transition);
+            white-space: nowrap;
+        }
+
+        .dropdown-menu a:hover {
+            color: var(--white);
+            background: var(--dark);
+        }
+
         /* Main Content */
         main {
             padding-top: 70px;
@@ -608,7 +651,23 @@
             }
 
             .nav-links {
-                gap: 1rem;
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: var(--dark);
+                flex-direction: column;
+                padding: 2rem;
+                transition: var(--transition);
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .mobile-nav-toggle {
+                display: block;
             }
 
             .nav-link {
@@ -869,20 +928,31 @@
 
 <body>
     <!-- Navigation -->
-    <div class="nav-container">
-        <nav class="nav">
-            <a href="index.html" class="nav-logo">
-                <img src="images/gpa-logo.png" alt="Usman Khan">
-                <span>UK</span>
+    <nav class="nav-container">
+        <div class="nav">
+            <a href="#home" class="nav-logo">
+                <img src="images/Logo.png" alt="Logo">
+                Usman Khan
             </a>
             <div class="nav-links">
-                <a href="index.html" class="nav-link">Home</a>
-                <a href="index.html" class="nav-link">About</a>
-                <a href="index.html" class="nav-link">Skills</a>
-                <a href="index.html" class="nav-link">Contact</a>
+                <a href="index.html#home" class="nav-link active" title="Home"><i class="fas fa-home"></i></a>
+                <div class="nav-dropdown">
+                    <a href="index.html#projects" class="nav-link" title="Projects"><i class="fas fa-folder-open"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="in_progress.html">In Progress</a>
+                        <a href="Engineering_project.html">Engineering Projects</a>
+                        <a href="websites.html">Websites</a>
+                    </div>
+                </div>
+                <a href="index.html#cv" class="nav-link" title="CV"><i class="fas fa-file-alt"></i></a>
+                <a href="certificates.html" class="nav-link" title="Certificates"><i class="fas fa-certificate"></i></a>
+                <a href="index.html#learning-journey" class="nav-link" title="Learning Journey"><i class="fas fa-road"></i></a>
+                <a href="index.html#contact" class="nav-link" title="Contact"><i class="fas fa-envelope"></i></a>
+                <a href="ballistic missile/index.html" class="nav-link" title="Interests"><i class="fas fa-crosshairs"></i></a>
             </div>
-        </nav>
-    </div>
+            <button class="mobile-nav-toggle"><i class="fas fa-bars"></i></button>
+        </div>
+    </nav>
 
     <!-- Main Content -->
     <main>
@@ -1393,6 +1463,30 @@
     <script>
         // Dynamic Year
         document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile Navigation Toggle
+        const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileNavToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Navigation Links - Handle anchor links
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href && href.startsWith('#')) {
+                    e.preventDefault();
+                    const sectionId = href.substring(1);
+                    const targetSection = document.getElementById(sectionId);
+                    if (targetSection) {
+                        targetSection.scrollIntoView({ behavior: 'smooth' });
+                        navLinks.classList.remove('active');
+                    }
+                }
+            });
+        });
     </script>
 </body>
 
