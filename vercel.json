@@ -4,10 +4,5 @@
       "source": "/api/chat",
       "destination": "/api/index.py"
     }
-  ],
-  "functions": {
-    "api/*.py": {
-      "runtime": "python3.12"
-    }
-  }
+  ]
 }
