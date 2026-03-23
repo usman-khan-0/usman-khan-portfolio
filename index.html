@@ -1943,6 +1943,83 @@
             }
         }
 
+        /* Info Chatbot (Hardcoded Knowledge Base) */
+        .info-chatbot-toggle {
+            position: fixed;
+            bottom: 4rem;
+            right: 2rem;
+            width: 60px;
+            height: 60px;
+            background: var(--accent);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-xl);
+            z-index: 9997;
+            transition: var(--transition);
+        }
+
+        .info-chatbot-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 25px rgba(255, 87, 34, 0.4);
+        }
+
+        .info-chatbot-toggle i {
+            color: var(--white);
+            font-size: 1.5rem;
+        }
+
+        .info-chatbot-container {
+            position: fixed;
+            bottom: 5.5rem;
+            right: 7rem;
+            width: 450px;
+            max-width: 90vw;
+            height: 650px;
+            max-height: 85vh;
+            background: var(--dark-secondary);
+            border: 2px solid var(--accent);
+            border-radius: 16px;
+            box-shadow: var(--shadow-xl), 0 0 30px rgba(255, 87, 34, 0.2);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            z-index: 9996;
+        }
+
+        .info-chatbot-container.active {
+            display: flex;
+            animation: slideUp 0.3s ease;
+        }
+
+        .info-chatbot-container .chatbot-header {
+            background: linear-gradient(135deg, var(--accent), #F4511E);
+        }
+
+        .info-chatbot-container .chatbot-header-avatar {
+            background: rgba(255, 255, 255, 0.25);
+        }
+
+        /* Responsive for Info Chatbot */
+        @media (max-width: 768px) {
+            .info-chatbot-toggle {
+                bottom: 12rem;
+                right: 1rem;
+                width: 50px;
+                height: 50px;
+            }
+
+            .info-chatbot-container {
+                bottom: 15rem;
+                right: 1rem;
+                width: calc(100vw - 2rem);
+                height: 70vh;
+            }
+        }
+
         /* Quotes Section */
         .quotes-grid {
             display: grid;
@@ -5497,6 +5574,34 @@
         });
     </script>
 
+    <!-- Info Chatbot Logo/Button -->
+    <button class="info-chatbot-toggle" id="infoChatbotToggle" aria-label="Open Muhammad Usman Khan Info Chatbot">
+        <i class="fas fa-user-graduate"></i>
+    </button>
+
+    <!-- Info Chatbot Container (Hardcoded Knowledge Base) -->
+    <div class="info-chatbot-container" id="infoChatbotContainer">
+        <div class="chatbot-header">
+            <div class="chatbot-header-avatar">
+                <i class="fas fa-user-graduate"></i>
+            </div>
+            <div class="chatbot-header-info">
+                <h4>Usman Khan Info Bot</h4>
+                <p>Ask about Muhammad Usman Khan</p>
+            </div>
+        </div>
+        <div class="chatbot-messages" id="infoChatbotMessages">
+            <!-- Messages will be added here -->
+        </div>
+        <div class="chatbot-input-area">
+            <input type="text" class="chatbot-input" id="infoChatbotInput" placeholder="Ask about Usman's background, skills, projects..."
+                aria-label="Type your message">
+            <button class="chatbot-send" id="infoChatbotSend" aria-label="Send message">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+
     <!-- Portfolio Chatbot -->
     <button class="chatbot-toggle" id="chatbotToggle" aria-label="Open chatbot">
         <i class="fas fa-comment-dots"></i>
@@ -5523,6 +5628,355 @@
             </button>
         </div>
     </div>
+
+    <!-- Info Chatbot Logic (Hardcoded Knowledge Base) -->
+    <script>
+        // ============================================
+        // MUHAMMAD USMAN KHAN - HARDCODED INFO CHATBOT
+        // Complete knowledge base with all information
+        // ============================================
+        
+        const usmanKhanInfo = {
+            personal: {
+                fullName: "Muhammad Usman Khan",
+                profession: "Mechanical Engineering Student & Tech Innovator",
+                location: "Islamabad, Pakistan",
+                batch: "BEME-F-24-B (Air University)",
+                semester: "4th Semester",
+                contact: {
+                    phone: "03130152036",
+                    whatsapp: "+923499702502",
+                    email: "usmankhan16122006@gmail.com",
+                    linkedin: "Usman Khan",
+                    github: "usman-khan-0"
+                }
+            },
+            education: {
+                matric: {
+                    school: "KRL Grammar School",
+                    marks: "81%",
+                    focus: "Foundation in mathematics & sciences"
+                },
+                intermediate: {
+                    college: "Islamabad Model College for Boys G-10/4",
+                    marks: "71%",
+                    focus: "Problem-solving & engineering prep"
+                },
+                bachelor: {
+                    university: "Air University, E-9 Islamabad",
+                    degree: "Mechanical Engineering",
+                    semester: "4th Semester",
+                    status: "In Progress"
+                },
+                additionalCourses: [
+                    "Agentic AI Course - Panaversity (Currently enrolled)",
+                    "Basic Electric Course - Completed"
+                ]
+            },
+            skills: {
+                programming: [
+                    { name: "C++", level: "95%" },
+                    { name: "HTML/CSS", level: "95%" },
+                    { name: "Java", level: "90%" },
+                    { name: "Tailwind CSS", level: "90%" },
+                    { name: "Python", level: "85%" },
+                    { name: "JavaScript", level: "85%" },
+                    { name: "MongoDB", level: "70%" },
+                    { name: "n8n", level: "70%" },
+                    { name: "React.js", level: "60%" },
+                    { name: "Node.js", level: "60%" },
+                    { name: "Notion", level: "50%" }
+                ],
+                engineeringTools: ["AutoCAD - Professional 2D/3D CAD design", "SolidWorks - Advanced 3D CAD, simulation & analysis"],
+                webDevelopment: ["WordPress (Custom theme development)", "Frontend Development (HTML, CSS, JavaScript, Responsive Design)", "Full Stack Development"],
+                otherSkills: ["SEO (Search Engine Optimization)", "Video Editing, Animation & Vlogging", "GenAI & Agentic AI", "Freelancing & Project Management", "Microsoft Office (Word, Excel, PowerPoint)"],
+                aiTools: ["VS Code", "Claude Code", "ChatGPT", "Gemini", "Grok", "DeepSeek", "Perplexity", "Qwen", "Claude CLI", "Gemini CLI"]
+            },
+            projects: {
+                inProgress: [
+                    "Jarvis - AI-based personal assistant for task automation (applications, document generation, web searches)",
+                    "University System (Backend) - Python-based student records & academic data management",
+                    "University System (Frontend) - Responsive web interface with HTML, CSS, JavaScript"
+                ],
+                websites: [
+                    "Blog Website - Personal blog for articles & insights",
+                    "Swaira Portfolio - Professional portfolio website",
+                    "Areeba Portfolio - Professional portfolio website",
+                    "To-Do App - Interactive task management",
+                    "99IES Calculator - Web-based calculator",
+                    "GPA Calculator - Academic performance calculator"
+                ],
+                engineering: [
+                    "Electrical Engineering Project - Practical electrical applications",
+                    "HSE Project - Health, Safety & Environment protocols",
+                    "AutoCAD Project - 2D/3D mechanical designs",
+                    "Thermodynamics Projects - Ionic thrusters research, video demonstrations",
+                    "Thermodynamics Electric Cattle - Thermodynamic principles for electric systems",
+                    "V6 Engine Report - Detailed engine report (2nd Semester)",
+                    "Revolver - Mechanical Design - Precision revolver mechanism",
+                    "Robotic Arm Project - Robotics - Mechanics & control systems",
+                    "Thermodynamics & Power Conversion - Trent 1000 engine conversion for stationary power",
+                    "Hexagonal Profiled Lathe - Workshop - Lathe operation & threaded workpiece",
+                    "MOM Project - Mechanics of Materials report",
+                    "Terrorism in Pakistan Research - Ideological analysis"
+                ],
+                portfolios: [
+                    "First Portfolio (Pure HTML, CSS, JavaScript)",
+                    "Second Portfolio (GitHub Pages)",
+                    "Gamma AI Portfolio",
+                    "AI Landing Page Portfolio"
+                ]
+            },
+            certifications: [
+                "3rd Semester GPA",
+                "Adobe Photoshop",
+                "Python Certificate",
+                "Agentic Factory General Agents",
+                "Fundamentals Advance Internal Combustion Engine Analysis And Design",
+                "AI & Quantum Computing Mastery",
+                "AutoCAD",
+                "Ethically Hack the Planet",
+                "Freelancing",
+                "Full Stack Development",
+                "Python Programming",
+                "SEO",
+                "SolidWorks (Multiple certificates including 4-weeks course)",
+                "Video Editing, Animation and Vlogging",
+                "Web 3 Development Essentials",
+                "WordPress",
+                "Artificial Intelligence (ADBI)",
+                "Cybersecurity (ADBI)"
+            ],
+            statistics: {
+                totalProjects: "19+",
+                websitesWebApps: "6+",
+                engineeringProjects: "12+",
+                fypInProgress: "1",
+                hoursOfCoding: "550+",
+                technologies: "10+",
+                aiChatbotLive: "1",
+                engineeringTools: "8+",
+                blogPosts: "100+"
+            },
+            softSkills: [
+                "Time Management",
+                "Organization",
+                "Communication",
+                "Teamwork/Collaboration",
+                "Problem-Solving",
+                "Adaptability",
+                "Attention to Detail",
+                "Creativity"
+            ],
+            researchInterests: [
+                "Ballistic Missiles - Propulsion systems, aerodynamics, guidance mechanisms, trajectory optimization",
+                "Thermodynamics - Power conversion, ionic thrusters",
+                "Robotics - Mechanical design, control systems",
+                "AI & Automation - Intelligent agents, autonomous systems",
+                "Aerospace Engineering - Engine design & conversion"
+            ],
+            hobbies: {
+                sports: ["Football", "Cricket", "Martial Arts (Boxing)", "Running", "Badminton"],
+                other: ["Studying", "Movies", "Online Games", "Coding"]
+            },
+            professionalStatus: {
+                availableFor: ["Freelance work", "Project collaborations", "Consulting", "Hiring"],
+                currentFocus: ["Jarvis automation project", "University Management System"],
+                openTo: "Collaboration on AI/automation projects"
+            },
+            quotes: [
+                "Discipline turns ambition into reality.",
+                "Every expert was once a beginner who didn't quit.",
+                "Dreams without discipline are just wishes.",
+                "While others wait for motivation, I rely on discipline.",
+                "I don't fear failure. I fear staying average.",
+                "Once the heart falls for the moon, the stars are no longer noticed.",
+                "Dil k saaf log aksar Dimag walo sa haar jaaty hai",
+                "Wife can be from the Village, But the Car must be from Germany!! (Love BMW)"
+            ]
+        };
+
+        // Info Chatbot Logic
+        const infoChatbotToggle = document.getElementById('infoChatbotToggle');
+        const infoChatbotContainer = document.getElementById('infoChatbotContainer');
+        const infoChatbotMessages = document.getElementById('infoChatbotMessages');
+        const infoChatbotInput = document.getElementById('infoChatbotInput');
+        const infoChatbotSend = document.getElementById('infoChatbotSend');
+
+        infoChatbotToggle.addEventListener('click', () => {
+            infoChatbotContainer.classList.toggle('active');
+            infoChatbotToggle.classList.toggle('active');
+
+            if (infoChatbotContainer.classList.contains('active') && infoChatbotMessages.children.length === 0) {
+                showInfoWelcomeMessage();
+            }
+        });
+
+        infoChatbotSend.addEventListener('click', handleInfoUserInput);
+
+        infoChatbotInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                handleInfoUserInput();
+            }
+        });
+
+        function showInfoWelcomeMessage() {
+            addInfoMessage("Hi! I'm Muhammad Usman Khan's Info Bot. I can tell you about his education, skills, projects, certifications, research interests, hobbies, and contact information. What would you like to know?", 'bot');
+            showInfoQuickReplies();
+        }
+
+        function showInfoQuickReplies() {
+            const quickRepliesContainer = document.createElement('div');
+            quickRepliesContainer.className = 'quick-replies';
+            quickRepliesContainer.innerHTML = `
+                <button class="quick-reply-btn" data-query="about">About</button>
+                <button class="quick-reply-btn" data-query="education">Education</button>
+                <button class="quick-reply-btn" data-query="skills">Skills</button>
+                <button class="quick-reply-btn" data-query="projects">Projects</button>
+                <button class="quick-reply-btn" data-query="contact">Contact</button>
+                <button class="quick-reply-btn" data-query="certifications">Certifications</button>
+                <button class="quick-reply-btn" data-query="hobbies">Hobbies</button>
+            `;
+            infoChatbotMessages.appendChild(quickRepliesContainer);
+            scrollToInfoBottom();
+
+            quickRepliesContainer.querySelectorAll('.quick-reply-btn').forEach(btn => {
+                btn.addEventListener('click', async () => {
+                    const query = btn.dataset.query;
+                    addInfoMessage(query.charAt(0).toUpperCase() + query.slice(1), 'user');
+                    quickRepliesContainer.remove();
+                    showInfoTypingIndicator();
+                    await processInfoQuery(query);
+                });
+            });
+        }
+
+        async function handleInfoUserInput() {
+            const message = infoChatbotInput.value.trim();
+            if (!message) return;
+
+            addInfoMessage(message, 'user');
+            infoChatbotInput.value = '';
+
+            const existingQuickReplies = infoChatbotMessages.querySelector('.quick-replies');
+            if (existingQuickReplies) {
+                existingQuickReplies.remove();
+            }
+
+            showInfoTypingIndicator();
+            await processInfoQuery(message);
+        }
+
+        function addInfoMessage(text, sender) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `chat-message ${sender}`;
+            messageDiv.innerHTML = `
+                <div class="message-avatar">
+                    <i class="fas ${sender === 'bot' ? 'fa-user-graduate' : 'fa-user'}"></i>
+                </div>
+                <div class="message-content">${text}</div>
+            `;
+            infoChatbotMessages.appendChild(messageDiv);
+            scrollToInfoBottom();
+        }
+
+        function showInfoTypingIndicator() {
+            if (document.getElementById('infoTypingIndicator')) return;
+
+            const typingDiv = document.createElement('div');
+            typingDiv.className = 'chat-message bot';
+            typingDiv.id = 'infoTypingIndicator';
+            typingDiv.innerHTML = `
+                <div class="message-avatar"><i class="fas fa-user-graduate"></i></div>
+                <div class="typing-indicator"><span></span><span></span><span></span></div>
+            `;
+            infoChatbotMessages.appendChild(typingDiv);
+            scrollToInfoBottom();
+        }
+
+        function removeInfoTypingIndicator() {
+            const typingIndicator = document.getElementById('infoTypingIndicator');
+            if (typingIndicator) {
+                typingIndicator.remove();
+            }
+        }
+
+        function scrollToInfoBottom() {
+            infoChatbotMessages.scrollTop = infoChatbotMessages.scrollHeight;
+        }
+
+        // Main query processing function with hardcoded responses
+        async function processInfoQuery(query) {
+            removeInfoTypingIndicator();
+            
+            const normalizedQuery = query.toLowerCase().trim();
+            let response = "";
+
+            // Personal/About queries
+            if (normalizedQuery.includes('about') || normalizedQuery.includes('who') || normalizedQuery.includes('introduce') || normalizedQuery.includes('personal')) {
+                response = `<strong>Muhammad Usman Khan</strong> is a Mechanical Engineering Student & Tech Innovator from Islamabad, Pakistan. He's currently in his 4th semester (Batch: BEME-F-24-B) at Air University. Usman is passionate about engineering, AI, automation, and web development. He's working on several projects including Jarvis (an AI assistant) and a University Management System. He's available for freelance work, project collaborations, and consulting.`;
+            }
+            // Education queries
+            else if (normalizedQuery.includes('educat') || normalizedQuery.includes('study') || normalizedQuery.includes('school') || normalizedQuery.includes('university') || normalizedQuery.includes('college') || normalizedQuery.includes('degree')) {
+                response = `<strong>Education Background:</strong><br><br>📚 <strong>Bachelor's:</strong> Mechanical Engineering at Air University, Islamabad (4th Semester, In Progress)<br><br>📖 <strong>Intermediate (FSc Pre-Engineering):</strong> Islamabad Model College for Boys G-10/4 (71%)<br><br>📕 <strong>Matriculation:</strong> KRL Grammar School (81%)<br><br>🎓 <strong>Additional Courses:</strong> Agentic AI at Panaversity (enrolled), Basic Electric Course (completed)`;
+            }
+            // Skills queries
+            else if (normalizedQuery.includes('skill') || normalizedQuery.includes('programming') || normalizedQuery.includes('language') || normalizedQuery.includes('technology') || normalizedQuery.includes('tech') || normalizedQuery.includes('proficient') || normalizedQuery.includes('expert')) {
+                response = `<strong>Technical Skills:</strong><br><br>💻 <strong>Programming:</strong> C++ (95%), HTML/CSS (95%), Java (90%), Tailwind CSS (90%), Python (85%), JavaScript (85%), MongoDB (70%), React.js (60%), Node.js (60%)<br><br>🛠️ <strong>Engineering Tools:</strong> AutoCAD (Professional 2D/3D), SolidWorks (Advanced 3D CAD & simulation)<br><br>🌐 <strong>Web Development:</strong> WordPress, Frontend & Full Stack Development<br><br>🤖 <strong>AI Tools:</strong> Uses Claude Code, ChatGPT, Gemini, Grok, DeepSeek, Perplexity, Qwen, and more`;
+            }
+            // Projects queries
+            else if (normalizedQuery.includes('project') || normalizedQuery.includes('work') || normalizedQuery.includes('build') || normalizedQuery.includes('create') || normalizedQuery.includes('develop') || normalizedQuery.includes('website') || normalizedQuery.includes('app')) {
+                response = `<strong>Key Projects:</strong><br><br>🚀 <strong>In Progress:</strong> Jarvis (AI assistant), University System (Backend & Frontend)<br><br>💻 <strong>Websites:</strong> Blog Website, Swaira Portfolio, Areeba Portfolio, To-Do App, 99IES Calculator, GPA Calculator<br><br>⚙️ <strong>Engineering:</strong> V6 Engine Report, Robotic Arm, Revolver Mechanism, Thermodynamics Projects, AutoCAD Designs, Trent 1000 Engine Conversion<br><br>📊 <strong>Stats:</strong> 19+ total projects, 6+ websites, 550+ coding hours`;
+            }
+            // Contact queries
+            else if (normalizedQuery.includes('contact') || normalizedQuery.includes('email') || normalizedQuery.includes('phone') || normalizedQuery.includes('reach') || normalizedQuery.includes('linkedin') || normalizedQuery.includes('github')) {
+                response = `<strong>Contact Information:</strong><br><br>📧 <strong>Email:</strong> usmankhan16122006@gmail.com<br><br>📱 <strong>Phone:</strong> 03130152036<br><br>💬 <strong>WhatsApp:</strong> +923499702502<br><br>💼 <strong>LinkedIn:</strong> Usman Khan<br><br>💻 <strong>GitHub:</strong> usman-khan-0<br><br>📍 <strong>Location:</strong> Islamabad, Pakistan`;
+            }
+            // Certifications queries
+            else if (normalizedQuery.includes('certific') || normalizedQuery.includes('cert') || normalizedQuery.includes('achievement') || normalizedQuery.includes('award') || normalizedQuery.includes('credential')) {
+                response = `<strong>Certifications & Achievements:</strong><br><br>🎓 Python, AI & Quantum Computing, Full Stack Development, Web 3 Development<br><br>🛠️ AutoCAD, SolidWorks (4-weeks course), Adobe Photoshop<br><br>🔒 Cybersecurity (ADBI), Ethically Hack the Planet<br><br>📈 Freelancing, SEO, Video Editing & Animation<br><br>⚙️ Fundamentals Advance Internal Combustion Engine Analysis And Design<br><br>🤖 Agentic Factory General Agents`;
+            }
+            // Hobbies queries
+            else if (normalizedQuery.includes('hobby') || normalizedQuery.includes('hobbies') || normalizedQuery.includes('interest') || normalizedQuery.includes('sport') || normalizedQuery.includes('free time') || normalizedQuery.includes('like')) {
+                response = `<strong>Hobbies & Interests:</strong><br><br>⚽ <strong>Sports:</strong> Football, Cricket, Martial Arts (Boxing), Running, Badminton<br><br>📚 <strong>Other:</strong> Studying, Watching Movies, Online Games, Coding<br><br>🔬 <strong>Research Interests:</strong> Ballistic Missiles, Thermodynamics, Robotics, AI & Automation, Aerospace Engineering`;
+            }
+            // Research queries
+            else if (normalizedQuery.includes('research') || normalizedQuery.includes('interest') || normalizedQuery.includes('focus') || normalizedQuery.includes('specializ')) {
+                response = `<strong>Research Interests:</strong><br><br>🎯 <strong>Ballistic Missiles:</strong> Propulsion systems, aerodynamics, guidance mechanisms, trajectory optimization<br><br>🔥 <strong>Thermodynamics:</strong> Power conversion, ionic thrusters<br><br>🤖 <strong>Robotics:</strong> Mechanical design, control systems<br><br>🤖 <strong>AI & Automation:</strong> Intelligent agents, autonomous systems<br><br>✈️ <strong>Aerospace:</strong> Engine design & conversion`;
+            }
+            // Statistics queries
+            else if (normalizedQuery.includes('stat') || normalizedQuery.includes('how many') || normalizedQuery.includes('total') || normalizedQuery.includes('number') || normalizedQuery.includes('count')) {
+                response = `<strong>Key Statistics:</strong><br><br>📊 Total Projects: 19+<br><br>💻 Websites & Web Apps: 6+<br><br>⚙️ Engineering Projects: 12+<br><br>🎓 FYP In Progress: 1<br><br>⏱️ Hours of Coding: 550+<br><br>🛠️ Technologies: 10+<br><br>🤖 AI Chatbot Live: 1<br><br>📝 Blog Posts: 100+`;
+            }
+            // Professional status queries
+            else if (normalizedQuery.includes('avail') || normalizedQuery.includes('hire') || normalizedQuery.includes('freelance') || normalizedQuery.includes('work') || normalizedQuery.includes('job') || normalizedQuery.includes('collaborat')) {
+                response = `<strong>Professional Status:</strong><br><br>✅ <strong>Available for:</strong> Freelance work, Project collaborations, Consulting, Hiring<br><br>🎯 <strong>Current Focus:</strong> Jarvis automation project, University Management System<br><br>🤝 <strong>Open to:</strong> Collaboration on AI/automation projects`;
+            }
+            // Soft skills queries
+            else if (normalizedQuery.includes('soft skill') || normalizedQuery.includes('personality') || normalizedQuery.includes('strength') || normalizedQuery.includes('quality')) {
+                response = `<strong>Soft Skills:</strong><br><br>✓ Time Management<br><br>✓ Organization<br><br>✓ Communication<br><br>✓ Teamwork/Collaboration<br><br>✓ Problem-Solving<br><br>✓ Adaptability<br><br>✓ Attention to Detail<br><br>✓ Creativity`;
+            }
+            // Quotes queries
+            else if (normalizedQuery.includes('quote') || normalizedQuery.includes('favorite') || normalizedQuery.includes('motivation') || normalizedQuery.includes('inspire')) {
+                const quotes = usmanKhanInfo.quotes;
+                const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+                response = `<strong>Favorite Quotes:</strong><br><br>💬 "${randomQuote}"<br><br>(Usman has several motivational quotes about discipline, perseverance, and ambition)`;
+            }
+            // Default/unknown query
+            else {
+                response = `I'm Muhammad Usman Khan's Info Bot. I can help you learn about:<br><br>• <strong>About Usman</strong> - Personal info & introduction<br>• <strong>Education</strong> - Academic background & courses<br>• <strong>Skills</strong> - Programming, engineering tools & technologies<br>• <strong>Projects</strong> - Websites, engineering projects & portfolios<br>• <strong>Certifications</strong> - Achievements & credentials<br>• <strong>Contact</strong> - How to reach him<br>• <strong>Hobbies</strong> - Sports & interests<br>• <strong>Research</strong> - Areas of focus<br><br>Just ask me anything about these topics!`;
+            }
+
+            // Simulate slight delay for natural feel
+            await new Promise(resolve => setTimeout(resolve, 600));
+            addInfoMessage(response, 'bot');
+            
+            // Show quick replies after response
+            setTimeout(() => {
+                showInfoQuickReplies();
+            }, 800);
+        }
+    </script>
 
     <!-- Chatbot Configuration - Vercel Serverless API -->
     <script>
