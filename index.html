@@ -5524,17 +5524,14 @@
         </div>
     </div>
 
-    <!-- Chatbot Configuration - Update RENDER_BACKEND_URL after deploying to Render -->
+    <!-- Chatbot Configuration - Vercel Serverless API -->
     <script>
         // ============================================
-        // RENDER BACKEND CONFIGURATION
-        // Replace the URL below with your Render service URL after deployment
-        // Example: 'https://usman-portfolio-chatbot.onrender.com'
+        // VERCEL BACKEND CONFIGURATION
+        // The chatbot uses Vercel Serverless Functions
+        // API endpoint: /api/chat (handled by api/index.py)
         // ============================================
-        const RENDER_BACKEND_URL = 'YOUR_RENDER_URL_HERE'; // <-- CHANGE THIS AFTER DEPLOYMENT
-        const CHATBOT_API_URL = RENDER_BACKEND_URL !== 'YOUR_RENDER_URL_HERE' 
-            ? `${RENDER_BACKEND_URL}/api/chat` 
-            : '/api/chat';
+        const CHATBOT_API_URL = '/api/chat';
     </script>
     
     <script>
