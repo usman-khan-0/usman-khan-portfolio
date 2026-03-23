@@ -5524,6 +5524,19 @@
         </div>
     </div>
 
+    <!-- Chatbot Configuration - Update RENDER_BACKEND_URL after deploying to Render -->
+    <script>
+        // ============================================
+        // RENDER BACKEND CONFIGURATION
+        // Replace the URL below with your Render service URL after deployment
+        // Example: 'https://usman-portfolio-chatbot.onrender.com'
+        // ============================================
+        const RENDER_BACKEND_URL = 'YOUR_RENDER_URL_HERE'; // <-- CHANGE THIS AFTER DEPLOYMENT
+        const CHATBOT_API_URL = RENDER_BACKEND_URL !== 'YOUR_RENDER_URL_HERE' 
+            ? `${RENDER_BACKEND_URL}/api/chat` 
+            : '/api/chat';
+    </script>
+    
     <script>
         // Chatbot Logic
         const chatbotToggle = document.getElementById('chatbotToggle');
@@ -5635,7 +5648,7 @@
             try {
                 removeTypingIndicator();
 
-                const response = await fetch('/api/chat', {
+                const response = await fetch(CHATBOT_API_URL, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
