@@ -575,7 +575,7 @@
         }
 
         /* ==================== RESPONSIVE DESIGN ==================== */
-        
+
         /* Large Desktop (1200px+) */
         @media (min-width: 1200px) {
             .container {
@@ -884,6 +884,7 @@
                 opacity: 0;
                 transform: translateY(20px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -894,17 +895,37 @@
             animation: fadeInUp 0.5s ease-out backwards;
         }
 
-        .project-card:nth-child(1) { animation-delay: 0.1s; }
-        .project-card:nth-child(2) { animation-delay: 0.2s; }
-        .project-card:nth-child(3) { animation-delay: 0.3s; }
-        .project-card:nth-child(4) { animation-delay: 0.4s; }
-        .project-card:nth-child(5) { animation-delay: 0.5s; }
-        .project-card:nth-child(6) { animation-delay: 0.6s; }
+        .project-card:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .project-card:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .project-card:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .project-card:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+
+        .project-card:nth-child(5) {
+            animation-delay: 0.5s;
+        }
+
+        .project-card:nth-child(6) {
+            animation-delay: 0.6s;
+        }
 
         @keyframes pulse {
-            0%, 100% {
+
+            0%,
+            100% {
                 transform: scale(1);
             }
+
             50% {
                 transform: scale(1.05);
             }
@@ -915,9 +936,12 @@
         }
 
         @keyframes float {
-            0%, 100% {
+
+            0%,
+            100% {
                 transform: translateY(0);
             }
+
             50% {
                 transform: translateY(-5px);
             }
@@ -927,15 +951,23 @@
             animation: float 3s ease-in-out infinite;
         }
 
-        .tech-item:nth-child(1) { animation-delay: 0s; }
-        .tech-item:nth-child(2) { animation-delay: 0.5s; }
-        .tech-item:nth-child(3) { animation-delay: 1s; }
+        .tech-item:nth-child(1) {
+            animation-delay: 0s;
+        }
+
+        .tech-item:nth-child(2) {
+            animation-delay: 0.5s;
+        }
+
+        .tech-item:nth-child(3) {
+            animation-delay: 1s;
+        }
     </style>
 </head>
 
 <body>
     <!-- Navigation -->
-   <!-- Navigation -->
+    <!-- Navigation -->
     <nav class="nav-container">
         <div class="nav">
             <a href="#home" class="nav-logo">
@@ -945,7 +977,8 @@
             <div class="nav-links">
                 <a href="index.html#home" class="nav-link active" title="Home"><i class="fas fa-home"></i></a>
                 <div class="nav-dropdown">
-                    <a href="index.html#projects" class="nav-link" title="Projects"><i class="fas fa-folder-open"></i></a>
+                    <a href="index.html#projects" class="nav-link" title="Projects"><i
+                            class="fas fa-folder-open"></i></a>
                     <div class="dropdown-menu">
                         <a href="in_progress.html">In Progress</a>
                         <a href="Engineering_project.html">Engineering Projects</a>
@@ -954,9 +987,11 @@
                 </div>
                 <a href="index.html#cv" class="nav-link" title="CV"><i class="fas fa-file-alt"></i></a>
                 <a href="certificates.html" class="nav-link" title="Certificates"><i class="fas fa-certificate"></i></a>
-                <a href="index.html#learning-journey" class="nav-link" title="Learning Journey"><i class="fas fa-road"></i></a>
+                <a href="index.html#learning-journey" class="nav-link" title="Learning Journey"><i
+                        class="fas fa-road"></i></a>
                 <a href="index.html#contact" class="nav-link" title="Contact"><i class="fas fa-envelope"></i></a>
-                <a href="ballistic missile/index.html" class="nav-link" title="Interests"><i class="fas fa-crosshairs"></i></a>
+                <a href="ballistic missile/index.html" class="nav-link" title="Interests"><i
+                        class="fas fa-crosshairs"></i></a>
             </div>
             <button class="mobile-nav-toggle"><i class="fas fa-bars"></i></button>
         </div>
@@ -1025,38 +1060,15 @@
                     </div>
                 </div>
 
-                <div class="project-card" data-project="friends-website-1">
-                    <div class="project-image" style="background-image: url('images/swaira.jpg');">
-                        <div class="project-overlay">
-                            <a href="https://swaira-graphic-designer.vercel.app/" class="project-link-btn"
-                                target="_blank"><i class="fas fa-eye"></i></a>
-                            <a href="https://github.com/usman-khan-0/Swaira-Portfolio-Website" class="project-link-btn"
-                                target="_blank"><i class="fab fa-github"></i></a>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <span class="project-tag">Web</span>
-                        <h3>Swaira Portfolio</h3>
-                        <p>Designed and developed a professional portfolio website for my friend Swaira, showcasing
-                            her skills and work in a visually appealing and user-friendly way.</p>
-                        <div class="project-tags">
-                            <span>HTML</span>
-                            <span>CSS</span>
-                            <span>JavaScript</span>
-                        </div>
-                        <a href="swaira-portfolio/index.html" class="btn btn-primary"
-                            style="margin-top: 1rem; width: 100%; justify-content: center;"><i class="fas fa-user"></i>
-                            Open Portfolio</a>
-                    </div>
-                </div>
+
 
                 <div class="project-card" data-project="todo-app">
                     <div class="project-image" style="background-image: url('images/todo.jpg');">
                         <div class="project-overlay">
-                            <a href="https://usman-khan-0.github.io/To-Do-App/" class="project-link-btn" target="_blank"><i
-                                    class="fas fa-eye"></i></a>
-                            <a href="https://github.com/usman-khan-0/To-Do-App" class="project-link-btn" target="_blank"><i
-                                    class="fab fa-github"></i></a>
+                            <a href="https://usman-khan-0.github.io/To-Do-App/" class="project-link-btn"
+                                target="_blank"><i class="fas fa-eye"></i></a>
+                            <a href="https://github.com/usman-khan-0/To-Do-App" class="project-link-btn"
+                                target="_blank"><i class="fab fa-github"></i></a>
                         </div>
                     </div>
                     <div class="project-content">
@@ -1121,7 +1133,30 @@
                                 class="fas fa-calculator"></i> Open Calculator</a>
                     </div>
                 </div>
-
+                <div class="project-card" data-project="friends-website-1">
+                    <div class="project-image" style="background-image: url('images/swaira.jpg');">
+                        <div class="project-overlay">
+                            <a href="https://swaira-graphic-designer.vercel.app/" class="project-link-btn"
+                                target="_blank"><i class="fas fa-eye"></i></a>
+                            <a href="https://github.com/usman-khan-0/Swaira-Portfolio-Website" class="project-link-btn"
+                                target="_blank"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-tag">Web</span>
+                        <h3>Swaira Portfolio</h3>
+                        <p>Designed and developed a professional portfolio website for my friend Swaira, showcasing
+                            her skills and work in a visually appealing and user-friendly way.</p>
+                        <div class="project-tags">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JavaScript</span>
+                        </div>
+                        <a href="swaira-portfolio/index.html" class="btn btn-primary"
+                            style="margin-top: 1rem; width: 100%; justify-content: center;"><i class="fas fa-user"></i>
+                            Open Portfolio</a>
+                    </div>
+                </div>
                 <div class="project-card" data-project="areeba-portfolio">
                     <div class="project-image" style="background-image: url('images/areeba.jpg');">
                         <div class="project-overlay">
@@ -1142,8 +1177,8 @@
                             <span>JavaScript</span>
                         </div>
                         <a href="areeba-portfolio/index.html" class="btn btn-primary"
-                            style="margin-top: 1rem; width: 100%; justify-content: center;"><i
-                                class="fas fa-user"></i> Open Portfolio</a>
+                            style="margin-top: 1rem; width: 100%; justify-content: center;"><i class="fas fa-user"></i>
+                            Open Portfolio</a>
                     </div>
                 </div>
             </div>
