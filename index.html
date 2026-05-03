@@ -3474,6 +3474,28 @@
                 margin-bottom: 2rem;
             }
         }
+        /* Team Section Styles */
+        .team-card {
+            cursor: pointer;
+        }
+
+        .team-card:hover .project-image {
+            transform: scale(1.05);
+        }
+
+        .team-card .project-image {
+            transition: var(--transition);
+        }
+
+        .team-card .project-overlay .btn {
+            pointer-events: none;
+        }
+
+        @media (max-width: 768px) {
+            .team-card .project-image {
+                height: 250px;
+            }
+        }
     </style>
 </head>
 
@@ -3497,6 +3519,7 @@
                 </div>
                 <a href="#cv" class="nav-link" title="CV"><i class="fas fa-file-alt"></i></a>
                 <a href="certificates.html" class="nav-link" title="Certificates"><i class="fas fa-certificate"></i></a>
+                <a href="#team" class="nav-link" title="My Team"><i class="fas fa-users"></i></a>
                 <a href="#learning-journey" class="nav-link" title="Learning Journey"><i class="fas fa-road"></i></a>
                 <a href="#contact" class="nav-link" title="Contact"><i class="fas fa-envelope"></i></a>
                 <a href="ballistic missile/index.html" class="nav-link" title="Interests"><i class="fas fa-crosshairs"></i></a>
@@ -3529,7 +3552,7 @@
                         </div>
                     </div>
                     <div class="hero-image">
-                        <img src="images/profile.jpg" alt="Muhammad Usman Khan" class="hero-profile">
+                        <img src="images/usman.jpeg" alt="Muhammad Usman Khan" class="hero-profile">
                     </div>
                 </div>
             </div>
@@ -4123,6 +4146,24 @@
                     <div class="hobby-modal-body">
                         <p class="hobby-modal-description" id="modalHobbyDescription"></p>
                         <div class="hobby-modal-details" id="modalHobbyDetails"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Team Member Modal -->
+            <div id="teamModal" class="hobby-modal-overlay">
+                <div class="hobby-modal-content">
+                    <button class="hobby-modal-close" onclick="closeTeamModal()">&times;</button>
+                    <div class="hobby-modal-header">
+                        <div class="hobby-modal-icon" id="teamModalIcon" style="font-size: 5rem; margin-bottom: 1rem;">👤</div>
+                        <h2 class="hobby-modal-title" id="teamModalName"></h2>
+                        <p class="hobby-modal-subtitle" id="teamModalRole"></p>
+                    </div>
+                    <div class="hobby-modal-body">
+                        <p id="teamModalDescription" class="hobby-modal-description"></p>
+                        <div id="teamModalDetails" class="hobby-modal-details">
+                            <!-- Details will be injected here -->
+                        </div>
                     </div>
                 </div>
             </div>
@@ -5045,6 +5086,57 @@
             </div>
         </section>
 
+        <!-- Team Section -->
+        <section id="team" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Our Team - IKU</h2>
+                    <p>Meet the brilliant minds behind our collaborative projects</p>
+                </div>
+                <div class="projects-grid">
+                    <!-- Usman -->
+                    <div class="project-card team-card" onclick="openTeamModal('usman')">
+                        <div class="project-image" style="background-image: url('images/Team P1.jpeg');">
+                            <div class="project-overlay">
+                                <span class="btn btn-primary">View Details</span>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <span class="project-tag">Leader</span>
+                            <h3>Muhammad Usman Khan</h3>
+                            <p>Mechanical Engineering Student & Web Developer</p>
+                        </div>
+                    </div>
+                    <!-- Iftikhar -->
+                    <div class="project-card team-card" onclick="openTeamModal('iftikhar')">
+                        <div class="project-image" style="background-image: url('images/Team P2.jpeg');">
+                            <div class="project-overlay">
+                                <span class="btn btn-primary">View Details</span>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <span class="project-tag">Member</span>
+                            <h3>Iftikhar</h3>
+                            <p>FSc Pre-Engineering Student</p>
+                        </div>
+                    </div>
+                    <!-- Kouser -->
+                    <div class="project-card team-card" onclick="openTeamModal('kouser')">
+                        <div class="project-image" style="background-image: url('images/Team P3.jpeg');">
+                            <div class="project-overlay">
+                                <span class="btn btn-primary">View Details</span>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <span class="project-tag">Member</span>
+                            <h3>Kouser</h3>
+                            <p>Medical Student</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Contact Section -->
         <section id="contact" class="section">
             <div class="container">
@@ -5559,6 +5651,67 @@
 
         // Dynamic Year
         document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Team Modal Logic
+        const teamData = {
+            'usman': {
+                name: 'Muhammad Usman Khan',
+                role: 'Leader & Mechanical Engineer',
+                icon: '👨‍🔧',
+                description: 'Muhammad Usman Khan is a Mechanical Engineering student at Air University, E-9 Islamabad, currently in his 4th semester. He is a passionate Tech Innovator and Web Developer.',
+                details: [
+                    { title: 'Education', icon: 'fa-university', description: '4th Semester Mechanical Engineering at Air University. Achieved 81% in Matric (KRL Grammar School) and 71% in FSc (IMCB G-10/4).' },
+                    { title: 'Skills', icon: 'fa-code', description: 'Web Development (WordPress), SolidWorks, AutoCAD, and Programming.' },
+                    { title: 'Interests', icon: 'fa-gamepad', description: 'Football, Boxing, Badminton, Movies, and Video Games.' }
+                ]
+            },
+            'iftikhar': {
+                name: 'Iftikhar',
+                role: 'Team Member',
+                icon: '👨‍🎓',
+                description: 'Iftikhar is a dedicated student who completed his FSc in Pre-Engineering, focusing on technical foundations and problem-solving.',
+                details: [
+                    { title: 'Education', icon: 'fa-graduation-cap', description: 'Completed FSc in Pre-Engineering with a focus on core scientific principles.' },
+                    { title: 'Background', icon: 'fa-book', description: 'Strong foundation in Mathematics and Physics, preparing for future engineering challenges.' }
+                ]
+            },
+            'kouser': {
+                name: 'Kouser',
+                role: 'Team Member',
+                icon: '👩‍⚕️',
+                description: 'Kouser is a Medical student pursuing her passion in healthcare and medicine, bringing a scientific and analytical perspective to the team.',
+                details: [
+                    { title: 'Education', icon: 'fa-user-md', description: 'Currently studying as a Medical student, focusing on healthcare and biology.' },
+                    { title: 'Perspective', icon: 'fa-microscope', description: 'Provides valuable insights from the biological and medical fields to collaborative projects.' }
+                ]
+            }
+        };
+
+        function openTeamModal(memberKey) {
+            const member = teamData[memberKey];
+            if (!member) return;
+
+            document.getElementById('teamModalIcon').textContent = member.icon;
+            document.getElementById('teamModalName').textContent = member.name;
+            document.getElementById('teamModalRole').textContent = member.role;
+            document.getElementById('teamModalDescription').textContent = member.description;
+
+            const detailsContainer = document.getElementById('teamModalDetails');
+            detailsContainer.innerHTML = member.details.map(detail => `
+                <div class="hobby-detail-item">
+                    <h4><i class="fas ${detail.icon}"></i> ${detail.title}</h4>
+                    <p>${detail.description}</p>
+                </div>
+            `).join('');
+
+            document.getElementById('teamModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeTeamModal() {
+            document.getElementById('teamModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
 
         // Initialize Home Section
         showSection('home');
@@ -6399,4 +6552,4 @@
     </script>
 </body>
 
-</html>
+</html>1
