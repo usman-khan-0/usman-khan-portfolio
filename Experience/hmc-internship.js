@@ -1,4 +1,4 @@
-// Academic Portfolio interactions
+﻿// HMC Internship page interactions
 (function () {
     'use strict';
 
@@ -37,7 +37,6 @@
                 if (menuIcon) menuIcon.className = isOpen ? 'fas fa-times' : 'fas fa-bars';
             });
 
-            // Close menu on link click or outside click
             navLinks.querySelectorAll('a').forEach(function (link) {
                 link.addEventListener('click', closeMenu);
             });
@@ -95,68 +94,6 @@
             window.addEventListener('scroll', highlightNav, { passive: true });
         }
 
-        /* ---------- Expandable semester cards ---------- */
-        const semesterCards = document.querySelectorAll('.semester-card');
-        const coursePanels = document.querySelectorAll('.semester-courses');
-
-        function setPanelHeight(panel) {
-            panel.style.maxHeight = panel.scrollHeight + 'px';
-        }
-
-        function resetPanelHeight(panel) {
-            panel.style.maxHeight = null;
-        }
-
-        // Initially expand the current semester
-        semesterCards.forEach(function (card) {
-            const panel = card.querySelector('.semester-courses');
-            const toggle = card.querySelector('.semester-toggle');
-
-            if (card.dataset.expanded === 'true') {
-                card.setAttribute('data-expanded', 'true');
-                if (toggle) toggle.setAttribute('aria-expanded', 'true');
-            }
-        });
-
-        // Sync CSS max-height with content for smooth animation
-        if (!reduceMotion) {
-            coursePanels.forEach(setPanelHeight);
-            window.addEventListener('resize', function () {
-                coursePanels.forEach(setPanelHeight);
-            });
-        }
-
-        semesterCards.forEach(function (card) {
-            const toggle = card.querySelector('.semester-toggle');
-            const panel = card.querySelector('.semester-courses');
-
-            if (!toggle || !panel) return;
-
-            toggle.addEventListener('click', function () {
-                const isExpanded = card.dataset.expanded === 'true';
-
-                card.dataset.expanded = String(!isExpanded);
-                toggle.setAttribute('aria-expanded', String(!isExpanded));
-                toggle.querySelector('.toggle-label').textContent = isExpanded ? 'View Courses' : 'Hide Courses';
-
-                if (!reduceMotion && isExpanded) {
-                    // collapse: animate to 0 first
-                    panel.style.maxHeight = panel.scrollHeight + 'px';
-                    requestAnimationFrame(function () {
-                        requestAnimationFrame(function () {
-                            panel.style.maxHeight = '0px';
-                        });
-                    });
-                } else {
-                    if (reduceMotion) {
-                        panel.style.maxHeight = isExpanded ? '0px' : 'none';
-                    } else {
-                        panel.style.maxHeight = panel.scrollHeight + 'px';
-                    }
-                }
-            });
-        });
-
         /* ---------- Reveal on scroll ---------- */
         const revealEls = document.querySelectorAll('.reveal');
 
@@ -175,50 +112,47 @@
             revealEls.forEach(function (el) { revealObserver.observe(el); });
         }
 
-        /* ---------- Animated metrics (CGPA ring + progress bars) ---------- */
-        const ring = document.querySelector('.cgpa-ring .ring-fg');
-        const bars = document.querySelectorAll('.mini-bar > span');
-        const circum = 2 * Math.PI * 50;
+        /* ---------- Lightbox ---------- */
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImage = document.getElementById('lightbox-image');
+        const lightboxCaption = document.getElementById('lightbox-caption');
+        const lightboxSource = document.getElementById('lightbox-source');
 
-        function animateMetrics() {
-            if (ring) {
-                const target = parseFloat(ring.dataset.progress || '0');
-                const offset = circum * (1 - target / 100);
-
-                if (reduceMotion) {
-                    ring.style.strokeDashoffset = offset;
-                } else {
-                    ring.style.transition = 'stroke-dashoffset 1.4s cubic-bezier(0.22, 1, 0.36, 1)';
-                    ring.style.strokeDashoffset = offset;
-                }
+        function openLightbox(imageUrl, caption, sourceUrl, sourceLabel) {
+            if (!lightbox) return;
+            lightboxImage.src = imageUrl;
+            lightboxCaption.textContent = caption || 'Machine / process';
+if (lightboxSource && sourceUrl) {
+                lightboxSource.href = sourceUrl;
+                const label = lightboxSource.querySelector('span');
+                if (label) label.textContent = sourceLabel || 'View machine info';
+                lightboxSource.style.display = 'inline-flex';
+            } else if (lightboxSource) {
+                lightboxSource.style.display = 'none';
             }
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
 
-            bars.forEach(function (bar) {
-                const width = bar.dataset.width || '0';
-                if (reduceMotion) {
-                    bar.style.width = width + '%';
-                } else {
-                    bar.style.width = width + '%';
-                }
+        function closeLightbox() {
+            if (!lightbox) return;
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        window.openLightbox = openLightbox;
+        window.closeLightbox = closeLightbox;
+
+        document.querySelectorAll('.lightbox-close').forEach(function (el) {
+            el.addEventListener('click', closeLightbox);
+        });
+        if (lightbox) {
+            lightbox.addEventListener('click', function (e) {
+                if (e.target === lightbox) closeLightbox();
             });
         }
-
-        const metricsWrap = document.querySelector('.performance-cards');
-        if (metricsWrap) {
-            if (reduceMotion || !('IntersectionObserver' in window)) {
-                animateMetrics();
-            } else {
-                const metricsObserver = new IntersectionObserver(function (entries) {
-                    entries.forEach(function (entry) {
-                        if (entry.isIntersecting) {
-                            animateMetrics();
-                            metricsObserver.unobserve(entry.target);
-                        }
-                    });
-                }, { threshold: 0.25 });
-
-                metricsObserver.observe(metricsWrap);
-            }
-        }
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') closeLightbox();
+        });
     });
 })();

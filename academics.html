@@ -3,548 +3,481 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Academic Journey - Mechanical Engineering | Portfolio</title>
-    <meta name="description" content="My academic journey in Mechanical Engineering at Air University, Department of Mechanical & Aerospace Engineering">
-    <link rel="stylesheet" href="style.css">
+    <title>Academic Journey - Mechanical Engineering | Usman Khan</title>
+    <meta name="description" content="My academic journey in Mechanical Engineering at Air University, Department of Mechanical & Aerospace Engineering. CGPA 3.68, PEC Level-II accredited program.">
+    <link rel="icon" type="image/png" href="images/gpa-logo.png">
     <link rel="stylesheet" href="academics.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
+    <a href="#main" class="skip-link">Skip to main content</a>
+
     <!-- Navigation -->
-    <nav class="navbar">
+    <nav class="navbar" aria-label="Primary navigation">
         <div class="container">
-            <a href="/" class="logo">Academic Portfolio</a>
-            <ul class="nav-links">
-                <li><a href="/">Home</a></li>
-                <li><a href="#overview">Overview</a></li>
+            <a href="index.html" class="nav-brand" aria-label="Usman Khan - Academic Portfolio">
+                <span class="brand-mark" aria-hidden="true"><i class="fas fa-graduation-cap"></i></span>
+                <span>Academic Portfolio<small>Usman Khan · B.E. Mechanical Eng.</small></span>
+            </a>
+
+            <button class="mobile-menu-btn" id="menuToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navLinks">
+                <i class="fas fa-bars" aria-hidden="true"></i>
+            </button>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html" class="nav-home"><i class="fas fa-arrow-left" aria-hidden="true"></i> Portfolio</a></li>
+                <li><a href="#overview" class="active">Overview</a></li>
                 <li><a href="#progress">Progress</a></li>
                 <li><a href="#performance">Performance</a></li>
                 <li><a href="#facilities">Facilities</a></li>
             </ul>
-            <button class="mobile-menu-btn">
-                <i class="fas fa-bars"></i>
-            </button>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <header class="hero">
         <div class="container">
-            <div class="hero-content">
-                <h1 class="hero-title">My Academic Journey</h1>
-                <h2 class="hero-subtitle">Mechanical Engineering</h2>
-                <div class="university-info">
-                    <p class="uni-name">Air University</p>
-                    <p class="dept-name">Department of Mechanical & Aerospace Engineering (DMAE)</p>
+            <div class="hero-eyebrow reveal">
+                <i class="fas fa-university" aria-hidden="true"></i>
+                B.E. Mechanical Engineering
+            </div>
+            <h1 class="hero-title reveal">My Academic <span class="accent">Journey</span></h1>
+            <p class="hero-subtitle reveal">
+                <strong>Air University, Islamabad</strong> — Department of Mechanical &amp; Aerospace Engineering
+            </p>
+            <p class="hero-description reveal">
+                Pursuing a Bachelor of Engineering in Mechanical Engineering with a focus on
+                aerospace applications, computational fluid dynamics, and advanced materials.
+                My academic journey combines rigorous theoretical foundations with practical
+                engineering applications, accredited under PEC Level-II (Washington Accord equivalent).
+            </p>
+            <div class="accreditation-badge reveal" role="note">
+                <i class="fas fa-award" aria-hidden="true"></i>
+                <span>PEC Level-II Accredited | Washington Accord Equivalent</span>
+            </div>
+
+            <div class="hero-stats">
+                <div class="stat-card reveal">
+                    <span class="stat-icon" aria-hidden="true"><i class="fas fa-star"></i></span>
+                    <span class="stat-value">3.68<small> / 4.00</small></span>
+                    <span class="stat-label">Current CGPA</span>
+                    <span class="stat-sub">Cumulative GPA</span>
                 </div>
-                <p class="hero-description">
-                    Pursuing a Bachelor of Engineering in Mechanical Engineering with a focus on 
-                    aerospace applications, computational fluid dynamics, and advanced materials. 
-                    My academic journey combines rigorous theoretical foundations with practical 
-                    engineering applications, accredited under PEC Level-II (Washington Accord equivalent).
-                </p>
-                <div class="accreditation-badge">
-                    <i class="fas fa-award"></i>
-                    <span>PEC Level-II Accredited | Washington Accord Equivalent</span>
+                <div class="stat-card reveal">
+                    <span class="stat-icon" aria-hidden="true"><i class="fas fa-book-open"></i></span>
+                    <span class="stat-value">53<small> / 136</small></span>
+                    <span class="stat-label">Credits Completed</span>
+                    <span class="stat-sub">Credit hours earned</span>
+                </div>
+                <div class="stat-card reveal">
+                    <span class="stat-icon" aria-hidden="true"><i class="fas fa-route"></i></span>
+                    <span class="stat-value">38.9<small>%</small></span>
+                    <span class="stat-label">Degree Progress</span>
+                    <span class="stat-sub">4 of 8 semesters</span>
+                </div>
+                <div class="stat-card reveal">
+                    <span class="stat-icon" aria-hidden="true"><i class="fas fa-medal"></i></span>
+                    <span class="stat-value">Honors</span>
+                    <span class="stat-label">Academic Standing</span>
+                    <span class="stat-sub">3.50 &le; CGPA &lt; 3.75</span>
                 </div>
             </div>
         </div>
     </header>
 
-    <main class="container">
+    <main id="main">
         <!-- University Overview -->
-        <section id="overview" class="section overview">
-            <h2 class="section-title">University & Department Overview</h2>
-            <div class="overview-grid">
-                <div class="overview-card">
-                    <div class="card-icon">
-                        <i class="fas fa-university"></i>
-                    </div>
-                    <h3>Air University</h3>
-                    <p>A premier institution in Pakistan known for excellence in engineering and aerospace education. Established to provide state-of-the-art technical education with a focus on research and innovation.</p>
-                </div>
-                <div class="overview-card">
-                    <div class="card-icon">
-                        <i class="fas fa-cogs"></i>
-                    </div>
-                    <h3>Department of Mechanical & Aerospace Engineering</h3>
-                    <p>DMAE provides cutting-edge education in mechanical and aerospace disciplines with modern laboratories, experienced faculty, and industry-aligned curriculum.</p>
-                </div>
-                <div class="overview-card">
-                    <div class="card-icon">
-                        <i class="fas fa-graduation-cap"></i>
-                    </div>
-                    <h3>Program Structure</h3>
-                    <ul class="program-details">
-                        <li><strong>Duration:</strong> 4 Years</li>
-                        <li><strong>Semesters:</strong> 8</li>
-                        <li><strong>Total Credit Hours:</strong> 136</li>
-                        <li><strong>Engineering Courses:</strong> 70.8%</li>
-                        <li><strong>Non-Engineering Courses:</strong> 29.2%</li>
-                    </ul>
-                </div>
-            </div>
-
-
-        <!-- Academic Progress -->
-        <section id="progress" class="section progress">
-            <h2 class="section-title">My Academic Progress</h2>
-            <p class="section-subtitle">Semester-wise course progression in Mechanical Engineering</p>
-            
-            <div class="semesters-grid">
-                <!-- Semester 1 - Completed -->
-                <div class="semester-card completed">
-                    <div class="semester-header">
-                        <div class="status-badge completed">
-                            <i class="fas fa-check-circle"></i> Completed
-                        </div>
-                        <h3>Semester 1</h3>
-                        <div class="credit-info">17 Credit Hours</div>
-                    </div>
-                    <ul class="course-list">
-                        <li>
-                            <span class="course-code">CS 181</span>
-                            <span class="course-name">Application of ICT</span>
-                            <span class="course-credits">2-0-2</span>
-                        </li>
-                        <li>
-                            <span class="course-code">HU 124</span>
-                            <span class="course-name">Islamic Studies & Ethics</span>
-                            <span class="course-credits">2-0-2</span>
-                        </li>
-                        <li>
-                            <span class="course-code">MA 110</span>
-                            <span class="course-name">Calculus & Analytical Geometry</span>
-                            <span class="course-credits">3-0-3</span>
-                        </li>
-                        <li>
-                            <span class="course-code">CE 112</span>
-                            <span class="course-name">Computer Programming</span>
-                            <span class="course-credits">2-0-2</span>
-                        </li>
-                        <li>
-                            <span class="course-code">ME 140</span>
-                            <span class="course-name">Workshop Practice I</span>
-                            <span class="course-credits">0-1-1</span>
-                        </li>
-                        <li>
-                            <span class="course-code">ME 139</span>
-                            <span class="course-name">Engineering Drawing & Graphics</span>
-                            <span class="course-credits">1-0-1</span>
-                        </li>
-                        <li>
-                            <span class="course-code">EL 170</span>
-                            <span class="course-name">Functional English</span>
-                            <span class="course-credits">3-0-3</span>
-                        </li>
-                        <li>
-                            <span class="course-code">CS 181L</span>
-                            <span class="course-name">Application of ICT Lab</span>
-                            <span class="course-credits">0-1-1</span>
-                        </li>
-                        <li>
-                            <span class="course-code">ME 139L</span>
-                            <span class="course-name">Engineering Drawing & Graphics Lab</span>
-                            <span class="course-credits">0-1-1</span>
-                        </li>
-                        <li>
-                            <span class="course-code">CE 112L</span>
-                            <span class="course-name">Computer Programming Lab</span>
-                            <span class="course-credits">0-1-1</span>
-                        </li>
-                    </ul>
-                    <div class="semester-footer">
-                        <i class="fas fa-calendar-check"></i> Fall Semester 2024
-                    </div>
+        <section id="overview" class="section" aria-labelledby="overview-title">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-eyebrow">Foundation</span>
+                    <h2 class="section-title" id="overview-title">University &amp; Department Overview</h2>
+                    <p class="section-subtitle">The institution and program behind my academic journey</p>
                 </div>
 
-                <!-- Semester 2 - Completed -->
-                <div class="semester-card completed">
-                    <div class="semester-header">
-                        <div class="status-badge completed">
-                            <i class="fas fa-check-circle"></i> Completed
-                        </div>
-                        <h3>Semester 2</h3>
-                        <div class="credit-info">18 Credit Hours</div>
+                <div class="overview-grid">
+                    <div class="overview-card reveal">
+                        <span class="card-icon" aria-hidden="true"><i class="fas fa-university"></i></span>
+                        <h3>Air University</h3>
+                        <p>A premier institution in Pakistan known for excellence in engineering and aerospace education. Established to provide state-of-the-art technical education with a focus on research and innovation.</p>
                     </div>
-                    <ul class="course-list">
-                        <li>
-                            <span class="course-code">ME 121</span>
-                            <span class="course-name">Engineering Statics</span>
-                            <span class="course-credits">3-0-3</span>
-                        </li>
-                        <li>
-                            <span class="course-code">MA 111</span>
-                            <span class="course-name">Linear Algebra & Differential Equations</span>
-                            <span class="course-credits">3-0-3</span>
-                        </li>
-                        <li>
-                            <span class="course-code">ME 131</span>
-                            <span class="course-name">Thermodynamics I</span>
-                            <span class="course-credits">3-0-3</span>
-                        </li>
-                        <li>
-                            <span class="course-code">CH 102</span>
-                            <span class="course-name">Applied Chemistry</span>
-                            <span class="course-credits">3-0-3</span>
-                        </li>
-                        <li>
-                            <span class="course-code">ME 143</span>
-                            <span class="course-name">Workshop Practice II</span>
-                            <span class="course-credits">0-1-1</span>
-                        </li>
-                        <li>
-                            <span class="course-code">ME 147</span>
-                            <span class="course-name">Computer Aided Graphics</span>
-                            <span class="course-credits">0-1-1</span>
-                        </li>
-                        <li>
-                            <span class="course-code">EE 452</span>
-                            <span class="course-name">Electrical Engineering</span>
-                            <span class="course-credits">2-0-2</span>
-                        </li>
-                        <li>
-                            <span class="course-code">HU 405</span>
-                            <span class="course-name">Ideology & Constitution</span>
-                            <span class="course-credits">2-0-2</span>
-                        </li>
-                    </ul>
-                    <div class="semester-footer">
-                        <i class="fas fa-calendar-check"></i> Spring Semester 2025
+                    <div class="overview-card reveal">
+                        <span class="card-icon" aria-hidden="true"><i class="fas fa-cogs"></i></span>
+                        <h3>Department of Mechanical &amp; Aerospace Engineering</h3>
+                        <p>DMAE provides cutting-edge education in mechanical and aerospace disciplines with modern laboratories, experienced faculty, and industry-aligned curriculum.</p>
                     </div>
-                </div>
-
-                <!-- Semester 3 - Completed -->
-                <div class="semester-card completed">
-                    <div class="semester-header">
-                        <div class="status-badge completed">
-                            <i class="fas fa-check-circle"></i> Completed
-                        </div>
-                        <h3>Semester 3</h3>
-                        <div class="credit-info">18 Credit Hours</div>
-                    </div>
-                    <ul class="course-list">
-                        <li>
-                            <span class="course-code">MA 214</span>
-                            <span class="course-name">Complex Variables & Transforms</span>
-                            <span class="course-credits">3-0-3</span>
-                        </li>
-                        <li>
-                            <span class="course-code">ME 222</span>
-                            <span class="course-name">Engineering Dynamics</span>
-                            <span class="course-credits">3-0-3</span>
-                        </li>
-                        <li>
-                            <span class="course-code">ME 223</span>
-                            <span class="course-name">Mechanics of Materials I</span>
-                            <span class="course-credits">3-0-3</span>
-                        </li>
-                        <li>
-                            <span class="course-code">ME 233</span>
-                            <span class="course-name">Fluid Mechanics I</span>
-                            <span class="course-credits">3-0-3</span>
-                        </li>
-                        <li>
-                            <span class="course-code">ME 234</span>
-                            <span class="course-name">Thermodynamics II</span>
-                            <span class="course-credits">3-0-3</span>
-                        </li>
-                        <li>
-                            <span class="course-code">ME 202</span>
-                            <span class="course-name">Health, Safety & Environment</span>
-                            <span class="course-credits">1-0-1</span>
-                        </li>
-                        <li>
-                            <span class="course-code">ME 226L</span>
-                            <span class="course-name">Engineering Mechanics Lab</span>
-                            <span class="course-credits">0-1-1</span>
-                        </li>
-                        <li>
-                            <span class="course-code">ME 234L</span>
-                            <span class="course-name">Thermodynamics Lab</span>
-                            <span class="course-credits">0-1-1</span>
-                        </li>
-                    </ul>
-                    <div class="semester-footer">
-                        <i class="fas fa-calendar-check"></i> Fall Semester 2025
-                    </div>
-                </div>
-
-                <!-- Semester 4 - Ongoing -->
-                <div class="semester-card completed">
-                    <div class="semester-header">
-                        <div class="status-badge completed">
-                            <i class="fas fa-check-circle"></i> Completed
-                        </div>
-                        <h3>Semester 4</h3>
-                        <div class="credit-info">18 Credit Hours</div>
-                    </div>
-                    <ul class="course-list">
-                        <li>
-                            <span class="course-code">ME 227</span>
-                            <span class="course-name">Mechanics of Machines</span>
-                            <span class="course-credits">3-0-3</span>
-                        </li>
-                        <li>
-                            <span class="course-code">ME 224</span>
-                            <span class="course-name">Mechanics of Materials II</span>
-                            <span class="course-credits">3-0-3</span>
-                        </li>
-                        <li>
-                            <span class="course-code">ME 235</span>
-                            <span class="course-name">Fluid Mechanics II</span>
-                            <span class="course-credits">3-0-3</span>
-                        </li>
-                        <li>
-                            <span class="course-code">EE 453</span>
-                            <span class="course-name">Electronics Engineering</span>
-                            <span class="course-credits">2-0-2</span>
-                        </li>
-                        <li>
-                            <span class="course-code">ME 248</span>
-                            <span class="course-name">Manufacturing Processes I</span>
-                            <span class="course-credits">1-0-1</span>
-                        </li>
-                        <li>
-                            <span class="course-code">ME 248L</span>
-                            <span class="course-name">Manufacturing Lab</span>
-                            <span class="course-credits">0-1-1</span>
-                        </li>
-                        <li>
-                            <span class="course-code">ME 235L</span>
-                            <span class="course-name">Fluid Mechanics Lab</span>
-                            <span class="course-credits">0-1-1</span>
-                        </li>
-                        <li>
-                            <span class="course-code">ME 224L</span>
-                            <span class="course-name">Mechanics of Materials Lab</span>
-                            <span class="course-credits">0-1-1</span>
-                        </li>
-                        <li>
-                            <span class="course-code">ME 227L</span>
-                            <span class="course-name">Mechanics of Machines Lab</span>
-                            <span class="course-credits">0-1-1</span>
-                        </li>
-                        <li>
-                            <span class="course-code">EE 453L</span>
-                            <span class="course-name">Electronics Engineering Lab</span>
-                            <span class="course-credits">0-1-1</span>
-                        </li>
-                    </ul>
-                    <div class="semester-footer">
-                        <i class="fas fa-hourglass-half"></i> Spring Semester 2026 (Current)
-                    </div>
-                </div>
-
-                <!-- Semester 5 - Planned -->
-                <div class="semester-card planned">
-                    <div class="semester-header">
-                        <div class="status-badge planned">
-                            <i class="fas fa-clock"></i> Planned
-                        </div>
-                        <h3>Semester 5</h3>
-                        <div class="credit-info">18 Credit Hours</div>
-                    </div>
-                    <ul class="course-list">
-                        <li>
-                            <span class="course-code">ME 301</span>
-                            <span class="course-name">Engineering Materials</span>
-                            <span class="course-credits">3-0-3</span>
-                        </li>
-                        <li>
-                            <span class="course-code">ME 337</span>
-                            <span class="course-name">Refrigeration & Air Conditioning</span>
-                            <span class="course-credits">2-0-2</span>
-                        </li>
-                        <li>
-                            <span class="course-code">MA 202</span>
-                            <span class="course-name">Numerical Analysis & Computation</span>
-                            <span class="course-credits">2-1-3</span>
-                        </li>
-                        <li>
-                            <span class="course-code">ME 324</span>
-                            <span class="course-name">Machine Design I</span>
-                            <span class="course-credits">2-0-2</span>
-                        </li>
-                        <li>
-                            <span class="course-code">ME 329</span>
-                            <span class="course-name">Mechanical Vibrations</span>
-                            <span class="course-credits">3-0-3</span>
-                        </li>
-                        <li>
-                            <span class="course-code">ME 325</span>
-                            <span class="course-name">Reverse Engineering</span>
-                            <span class="course-credits">3-0-3</span>
-                        </li>
-                        <li>
-                            <span class="course-code">ME 329L</span>
-                            <span class="course-name">Mechanical Vibrations Lab</span>
-                            <span class="course-credits">0-1-1</span>
-                        </li>
-                        <li>
-                            <span class="course-code">ME 343</span>
-                            <span class="course-name">Manufacturing Process II</span>
-                            <span class="course-credits">1-0-1</span>
-                        </li>
-                    </ul>
-                    <div class="semester-footer">
-                        <i class="fas fa-calendar-plus"></i> Fall Semester 2026
-                    </div>
-                </div>
-
-                <!-- Semester 6 - Planned -->
-                <div class="semester-card planned">
-                    <div class="semester-header">
-                        <div class="status-badge planned">
-                            <i class="fas fa-clock"></i> Planned
-                        </div>
-                        <h3>Semester 6</h3>
-                        <div class="credit-info">16 Credit Hours</div>
-                    </div>
-                    <ul class="course-list">
-                        <li>
-                            <span class="course-code">ME 338</span>
-                            <span class="course-name">Heat & Mass Transfer</span>
-                            <span class="course-credits">3-0-3</span>
-                        </li>
-                        <li>
-                            <span class="course-code">ME 339</span>
-                            <span class="course-name">Finite Element Analysis</span>
-                            <span class="course-credits">3-0-3</span>
-                        </li>
-                        <li>
-                            <span class="course-code">ME 340</span>
-                            <span class="course-name">Instrumentation & Measurements</span>
-                            <span class="course-credits">3-0-3</span>
-                        </li>
-                        <li>
-                            <span class="course-code">ME 341</span>
-                            <span class="course-name">Control Systems</span>
-                            <span class="course-credits">3-0-3</span>
-                        </li>
-                        <li>
-                            <span class="course-code">ME 342</span>
-                            <span class="course-name">CAD/CAM</span>
-                            <span class="course-credits">2-0-2</span>
-                        </li>
-                    </ul>
-                    <div class="semester-footer">
-                        <i class="fas fa-calendar-plus"></i> Spring Semester 2027
-                    </div>
-                </div>
-
-                <!-- Semester 7 - Planned -->
-                <div class="semester-card planned">
-                    <div class="semester-header">
-                        <div class="status-badge planned">
-                            <i class="fas fa-clock"></i> Planned
-                        </div>
-                        <h3>Semester 7</h3>
-                        <div class="credit-info">15 Credit Hours</div>
-                    </div>
-                    <ul class="course-list">
-                        <li>
-                            <span class="course-code">EM XXX</span>
-                            <span class="course-name">Management Elective</span>
-                            <span class="course-credits">2-0-2</span>
-                        </li>
-                        <li>
-                            <span class="course-code">HU 411</span>
-                            <span class="course-name">Civics & Community Engagement</span>
-                            <span class="course-credits">2-0-2</span>
-                        </li>
-                        <li>
-                            <span class="course-code">ME 469</span>
-                            <span class="course-name">IC Engines & Propulsion</span>
-                            <span class="course-credits">2-0-2</span>
-                        </li>
-                        <li>
-                            <span class="course-code">ME 471</span>
-                            <span class="course-name">Technical Elective I</span>
-                            <span class="course-credits">2-0-2</span>
-                        </li>
-                        <li>
-                            <span class="course-code">ME 479</span>
-                            <span class="course-name">AI with Python</span>
-                            <span class="course-credits">2-0-2</span>
-                        </li>
-                        <li>
-                            <span class="course-code">ME 493</span>
-                            <span class="course-name">Final Year Project II</span>
-                            <span class="course-credits">0-2-2</span>
-                        </li>
-                    </ul>
-                    <div class="semester-footer">
-                        <i class="fas fa-calendar-plus"></i> Fall Semester 2027
-                    </div>
-                </div>
-
-                <!-- Semester 8 - Planned -->
-                <div class="semester-card planned">
-                    <div class="semester-header">
-                        <div class="status-badge planned">
-                            <i class="fas fa-clock"></i> Planned
-                        </div>
-                        <h3>Semester 8</h3>
-                        <div class="credit-info">10 Credit Hours</div>
-                    </div>
-                    <ul class="course-list">
-                        <li>
-                            <span class="course-code">BA 353</span>
-                            <span class="course-name">Entrepreneurship</span>
-                            <span class="course-credits">2-0-2</span>
-                        </li>
-                        <li>
-                            <span class="course-code">ME XXX</span>
-                            <span class="course-name">Technical Elective II</span>
-                            <span class="course-credits">3-0-3</span>
-                        </li>
-                        <li>
-                            <span class="course-code">XX XXX</span>
-                            <span class="course-name">Elective II</span>
-                            <span class="course-credits">2-0-2</span>
-                        </li>
-                        <li>
-                            <span class="course-code">ME 494</span>
-                            <span class="course-name">Final Year Project III</span>
-                            <span class="course-credits">0-3-3</span>
-                        </li>
-                    </ul>
-                    <div class="semester-footer">
-                        <i class="fas fa-calendar-plus"></i> Spring Semester 2028
+                    <div class="overview-card reveal">
+                        <span class="card-icon" aria-hidden="true"><i class="fas fa-graduation-cap"></i></span>
+                        <h3>Program Structure</h3>
+                        <ul class="program-details">
+                            <li><strong>Duration</strong><span>4 Years</span></li>
+                            <li><strong>Semesters</strong><span>8</span></li>
+                            <li><strong>Total Credit Hours</strong><span>136</span></li>
+                            <li><strong>Engineering Courses</strong><span>70.8%</span></li>
+                            <li><strong>Non-Engineering Courses</strong><span>29.2%</span></li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Academic Performance -->
-        <section id="performance" class="section performance">
-            <h2 class="section-title">Current Academic Status</h2>
-            <div class="performance-content">
-                <div class="graph-container">
-                    <img src="images/CGPA Graph.png" alt="Academic Performance Graph - GPA Progress" class="performance-graph">
-                    <p class="graph-caption">Academic Performance Trend (GPA/CGPA Progression)</p>
+        <!-- Academic Progress -->
+        <section id="progress" class="section section--soft" aria-labelledby="progress-title">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-eyebrow">Timeline</span>
+                    <h2 class="section-title" id="progress-title">My Academic Progress</h2>
+                    <p class="section-subtitle">Semester-wise course progression in Mechanical Engineering — expand a semester to view course details</p>
                 </div>
-                <div class="performance-info">
-                    <h3>GPA Analysis</h3>
-                    <p>My academic performance shows consistent growth with strong fundamentals in core mechanical engineering subjects. The graph illustrates semester-by-semester GPA progression.</p>
-                    
-                    <div class="gpa-summary">
-                        <div class="gpa-item">
-                            <span class="gpa-label">Current CGPA</span>
-                            <span class="gpa-value">3.62</span>
-                            <span class="gpa-status honors">Honors Standing</span>
+
+                <div class="timeline">
+                    <!-- Semester 1 - Completed -->
+                    <article class="semester-card completed reveal" data-expanded="false">
+                        <div class="semester-card__inner">
+                            <header class="semester-head">
+                                <div class="semester-title-group">
+                                    <span class="semester-number" aria-hidden="true">1</span>
+                                    <div class="semester-title">
+                                        <h3>Semester 1</h3>
+                                        <span class="semester-term"><i class="far fa-calendar" aria-hidden="true"></i> Fall Semester 2024</span>
+                                    </div>
+                                </div>
+                                <span class="status-badge completed"><i class="fas fa-check-circle" aria-hidden="true"></i> Completed</span>
+                            </header>
+                            <div class="semester-stats">
+                                <span><i class="fas fa-hourglass-half" aria-hidden="true"></i> 17 Credit Hours</span>
+                                <span><i class="fas fa-list" aria-hidden="true"></i> 10 Courses</span>
+                            </div>
+                            <div class="semester-courses" id="sem-1">
+                                <ul class="course-list">
+                                    <li><span class="course-code">CS 181</span><span class="course-name">Application of ICT</span><span class="course-credits">2-0-2</span></li>
+                                    <li><span class="course-code">HU 124</span><span class="course-name">Islamic Studies &amp; Ethics</span><span class="course-credits">2-0-2</span></li>
+                                    <li><span class="course-code">MA 110</span><span class="course-name">Calculus &amp; Analytical Geometry</span><span class="course-credits">3-0-3</span></li>
+                                    <li><span class="course-code">CE 112</span><span class="course-name">Computer Programming</span><span class="course-credits">2-0-2</span></li>
+                                    <li><span class="course-code">ME 140</span><span class="course-name">Workshop Practice I</span><span class="course-credits">0-1-1</span></li>
+                                    <li><span class="course-code">ME 139</span><span class="course-name">Engineering Drawing &amp; Graphics</span><span class="course-credits">1-0-1</span></li>
+                                    <li><span class="course-code">EL 170</span><span class="course-name">Functional English</span><span class="course-credits">3-0-3</span></li>
+                                    <li><span class="course-code">CS 181L</span><span class="course-name">Application of ICT Lab</span><span class="course-credits">0-1-1</span></li>
+                                    <li><span class="course-code">ME 139L</span><span class="course-name">Engineering Drawing &amp; Graphics Lab</span><span class="course-credits">0-1-1</span></li>
+                                    <li><span class="course-code">CE 112L</span><span class="course-name">Computer Programming Lab</span><span class="course-credits">0-1-1</span></li>
+                                </ul>
+                            </div>
+                            <button class="semester-toggle" aria-expanded="false" aria-controls="sem-1">
+                                <span class="toggle-label">View Courses</span>
+                                <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                            </button>
                         </div>
-                        <div class="gpa-item">
-                            <span class="gpa-label">Completed Credits</span>
-                            <span class="gpa-value">53/136</span>
-                            <span class="gpa-status">38.9% Complete</span>
+                    </article>
+
+                    <!-- Semester 2 - Completed -->
+                    <article class="semester-card completed reveal" data-expanded="false">
+                        <div class="semester-card__inner">
+                            <header class="semester-head">
+                                <div class="semester-title-group">
+                                    <span class="semester-number" aria-hidden="true">2</span>
+                                    <div class="semester-title">
+                                        <h3>Semester 2</h3>
+                                        <span class="semester-term"><i class="far fa-calendar" aria-hidden="true"></i> Spring Semester 2025</span>
+                                    </div>
+                                </div>
+                                <span class="status-badge completed"><i class="fas fa-check-circle" aria-hidden="true"></i> Completed</span>
+                            </header>
+                            <div class="semester-stats">
+                                <span><i class="fas fa-hourglass-half" aria-hidden="true"></i> 18 Credit Hours</span>
+                                <span><i class="fas fa-list" aria-hidden="true"></i> 8 Courses</span>
+                            </div>
+                            <div class="semester-courses" id="sem-2">
+                                <ul class="course-list">
+                                    <li><span class="course-code">ME 121</span><span class="course-name">Engineering Statics</span><span class="course-credits">3-0-3</span></li>
+                                    <li><span class="course-code">MA 111</span><span class="course-name">Linear Algebra &amp; Differential Equations</span><span class="course-credits">3-0-3</span></li>
+                                    <li><span class="course-code">ME 131</span><span class="course-name">Thermodynamics I</span><span class="course-credits">3-0-3</span></li>
+                                    <li><span class="course-code">CH 102</span><span class="course-name">Applied Chemistry</span><span class="course-credits">3-0-3</span></li>
+                                    <li><span class="course-code">ME 143</span><span class="course-name">Workshop Practice II</span><span class="course-credits">0-1-1</span></li>
+                                    <li><span class="course-code">ME 147</span><span class="course-name">Computer Aided Graphics</span><span class="course-credits">0-1-1</span></li>
+                                    <li><span class="course-code">EE 452</span><span class="course-name">Electrical Engineering</span><span class="course-credits">2-0-2</span></li>
+                                    <li><span class="course-code">HU 405</span><span class="course-name">Ideology &amp; Constitution</span><span class="course-credits">2-0-2</span></li>
+                                </ul>
+                            </div>
+                            <button class="semester-toggle" aria-expanded="false" aria-controls="sem-2">
+                                <span class="toggle-label">View Courses</span>
+                                <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                            </button>
                         </div>
-                        <div class="gpa-item">
-                            <span class="gpa-label">Academic Standing</span>
-                            <span class="gpa-value">Honors</span>
-                            <span class="gpa-status">3.50 ≤ CGPA < 3.75</span>
+                    </article>
+
+                    <!-- Semester 3 - Completed -->
+                    <article class="semester-card completed reveal" data-expanded="false">
+                        <div class="semester-card__inner">
+                            <header class="semester-head">
+                                <div class="semester-title-group">
+                                    <span class="semester-number" aria-hidden="true">3</span>
+                                    <div class="semester-title">
+                                        <h3>Semester 3</h3>
+                                        <span class="semester-term"><i class="far fa-calendar" aria-hidden="true"></i> Fall Semester 2025</span>
+                                    </div>
+                                </div>
+                                <span class="status-badge completed"><i class="fas fa-check-circle" aria-hidden="true"></i> Completed</span>
+                            </header>
+                            <div class="semester-stats">
+                                <span><i class="fas fa-hourglass-half" aria-hidden="true"></i> 18 Credit Hours</span>
+                                <span><i class="fas fa-list" aria-hidden="true"></i> 8 Courses</span>
+                            </div>
+                            <div class="semester-courses" id="sem-3">
+                                <ul class="course-list">
+                                    <li><span class="course-code">MA 214</span><span class="course-name">Complex Variables &amp; Transforms</span><span class="course-credits">3-0-3</span></li>
+                                    <li><span class="course-code">ME 222</span><span class="course-name">Engineering Dynamics</span><span class="course-credits">3-0-3</span></li>
+                                    <li><span class="course-code">ME 223</span><span class="course-name">Mechanics of Materials I</span><span class="course-credits">3-0-3</span></li>
+                                    <li><span class="course-code">ME 233</span><span class="course-name">Fluid Mechanics I</span><span class="course-credits">3-0-3</span></li>
+                                    <li><span class="course-code">ME 234</span><span class="course-name">Thermodynamics II</span><span class="course-credits">3-0-3</span></li>
+                                    <li><span class="course-code">ME 202</span><span class="course-name">Health, Safety &amp; Environment</span><span class="course-credits">1-0-1</span></li>
+                                    <li><span class="course-code">ME 226L</span><span class="course-name">Engineering Mechanics Lab</span><span class="course-credits">0-1-1</span></li>
+                                    <li><span class="course-code">ME 234L</span><span class="course-name">Thermodynamics Lab</span><span class="course-credits">0-1-1</span></li>
+                                </ul>
+                            </div>
+                            <button class="semester-toggle" aria-expanded="false" aria-controls="sem-3">
+                                <span class="toggle-label">View Courses</span>
+                                <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- Semester 4 - Current -->
+                    <article class="semester-card current reveal" data-expanded="true">
+                        <div class="semester-card__inner">
+                            <header class="semester-head">
+                                <div class="semester-title-group">
+                                    <span class="semester-number" aria-hidden="true">4</span>
+                                    <div class="semester-title">
+                                        <h3>Semester 4</h3>
+                                        <span class="semester-term"><i class="far fa-calendar" aria-hidden="true"></i> Spring Semester 2026</span>
+                                    </div>
+                                </div>
+                                <span class="status-badge current"><span class="dot" aria-hidden="true"></span> In Progress</span>
+                            </header>
+                            <div class="semester-stats">
+                                <span><i class="fas fa-hourglass-half" aria-hidden="true"></i> 18 Credit Hours</span>
+                                <span><i class="fas fa-list" aria-hidden="true"></i> 10 Courses</span>
+                            </div>
+                            <div class="semester-courses" id="sem-4">
+                                <ul class="course-list">
+                                    <li><span class="course-code">ME 227</span><span class="course-name">Mechanics of Machines</span><span class="course-credits">3-0-3</span></li>
+                                    <li><span class="course-code">ME 224</span><span class="course-name">Mechanics of Materials II</span><span class="course-credits">3-0-3</span></li>
+                                    <li><span class="course-code">ME 235</span><span class="course-name">Fluid Mechanics II</span><span class="course-credits">3-0-3</span></li>
+                                    <li><span class="course-code">EE 453</span><span class="course-name">Electronics Engineering</span><span class="course-credits">2-0-2</span></li>
+                                    <li><span class="course-code">ME 248</span><span class="course-name">Manufacturing Processes I</span><span class="course-credits">1-0-1</span></li>
+                                    <li><span class="course-code">ME 248L</span><span class="course-name">Manufacturing Lab</span><span class="course-credits">0-1-1</span></li>
+                                    <li><span class="course-code">ME 235L</span><span class="course-name">Fluid Mechanics Lab</span><span class="course-credits">0-1-1</span></li>
+                                    <li><span class="course-code">ME 224L</span><span class="course-name">Mechanics of Materials Lab</span><span class="course-credits">0-1-1</span></li>
+                                    <li><span class="course-code">ME 227L</span><span class="course-name">Mechanics of Machines Lab</span><span class="course-credits">0-1-1</span></li>
+                                    <li><span class="course-code">EE 453L</span><span class="course-name">Electronics Engineering Lab</span><span class="course-credits">0-1-1</span></li>
+                                </ul>
+                            </div>
+                            <button class="semester-toggle" aria-expanded="true" aria-controls="sem-4">
+                                <span class="toggle-label">Hide Courses</span>
+                                <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- Semester 5 - Planned -->
+                    <article class="semester-card planned reveal" data-expanded="false">
+                        <div class="semester-card__inner">
+                            <header class="semester-head">
+                                <div class="semester-title-group">
+                                    <span class="semester-number" aria-hidden="true">5</span>
+                                    <div class="semester-title">
+                                        <h3>Semester 5</h3>
+                                        <span class="semester-term"><i class="far fa-calendar" aria-hidden="true"></i> Fall Semester 2026</span>
+                                    </div>
+                                </div>
+                                <span class="status-badge planned"><i class="fas fa-clock" aria-hidden="true"></i> Upcoming</span>
+                            </header>
+                            <div class="semester-stats">
+                                <span><i class="fas fa-hourglass-half" aria-hidden="true"></i> 18 Credit Hours</span>
+                                <span><i class="fas fa-list" aria-hidden="true"></i> 8 Courses</span>
+                            </div>
+                            <div class="semester-courses" id="sem-5">
+                                <ul class="course-list">
+                                    <li><span class="course-code">ME 301</span><span class="course-name">Engineering Materials</span><span class="course-credits">3-0-3</span></li>
+                                    <li><span class="course-code">ME 337</span><span class="course-name">Refrigeration &amp; Air Conditioning</span><span class="course-credits">2-0-2</span></li>
+                                    <li><span class="course-code">MA 202</span><span class="course-name">Numerical Analysis &amp; Computation</span><span class="course-credits">2-1-3</span></li>
+                                    <li><span class="course-code">ME 324</span><span class="course-name">Machine Design I</span><span class="course-credits">2-0-2</span></li>
+                                    <li><span class="course-code">ME 329</span><span class="course-name">Mechanical Vibrations</span><span class="course-credits">3-0-3</span></li>
+                                    <li><span class="course-code">ME 325</span><span class="course-name">Reverse Engineering</span><span class="course-credits">3-0-3</span></li>
+                                    <li><span class="course-code">ME 329L</span><span class="course-name">Mechanical Vibrations Lab</span><span class="course-credits">0-1-1</span></li>
+                                    <li><span class="course-code">ME 343</span><span class="course-name">Manufacturing Process II</span><span class="course-credits">1-0-1</span></li>
+                                </ul>
+                            </div>
+                            <button class="semester-toggle" aria-expanded="false" aria-controls="sem-5">
+                                <span class="toggle-label">View Courses</span>
+                                <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- Semester 6 - Planned -->
+                    <article class="semester-card planned reveal" data-expanded="false">
+                        <div class="semester-card__inner">
+                            <header class="semester-head">
+                                <div class="semester-title-group">
+                                    <span class="semester-number" aria-hidden="true">6</span>
+                                    <div class="semester-title">
+                                        <h3>Semester 6</h3>
+                                        <span class="semester-term"><i class="far fa-calendar" aria-hidden="true"></i> Spring Semester 2027</span>
+                                    </div>
+                                </div>
+                                <span class="status-badge planned"><i class="fas fa-clock" aria-hidden="true"></i> Upcoming</span>
+                            </header>
+                            <div class="semester-stats">
+                                <span><i class="fas fa-hourglass-half" aria-hidden="true"></i> 16 Credit Hours</span>
+                                <span><i class="fas fa-list" aria-hidden="true"></i> 5 Courses</span>
+                            </div>
+                            <div class="semester-courses" id="sem-6">
+                                <ul class="course-list">
+                                    <li><span class="course-code">ME 338</span><span class="course-name">Heat &amp; Mass Transfer</span><span class="course-credits">3-0-3</span></li>
+                                    <li><span class="course-code">ME 339</span><span class="course-name">Finite Element Analysis</span><span class="course-credits">3-0-3</span></li>
+                                    <li><span class="course-code">ME 340</span><span class="course-name">Instrumentation &amp; Measurements</span><span class="course-credits">3-0-3</span></li>
+                                    <li><span class="course-code">ME 341</span><span class="course-name">Control Systems</span><span class="course-credits">3-0-3</span></li>
+                                    <li><span class="course-code">ME 342</span><span class="course-name">CAD/CAM</span><span class="course-credits">2-0-2</span></li>
+                                </ul>
+                            </div>
+                            <button class="semester-toggle" aria-expanded="false" aria-controls="sem-6">
+                                <span class="toggle-label">View Courses</span>
+                                <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- Semester 7 - Planned -->
+                    <article class="semester-card planned reveal" data-expanded="false">
+                        <div class="semester-card__inner">
+                            <header class="semester-head">
+                                <div class="semester-title-group">
+                                    <span class="semester-number" aria-hidden="true">7</span>
+                                    <div class="semester-title">
+                                        <h3>Semester 7</h3>
+                                        <span class="semester-term"><i class="far fa-calendar" aria-hidden="true"></i> Fall Semester 2027</span>
+                                    </div>
+                                </div>
+                                <span class="status-badge planned"><i class="fas fa-clock" aria-hidden="true"></i> Upcoming</span>
+                            </header>
+                            <div class="semester-stats">
+                                <span><i class="fas fa-hourglass-half" aria-hidden="true"></i> 15 Credit Hours</span>
+                                <span><i class="fas fa-list" aria-hidden="true"></i> 6 Courses</span>
+                            </div>
+                            <div class="semester-courses" id="sem-7">
+                                <ul class="course-list">
+                                    <li><span class="course-code">EM XXX</span><span class="course-name">Management Elective</span><span class="course-credits">2-0-2</span></li>
+                                    <li><span class="course-code">HU 411</span><span class="course-name">Civics &amp; Community Engagement</span><span class="course-credits">2-0-2</span></li>
+                                    <li><span class="course-code">ME 469</span><span class="course-name">IC Engines &amp; Propulsion</span><span class="course-credits">2-0-2</span></li>
+                                    <li><span class="course-code">ME 471</span><span class="course-name">Technical Elective I</span><span class="course-credits">2-0-2</span></li>
+                                    <li><span class="course-code">ME 479</span><span class="course-name">AI with Python</span><span class="course-credits">2-0-2</span></li>
+                                    <li><span class="course-code">ME 493</span><span class="course-name">Final Year Project II</span><span class="course-credits">0-2-2</span></li>
+                                </ul>
+                            </div>
+                            <button class="semester-toggle" aria-expanded="false" aria-controls="sem-7">
+                                <span class="toggle-label">View Courses</span>
+                                <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- Semester 8 - Planned -->
+                    <article class="semester-card planned reveal" data-expanded="false">
+                        <div class="semester-card__inner">
+                            <header class="semester-head">
+                                <div class="semester-title-group">
+                                    <span class="semester-number" aria-hidden="true">8</span>
+                                    <div class="semester-title">
+                                        <h3>Semester 8</h3>
+                                        <span class="semester-term"><i class="far fa-calendar" aria-hidden="true"></i> Spring Semester 2028</span>
+                                    </div>
+                                </div>
+                                <span class="status-badge planned"><i class="fas fa-clock" aria-hidden="true"></i> Upcoming</span>
+                            </header>
+                            <div class="semester-stats">
+                                <span><i class="fas fa-hourglass-half" aria-hidden="true"></i> 10 Credit Hours</span>
+                                <span><i class="fas fa-list" aria-hidden="true"></i> 4 Courses</span>
+                            </div>
+                            <div class="semester-courses" id="sem-8">
+                                <ul class="course-list">
+                                    <li><span class="course-code">BA 353</span><span class="course-name">Entrepreneurship</span><span class="course-credits">2-0-2</span></li>
+                                    <li><span class="course-code">ME XXX</span><span class="course-name">Technical Elective II</span><span class="course-credits">3-0-3</span></li>
+                                    <li><span class="course-code">XX XXX</span><span class="course-name">Elective II</span><span class="course-credits">2-0-2</span></li>
+                                    <li><span class="course-code">ME 494</span><span class="course-name">Final Year Project III</span><span class="course-credits">0-3-3</span></li>
+                                </ul>
+                            </div>
+                            <button class="semester-toggle" aria-expanded="false" aria-controls="sem-8">
+                                <span class="toggle-label">View Courses</span>
+                                <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Academic Performance -->
+        <section id="performance" class="section" aria-labelledby="performance-title">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-eyebrow">Results</span>
+                    <h2 class="section-title" id="performance-title">Current Academic Status</h2>
+                    <p class="section-subtitle">Consistent growth with strong fundamentals in core mechanical engineering subjects</p>
+                </div>
+
+                <div class="performance-content">
+                    <div class="performance-graph-card reveal">
+                        <div class="card-head">
+                            <h3><i class="fas fa-chart-line" aria-hidden="true"></i> Academic Performance Trend</h3>
+                            <span class="chart-tag"><i class="fas fa-arrow-trend-up" aria-hidden="true"></i> GPA / CGPA</span>
+                        </div>
+                        <img src="images/CGPA Graph.png" alt="Academic Performance Graph - GPA Progress" class="performance-graph" width="866" height="569">
+                        <p class="graph-caption">Semester-by-semester GPA/CGPA progression</p>
+                    </div>
+
+                    <div class="performance-cards">
+                        <div class="perf-card perf-card--cgpa reveal">
+                            <div class="cgpa-ring-wrap" role="img" aria-label="Current CGPA of 3.68 out of 4.00, which is 92 percent">
+                                <svg class="cgpa-ring" width="120" height="120" viewBox="0 0 120 120" aria-hidden="true">
+                                    <circle class="ring-bg" cx="60" cy="60" r="50"></circle>
+                                    <circle class="ring-fg" cx="60" cy="60" r="50" data-progress="92"></circle>
+                                </svg>
+                            </div>
+                            <div class="cgpa-details">
+                                <h4>Current CGPA</h4>
+                                <p class="cgpa-value">3.68 <small>/ 4.00</small></p>
+                                <span class="standing-chip"><i class="fas fa-medal" aria-hidden="true"></i> Honors Standing</span>
+                            </div>
+                        </div>
+
+                        <div class="perf-card reveal">
+                            <h4>Completed Credits</h4>
+                            <p class="perf-value">53 <small>/ 136</small></p>
+                            <div class="mini-progress">
+                                <div class="mini-head">
+                                    <span class="mini-label">Credits earned</span>
+                                    <span class="mini-value" data-count="38.9" data-suffix="%">38.9%</span>
+                                </div>
+                                <div class="mini-bar" role="progressbar" aria-valuenow="38.9" aria-valuemin="0" aria-valuemax="100" aria-label="Degree completion progress">
+                                    <span data-width="38.9"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="perf-card reveal">
+                            <h4>Degree Progress</h4>
+                            <p class="perf-value">4 <small>/ 8 semesters</small></p>
+                            <div class="mini-progress">
+                                <div class="mini-head">
+                                    <span class="mini-label">Semesters completed</span>
+                                    <span class="mini-value">50%</span>
+                                </div>
+                                <div class="mini-bar mini-bar--emerald" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" aria-label="Semester completion progress">
+                                    <span data-width="50"></span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -552,181 +485,239 @@
         </section>
 
         <!-- Grading System -->
-        <section class="section grading">
-            <h2 class="section-title">Grading System & Evaluation</h2>
-            <div class="grading-content">
-                <div class="grading-table">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Grade</th>
-                                <th>GPA Value</th>
-                                <th>Description</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>A</td>
-                                <td>4.00</td>
-                                <td>Excellent</td>
-                            </tr>
-                            <tr>
-                                <td>A-</td>
-                                <td>3.67</td>
-                                <td>Very Good</td>
-                            </tr>
-                            <tr>
-                                <td>B+</td>
-                                <td>3.33</td>
-                                <td>Good Plus</td>
-                            </tr>
-                            <tr>
-                                <td>B</td>
-                                <td>3.00</td>
-                                <td>Good</td>
-                            </tr>
-                            <tr>
-                                <td>B-</td>
-                                <td>2.67</td>
-                                <td>Satisfactory Plus</td>
-                            </tr>
-                            <tr>
-                                <td>C+</td>
-                                <td>2.33</td>
-                                <td>Satisfactory</td>
-                            </tr>
-                            <tr>
-                                <td>C</td>
-                                <td>2.00</td>
-                                <td>Pass</td>
-                            </tr>
-                            <tr>
-                                <td>C-</td>
-                                <td>1.67</td>
-                                <td>Pass Minus</td>
-                            </tr>
-                            <tr>
-                                <td>D</td>
-                                <td>1.00</td>
-                                <td>Conditional Pass</td>
-                            </tr>
-                            <tr>
-                                <td>F</td>
-                                <td>0.00</td>
-                                <td>Fail</td>
-                            </tr>
-                        </tbody>
-                    </table>
+        <section id="grading" class="section section--soft" aria-labelledby="grading-title">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-eyebrow">Evaluation</span>
+                    <h2 class="section-title" id="grading-title">Grading System &amp; Evaluation</h2>
+                    <p class="section-subtitle">Air University grading scale, academic standing criteria, and GPA calculation</p>
                 </div>
-                <div class="academic-standing">
-                    <h3>Academic Standing Criteria</h3>
-                    <div class="standing-list">
-                        <div class="standing-item high-honors">
-                            <span class="standing-range">3.75 ≤ SGPA ≤ 4.00</span>
-                            <span class="standing-name">High Honors</span>
+
+                <div class="grading-content">
+                    <div class="grading-panel reveal">
+                        <h3><i class="fas fa-table" aria-hidden="true"></i> Grade Point Scale</h3>
+                        <div class="grade-row">
+                            <span class="grade-letter">A</span>
+                            <span class="grade-value">4.00</span>
+                            <span class="grade-desc">Excellent</span>
                         </div>
-                        <div class="standing-item honors">
-                            <span class="standing-range">3.50 ≤ SGPA < 3.75</span>
-                            <span class="standing-name">Honors</span>
+                        <div class="grade-row">
+                            <span class="grade-letter">A-</span>
+                            <span class="grade-value">3.67</span>
+                            <span class="grade-desc">Very Good</span>
                         </div>
-                        <div class="standing-item good">
-                            <span class="standing-range">3.00 ≤ SGPA < 3.50</span>
-                            <span class="standing-name">Good</span>
+                        <div class="grade-row">
+                            <span class="grade-letter">B+</span>
+                            <span class="grade-value">3.33</span>
+                            <span class="grade-desc">Good Plus</span>
                         </div>
-                        <div class="standing-item fair">
-                            <span class="standing-range">2.50 ≤ SGPA < 3.00</span>
-                            <span class="standing-name">Fair</span>
+                        <div class="grade-row">
+                            <span class="grade-letter">B</span>
+                            <span class="grade-value">3.00</span>
+                            <span class="grade-desc">Good</span>
                         </div>
-                        <div class="standing-item satisfactory">
-                            <span class="standing-range">2.00 ≤ SGPA < 2.50</span>
-                            <span class="standing-name">Satisfactory</span>
+                        <div class="grade-row">
+                            <span class="grade-letter">B-</span>
+                            <span class="grade-value">2.67</span>
+                            <span class="grade-desc">Satisfactory Plus</span>
+                        </div>
+                        <div class="grade-row">
+                            <span class="grade-letter">C+</span>
+                            <span class="grade-value">2.33</span>
+                            <span class="grade-desc">Satisfactory</span>
+                        </div>
+                        <div class="grade-row">
+                            <span class="grade-letter">C</span>
+                            <span class="grade-value">2.00</span>
+                            <span class="grade-desc">Pass</span>
+                        </div>
+                        <div class="grade-row">
+                            <span class="grade-letter">C-</span>
+                            <span class="grade-value">1.67</span>
+                            <span class="grade-desc">Pass Minus</span>
+                        </div>
+                        <div class="grade-row">
+                            <span class="grade-letter">D</span>
+                            <span class="grade-value">1.00</span>
+                            <span class="grade-desc">Conditional Pass</span>
+                        </div>
+                        <div class="grade-row">
+                            <span class="grade-letter">F</span>
+                            <span class="grade-value">0.00</span>
+                            <span class="grade-desc">Fail</span>
                         </div>
                     </div>
-                    <div class="calculation-info">
-                        <h4>GPA Calculation</h4>
-                        <p>SGPA (Semester Grade Point Average) is calculated based on semester performance. CGPA (Cumulative GPA) is the weighted average of all completed semesters.</p>
-                        <p><strong>Formula:</strong> GPA = Σ(Course Grade × Credit Hours) / Σ(Credit Hours)</p>
+
+                    <div>
+                        <div class="grading-panel reveal">
+                            <h3><i class="fas fa-ranking-star" aria-hidden="true"></i> Academic Standing Criteria</h3>
+                            <div class="standing-scale">
+                                <div class="scale-bands" aria-hidden="true">
+                                    <div class="band band--satisfactory"></div>
+                                    <div class="band band--fair"></div>
+                                    <div class="band band--good"></div>
+                                    <div class="band band--honors"></div>
+                                    <div class="band band--high"></div>
+                                </div>
+                                <div class="scale-track" aria-hidden="true">
+                                    <div class="scale-marker" style="left: 84%;">
+                                        <span class="marker-dot"></span>
+                                        <span class="marker-label">3.68</span>
+                                    </div>
+                                </div>
+                                <div class="scale-legend">
+                                    <span>2.00</span>
+                                    <span>2.50</span>
+                                    <span>3.00</span>
+                                    <span>3.50</span>
+                                    <span>3.75</span>
+                                    <span>4.00</span>
+                                </div>
+                            </div>
+                            <ul class="standing-list">
+                                <li class="standing-item">
+                                    <span class="standing-name">High Honors</span>
+                                    <span class="standing-range">3.75 &le; SGPA &le; 4.00</span>
+                                </li>
+                                <li class="standing-item is-current">
+                                    <span class="standing-name">Honors</span>
+                                    <span class="standing-range">3.50 &le; SGPA &lt; 3.75</span>
+                                </li>
+                                <li class="standing-item">
+                                    <span class="standing-name">Good</span>
+                                    <span class="standing-range">3.00 &le; SGPA &lt; 3.50</span>
+                                </li>
+                                <li class="standing-item">
+                                    <span class="standing-name">Fair</span>
+                                    <span class="standing-range">2.50 &le; SGPA &lt; 3.00</span>
+                                </li>
+                                <li class="standing-item">
+                                    <span class="standing-name">Satisfactory</span>
+                                    <span class="standing-range">2.00 &le; SGPA &lt; 2.50</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="formula-card reveal">
+                            <h4><i class="fas fa-square-root-alt" aria-hidden="true"></i> GPA Calculation</h4>
+                            <p>SGPA (Semester Grade Point Average) is calculated based on semester performance. CGPA (Cumulative GPA) is the weighted average of all completed semesters.</p>
+                            <span class="formula">GPA = &Sigma;(Course Grade &times; Credit Hours) / &Sigma;(Credit Hours)</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Facilities -->
-        <section id="facilities" class="section facilities">
-            <h2 class="section-title">Laboratory Facilities & Infrastructure</h2>
-            <div class="facilities-grid">
-                <div class="facility-item">
-                    <i class="fas fa-industry"></i>
-                    <h3>Mechanical Workshop</h3>
+        <section id="facilities" class="section" aria-labelledby="facilities-title">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-eyebrow">Infrastructure</span>
+                    <h2 class="section-title" id="facilities-title">Laboratory Facilities &amp; Infrastructure</h2>
+                    <p class="section-subtitle">Modern laboratories and facilities supporting hands-on engineering education</p>
                 </div>
-                <div class="facility-item">
-                    <i class="fas fa-drafting-compass"></i>
-                    <h3>Engineering Drawing & Graphics Lab</h3>
-                </div>
-                <div class="facility-item">
-                    <i class="fas fa-desktop"></i>
-                    <h3>UG Computer Lab (AutoCAD/CAE)</h3>
-                </div>
-                <div class="facility-item">
-                    <i class="fas fa-weight-hanging"></i>
-                    <h3>Engineering Mechanics Lab</h3>
-                </div>
-                <div class="facility-item">
-                    <i class="fas fa-fire"></i>
-                    <h3>Thermodynamics Lab</h3>
-                </div>
-                <div class="facility-item">
-                    <i class="fas fa-water"></i>
-                    <h3>Thermofluids Lab</h3>
-                </div>
-                <div class="facility-item">
-                    <i class="fas fa-temperature-high"></i>
-                    <h3>Heat & Mass Transfer Lab</h3>
-                </div>
-                <div class="facility-item">
-                    <i class="fas fa-vr-cardboard"></i>
-                    <h3>Mechanical Vibrations Lab</h3>
-                </div>
-                <div class="facility-item">
-                    <i class="fas fa-tachometer-alt"></i>
-                    <h3>Instrumentation & Control Lab</h3>
-                </div>
-                <div class="facility-item">
-                    <i class="fas fa-cogs"></i>
-                    <h3>CNC Lab</h3>
-                </div>
-                <div class="facility-item">
-                    <i class="fas fa-snowflake"></i>
-                    <h3>Refrigeration & AC Lab</h3>
-                </div>
-                <div class="facility-item">
-                    <i class="fas fa-cubes"></i>
-                    <h3>Mechanics of Materials Lab</h3>
-                </div>
-                <div class="facility-item">
-                    <i class="fas fa-gas-pump"></i>
-                    <h3>IC & Power Plant Lab</h3>
-                </div>
-                <div class="facility-item">
-                    <i class="fas fa-book"></i>
-                    <h3>Departmental Library</h3>
-                </div>
-                <div class="facility-item">
-                    <i class="fas fa-dumbbell"></i>
-                    <h3>Sports Complex & Gym</h3>
-                </div>
-                <div class="facility-item">
-                    <i class="fas fa-clinic-medical"></i>
-                    <h3>Medical Center</h3>
+
+                <div class="facilities-grid">
+                    <div class="facility-item reveal">
+                        <span class="facility-icon" aria-hidden="true"><i class="fas fa-industry"></i></span>
+                        <h3>Mechanical Workshop</h3>
+                    </div>
+                    <div class="facility-item reveal">
+                        <span class="facility-icon" aria-hidden="true"><i class="fas fa-drafting-compass"></i></span>
+                        <h3>Engineering Drawing &amp; Graphics Lab</h3>
+                    </div>
+                    <div class="facility-item reveal">
+                        <span class="facility-icon" aria-hidden="true"><i class="fas fa-desktop"></i></span>
+                        <h3>UG Computer Lab (AutoCAD/CAE)</h3>
+                    </div>
+                    <div class="facility-item reveal">
+                        <span class="facility-icon" aria-hidden="true"><i class="fas fa-weight-hanging"></i></span>
+                        <h3>Engineering Mechanics Lab</h3>
+                    </div>
+                    <div class="facility-item reveal">
+                        <span class="facility-icon" aria-hidden="true"><i class="fas fa-fire"></i></span>
+                        <h3>Thermodynamics Lab</h3>
+                    </div>
+                    <div class="facility-item reveal">
+                        <span class="facility-icon" aria-hidden="true"><i class="fas fa-water"></i></span>
+                        <h3>Thermofluids Lab</h3>
+                    </div>
+                    <div class="facility-item reveal">
+                        <span class="facility-icon" aria-hidden="true"><i class="fas fa-temperature-high"></i></span>
+                        <h3>Heat &amp; Mass Transfer Lab</h3>
+                    </div>
+                    <div class="facility-item reveal">
+                        <span class="facility-icon" aria-hidden="true"><i class="fas fa-vr-cardboard"></i></span>
+                        <h3>Mechanical Vibrations Lab</h3>
+                    </div>
+                    <div class="facility-item reveal">
+                        <span class="facility-icon" aria-hidden="true"><i class="fas fa-tachometer-alt"></i></span>
+                        <h3>Instrumentation &amp; Control Lab</h3>
+                    </div>
+                    <div class="facility-item reveal">
+                        <span class="facility-icon" aria-hidden="true"><i class="fas fa-cogs"></i></span>
+                        <h3>CNC Lab</h3>
+                    </div>
+                    <div class="facility-item reveal">
+                        <span class="facility-icon" aria-hidden="true"><i class="fas fa-snowflake"></i></span>
+                        <h3>Refrigeration &amp; AC Lab</h3>
+                    </div>
+                    <div class="facility-item reveal">
+                        <span class="facility-icon" aria-hidden="true"><i class="fas fa-cubes"></i></span>
+                        <h3>Mechanics of Materials Lab</h3>
+                    </div>
+                    <div class="facility-item reveal">
+                        <span class="facility-icon" aria-hidden="true"><i class="fas fa-gas-pump"></i></span>
+                        <h3>IC &amp; Power Plant Lab</h3>
+                    </div>
+                    <div class="facility-item reveal">
+                        <span class="facility-icon" aria-hidden="true"><i class="fas fa-book"></i></span>
+                        <h3>Departmental Library</h3>
+                    </div>
+                    <div class="facility-item reveal">
+                        <span class="facility-icon" aria-hidden="true"><i class="fas fa-dumbbell"></i></span>
+                        <h3>Sports Complex &amp; Gym</h3>
+                    </div>
+                    <div class="facility-item reveal">
+                        <span class="facility-icon" aria-hidden="true"><i class="fas fa-clinic-medical"></i></span>
+                        <h3>Medical Center</h3>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
 
+    <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>© 2024 Mechanical Engineering Academic Portfolio. All academic information from Air University DMAE official documents.</p>
-            <p>Air University | Department of Mechanical & Aerospace Engineering | Islamabad, Pakistan</p>
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3><i class="fas fa-graduation-cap" aria-hidden="true"></i> Academic Portfolio</h3>
+                    <p>B.E. Mechanical Engineering — Air University, Department of Mechanical &amp; Aerospace Engineering, Islamabad, Pakistan.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigate</h4>
+                    <ul>
+                        <li><a href="index.html"><i class="fas fa-home" aria-hidden="true"></i> Portfolio Home</a></li>
+                        <li><a href="#overview">University &amp; Department</a></li>
+                        <li><a href="#progress">Academic Progress</a></li>
+                        <li><a href="#performance">Academic Performance</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>More</h4>
+                    <ul>
+                        <li><a href="#grading">Grading System</a></li>
+                        <li><a href="#facilities">Laboratory Facilities</a></li>
+                        <li><a href="certificates.html">Certificates</a></li>
+                        <li><a href="gpa.html">GPA Calculator</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Muhammad Usman Khan — <span>Mechanical Engineering</span> Academic Portfolio</p>
+                <p>All academic information from Air University DMAE official documents.</p>
+            </div>
         </div>
     </footer>
 
