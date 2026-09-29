@@ -794,3 +794,47 @@ h1, h2, h3, h4, h5, h6 {
     align-items: flex-start;
   }
 }
+
+/* ============================================================
+   2026 brand alignment — mirrors index.css / site-theme.css
+   ============================================================ */
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    letter-spacing: -0.005em;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: 'Sora', 'Inter', sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.028em;
+}
+
+.header,
+.main-nav,
+.sticky-header {
+    background: var(--surface);
+    border-bottom: 1px solid var(--line);
+}
+
+.logo i {
+    color: var(--brand);
+}
+
+.btn,
+button[type="submit"],
+.calc-btn,
+.reset-btn {
+    border-radius: var(--r-sm);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    transition: var(--transition);
+}
+
+.card,
+.result-card,
+.header-card {
+    border: 1px solid var(--line);
+    border-radius: var(--r-md);
+    box-shadow: var(--shadow-sm);
+}

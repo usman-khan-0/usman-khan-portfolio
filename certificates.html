@@ -5,30 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Certificates & Achievements | Muhammad Usman Khan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
         rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
-    <link rel="icon" type="image/png" href="images/gpa-logo.png">
+    <link rel="icon" type="image/png" href="images/favicon.png">
     <style>
-        :root {
-            --primary: #2E7D32;
-            --primary-light: #4CAF50;
-            --primary-dark: #1B5E20;
-            --accent: #FF5722;
-            --dark: #0D1117;
-            --dark-secondary: #161B22;
-            --light: #E8F5E9;
-            --white: #FAFBFC;
-            --gray: #6B7280;
-            --border: #30363D;
-            --success: #10B981;
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-        }
+/* Colour, type and spacing tokens come from site-theme.css (shared with the
+           portfolio home page). Override them here only if this page must differ. */
 
         * {
             margin: 0;
@@ -445,33 +431,55 @@
             }
         }
     </style>
+    <link rel="stylesheet" href="site-theme.css">
+    <script>/* follow the theme picked on the portfolio home page */
+    (function () {
+        try {
+            var t = localStorage.getItem("uk-theme");
+            if (t) document.documentElement.setAttribute("data-theme", t);
+        } catch (e) { /* private mode */ }
+    })();</script>
 </head>
 
 <body>
     <!-- Navigation -->
     <nav class="nav-container">
         <div class="nav">
-            <a href="#home" class="nav-logo">
-                <img src="images/Logo.png" alt="Logo">
-                Usman Khan
+            <a href="index.html" class="nav-logo">
+                <img src="images/logo-nav.png" alt="Usman Khan — logo" width="96" height="96">
+                <span class="nav-logo-text">
+                    <span class="nav-logo-name">Usman Khan</span>
+                    <span class="nav-logo-role">Mechanical · AI · Web</span>
+                </span>
             </a>
-            <div class="nav-links">
-                <a href="index.html#home" class="nav-link active" title="Home"><i class="fas fa-home"></i></a>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html" class="nav-link" title="Home"><i class="fas fa-home"></i>Home</a>
+                <a href="index.html#experience" class="nav-link" title="Experience"><i class="fas fa-briefcase"></i>Experience</a>
                 <div class="nav-dropdown">
-                    <a href="index.html#projects" class="nav-link" title="Projects"><i class="fas fa-folder-open"></i></a>
+                    <a href="index.html#projects" class="nav-link" title="Projects"><i class="fas fa-folder-open"></i>Projects</a>
                     <div class="dropdown-menu">
-                        <a href="in_progress.html">In Progress</a>
-                        <a href="Engineering_project.html">Engineering Projects</a>
-                        <a href="websites.html">Websites</a>
+                        <span class="dropdown-label">Browse by track</span>
+                        <a href="in_progress.html"><i class="fas fa-hourglass-half"></i>In Progress</a>
+                        <a href="Engineering_project.html"><i class="fas fa-cogs"></i>Engineering Projects</a>
+                        <a href="websites.html"><i class="fas fa-globe"></i>Websites</a>
+                        <a href="ballistic missile/index.html"><i class="fas fa-crosshairs"></i>Missile Research</a>
                     </div>
                 </div>
-                <a href="index.html#cv" class="nav-link" title="CV"><i class="fas fa-file-alt"></i></a>
-                <a href="certificates.html" class="nav-link" title="Certificates"><i class="fas fa-certificate"></i></a>
-                <a href="index.html#learning-journey" class="nav-link" title="Learning Journey"><i class="fas fa-road"></i></a>
-                <a href="index.html#contact" class="nav-link" title="Contact"><i class="fas fa-envelope"></i></a>
-                <a href="ballistic missile/index.html" class="nav-link" title="Interests"><i class="fas fa-crosshairs"></i></a>
+                <a href="index.html#cv" class="nav-link" title="CV"><i class="fas fa-file-alt"></i>Resume</a>
+                <a href="certificates.html" class="nav-link nav-link active" title="Certificates"><i class="fas fa-certificate"></i>Certificates</a>
+                <a href="index.html#learning-journey" class="nav-link" title="Learning Journey"><i class="fas fa-road"></i>Journey</a>
+                <a href="blog.html" class="nav-link" title="Blog"><i class="fas fa-pen-nib"></i>Blog</a>
+                <a href="index.html#contact" class="nav-link" title="Contact"><i class="fas fa-envelope"></i>Contact</a>
             </div>
-            <button class="mobile-nav-toggle"><i class="fas fa-bars"></i></button>
+            <div class="nav-actions">
+                <button class="icon-btn theme-toggle" type="button" aria-label="Switch colour theme">
+                    <i class="fas fa-moon icon-moon" aria-hidden="true"></i>
+                    <i class="fas fa-sun icon-sun" aria-hidden="true"></i>
+                </button>
+                <a href="index.html#cv" class="nav-cta"><i class="fas fa-download"></i> Resume</a>
+                <button class="mobile-nav-toggle" type="button" aria-label="Toggle navigation"
+                    aria-expanded="false" aria-controls="navLinks"><i class="fas fa-bars"></i></button>
+            </div>
         </div>
     </nav>
 
@@ -707,7 +715,14 @@
         const navLinks = document.querySelector('.nav-links');
 
         mobileNavToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
+
+
+            var open = navLinks.classList.toggle('active');
+
+
+            mobileNavToggle.setAttribute('aria-expanded', String(open));
+
+
         });
 
         // Navigation Links - Handle anchor links
@@ -726,6 +741,7 @@
             });
         });
     </script>
+    <script src="site-theme.js"></script>
 </body>
 
 </html>

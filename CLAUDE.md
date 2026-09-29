@@ -25,6 +25,9 @@ Personal portfolio website for Muhammad Usman Khan — Mechanical Engineering st
 ```
 /
 ├── index.html          # Main portfolio page (hero, about, skills, projects, contact)
+├── index.css           # Design system for index.html (tokens, nav, hero, sections)
+├── site-theme.css      # Shared theme for every other page (same tokens, nav, cards)
+├── site-theme.js       # Applies the saved colour theme + mobile drawer state on subpages
 ├── academics.html      # Education, GPA tracker, semester results
 ├── blog.html           # Blog listing page
 ├── blog-post.html      # Individual blog post template
@@ -49,8 +52,20 @@ Personal portfolio website for Muhammad Usman Khan — Mechanical Engineering st
 
 ### Frontend
 - All pages use vanilla JS — do NOT introduce npm packages or build tools.
-- CSS is co-located per page (e.g., `blog.css` for `blog.html`). Keep this pattern.
-- `index.html` is large (~205 KB). Scroll carefully; avoid accidental deletions.
+- Styling runs through design tokens. `index.css` (home page) and `site-theme.css`
+  (every other page) define the same `:root` tokens: `--brand`, `--bg`, `--surface`,
+  `--line`, `--text`, `--font-display|body|mono`, `--r-*`, `--shadow-*`, `--ease`, `--dur`.
+  Change a token there rather than hard-coding a colour in a component rule.
+- Colour is theme-aware: `data-theme="light"` on `<html>` swaps the token set; the
+  preference is stored in `localStorage` under `uk-theme`. Keep new rules token-based
+  so both themes work, and pin a page to one theme with `data-force-theme`.
+- Typography: Sora (display), Inter (body), JetBrains Mono (eyebrows, chips, numbers).
+  Icons come from Font Awesome 6.5.1 via CDN.
+- `index.html` carries no `<style>` block — styles live in `index.css`. Page CSS stays
+  co-located per page (e.g. `blog.css` for `blog.html`), then `site-theme.css` is linked
+  last so the shared tokens win.
+- Motion is opt-out: any new animation must sit inside `@media (prefers-reduced-motion: no-preference)`
+  or be neutralised by the reduced-motion block.
 - `blog.js` contains all blog post data as JS objects. Add new posts there.
 
 ### Backend / API
@@ -78,14 +93,15 @@ Personal portfolio website for Muhammad Usman Khan — Mechanical Engineering st
 Edit `blog.js` — append a new object to the posts array following the existing schema (id, title, date, category, tags, content, etc.).
 
 ### Update portfolio content
-Edit `index.html` directly. Sections are clearly commented. The file is large — use search to locate the right section.
+Edit `index.html` directly (sections are commented) and `index.css` for its styling — the page has no inline `<style>` block anymore. Subpages inherit `site-theme.css`; page-specific tweaks go in that page's own CSS file, which is loaded before the shared theme.
 
 ### Modify the chatbot system prompt
 Edit the `system` message in `api/index.py` (and optionally `chatbot.py` for local dev).
 
 ### Add a new page
 - Create `page.html` and `page.css` / `page.js` alongside existing pages.
-- Link from `index.html` navigation.
+- Link from `index.html` navigation (nav labels live in the `.nav-links` block), and load `site-theme.css` + `site-theme.js` with the correct relative prefix.
+- Add `<meta name="description">` and a favicon (`images/favicon.png`) like the other pages.
 - No routing config needed — Vercel serves static files automatically.
 
 ---
