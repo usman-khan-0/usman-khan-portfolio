@@ -403,6 +403,29 @@ a {
     position: relative;
 }
 
+/* Keep the pointer inside the trigger while crossing into the menu */
+.nav-dropdown::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    height: 12px;
+}
+
+@media (min-width: 901px) {
+
+    .nav-links,
+    .nav-dropdown {
+        height: 100%;
+    }
+
+    .nav-dropdown {
+        display: flex;
+        align-items: center;
+    }
+}
+
 .nav-dropdown .dropdown-menu {
     position: absolute;
     top: calc(100% + 10px);

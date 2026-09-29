@@ -313,6 +313,29 @@ h1, h2, h3, h4 {
     box-shadow: inset 0 0 0 1px var(--brand-line);
 }
 
+@media (min-width: 901px) {
+
+    .nav-links,
+    .nav-dropdown {
+        height: 100%;
+    }
+
+    .nav-dropdown {
+        display: flex;
+        align-items: center;
+        position: relative;
+    }
+
+    .nav-dropdown::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 100%;
+        height: 12px;
+    }
+}
+
 .nav-dropdown .dropdown-menu {
     top: calc(100% + 10px);
     background: var(--surface-2);
