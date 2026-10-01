@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light" data-force-theme>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +7,15 @@
     <link rel="stylesheet" href="todo.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="site-theme.css">
+    <script>/* follow the theme picked on the portfolio home page */
+    (function () {
+        try {
+            var root = document.documentElement;
+            var t = localStorage.getItem("uk-theme");
+            if (t && !root.hasAttribute("data-force-theme")) root.setAttribute("data-theme", t);
+        } catch (e) { /* private mode */ }
+    })();</script>
 </head>
 <body>
     <div class="container">
@@ -153,5 +162,6 @@
     </div>
 
     <script src="todo.js"></script>
+    <script src="site-theme.js"></script>
 </body>
 </html>

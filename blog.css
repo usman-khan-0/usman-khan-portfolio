@@ -1062,3 +1062,88 @@ a {
         font-size: 1.3rem;
     }
 }
+
+/* ============================================================
+   2026 brand alignment — mirrors index.css / site-theme.css
+   ============================================================ */
+
+body {
+    letter-spacing: -0.005em;
+}
+
+h1, h2, h3, h4, h5 {
+    font-weight: 600;
+    letter-spacing: -0.028em;
+}
+
+h1 {
+    font-size: clamp(2rem, 4vw, 2.6rem);
+}
+
+h2 {
+    font-size: clamp(1.6rem, 3vw, 2.05rem);
+}
+
+a {
+    color: var(--brand-text);
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.55rem;
+    height: 46px;
+    padding: 0 1.2rem;
+    border-radius: var(--r-sm);
+    font-size: 0.9375rem;
+    transition: var(--transition);
+}
+
+.btn-primary {
+    background-color: var(--brand);
+    color: var(--on-brand);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), var(--shadow-md);
+}
+
+.btn-primary:hover {
+    background-color: var(--brand-strong);
+    transform: translateY(-1px);
+}
+
+.btn-secondary {
+    border: 1px solid var(--line);
+    color: var(--text);
+    background: var(--surface);
+}
+
+.btn-secondary:hover {
+    background: var(--surface-2);
+    border-color: var(--brand-line);
+    color: var(--text);
+}
+
+.stat-card {
+    background: linear-gradient(150deg, var(--brand), var(--brand-deep));
+    border-radius: var(--r-md);
+    box-shadow: var(--shadow-lg);
+}
+
+.header,
+.site-header {
+    border-bottom: 1px solid var(--line);
+}
+
+.blog-card,
+.post-card,
+.application-card,
+.category-card {
+    border-radius: var(--r-md);
+    box-shadow: var(--shadow-sm);
+}
+
+.ai-future {
+    background: linear-gradient(180deg, var(--surface-2), var(--surface));
+    border: 1px solid var(--line);
+    border-radius: var(--r-lg);
+}

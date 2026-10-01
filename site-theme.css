@@ -1,0 +1,725 @@
+/* ==========================================================================
+   Usman Khan — shared subpage theme
+   --------------------------------------------------------------------------
+   Loaded by every page other than index.html (which uses index.css) so the
+   whole site shares one design system: colour, type, spacing, elevation.
+   Safe to load after a page's own stylesheet — it only re-points tokens and
+   refines the shared chrome (nav, headers, cards, buttons, footer).
+   ========================================================================== */
+
+:root {
+    /* Brand */
+    --brand: #23b573;
+    --brand-strong: #3fd694;
+    --brand-deep: #0e6d45;
+    --brand-rgb: 35, 181, 115;
+    --brand-soft: rgba(35, 181, 115, 0.12);
+    --brand-line: rgba(35, 181, 115, 0.34);
+    --brand-text: #63e0a8;
+
+    --accent: #e0a84b;
+    --accent-rgb: 224, 168, 75;
+    --ok: #2fbf8f;
+    --ok-rgb: 47, 191, 143;
+
+    /* Surfaces */
+    --bg: #090b0f;
+    --bg-soft: #0c0f14;
+    --surface: #11151b;
+    --surface-2: #161b23;
+    --surface-3: #1c222c;
+    --line: #232a35;
+    --line-soft: #1a202a;
+    --grid-line: rgba(255, 255, 255, 0.028);
+    --nav-bg: rgba(9, 11, 15, 0.82);
+
+    /* Ink */
+    --text: #eaeef4;
+    --text-muted: #9aa5b5;
+    --text-dim: #6c7787;
+    --on-brand: #04150d;
+    --overlay: rgba(6, 8, 11, 0.78);
+
+    /* Type */
+    --font-display: 'Sora', 'Inter', ui-sans-serif, system-ui, sans-serif;
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+    --fs-eyebrow: 0.6875rem;
+
+    /* Space, shape, elevation, motion */
+    --gut: clamp(1.25rem, 4vw, 2.5rem);
+    --container: 1200px;
+    --nav-h: 68px;
+    --r-xs: 6px;
+    --r-sm: 10px;
+    --r-md: 14px;
+    --r-lg: 20px;
+    --r-pill: 999px;
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+    --shadow-md: 0 4px 14px -6px rgba(0, 0, 0, 0.55);
+    --shadow-lg: 0 14px 34px -14px rgba(0, 0, 0, 0.65);
+    --shadow-xl: 0 26px 60px -22px rgba(0, 0, 0, 0.78);
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);
+    --dur: 0.32s;
+
+    /* Legacy names still referenced by older page styles */
+    --primary: var(--brand);
+    --primary-light: var(--brand-strong);
+    --primary-dark: var(--brand-deep);
+    --primary-rgb: var(--brand-rgb);
+    --primary-soft: var(--brand-soft);
+    --primary-text: var(--brand-text);
+    --emerald: var(--brand);
+    --emerald-soft: var(--brand-soft);
+    --emerald-text: var(--brand-text);
+    --amber: var(--accent);
+    --amber-soft: rgba(var(--accent-rgb), 0.14);
+    --amber-text: var(--accent);
+    --dark: var(--bg);
+    --dark-secondary: var(--surface);
+    --bg0: var(--bg);
+    --bg1: var(--bg-soft);
+    --bg2: var(--surface);
+    --bg3: var(--surface-2);
+    --bg4: var(--surface-3);
+    --light: #f1f4f2;
+    --white: var(--text);
+    --gray: var(--text-muted);
+    --border: var(--line);
+    --border-soft: var(--line-soft);
+    --success: var(--ok);
+    --success-color: var(--brand);
+    --primary-color: var(--brand);
+    --primary-color-dark: var(--brand-deep);
+    --primary-dark: var(--brand-deep);
+    --primary-light-color: var(--brand-strong);
+    --radius: var(--r-sm);
+    --radius-sm: var(--r-xs);
+    --radius-lg: var(--r-lg);
+    --box-shadow: var(--shadow-md);
+    --light-color: var(--bg-soft);
+    --dark-color: var(--text);
+    --gray-color: var(--text-muted);
+    --light-gray: var(--surface-3);
+    --secondary-color: var(--brand-deep);
+    --accent-color: var(--accent);
+    --background-color: var(--bg);
+    --background-alt: var(--bg-soft);
+    --card-bg: var(--surface);
+    --text-color: var(--text);
+    --text-light: var(--text-muted);
+    --border-color: var(--line);
+    --gradient: linear-gradient(135deg, var(--brand), var(--brand-deep));
+    --transition: all var(--dur) var(--ease);
+}
+
+/* Light theme — automatic from OS preference, or explicit via data-theme */
+@media (prefers-color-scheme: light) {
+    html:not([data-theme]) {
+        --brand: #0f8a58;
+        --brand-strong: #0c7549;
+        --brand-deep: #0a5f3b;
+        --brand-rgb: 15, 138, 88;
+        --brand-soft: rgba(15, 138, 88, 0.09);
+        --brand-line: rgba(15, 138, 88, 0.28);
+        --brand-text: #0b6b42;
+        --accent: #a8720f;
+        --accent-rgb: 168, 114, 15;
+        --bg: #f6f6f3;
+        --bg-soft: #fbfbf9;
+        --surface: #ffffff;
+        --surface-2: #fbfbf8;
+        --surface-3: #f1f1ec;
+        --line: #e2e1da;
+        --line-soft: #ebeae4;
+        --grid-line: rgba(15, 20, 28, 0.045);
+        --nav-bg: rgba(251, 251, 249, 0.86);
+        --text: #14181f;
+        --text-muted: #5a6472;
+        --text-dim: #5f6874;
+        --on-brand: #ffffff;
+        --overlay: rgba(20, 24, 31, 0.72);
+        --light: #ffffff;
+        --white: #14181f;
+        --shadow-sm: 0 1px 2px rgba(20, 24, 31, 0.06);
+        --shadow-md: 0 4px 14px -6px rgba(20, 24, 31, 0.12);
+        --shadow-lg: 0 14px 30px -14px rgba(20, 24, 31, 0.16);
+        --shadow-xl: 0 26px 54px -22px rgba(20, 24, 31, 0.22);
+    }
+}
+
+html[data-theme="light"] {
+    --brand: #0f8a58;
+    --brand-strong: #0c7549;
+    --brand-deep: #0a5f3b;
+    --brand-rgb: 15, 138, 88;
+    --brand-soft: rgba(15, 138, 88, 0.09);
+    --brand-line: rgba(15, 138, 88, 0.28);
+    --brand-text: #0b6b42;
+    --accent: #a8720f;
+    --accent-rgb: 168, 114, 15;
+    --bg: #f6f6f3;
+    --bg-soft: #fbfbf9;
+    --surface: #ffffff;
+    --surface-2: #fbfbf8;
+    --surface-3: #f1f1ec;
+    --line: #e2e1da;
+    --line-soft: #ebeae4;
+    --grid-line: rgba(15, 20, 28, 0.045);
+    --nav-bg: rgba(251, 251, 249, 0.86);
+    --text: #14181f;
+    --text-muted: #5a6472;
+    --text-dim: #5f6874;
+    --on-brand: #ffffff;
+    --overlay: rgba(20, 24, 31, 0.72);
+    --light: #ffffff;
+    --white: #14181f;
+    --shadow-sm: 0 1px 2px rgba(20, 24, 31, 0.06);
+    --shadow-md: 0 4px 14px -6px rgba(20, 24, 31, 0.12);
+    --shadow-lg: 0 14px 30px -14px rgba(20, 24, 31, 0.16);
+    --shadow-xl: 0 26px 54px -22px rgba(20, 24, 31, 0.22);
+}
+
+/* ---------- Base ---------------------------------------------------------- */
+
+body {
+    font-family: var(--font-body);
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.65;
+    letter-spacing: -0.005em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.028em;
+    line-height: 1.2;
+    color: var(--text);
+}
+
+::selection {
+    background: rgba(var(--brand-rgb), 0.26);
+}
+
+:focus-visible {
+    outline: 2px solid var(--brand-strong);
+    outline-offset: 3px;
+    border-radius: var(--r-xs);
+}
+
+::-webkit-scrollbar {
+    width: 11px;
+    height: 11px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-soft);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--surface-3);
+    border: 3px solid var(--bg-soft);
+    border-radius: 999px;
+}
+
+/* ---------- Navigation chrome -------------------------------------------- */
+
+.nav-container {
+    height: var(--nav-h);
+    background: var(--nav-bg);
+    backdrop-filter: blur(18px) saturate(160%);
+    -webkit-backdrop-filter: blur(18px) saturate(160%);
+    border-bottom: 1px solid var(--line);
+}
+
+.nav {
+    max-width: var(--container);
+    padding: 0 var(--gut);
+    height: 100%;
+    gap: 1.25rem;
+}
+
+.nav-logo {
+    gap: 0.65rem;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--text);
+}
+
+.nav-logo img {
+    width: 36px;
+    height: 36px;
+    border-radius: 9px;
+    border: 1px solid var(--line);
+}
+
+.nav-logo-text {
+    display: grid;
+    line-height: 1.2;
+}
+
+.nav-logo-name {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: -0.02em;
+}
+
+.nav-logo-role {
+    font-family: var(--font-mono);
+    font-size: 0.5625rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+}
+
+.nav-links {
+    gap: 0.15rem;
+}
+
+.nav-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.45rem 0.8rem;
+    border-radius: var(--r-xs);
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    white-space: nowrap;
+    transition: color var(--dur) var(--ease), background-color var(--dur) var(--ease);
+}
+
+.nav-link i {
+    display: none;
+}
+
+.nav-link::after {
+    display: none;
+}
+
+.nav-link:hover {
+    color: var(--text);
+    background: var(--surface-2);
+}
+
+.nav-link.active {
+    color: var(--brand-text);
+    background: var(--brand-soft);
+    box-shadow: inset 0 0 0 1px var(--brand-line);
+}
+
+@media (min-width: 901px) {
+
+    .nav-links,
+    .nav-dropdown {
+        height: 100%;
+    }
+
+    .nav-dropdown {
+        display: flex;
+        align-items: center;
+        position: relative;
+    }
+
+    .nav-dropdown::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 100%;
+        height: 12px;
+    }
+}
+
+.nav-dropdown .dropdown-menu {
+    top: calc(100% + 10px);
+    background: var(--surface-2);
+    border: 1px solid var(--line);
+    border-radius: var(--r-sm);
+    padding: 0.35rem;
+    min-width: 240px;
+    box-shadow: var(--shadow-xl);
+}
+
+.dropdown-menu a {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    padding: 0.6rem 0.7rem;
+    border-radius: var(--r-xs);
+    font-size: 0.875rem;
+}
+
+.dropdown-menu a i {
+    color: var(--brand-text);
+    font-size: 0.8rem;
+    width: 1em;
+}
+
+.dropdown-menu a:hover {
+    color: var(--text);
+    background: var(--surface-3);
+}
+
+.dropdown-label {
+    font-family: var(--font-mono);
+    font-size: 0.5625rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    padding: 0.55rem 0.7rem 0.3rem;
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-shrink: 0;
+}
+
+.icon-btn {
+    width: 36px;
+    height: 36px;
+    display: grid;
+    place-items: center;
+    border: 1px solid var(--line);
+    border-radius: var(--r-xs);
+    background: var(--surface-2);
+    color: var(--text-muted);
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.icon-btn:hover {
+    color: var(--text);
+    border-color: var(--brand-line);
+    background: var(--surface-3);
+}
+
+.theme-toggle .icon-sun {
+    display: none;
+}
+
+html[data-theme="light"] .theme-toggle .icon-sun {
+    display: block;
+}
+
+html[data-theme="light"] .theme-toggle .icon-moon {
+    display: none;
+}
+
+.nav-cta {
+    height: 36px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0 0.85rem;
+    border-radius: var(--r-xs);
+    background: var(--brand);
+    color: var(--on-brand);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: var(--transition);
+}
+
+.nav-cta:hover {
+    background: var(--brand-strong);
+    transform: translateY(-1px);
+}
+
+.mobile-nav-toggle {
+    width: 36px;
+    height: 36px;
+    display: none;
+    place-items: center;
+    background: var(--surface-2);
+    border: 1px solid var(--line);
+    border-radius: var(--r-xs);
+    color: var(--text);
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+@media (max-width: 900px) {
+
+    .nav-links {
+        position: fixed;
+        top: calc(var(--nav-h) + 1px);
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.15rem;
+        margin: 0;
+        padding: 0.85rem var(--gut) 1.25rem;
+        background: var(--nav-bg);
+        backdrop-filter: blur(18px) saturate(160%);
+        -webkit-backdrop-filter: blur(18px) saturate(160%);
+        border-bottom: 1px solid var(--line);
+        box-shadow: var(--shadow-lg);
+        transform: translateY(-12px);
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition: transform var(--dur) var(--ease), opacity var(--dur) var(--ease), visibility var(--dur);
+        max-height: calc(100vh - var(--nav-h));
+        overflow-y: auto;
+    }
+
+    .nav-links.active {
+        transform: none;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+    }
+
+    .nav-link {
+        justify-content: flex-start;
+        padding: 0.7rem 0.8rem;
+        font-size: 0.9375rem;
+    }
+
+    .nav-link i {
+        display: inline-block;
+        color: var(--brand-text);
+    }
+
+    .mobile-nav-toggle {
+        display: grid;
+    }
+
+    .nav-cta {
+        display: none;
+    }
+}
+
+/* ---------- Section headers ---------------------------------------------- */
+
+.section-header {
+    gap: 0.8rem;
+    text-align: center;
+    margin-bottom: clamp(2rem, 4.5vw, 3.25rem);
+}
+
+.section-header h1,
+.section-header h2 {
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 600;
+    margin: 0;
+}
+
+.section-header h3 {
+    font-size: clamp(1.2rem, 2vw, 1.5rem);
+    margin: 0;
+}
+
+.section-header p {
+    font-size: 0.9375rem;
+    color: var(--text-muted);
+    max-width: 62ch;
+    margin: 0;
+}
+
+.eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: var(--font-mono);
+    font-size: var(--fs-eyebrow);
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--brand-text);
+}
+
+.eyebrow::before {
+    content: '';
+    width: 20px;
+    height: 1px;
+    background: var(--brand-line);
+}
+
+/* ---------- Buttons ------------------------------------------------------- */
+
+.btn,
+button.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    height: 46px;
+    padding: 0 1.2rem;
+    border: 1px solid transparent;
+    border-radius: var(--r-sm);
+    font-family: var(--font-body);
+    font-size: 0.9375rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    text-decoration: none;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: var(--transition);
+}
+
+.btn i {
+    font-size: 0.85em;
+    opacity: 0.85;
+}
+
+.btn-primary {
+    background: var(--brand);
+    color: var(--on-brand);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22), var(--shadow-md);
+}
+
+.btn-primary:hover {
+    background: var(--brand-strong);
+    color: var(--on-brand);
+    transform: translateY(-1px);
+}
+
+.btn-secondary {
+    background: var(--surface-2);
+    color: var(--text);
+    border-color: var(--line);
+}
+
+.btn-secondary:hover {
+    background: var(--surface-3);
+    border-color: var(--brand-line);
+    color: var(--brand-text);
+    transform: translateY(-1px);
+}
+
+/* ---------- Card surfaces -------------------------------------------------- */
+
+.certificate-card,
+.project-card,
+.skill-card,
+.about-card,
+.cv-card,
+.contact-item,
+.quote-card,
+.folder-card,
+.certificate-folder,
+.blog-card,
+.post-card,
+.project-card-full,
+.ai-tool-card {
+    background: linear-gradient(180deg, var(--surface-2) 0%, var(--surface) 100%);
+    border: 1px solid var(--line);
+    border-radius: var(--r-md);
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--dur) var(--ease), border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+
+.certificate-card:hover,
+.project-card:hover,
+.skill-card:hover,
+.about-card:hover,
+.cv-card:hover,
+.folder-card:hover,
+.certificate-folder:hover,
+.blog-card:hover,
+.post-card:hover {
+    border-color: var(--brand-line);
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-3px);
+}
+
+/* ---------- Footer --------------------------------------------------------- */
+
+footer {
+    background: var(--bg-soft);
+    border-top: 1px solid var(--line);
+}
+
+.footer-social a {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.footer-social a:hover {
+    background: var(--brand);
+    border-color: transparent;
+    color: var(--on-brand);
+    transform: translateY(-2px);
+}
+
+.footer-bottom {
+    font-size: 0.8125rem;
+    color: var(--text-dim);
+}
+
+/* ---------- Utility -------------------------------------------------------- */
+
+.figure-frame {
+    border: 1px solid var(--line);
+    border-radius: var(--r-md);
+    overflow: hidden;
+    background: var(--surface);
+    box-shadow: var(--shadow-md);
+}
+
+.text-link {
+    color: var(--brand-text);
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1px solid var(--brand-line);
+    transition: var(--transition);
+}
+
+.text-link:hover {
+    color: var(--brand-strong);
+    border-bottom-color: var(--brand-strong);
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+    }
+}
+
+/* ---------- Light-mode corrections for older page chrome ------------------ */
+
+html[data-theme="light"] .dropdown-menu,
+html[data-theme="light"] .dropdown-menu a {
+    color: var(--text-muted);
+}
+
+html[data-theme="light"] .nav-dropdown .dropdown-menu {
+    background: #ffffff;
+}
+
+html:not([data-theme]) .nav-dropdown .dropdown-menu {
+    background: var(--surface-2);
+}
+
+/* ---------- Typography alignment for pages that loaded their own fonts ---- */
+
+html:not([data-theme]) body,
+html[data-theme] body {
+    font-family: var(--font-body);
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: var(--font-display);
+}
