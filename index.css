@@ -789,6 +789,60 @@ main {
     background: var(--surface);
 }
 
+/* Certification badges (CSWA / CSWP) */
+.hero-badges {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+}
+.hero-badges-label {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+}
+.hero-cert-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.4rem 0.85rem 0.4rem 0.4rem;
+    border: 1px solid var(--line);
+    border-radius: var(--r-md);
+    background: var(--surface);
+    color: var(--text);
+    text-decoration: none;
+    transition: border-color var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+.hero-cert-badge:hover,
+.hero-cert-badge:focus-visible {
+    border-color: var(--brand);
+    transform: translateY(-2px);
+}
+.hero-cert-badge img {
+    width: 56px;
+    height: 56px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+.hero-cert-badge span {
+    display: flex;
+    flex-direction: column;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 0.95rem;
+    line-height: 1.15;
+}
+.hero-cert-badge small {
+    font-family: var(--font-mono);
+    font-weight: 400;
+    font-size: 0.625rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+}
 .hero-stats {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -5492,7 +5546,8 @@ footer {
     .hero-badge,
     .hero-role,
     .hero-buttons,
-    .hero-stack {
+    .hero-stack,
+    .hero-badges {
         justify-content: center;
     }
 
