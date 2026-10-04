@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- CapCut Official App Icon -->
+  <rect x="4" y="4" width="56" height="56" rx="14" fill="#111317" stroke="#2B303B" stroke-width="2"/>
+  <path d="M15 24C15 20.7 17.7 18 21 18H36C39.3 18 42 20.7 42 24V25.5L20.5 38.5H36C39.3 38.5 42 41.2 42 44.5" stroke="#FFFFFF" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M15 40C15 43.3 17.7 46 21 46H36C39.3 46 42 43.3 42 40V38.5L20.5 25.5" stroke="#FFFFFF" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M20 24.5L49 41.5" stroke="#FFFFFF" stroke-width="4.4" stroke-linecap="round"/>
+  <path d="M20 39.5L49 22.5" stroke="#FFFFFF" stroke-width="4.4" stroke-linecap="round"/>
+</svg>
