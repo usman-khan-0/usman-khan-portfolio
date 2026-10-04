@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- SolidWorks 3D Isometric Cube with SW -->
+  <defs>
+    <linearGradient id="swTop" x1="12" y1="8" x2="52" y2="24" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FF3B3B"/>
+      <stop offset="100%" stop-color="#E01B22"/>
+    </linearGradient>
+    <linearGradient id="swLeft" x1="8" y1="18" x2="32" y2="58" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#C8141B"/>
+      <stop offset="100%" stop-color="#7E080D"/>
+    </linearGradient>
+    <linearGradient id="swRight" x1="32" y1="20" x2="56" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#A80E14"/>
+      <stop offset="100%" stop-color="#690509"/>
+    </linearGradient>
+  </defs>
+  <!-- Top Face -->
+  <path d="M32 6L57 16.5L32 27L7 16.5L32 6Z" fill="url(#swTop)"/>
+  <!-- Left Face -->
+  <path d="M7 16.5L32 27V58L7 46.5V16.5Z" fill="url(#swLeft)"/>
+  <!-- Right Face -->
+  <path d="M57 16.5L32 27V58L57 46.5V16.5Z" fill="url(#swRight)"/>
+  <!-- 'S' on Left Face -->
+  <path d="M26.5 34.2C26.2 31.6 23.6 29.2 19.8 27.6C15.8 25.9 13.2 27 13.2 29.7C13.2 32.5 15.8 34.4 19.6 36.4C22.4 37.9 23.4 39.1 23.4 40.5C23.4 42 21.8 42.5 19.7 41.6C17.4 40.6 16.1 39 15.8 37.1L12.1 35.6C12.3 39.1 15.1 42.6 19.6 44.5C24.1 46.4 27.2 45.2 27.2 42C27.2 39 24.8 37 20.6 34.8C18.1 33.5 17 32.4 17 31.1C17 29.8 18.3 29.4 20.1 30.2C21.9 31 22.8 32.2 23 33.6L26.5 34.2Z" fill="#FFFFFF"/>
+  <!-- 'W' on Right Face -->
+  <path d="M35.2 32.8L38.3 49.4L41.8 47.8L44.5 36.2L47.1 45.4L50.5 43.8L53.8 25L50.4 26.4L48.5 38.6L45.9 28.3L43.1 29.5L40.4 42.1L38.6 31.4L35.2 32.8Z" fill="#FFFFFF"/>
+</svg>

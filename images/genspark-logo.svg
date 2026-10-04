@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Genspark AI Icon -->
+  <defs>
+    <linearGradient id="gensparkBg" x1="6" y1="4" x2="58" y2="60" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#3B82F6"/>
+      <stop offset="55%" stop-color="#2563EB"/>
+      <stop offset="100%" stop-color="#4F46E5"/>
+    </linearGradient>
+  </defs>
+  <rect x="4" y="4" width="56" height="56" rx="14" fill="url(#gensparkBg)"/>
+  <!-- Main Sparkle -->
+  <path d="M24 13C24.9 21.1 26.9 23.1 35 24C26.9 24.9 24.9 26.9 24 35C23.1 26.9 21.1 24.9 13 24C21.1 23.1 23.1 21.1 24 13Z" fill="#FFFFFF"/>
+  <!-- Top Right Sparkle -->
+  <path d="M44 10C44.6 15.4 45.9 16.7 51.3 17.3C45.9 17.9 44.6 19.2 44 24.6C43.4 19.2 42.1 17.9 36.7 17.3C42.1 16.7 43.4 15.4 44 10Z" fill="#FFFFFF"/>
+  <!-- Bottom Right Sparkle -->
+  <path d="M44 29C44.4 32.8 45.4 33.8 49.2 34.2C45.4 34.6 44.4 35.6 44 39.4C43.6 35.6 42.6 34.6 38.8 34.2C42.6 33.8 43.6 32.8 44 29Z" fill="#FFFFFF" fill-opacity="0.92"/>
+  <!-- Search / Prompt Bar -->
+  <rect x="13" y="46" width="38" height="6.5" rx="3.25" fill="#FFFFFF"/>
+</svg>

@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- MathWorks MATLAB L-shaped Membrane Icon -->
+  <defs>
+    <linearGradient id="matTeal" x1="6" y1="30" x2="26" y2="44" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#76D7EA"/>
+      <stop offset="100%" stop-color="#2997B2"/>
+    </linearGradient>
+    <linearGradient id="matOrangeLeft" x1="20" y1="10" x2="42" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#E67E22"/>
+      <stop offset="50%" stop-color="#C85A17"/>
+      <stop offset="100%" stop-color="#8F390A"/>
+    </linearGradient>
+    <linearGradient id="matOrangeRight" x1="40" y1="8" x2="58" y2="50" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FF9F1C"/>
+      <stop offset="55%" stop-color="#F3722C"/>
+      <stop offset="100%" stop-color="#D64916"/>
+    </linearGradient>
+  </defs>
+  <!-- Teal Left Wing -->
+  <path d="M5 35L19 29L25 34L14 43L5 35Z" fill="url(#matTeal)"/>
+  <!-- Upper Mid Fold -->
+  <path d="M22 27C26 22 30 21 34 16C36 13 38 9 40 8C37 16 33 25 27 32L22 27Z" fill="#D4651B"/>
+  <!-- Left Slope of Main Peak -->
+  <path d="M18 44C26 37 33 25 39 10C40.2 7.5 41.2 7 42 7V48C37 51 32 55 29 58C26 49 23 45 18 44Z" fill="url(#matOrangeLeft)"/>
+  <!-- Right Bright Slope of Main Peak -->
+  <path d="M42 7C43.2 7 44.5 8.5 46 12C50 22 54 36 59 48C53 43 47 43 42 48V7Z" fill="url(#matOrangeRight)"/>
+</svg>

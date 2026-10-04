@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Autodesk AutoCAD Official-style 3D 'A' Emblem -->
+  <defs>
+    <linearGradient id="acadLeft" x1="12" y1="8" x2="34" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FF3B47"/>
+      <stop offset="55%" stop-color="#E51928"/>
+      <stop offset="100%" stop-color="#A80B18"/>
+    </linearGradient>
+    <linearGradient id="acadRight" x1="32" y1="8" x2="52" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#D11523"/>
+      <stop offset="50%" stop-color="#8F0A14"/>
+      <stop offset="100%" stop-color="#5C050C"/>
+    </linearGradient>
+    <linearGradient id="acadCross" x1="20" y1="36" x2="44" y2="44" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#B80D1B"/>
+      <stop offset="100%" stop-color="#6E060E"/>
+    </linearGradient>
+  </defs>
+  <!-- Left Foot Shadow Fold -->
+  <path d="M9 47L15 56H23L25 44L9 47Z" fill="#7A0710"/>
+  <!-- Right Foot Shadow Fold -->
+  <path d="M55 47L49 56H41L39 44L55 47Z" fill="#9E0C18"/>
+  <!-- Crossbar -->
+  <path d="M18 37H46L41 46H23L18 37Z" fill="url(#acadCross)"/>
+  <!-- Left Leg -->
+  <path d="M32 7L9 47L23 46L32 21V7Z" fill="url(#acadLeft)"/>
+  <!-- Right Leg -->
+  <path d="M32 7L55 47L41 46L32 21V7Z" fill="url(#acadRight)"/>
+  <!-- Center Inner Facet Highlight -->
+  <path d="M32 7L24.5 37H32V21V7Z" fill="#FF5C66" fill-opacity="0.35"/>
+</svg>
