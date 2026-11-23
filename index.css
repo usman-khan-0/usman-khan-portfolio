@@ -1471,6 +1471,16 @@ main {
     --sw-glow: rgba(35, 181, 115, 0.24);
 }
 
+.software-card[data-software="3D Slicer"] {
+    --sw-accent: #14b8a6;
+    --sw-glow: rgba(20, 184, 166, 0.24);
+}
+
+.software-card[data-software="Proteus"] {
+    --sw-accent: #6366f1;
+    --sw-glow: rgba(99, 102, 241, 0.26);
+}
+
 .software-card:hover {
     transform: translateY(-4px);
     border-color: var(--sw-accent);
@@ -1585,6 +1595,35 @@ main {
     background: var(--bg-soft);
     border: 1px solid var(--line);
     color: var(--text-muted);
+}
+
+/* Proficiency meter inside each software card */
+.software-meter {
+    height: 6px;
+    border-radius: var(--r-pill);
+    background: var(--surface-3);
+    border: 1px solid var(--line);
+    overflow: hidden;
+}
+
+.software-meter span {
+    display: block;
+    height: 100%;
+    border-radius: inherit;
+    background: var(--sw-accent);
+    transform-origin: left center;
+    transition: transform 0.9s var(--ease) 0.25s;
+}
+
+/* Bars stay empty until the card scrolls into view (JS adds .is-visible). */
+.software-card[data-reveal]:not(.is-visible) .software-meter span {
+    transform: scaleX(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .software-meter span {
+        transition: none;
+    }
 }
 
 @media (max-width: 768px) {
