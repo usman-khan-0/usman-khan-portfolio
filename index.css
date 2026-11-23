@@ -2953,21 +2953,21 @@ footer {
     line-height: 1.8;
 }
 
-/* Hobbies Section — Interest Array */
-.hobby-array {
-    --hobby-pad: clamp(1rem, 4vw, 2.25rem);
+/* Hobbies Section — Interest Flowchart */
+.hobby-flow {
+    --flow-gap: 34px;
     position: relative;
     border: 1px solid var(--line);
     border-radius: var(--r-lg);
     background:
-        linear-gradient(180deg, rgba(var(--brand-rgb), 0.07), transparent 34%),
+        linear-gradient(180deg, rgba(var(--brand-rgb), 0.06), transparent 30%),
         linear-gradient(180deg, var(--surface-2) 0%, var(--surface) 100%);
     box-shadow: var(--shadow-lg);
     overflow: hidden;
 }
 
 /* HUD corner brackets */
-.hobby-array::before {
+.hobby-flow::before {
     content: '';
     position: absolute;
     inset: 0;
@@ -2984,13 +2984,13 @@ footer {
         linear-gradient(var(--brand), var(--brand)) right bottom / 1px 22px no-repeat;
 }
 
-.hobby-array-bar {
+.hobby-flow-bar {
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 0.75rem;
-    padding: 0.8rem var(--hobby-pad);
+    padding: 0.8rem clamp(1rem, 4vw, 2.25rem);
     border-bottom: 1px solid var(--line);
     background: rgba(var(--brand-rgb), 0.04);
     font-family: var(--font-mono);
@@ -3000,23 +3000,23 @@ footer {
     color: var(--text-dim);
 }
 
-.hobby-array-status {
+.hobby-flow-status {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
     color: var(--brand-text);
 }
 
-.hobby-array-status i {
+.hobby-flow-status i {
     width: 6px;
     height: 6px;
     border-radius: 50%;
     background: var(--brand);
     box-shadow: 0 0 10px var(--brand);
-    animation: hobby-pulse 2.6s ease-in-out infinite;
+    animation: flow-pulse 2.6s ease-in-out infinite;
 }
 
-@keyframes hobby-pulse {
+@keyframes flow-pulse {
 
     0%,
     100% {
@@ -3030,235 +3030,292 @@ footer {
     }
 }
 
-.hobby-list {
+.flow-canvas {
+    position: relative;
+    margin: clamp(0.9rem, 2vw, 1.4rem) clamp(0.7rem, 2vw, 1.4rem) clamp(1rem, 2vw, 1.5rem);
+    padding: clamp(1.25rem, 3vw, 2rem) clamp(0.4rem, 2vw, 1.25rem);
+    border: 1px solid var(--line-soft);
+    border-radius: var(--r-md);
+    background-image: radial-gradient(rgba(var(--brand-rgb), 0.10) 1px, transparent 1px);
+    background-size: 18px 18px;
+    background-position: center;
+}
+
+.flow-cap {
+    display: block;
+    width: max-content;
+    margin: 0 auto;
+    padding: 0.3rem 0.95rem;
+    border-radius: var(--r-pill);
+    border: 1px solid var(--brand-line);
+    background: var(--brand-soft);
+    color: var(--brand-text);
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+.flow-cap--start::after {
+    content: '';
+    display: block;
+    width: 2px;
+    height: 22px;
+    margin: 0 auto;
+    background: linear-gradient(180deg, var(--brand), rgba(var(--brand-rgb), 0.15));
+}
+
+.flow-cap--end::before {
+    content: '';
+    display: block;
+    width: 2px;
+    height: 22px;
+    margin: 0 auto;
+    background: linear-gradient(180deg, rgba(var(--brand-rgb), 0.15), var(--brand));
+}
+
+.flow-list {
     list-style: none;
     margin: 0;
-    padding: 0.35rem 0;
+    padding: 0.25rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.hobby-row {
+.flow-item {
     position: relative;
-    border-bottom: 1px solid var(--line-soft);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-bottom: var(--flow-gap);
     opacity: 0;
-    transform: translateY(14px);
+    transform: translateY(12px);
     transition:
-        opacity 0.55s var(--ease),
-        transform 0.55s var(--ease);
-    transition-delay: calc(var(--i, 0) * 45ms);
+        opacity 0.5s var(--ease),
+        transform 0.5s var(--ease);
+    transition-delay: calc(var(--i, 0) * 60ms);
 }
 
-.hobby-row:last-child {
-    border-bottom: 0;
+.flow-item:last-child {
+    padding-bottom: 0;
 }
 
-.hobby-array.in-view .hobby-row {
+.hobby-flow.in-view .flow-item {
     opacity: 1;
     transform: none;
 }
 
-/* No-JS fallback: never leave the list invisible */
-.no-js .hobby-row {
-    opacity: 1;
-    transform: none;
-}
-
-/* Alternating indent — the creative positioning */
-.hobby-row:nth-child(even) .hobby-trigger {
-    padding-left: calc(var(--hobby-pad) + clamp(0rem, 5vw, 3.5rem));
-}
-
-.hobby-row:nth-child(odd) .hobby-trigger {
-    padding-right: calc(var(--hobby-pad) + clamp(0rem, 5vw, 3.5rem));
-}
-
-/* Hover scan sweep */
-.hobby-row::after {
+/* Connector line between nodes */
+.flow-item:not(:last-child)::after {
     content: '';
     position: absolute;
-    inset: 0;
-    pointer-events: none;
-    background: linear-gradient(90deg, transparent, rgba(var(--brand-rgb), 0.09), transparent);
-    transform: translateX(-100%);
+    left: 50%;
+    bottom: 0;
+    width: 2px;
+    height: var(--flow-gap);
+    transform: translateX(-50%) scaleY(0);
+    transform-origin: top center;
+    background: linear-gradient(180deg, var(--brand), rgba(var(--brand-rgb), 0.15));
+    transition: transform 0.4s var(--ease);
+    transition-delay: calc(var(--i, 0) * 60ms + 80ms);
 }
 
-.hobby-row:hover::after {
-    animation: hobby-scan 1.1s var(--ease);
+/* Arrowhead */
+.flow-item:not(:last-child)::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 3px;
+    width: 7px;
+    height: 7px;
+    border-right: 2px solid var(--brand);
+    border-bottom: 2px solid var(--brand);
+    transform: translateX(-50%) rotate(45deg);
+    opacity: 0;
+    transition: opacity 0.3s var(--ease);
+    transition-delay: calc(var(--i, 0) * 60ms + 180ms);
 }
 
-@keyframes hobby-scan {
-    to {
-        transform: translateX(100%);
-    }
+.hobby-flow.in-view .flow-item:not(:last-child)::after {
+    transform: translateX(-50%) scaleY(1);
 }
 
-.hobby-trigger {
-    display: grid;
-    grid-template-columns: 2.5rem auto minmax(0, 1fr) auto auto;
-    align-items: center;
-    gap: 1rem;
-    width: 100%;
-    padding: 1.05rem var(--hobby-pad);
-    background: transparent;
-    border: 0;
-    color: inherit;
-    font: inherit;
-    text-align: left;
-    cursor: pointer;
+.hobby-flow.in-view .flow-item:not(:last-child)::before {
+    opacity: 1;
+}
+
+/* Node box */
+.flow-node {
     position: relative;
-    transition: background var(--dur) var(--ease);
+    display: grid;
+    grid-template-columns: 2.25rem auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 0.85rem;
+    width: min(100%, 540px);
+    padding: 0.9rem 1.1rem;
+    background: linear-gradient(180deg, var(--surface-2), var(--surface));
+    border: 1px solid var(--line);
+    border-radius: var(--r-md);
+    box-shadow: var(--shadow-sm);
+    transition:
+        border-color var(--dur) var(--ease),
+        transform var(--dur) var(--ease),
+        box-shadow var(--dur) var(--ease),
+        background var(--dur) var(--ease);
 }
 
-.hobby-trigger:hover,
-.hobby-row.is-open .hobby-trigger {
-    background: linear-gradient(90deg, rgba(var(--brand-rgb), 0.10), transparent 72%);
+/* Input port */
+.flow-item:not(:first-child) .flow-node::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: -4px;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--surface);
+    border: 1px solid var(--brand);
+    transform: translateX(-50%);
 }
 
-.hobby-trigger:focus-visible {
-    outline: 2px solid var(--brand);
-    outline-offset: -2px;
+/* Output port */
+.flow-item:not(:last-child) .flow-node::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -4px;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--brand);
+    box-shadow: 0 0 10px var(--brand);
+    transform: translateX(-50%);
 }
 
-.hobby-index {
+.flow-node:hover {
+    border-color: var(--brand-line);
+    transform: translateY(-2px);
+    background: linear-gradient(180deg, rgba(var(--brand-rgb), 0.10), var(--surface) 70%);
+    box-shadow:
+        var(--shadow-lg),
+        0 0 0 1px rgba(var(--brand-rgb), 0.16),
+        0 16px 32px -20px rgba(var(--brand-rgb), 0.65);
+}
+
+.flow-index {
+    display: grid;
+    place-items: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 8px;
+    border: 1px solid var(--line);
+    background: var(--surface-3);
     font-family: var(--font-mono);
-    font-size: 0.72rem;
-    letter-spacing: 0.08em;
+    font-size: 0.7rem;
+    letter-spacing: 0.06em;
     color: var(--text-dim);
 }
 
-.hobby-glyph {
-    font-size: 1.3rem;
+.flow-glyph {
+    font-size: 1.35rem;
     line-height: 1;
     transition:
         transform var(--dur) var(--ease),
         filter var(--dur) var(--ease);
 }
 
-.hobby-trigger:hover .hobby-glyph,
-.hobby-row.is-open .hobby-glyph {
-    transform: translateY(-2px) scale(1.12);
+.flow-node:hover .flow-glyph {
+    transform: scale(1.15);
     filter: drop-shadow(0 0 10px rgba(var(--brand-rgb), 0.45));
 }
 
-.hobby-name {
+.flow-name {
     font-family: var(--font-display);
     font-weight: 600;
-    font-size: clamp(1rem, 1.3vw, 1.12rem);
-    color: var(--text);
+    font-size: 1.02rem;
     letter-spacing: 0.01em;
+    color: var(--text);
 }
 
-.hobby-rule {
-    height: 1px;
-    background: var(--line);
-    position: relative;
-    overflow: hidden;
-    min-width: 2rem;
-}
-
-.hobby-rule::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(90deg, transparent, var(--brand));
-    transform: translateX(-100%);
-    transition: transform 0.6s var(--ease);
-}
-
-.hobby-trigger:hover .hobby-rule::after,
-.hobby-row.is-open .hobby-rule::after {
-    transform: translateX(0);
-}
-
-.hobby-hint {
+.flow-tag {
     font-family: var(--font-mono);
-    font-size: 0.9rem;
-    color: var(--text-dim);
-    transition:
-        transform var(--dur) var(--ease),
-        color var(--dur) var(--ease);
-}
-
-.hobby-trigger:hover .hobby-hint,
-.hobby-row.is-open .hobby-hint {
-    color: var(--brand);
-    transform: rotate(45deg);
-}
-
-/* Reveal panel */
-.hobby-detail {
-    display: grid;
-    grid-template-rows: 0fr;
-    opacity: 0;
-    transition:
-        grid-template-rows 0.45s var(--ease),
-        opacity 0.35s var(--ease);
-}
-
-.hobby-detail>div {
-    overflow: hidden;
-}
-
-.hobby-detail p {
-    margin: 0 0 0 3.5rem;
-    padding: 0 var(--hobby-pad) 1.15rem 1rem;
+    font-size: 0.6rem;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
     color: var(--text-muted);
-    font-size: 0.95rem;
-    line-height: 1.7;
-    border-left: 1px solid rgba(var(--brand-rgb), 0.35);
+    padding: 0.2rem 0.55rem;
+    border-radius: var(--r-pill);
+    border: 1px solid var(--line);
+    background: var(--bg-soft);
+    white-space: nowrap;
 }
 
-.hobby-row:nth-child(even) .hobby-detail {
-    padding-left: clamp(0rem, 5vw, 3.5rem);
+/* No-JS fallback */
+.no-js .flow-item {
+    opacity: 1;
+    transform: none;
 }
 
-/* Desktop: hover reveals. Touch: JS adds .is-open on tap. */
-@media (hover: hover) and (pointer: fine) {
-    .hobby-row:hover .hobby-detail {
-        grid-template-rows: 1fr;
-        opacity: 1;
-    }
+.no-js .flow-item:not(:last-child)::after {
+    transform: translateX(-50%) scaleY(1);
 }
 
-.hobby-row.is-open .hobby-detail {
-    grid-template-rows: 1fr;
+.no-js .flow-item:not(:last-child)::before {
     opacity: 1;
 }
 
 @media (max-width: 640px) {
-    .hobby-trigger {
-        grid-template-columns: auto auto minmax(0, 1fr) auto;
-        gap: 0.7rem;
-        padding-block: 0.95rem;
+    .hobby-flow {
+        --flow-gap: 26px;
     }
 
-    .hobby-rule {
+    .flow-node {
+        grid-template-columns: 2rem auto minmax(0, 1fr);
+        gap: 0.7rem;
+        padding: 0.8rem 0.9rem;
+    }
+
+    .flow-index {
+        width: 2rem;
+        height: 2rem;
+        font-size: 0.65rem;
+    }
+
+    .flow-tag {
         display: none;
     }
 
-    .hobby-row:nth-child(even) .hobby-trigger {
-        padding-left: calc(var(--hobby-pad) + 0.9rem);
-    }
-
-    .hobby-detail p {
-        margin-left: 2.6rem;
+    .flow-cap--start::after,
+    .flow-cap--end::before {
+        height: 16px;
     }
 }
 
 @media (prefers-reduced-motion: reduce) {
 
-    .hobby-row,
-    .hobby-detail,
-    .hobby-trigger,
-    .hobby-glyph,
-    .hobby-rule::after,
-    .hobby-hint {
+    .flow-item,
+    .flow-item::after,
+    .flow-item::before,
+    .flow-node,
+    .flow-glyph,
+    .hobby-flow-status i {
         transition: none;
         animation: none;
     }
 
-    .hobby-row {
+    .flow-item {
         opacity: 1;
         transform: none;
+    }
+
+    .flow-item:not(:last-child)::after {
+        transform: translateX(-50%) scaleY(1);
+    }
+
+    .flow-item:not(:last-child)::before {
+        opacity: 1;
     }
 }
 
