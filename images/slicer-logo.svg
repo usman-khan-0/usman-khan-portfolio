@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- 3D Slicer: isometric volume with a slice plane -->
+  <defs>
+    <linearGradient id="slicerTop" x1="14" y1="8" x2="54" y2="34" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#5EEAD4"/>
+      <stop offset="100%" stop-color="#0D9488"/>
+    </linearGradient>
+    <linearGradient id="slicerLeft" x1="8" y1="20" x2="34" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0F766E"/>
+      <stop offset="100%" stop-color="#134E4A"/>
+    </linearGradient>
+    <linearGradient id="slicerRight" x1="32" y1="20" x2="58" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#115E59"/>
+      <stop offset="100%" stop-color="#042F2E"/>
+    </linearGradient>
+  </defs>
+  <path d="M32 5L57 17.5L32 30L7 17.5Z" fill="url(#slicerTop)"/>
+  <path d="M7 17.5V41L32 53.5V30Z" fill="url(#slicerLeft)"/>
+  <path d="M57 17.5V41L32 53.5V30Z" fill="url(#slicerRight)"/>
+  <path d="M7 29.5L32 42L57 29.5" stroke="#99F6E4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
